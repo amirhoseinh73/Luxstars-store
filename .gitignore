@@ -1,3 +1,5 @@
 crash.txt
 # wp-content/uploads/*
-# wp-content/plugins/*
+wp-content/plugins/woocommerce
+wp-content/plugins/persian-woocommerce
+wp-content/plugins/wp-parsidate
