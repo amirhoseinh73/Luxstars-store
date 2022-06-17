@@ -17,18 +17,12 @@
                     <button class="navbar-toggler border-0" type="button" onclick="openNav()">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a id="logo_lg" class="nav-logo d-none d-lg-block" href="<?php echo home_url(); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" class="img-fluid" alt="">
-                    </a>
-                    <a class="nav-logo d-block d-lg-none" href="<?php echo home_url(); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/logo-mobile.png" class="img-fluid" alt="">
-                    </a>
                     <div class="collapse navbar-collapse" id="menu_items">
                         <?php
                         wp_nav_menu(array(
                             'theme_location' => 'header_1',
                             'menu_class' => 'navbar-nav px-0',
-                            'depth' => 2,
+                            'depth' => 4,
                             'container' => false,
                         ));
                         ?>
@@ -43,6 +37,12 @@
                         ));
                         ?>
                     </div>
+                    <a id="logo_lg" class="nav-logo d-none d-lg-block" href="<?php echo home_url(); ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" class="img-fluid" alt="">
+                    </a>
+                    <a class="nav-logo d-block d-lg-none" href="<?php echo home_url(); ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/logo-mobile.png" class="img-fluid" alt="">
+                    </a>
                     <div id="mySidenav" class="sidenav">
                         <div class="row mx-0">
                             <div class="col-12 text-right mb-boot-12">

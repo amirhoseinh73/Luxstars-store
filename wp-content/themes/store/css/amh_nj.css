@@ -117,14 +117,6 @@
         margin-right: 34px;
     }
 
-    #service_index {
-        margin-top: -75px;
-    }
-
-    .conts-parent:nth-child(1), .conts-parent:nth-child(3) {
-        margin-top: -50px;
-    }
-
     .img-about-shape-1-p::after {
         width: 170px;
         height: 170px;
@@ -191,6 +183,18 @@
         font-size: 15px;
     }
 
+    #menu_items1 ul.navbar-nav:not(.submenu) li {
+        font-size: 1.25rem;
+        border: 2px solid var(--white);
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        /* padding: 0.5rem; */
+    }
+
     #menu_items1 ul.navbar-nav:not(.submenu) li:not(:last-of-type) {
         margin-left: 1.75rem;
     }
@@ -214,7 +218,7 @@
     }
 
     #nav_menu {
-        max-height: 75px;
+        max-height: 5rem;
     }
 
     .nav-logo {
@@ -243,18 +247,6 @@
 
     #prev_logos.swiper-button-prev {
         left: -20px !important;
-    }
-
-    #service_index {
-        margin-top: -50px;
-    }
-
-    .conts-parent:nth-child(1), .conts-parent:nth-child(4) {
-        margin-top: -90px;
-    }
-
-    .conts-parent:nth-child(2), .conts-parent:nth-child(3) {
-        margin-top: -170px;
     }
 
     #slide_show .swiper-container {
@@ -602,17 +594,17 @@ ul.hover-li-bef li:hover a {
 }
 
 .img-about-shape-2-p::after {
-    content: '';
-    background-image: url(../img/shape-img-v-after.svg);
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size: contain;
-    position: absolute;
-    right: -30px;
-    bottom: 35px;
-    display: block;
-    z-index: -1;
-    transform: rotate(-45deg) rotateY(180deg);
+	content: '';
+	background-image: url(../img/shape-img-v-after.svg);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: contain;
+	position: absolute;
+	left: -10px;
+	bottom: -8px;
+	display: block;
+	z-index: -1;
+	transform: rotate(45deg) rotateY(0deg);
 }
 
 .bg-eee {
@@ -628,6 +620,7 @@ ul.hover-li-bef li:hover a {
 .conts {
     background-image: var(--boot-theme-grad);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .captionss {
@@ -648,16 +641,20 @@ ul.hover-li-bef li:hover a {
 }
 
 .cont-icon-rotate {
-    display: block;
-    background: #e5e5e5;
-    padding: 8px 25px 8px 25px;
-    border-radius: 50px;
-    transform: rotate(-10deg);
-    transition: all 0.2s ease-in-out;
-    width: 116px;
-    text-align: center;
-    margin: 6px auto;
-    color: var(----color-3-100);
+	display: block;
+	background: #e5e5e5;
+	padding: 8px 25px 8px 25px;
+	border-radius: 50%;
+	transform: rotate(-10deg);
+	transition: all 0.2s ease-in-out;
+	width: 8rem;
+	text-align: center;
+	margin: 6px auto;
+	color: var(--color-1-100);
+	height: 8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /*.cont-icon-rotate:hover {*/
@@ -809,9 +806,10 @@ p.pro-price {
 
 .pro-price ins {
     text-decoration: none;
-    color: var(----color-3-100);
+    color: var(--color-3-100);
 }
 
+#search_index,
 #advice_index {
     background-image: url(../img/bg-bottom.png);
     background-repeat: no-repeat;
@@ -935,7 +933,7 @@ img.img-header {
 }
 
 .header-caption h1 {
-    background-image: linear-gradient(15deg, var(--color-1-100) 0%, var(--color-2-100) 35%, var(----color-3-100) 68%, var(--color-1-100) 98%);
+    background-image: linear-gradient(15deg, var(--color-1-100) 0%, var(--color-2-100) 35%, var(--color-3-100) 68%, var(--color-1-100) 98%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding-top: 15px;
@@ -1231,7 +1229,7 @@ img.img-header {
 
 .woocommerce ul.products li.product span.price span.woocommerce-Price-amount,
 .woocommerce p.price span.woocommerce-Price-amount {
-    color: var(----color-3-100);
+    color: var(--color-3-100);
 }
 
 .woocommerce ul.products li.product span.price ins,
@@ -1547,7 +1545,7 @@ form.cart button.single_add_to_cart_button:hover {
 .woocommerce ul.order_details li strong {
     font-size: 14px;
     margin-top: 15px;
-    color: var(----color-3-75);
+    color: var(--color-3-75);
 }
 
 .woocommerce table.woocommerce-table {

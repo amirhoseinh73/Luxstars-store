@@ -1,40 +1,40 @@
 :root {
-    --color-1-100: #006D77;
-    --color-1-75: #006D77bf;
-    --color-1-50: #006D7780;
-    --color-1-25: #006D7740;
+    --color-1-100: #8e9aaf;
+    --color-1-75: #8e9aafbf;
+    --color-1-50: #8e9aaf80;
+    --color-1-25: #8e9aaf40;
 
-    --color-2-100: #EDF6F9;
-    --color-2-75: #EDF6F9bf;
-    --color-2-50: #EDF6F980;
-    --color-2-25: #EDF6F940;
+    --color-2-100: #efd3d7;
+    --color-2-75: #efd3d7bf;
+    --color-2-50: #efd3d780;
+    --color-2-25: #efd3d740;
 
-    --color-3-100: #83C5BE;
-    --color-3-75: #83C5BEbf;
-    --color-3-50: #83C5BE80;
-    --color-3-25: #83C5BE40;
+    --color-3-100: #dee2ff;
+    --color-3-75: #dee2ffbf;
+    --color-3-50: #dee2ff80;
+    --color-3-25: #dee2ff40;
 
-    --color-4-100:  #FFDDD2;
-    --color-4-75:  #FFDDD2bf;
-    --color-4-50:  #FFDDD280;
-    --color-4-25:  #FFDDD240;
+    --color-4-100:  #feeafa;
+    --color-4-75:  #feeafabf;
+    --color-4-50:  #feeafa80;
+    --color-4-25:  #feeafa40;
 
-    --color-5-100: #E29578;
-    --color-5-75: #E29578bf;
-    --color-5-50: #E2957880;
-    --color-5-25: #E2957840;
+    --color-5-100: #cbc0d3;
+    --color-5-75: #cbc0d3bf;
+    --color-5-50: #cbc0d380;
+    --color-5-25: #cbc0d340;
     --boot-theme-black: #484848;
     --boot-theme-white: #cfcfcf;
     --boot-theme-sec: #8f8f8f;
     --boot-theme-sec-50: #8f8f8f80;
 
-    --boot-theme-c-1: #ce5454;
+    --boot-theme-c-1: #cbc0d3;
     --boot-theme-c-1-50: rgba(206, 84, 84, 0.51);
     --boot-theme-c-1-75: rgba(206, 84, 84, 0.85);
-    --boot-theme-c-2: #b70000;
-    --boot-theme-color-hover-1: #0027d6;
-    --boot-theme-color-hover-2: #e12e2e;
-    --boot-theme-color-hover-3: #023091;
+    --boot-theme-c-2: #cbc0d3;
+    --boot-theme-color-hover-1: #cbc0d3;
+    --boot-theme-color-hover-2: #8e9aaf;
+    --boot-theme-color-hover-3: #cbc0d3;
     --boot-theme-placeholder: #656565;
     --boot-theme-grad: linear-gradient(-73deg, var(--color-2-100) 0%, var(--color-1-100) 98%);
     --boot-theme-grad-75: linear-gradient(-73deg, var(--boot-theme-c-1-75) 0%, var(--color-1-75) 98%);
@@ -1292,7 +1292,7 @@ a.text-black-amh_nj:hover, a.text-white-amh_nj:hover {
 }
 
 .btn-boot-grad-l {
-    background: linear-gradient(to right, var(--color-2-100), var(----color-3-100));
+    background: linear-gradient(to right, var(--color-2-100), var(--color-3-100));
     border-radius: 5px;
     color: #ffffff;
     padding: 8px 5px;
@@ -1308,7 +1308,7 @@ a.text-black-amh_nj:hover, a.text-white-amh_nj:hover {
 }
 
 .text-boot-d {
-    color: var(----color-3-100) !important;
+    color: var(--color-3-100) !important;
 }
 
 .text-boot-bl {
@@ -1334,7 +1334,7 @@ a.text-black-amh_nj:hover, a.text-white-amh_nj:hover {
 }
 
 .bg-boot-d {
-    background: var(----color-3-100) !important;
+    background: var(--color-3-100) !important;
 }
 
 .bg-boot-bl {
@@ -1342,7 +1342,7 @@ a.text-black-amh_nj:hover, a.text-white-amh_nj:hover {
 }
 
 .bg-boot-grad {
-    background: linear-gradient(-14deg, var(----color-3-100), var(--color-2-100));
+    background: linear-gradient(-14deg, var(--color-3-100), var(--color-2-100));
     border: none;
 }
 
@@ -1440,7 +1440,7 @@ a.text-black-amh_nj:hover, a.text-white-amh_nj:hover {
 
 .form-control:focus {
     color: var(--color-1-100);
-    border-color: var(----color-3-100);
+    border-color: var(--color-3-100);
     box-shadow: 0 0 0 .2rem var(--color-1-25);
     background-color: #ebebeb99;
 }
@@ -1493,7 +1493,7 @@ a.text-black-amh_nj:hover, a.text-white-amh_nj:hover {
 }
 
 .amh_nj-disabled a {
-    color: var(----color-3-100) !important;
+    color: var(--color-3-100) !important;
 }
 
 .amh_nj-disabled-1 {
@@ -1524,7 +1524,7 @@ span.wpcf7-not-valid-tip {
 div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-response-output {
     text-align: center !important;
     color: #fc2e3c !important;
-    border-color: var(----color-3-100) !important;
+    border-color: var(--color-3-100) !important;
     border-radius: 8px;
 }
 
@@ -1538,7 +1538,7 @@ ul.navbar-nav li ul.sub-menu {
     padding: 0;
     position: absolute;
     z-index: 99999;
-    background: #2d4fd8;
+    background: var(--color-1-100);
     border-radius: 0 0 15px 15px;
     transition: all 500ms ease;
     transition-delay: 100ms;
@@ -1546,7 +1546,7 @@ ul.navbar-nav li ul.sub-menu {
     transform: scaleY(0);
     transform-origin: top;
     list-style: none;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 ul.navbar-nav li:hover ul.sub-menu {
@@ -1625,10 +1625,14 @@ ul.navbar-nav li ul.sub-menu li a {
     transition: all 200ms ease !important;
     font-weight: 400 !important;
     border: 0 !important;
+    -webkit-transition: all 200ms ease !important;
+    -moz-transition: all 200ms ease !important;
+    -ms-transition: all 200ms ease !important;
+    -o-transition: all 200ms ease !important;
 }
 ul.navbar-nav li ul.sub-menu li a:hover {
-    background-color: #1a3ecca8 !important;
-    color: #ffffff !important;
+    background-color: var(--color-2-100) !important;
+    color: var(--color-1-100) !important;
 }
 
 #nav_menu .sub-menu:not(.navbar-nav) a.nav-link::after {
@@ -1668,7 +1672,7 @@ ul.navbar-nav li ul.sub-menu li a:hover {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 26px;
-    background-color: #2d4fd8;
+    background-color: var(--color-1-100);
     transform: scaleX(0);
     transform-origin: right;
 }
@@ -1778,7 +1782,7 @@ span.amh_nj-hover-4-last {
 .amh_nj-hover-2, .amh_nj-hover-3, .amh_nj-hover-4 {
     z-index: 1;
     position: relative;
-    background-color: transparent;
+    /* background-color: transparent; */
     outline: none;
     border: none;
     transition: color 0.5s;
@@ -1806,6 +1810,9 @@ span.amh_nj-hover-4-last {
     height: 100%;
     -webkit-transition: all 0.3s 0.2s;
     transition: all 0.3s 0.2s;
+    -moz-transition: all 0.3s 0.2s;
+    -ms-transition: all 0.3s 0.2s;
+    -o-transition: all 0.3s 0.2s;
 }
 
 .amh_nj-hover-2:hover {
@@ -1821,6 +1828,9 @@ span.amh_nj-hover-4-last {
     transition: all 0.3s;
     left: 0;
     top: 0;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
 }
 
 .amh_nj-hover-2__inner, .amh_nj-hover-3__inner, .amh_nj-hover-4__inner {
@@ -1852,9 +1862,15 @@ span.amh_nj-hover-4-last {
     border-radius: 100%;
     -webkit-transform: translate3d(0, 150%, 0) scale(1.7);
     transform: translate3d(0, 150%, 0) scale(1.7);
-    -webkit-transition: -webkit-transform 0.45s;
+    -webkit-transition: transform 0.45s, -webkit-transform 0.45s;
     transition: -webkit-transform 0.45s;
     transition: transform 0.45s, -webkit-transform 0.45s;
+    -moz-transform: translate3d(0, 150%, 0) scale(1.7);
+    -ms-transform: translate3d(0, 150%, 0) scale(1.7);
+    -o-transform: translate3d(0, 150%, 0) scale(1.7);
+    -moz-transition: transform 0.45s, -webkit-transform 0.45s;
+    -ms-transition: transform 0.45s, -webkit-transform 0.45s;
+    -o-transition: transform 0.45s, -webkit-transform 0.45s;
 }
 
 .amh_nj-hover-3__blob {
@@ -1866,9 +1882,19 @@ span.amh_nj-hover-4-last {
     border-radius: 100%;
     -webkit-transform: translate3d(0, 150%, 0) scale(1.7);
     transform: translate3d(0, 150%, 0) scale(1.7);
-    -webkit-transition: -webkit-transform 0.45s;
+    -webkit-transition: transform 0.45s, -webkit-transform 0.45s;
     transition: -webkit-transform 0.45s;
     transition: transform 0.45s, -webkit-transform 0.45s;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    -moz-transform: translate3d(0, 150%, 0) scale(1.7);
+    -ms-transform: translate3d(0, 150%, 0) scale(1.7);
+    -o-transform: translate3d(0, 150%, 0) scale(1.7);
+    -moz-transition: transform 0.45s, -webkit-transform 0.45s;
+    -ms-transition: transform 0.45s, -webkit-transform 0.45s;
+    -o-transition: transform 0.45s, -webkit-transform 0.45s;
 }
 
 .amh_nj-hover-4__blob {
@@ -1881,9 +1907,12 @@ span.amh_nj-hover-4-last {
     border-radius: 100%;
     -webkit-transform: translate3d(0, 150%, 0) scale(1.7);
     transform: translate3d(0, 150%, 0) scale(1.7);
-    -webkit-transition: -webkit-transform 0.45s;
+    -webkit-transition: transform 0.45s, -webkit-transform 0.45s;
     transition: -webkit-transform 0.45s;
     transition: transform 0.45s, -webkit-transform 0.45s;
+    -moz-transition: transform 0.45s, -webkit-transform 0.45s;
+    -ms-transition: transform 0.45s, -webkit-transform 0.45s;
+    -o-transition: transform 0.45s, -webkit-transform 0.45s;
 }
 
 @supports ((-webkit-filter: url("#goo")) or (filter: url("#goo"))) {
@@ -2297,7 +2326,7 @@ p.comment-form-cookies-consent .custom-control-label::before {
 }
 
 p.comment-form-cookies-consent .custom-control-input:checked ~ .custom-control-label::before {
-    border-color: var(----color-3-100) !important;
+    border-color: var(--color-3-100) !important;
     background-color: var(--color-1-100) !important;
 }
 

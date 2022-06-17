@@ -17,7 +17,8 @@ function amh_nj_style_load()
     wp_enqueue_style('amh_nj-bootstrap.min', get_template_directory_uri() . '/css/amh_nj-bootstrap.css', array(), '1.1');
     wp_enqueue_style('swiper.min', get_template_directory_uri() . '/css/swiper.min.css', array(), '1.0');
     wp_enqueue_style('fontawesome-all', get_template_directory_uri() . '/fonts/fontawsome/all.min.css', array(), '1.0');
-    wp_enqueue_style('amh_nj-vfi.min', get_template_directory_uri() . '/css/amh_nj.css', array(), '1.0');
+    wp_enqueue_style('amh_nj.min', get_template_directory_uri() . '/css/amh_nj.css', array(), '1.0');
+    wp_enqueue_style('new-style', get_template_directory_uri() . '/css/style.css', array(), '1.0');
 }
 
 add_action('wp_enqueue_scripts', 'amh_nj_style_load');
