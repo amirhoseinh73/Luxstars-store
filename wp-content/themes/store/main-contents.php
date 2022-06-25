@@ -205,7 +205,7 @@
                                                     <h1 class="font-13 fw500 text-39 pr-2 mb-0"><?php the_title(); ?></h1>
                                                 </div>
                                                 <div class="col-6 my-auto pr-0">
-                                                    <p class="font-14 fw600 pro-price mb-0 text-boot-d">
+                                                    <p class="font-14 fw600 pro-price mb-0 text-boot">
                                                         <?php
                                                         echo $product->get_price_html();
                                                         ?>
@@ -259,7 +259,7 @@
                                                     <h1 class="font-13 fw500 text-39 pr-2 mb-0"><?php the_title(); ?></h1>
                                                 </div>
                                                 <div class="col-6 my-auto pr-0">
-                                                    <p class="font-14 fw600 pro-price mb-0 text-boot-d">
+                                                    <p class="font-14 fw600 pro-price mb-0 text-boot">
                                                         <?php
                                                         echo $product->get_price_html();
                                                         ?>
