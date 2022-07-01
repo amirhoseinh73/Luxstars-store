@@ -29,13 +29,13 @@
         <main>
         <section class="mb-boot-45 mt-boot-22">
             <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center my-4">
-                        <?php if (has_post_thumbnail()):
-                            the_post_thumbnail('full', ['class' => 'img-fluid', 'alt' => get_the_title()]);
-                        endif; ?>
+                <?php if (has_post_thumbnail()): ?>
+                    <div class="row">
+                        <div class="col-12 text-center my-4 h-b-400">
+                            <?php the_post_thumbnail('full', ['class' => 'img-fluid object-fit-cover', 'alt' => get_the_title()]); ?>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
                 <div class="row">
                     <div class="col-12 page-content">
                         <div class="fw400 font-14 text-justify lh-2">

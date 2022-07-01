@@ -38,15 +38,6 @@ the_post();
                     <h1 class="text-dark font-27 fw500 position-relative tit-L-before"> با ما تماس بگیرید</h1>
                 </div>
             </div>
-            <?php echo do_shortcode('[contact-form-7 id="5" title="contact form"]')?>
-            <div class="row">
-                <div class="col-12">
-                    <div class="fw400 font-14 text-justify lh-2">
-                       <?php the_content();?>
-                    </div>
-                </div>
-            </div>
-
             <div id="contact_address" class="row mt-boot-5 flex-row-reverse">
                 <div class="col-12 col-md-5 my-auto">
                     <?php
@@ -55,15 +46,20 @@ the_post();
                     endif;
                     ?>
                 </div>
-                <div class="col-12 col-md-7 my-auto">
+                <div class="col-12 col-md-7 mb-auto">
                     <div class="row mx-0 mx-md-n3">
-                        <div class="col-12 px-0 py-5">
+                        <div class="col-12">
+                            <div class="fw400 font-14 text-justify lh-2">
+                            <?php the_content();?>
+                            </div>
+                        </div>
+                        <div class="col-12 px-0 mt-5 mb-4">
                             <div class="row mx-0">
                                 <div class="col-1 my-auto">
                                     <embed src="<?php echo get_template_directory_uri();?>/img/svg-contact-3.svg" class="img-embed">
                                 </div>
                                 <div class="col-11 my-auto">
-                                    <p>اصفهان، خیابان شمس آبادی، نبش گوچه جهان آرا، ساختمان آلا، طبقه دوم، واحد 204</p>
+                                    <p>اصفهان، خیابان عبدالرزاق</p>
                                 </div>
                             </div>
                         </div>
@@ -95,12 +91,15 @@ the_post();
                                 </div>
                             </div>
                         </div>
+                        <div class="col-12">
+                            <?php echo do_shortcode( '[contact-form-7 id="158" title="Contact form 1"]' )?>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row mt-boot-22">
                 <div class="col-12">
-                    <div class="h-b-300 ow-hd rounded-20">
+                    <div class="h-b-400 ow-hd rounded-20">
                     <?= do_shortcode('[neshan-map id="1"]')?>
                     </div>
                 </div>

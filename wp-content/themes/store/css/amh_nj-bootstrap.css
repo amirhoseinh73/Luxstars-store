@@ -23,6 +23,9 @@
     --color-5-75: #cbc0d3bf;
     --color-5-50: #cbc0d380;
     --color-5-25: #cbc0d340;
+
+    --black: #000000;
+
     --boot-theme-black: #484848;
     --boot-theme-white: #cfcfcf;
     --boot-theme-sec: #8f8f8f;
@@ -62,9 +65,9 @@ button:focus, :focus, button, a {
     outline: 0 none;
 }
 
-::selection {
+*::selection {
     background-color: var(--boot-theme-sec);
-    color: var(--color-1-100);
+    color: var(--black);
 }
 
 * {

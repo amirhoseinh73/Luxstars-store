@@ -940,6 +940,12 @@ img.img-header {
     margin-bottom: 5px;
 }
 
+.header-caption h1::selection {
+    background-image: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+}
+
 .header-caption p {
     color: #272727;
 }
@@ -995,7 +1001,7 @@ img.img-header {
 }
 
 .before-sharp {
-    pointer-events: none;
+    /* pointer-events: none; */
     cursor: default;
     display: inline-block;
 }
