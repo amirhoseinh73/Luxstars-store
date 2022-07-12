@@ -4,18 +4,23 @@ ul.navbar-nav > li ul.sub-menu {
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     -o-border-radius: 0;
-    max-width: 18rem;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu {
-    opacity: 0;
-    transform: scaleY(0);
-    -webkit-transform: scaleY(0);
-    -moz-transform: scaleY(0);
-    -ms-transform: scaleY(0);
-    -o-transform: scaleY(0);
-    right: 100%;
-    top: 0;
+	opacity: 0;
+	transform: scaleY(0);
+	-webkit-transform: scaleY(0);
+	-moz-transform: scaleY(0);
+	-ms-transform: scaleY(0);
+	-o-transform: scaleY(0);
+	right: 18rem;
+	top: 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100%;
+	flex-wrap: wrap;
+	flex-direction: row;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
@@ -84,10 +89,11 @@ ul.navbar-nav > li > ul.sub-menu li.menu-item-has-children::after {
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     font-weight: 700;
+    color: #333333;
 }
 
 ul.navbar-nav > li > ul.sub-menu li.menu-item-has-children:hover::after {
-    color: var(--color-1-100);
+    color: #000000;
 }
 
 #search_icon {
@@ -106,4 +112,9 @@ ul.navbar-nav > li > ul.sub-menu li.menu-item-has-children:hover::after {
 	padding-right: .75rem;
 	padding-left: 1.75rem;
 	background-position: 0.75rem center;
+}
+
+ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li {
+	flex: 0 0 10rem;
+	max-width: 15rem;
 }

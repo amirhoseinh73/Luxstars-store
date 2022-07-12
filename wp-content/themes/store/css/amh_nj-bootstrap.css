@@ -1537,19 +1537,21 @@ div.wpcf7-mail-sent-ng {
 
 /*********************************************navbar**************************************************/
 ul.navbar-nav li ul.sub-menu {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    z-index: 99999;
-    background: var(--color-1-100);
-    border-radius: 0 0 15px 15px;
-    transition: all 500ms ease;
-    transition-delay: 100ms;
-    border: none;
-    transform: scaleY(0);
-    transform-origin: top;
-    list-style: none;
-    /* overflow: hidden; */
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	z-index: 99999;
+	background-color: var(--boot-theme-white);
+	border-radius: 0 0 15px 15px;
+	transition: all 500ms ease;
+	transition-delay: 100ms;
+	border: none;
+	transform: scaleY(0);
+	transform-origin: top;
+	list-style: none;
+	width: 100%;
+	right: 0;
+	top: 5rem;
 }
 
 ul.navbar-nav li:hover ul.sub-menu {
@@ -1558,24 +1560,12 @@ ul.navbar-nav li:hover ul.sub-menu {
 }
 
 @media (min-width: 992px) {
-    ul.navbar-nav li ul.sub-menu {
-        top: 54px;
-        right: 0;
-        width: calc(100% + 115px);
-    }
-
     ul.navbar-nav li ul.sub-menu a.nav-link {
         font-size: 11px !important;
     }
 }
 
 @media (max-width: 991px) {
-    ul.navbar-nav li ul.sub-menu {
-        top: 40px;
-        right: 20px;
-        width: 100%;
-    }
-
     ul.navbar-nav li ul.sub-menu a.nav-link {
         font-size: 10px !important;
     }
@@ -1615,6 +1605,7 @@ ul.navbar-nav li:hover ul.sub-menu {
 ul.navbar-nav li ul.sub-menu li {
     list-style: none !important;
     padding: 0 !important;
+    max-width: 18rem;
 }
 
 ul.navbar-nav:not(.sub-menu) li {
@@ -1622,7 +1613,7 @@ ul.navbar-nav:not(.sub-menu) li {
 }
 
 ul.navbar-nav li ul.sub-menu li a {
-    color: #ffffff !important;
+    color: #333333 !important;
     margin: 0 !important;
     padding: 10px 15px !important;
     transition: all 200ms ease !important;
@@ -1635,7 +1626,7 @@ ul.navbar-nav li ul.sub-menu li a {
 }
 ul.navbar-nav li ul.sub-menu li a:hover {
     background-color: var(--color-2-100) !important;
-    color: var(--color-1-100) !important;
+    color: #000000 !important;
 }
 
 #nav_menu .sub-menu:not(.navbar-nav) a.nav-link::after {

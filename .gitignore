@@ -1,5 +1,7 @@
 crash.txt
 # wp-content/uploads/*
+wp-content/uploads/wc-logs/*
+
 wp-content/plugins/woocommerce
 wp-content/plugins/persian-woocommerce
 wp-content/plugins/wp-parsidate
