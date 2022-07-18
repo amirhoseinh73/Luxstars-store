@@ -1,0 +1,291 @@
+/**
+ * PRO notice
+ */
+ body.wp-adminify-login-customizer .wp-adminify-pro-login-customizer-notice.is-shown {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.wp-adminify-login-customizer .wp-adminify-pro-login-customizer-notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background-color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+body.wp-adminify-login-customizer .login .wp-adminify-login-customizer-pro-button {
+    float: none;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+body.wp-adminify-login-customizer .login:not(.wp-adminify-both-logo) h1 a #logo-text {
+    display: none;
+}
+
+body.wp-adminify-login-customizer .wp-adminify-both-logo h1 a #logo-text {
+    bottom: -30px;
+    position: relative;
+}
+
+body.wp-adminify-login-customizer .wp-adminify-both-logo #login h1 a {
+    width: 100%;
+    height: 90px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: auto auto;
+    text-indent: unset;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: visible;
+    margin-bottom: 45px;
+}
+
+body.wp-adminify-login-customizer .wp-adminify-text-logo:not(.wp-adminify-both-logo) h1 a {
+    background-image: none !important;
+    text-indent: unset;
+    width: auto !important;
+    height: auto !important;
+}
+
+
+body.wp-adminify-login-customizer .wp-adminify-general-actions{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 100;
+}
+body.wp-adminify-login-customizer .wp-adminify-preview-event {
+    cursor: pointer;
+    background-color: #008ec2;
+    border-radius: 100%;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 1px rgba(46, 68, 83, .15);
+}
+
+body.wp-adminify-login-customizer .wp-adminify-preview-event>span {
+    margin-top: 5px;
+}
+
+body.wp-adminify-login-customizer .wp-adminify-general-actions>.wp-adminify-preview-event {
+    display: inline-block;
+}
+body.wp-adminify-login-customizer .login h1 a {
+    text-indent: initial;
+    position: relative;
+    overflow: visible;
+}
+
+body.wp-adminify-login-customizer .login h1 a .wp-adminify-preview-event {
+    position: absolute;
+    left: -15px;
+    top: -15px;
+}
+body.wp-adminify-login-customizer .customize-partial--loginform {
+    top: 0 !important;
+    left: -10px !important;
+}
+body.wp-adminify-login-customizer .wp-adminify-edit-loginform .customize-partial--loginform {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+body.wp-adminify-login-customizer .wp-adminify-background .login-overlay {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+
+/* Layout Columns */
+/*
+    alignment_login_width: .wp-adminify-half-screen
+    alignment_login_column: .jltwp-adminify-login-
+    alignment_login_horizontal: .wp-adminify-horizontal-align-
+    wp-adminify-container
+    wp-adminify-extra-div
+    wp-adminify-form-container
+    ml-login-align-1: .jltwp-adminify-login-left
+    ml-login-align-2: .jltwp-adminify-login-top
+    ml-login-align-3: .jltwp-adminify-login-right
+    ml-login-align-4: .jltwp-adminify-login-bottom
+    ml-login-vertical-align-1: wp-adminify-vertical-align-center_top
+    ml-login-vertical-align-2: wp-adminify-vertical-align-center_center
+    ml-login-vertical-align-3: wp-adminify-vertical-align-center_bottom
+
+    ml-login-horizontal-align-1: wp-adminify-horizontal-align-center_center
+    ml-login-horizontal-align-2: wp-adminify-horizontal-align-left_center
+    ml-login-horizontal-align-3: wp-adminify-horizontal-align-right_center
+*/
+
+body.wp-adminify-login-customizer:not(.wp-adminify-half-screen) .wp-adminify-form-container {
+    background: transparent !important;
+}
+body.wp-adminify-login-customizer .wp-adminify-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    height: 100%;
+    min-width: 100%;
+}
+body.wp-adminify-login-customizer .wp-adminify-container .wp-adminify-extra-div {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+body.wp-adminify-login-customizer .wp-adminify-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+body.wp-adminify-login-customizer:not(.wp-adminify-half-screen) .wp-adminify-container .wp-adminify-extra-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+body.wp-adminify-login-customizer:not(.wp-adminify-half-screen) .wp-adminify-container .wp-adminify-form-container {
+    width: 100%;
+    min-height: 100vh
+}
+
+body.wp-adminify-login-customizer.wp-adminify-half-screen .wp-adminify-container {
+    flex-wrap: wrap
+}
+
+body.wp-adminify-login-customizer.wp-adminify-half-screen .wp-adminify-container>.wp-adminify-extra-div,
+body.wp-adminify-login-customizer.wp-adminify-half-screen .wp-adminify-container>.wp-adminify-form-container {
+    overflow: hidden;
+    width: 50%
+}
+
+body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-top .wp-adminify-container>div,
+body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-bottom .wp-adminify-container>div {
+    height: 50%;
+    width: 100%;
+    flex-basis: 100%;
+}
+body.wp-adminify-login-customizer.wp-adminify-half-screen .wp-adminify-form-container {
+    position: relative;
+    z-index: 0;
+}
+body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-left .wp-adminify-container {
+    flex-direction: row-reverse
+}
+
+body.wp-adminify-login-customizer.wp-adminify-horizontal-align-left_center .wp-adminify-form-container {
+    justify-content: flex-start
+}
+
+body.wp-adminify-login-customizer.wp-adminify-horizontal-align-right_center .wp-adminify-form-container {
+    justify-content: flex-end
+}
+body.wp-adminify-login-customizer.wp-adminify-vertical-align-center_top .wp-adminify-form-container {
+    align-items: flex-start
+}
+body.wp-adminify-login-customizer.wp-adminify-vertical-align-center_bottom .wp-adminify-form-container {
+    align-items: flex-end
+}
+body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-top .wp-adminify-form-container {
+    order: 1
+}
+body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-top .wp-adminify-extra-div {
+    order: 2
+}
+body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-right .wp-adminify-extra-div {
+    float: left;
+    height: 100%;
+}
+
+body.wp-adminify-login-customizer.ml-login-horizontal-align-1 .wp-adminify-form-container {
+    justify-content: flex-start
+}
+
+body.wp-adminify-login-customizer.ml-login-horizontal-align-3 .wp-adminify-form-container {
+    justify-content: flex-end
+}
+
+@media only screen and (max-width: 768px) {
+
+    body.wp-adminify-login-customizer.wp-adminify-half-screen .wp-adminify-container>.wp-adminify-extra-div,
+    body.wp-adminify-login-customizer.wp-adminify-half-screen .wp-adminify-container>.wp-adminify-form-container {
+        width: 50% !important;
+    }
+}
+@media only screen and (max-width: 577px) {
+
+    body.wp-adminify-login-customizer.wp-adminify-half-screen .wp-adminify-container>.wp-adminify-extra-div,
+    body.wp-adminify-login-customizer.wp-adminify-half-screen .wp-adminify-container>.wp-adminify-form-container {
+        width: 100% !important;
+    }
+
+    body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-left .wp-adminify-container .wp-adminify-extra-div,
+    body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-left .wp-adminify-container .wp-adminify-form-container,
+    body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-right .wp-adminify-container .wp-adminify-extra-div,
+    body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-right .wp-adminify-container .wp-adminify-form-container {
+        width: 100%;
+    }
+
+    body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-left .wp-adminify-container .wp-adminify-extra-div,
+    body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-right .wp-adminify-container .wp-adminify-extra-div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* //skew */
+
+body.wp-adminify-login-customizer.wp-adminify-half-screen .wp-adminify-form-container::after,
+body.wp-adminify-login-customizer.wp-adminify-fullwidth .wp-adminify-form-container::after {
+    content: '';
+    z-index: -1;
+    top: 0px;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    transform-origin: center right;
+}
+body.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-right .wp-adminify-form-container::after {
+    left: inherit;
+    right: -100%;
+}
+body.wp-adminify-login-customizer.wp-adminify-login-customizer.wp-adminify-half-screen.jltwp-adminify-login-top .wp-adminify-form-container::after {
+    top: inherit;
+    bottom: 0;
+}
+
+body.wp-adminify-login-customizer.wp-adminify-login-customizer .wp-adminify-background-wrapper {
+    overflow: hidden;
+}
+body.wp-adminify-login-customizer .login-background,
+body.wp-adminify-login-customizer .login-overlay,
+body.wp-adminify-login-customizer .wp-adminify-background-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}

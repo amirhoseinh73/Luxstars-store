@@ -1,0 +1,8 @@
+.wp-adminify #wpbody-content .bwf-breadcrub-svg-icon {
+  max-width: 35px;
+}
+.wp-adminify.adminify-dark-mode #wpbody-content h2,
+.wp-adminify.adminify-dark-mode #wpbody-content h3,
+.wp-adminify.adminify-dark-mode #wpbody-content h4 {
+  color: #cfcfcf;
+}

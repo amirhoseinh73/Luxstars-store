@@ -1,0 +1,61 @@
+#neshan_help_wrapper {
+
+}
+    #neshan_help_wrapper .wp-heading-inline {
+        margin-bottom: 10px;
+        display: block;
+    }
+    #neshan_help_wrapper .wp-heading-inline small {
+        font-weight: normal;
+        font-size: 14px;
+        color: #555;
+    }
+.neshan_help_rtl {
+
+}
+
+.neshan_help {
+    background: #fff;
+    padding: 20px;
+    border-radius: 3px;
+    color: #333;
+    margin-bottom: 25px;
+}
+    .neshan_help hr {
+        margin-top: 15px;
+    }
+    .neshan_help ul {
+        list-style: circle;
+        list-style-position: inside;
+    }
+        .neshan_help ul ul {
+            margin-top: 10px;
+            margin-left: 50px;
+        }
+        .neshan_help_rtl .neshan_help ul ul {
+            margin-right: 50px;
+            margin-left: 0;
+        }
+    .neshan_help h1 {
+        font-size: 20px;
+    }
+    .neshan_help a {
+        text-decoration: none;
+    }
+    .neshan_help a:hover {
+        color: #E53935;
+    }
+    .neshan_help pre {
+        text-align: center;
+        direction: ltr;
+        background: #fafafa;
+        padding-top: 15px;
+        border: 1px dashed #eee;
+    }
+    .neshan_help pre span {
+        font-weight: bold;
+        color: #1976D2;
+    }
+    .neshan_help pre span.red {
+        color: #E53935;
+    }

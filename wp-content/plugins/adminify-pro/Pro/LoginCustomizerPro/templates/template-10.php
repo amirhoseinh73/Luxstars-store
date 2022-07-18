@@ -1,0 +1,108 @@
+<style media="screen" class="wp-adminify-style-wp">
+    body.wp-adminify-login-customizer {
+        background: url('https://wpadminify.com/wp-content/uploads/2021/06/login-bg-10.jpg') no-repeat;
+        background-size: cover;
+    }
+
+    body.wp-adminify-login-customizer #login a.wp-adminify-logo-login-link:focus {
+        border: 0;
+        box-shadow: none;
+        outline: 0;
+    }
+
+    body.wp-adminify-login-customizer #login {
+        background-color: #fff;
+        border: 0;
+        border-radius: 8px;
+        box-shadow: 0px 2px 54px rgba(20, 20, 42, 0.1);
+        padding-top: 20px;
+        position: relative;
+    }
+    body.wp-adminify-login-customizer #login h1 a {
+        margin-bottom: 0;
+    }
+    body.wp-adminify-login-customizer #loginform {
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding-bottom: 35px;
+    }
+
+    body.wp-adminify-login-customizer #loginform label {
+        color: #4E4B66;
+    }
+
+    body.wp-adminify-login-customizer #loginform input,
+    body.wp-adminify-login-customizer #loginform textarea,
+    body.wp-adminify-login-customizer #loginform select {
+        background: #F1F1F3;
+        border: 0;
+        border-radius: 6px;
+        box-shadow: none;
+        color: #4E4B66;
+        font-size: 14px;
+        line-height: 16px;
+        height: 36px;
+    }
+
+    body.wp-adminify-login-customizer #loginform textarea {
+        height: auto;
+    }
+
+    body.wp-adminify-login-customizer #loginform input[type="submit"] {
+        background-color: #0347FF;
+        color: #fff;
+        float: none;
+        margin-top: 15px;
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    body.wp-adminify-login-customizer #loginform input[type="checkbox"],
+    body.wp-adminify-login-customizer #loginform input[type="radio"] {
+        height: 14px;
+        width: 14px;
+        border-radius: 4px;
+        min-width: inherit;
+    }
+
+    body.wp-adminify-login-customizer #loginform .button.wp-hide-pw {
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        color: #4E4B66;
+        font-size: 16px;
+        height: 36px;
+        margin-top: 0;
+    }
+
+    body.wp-adminify-login-customizer #login #nav {
+        bottom: -40px;
+        position: absolute;
+        text-align: center;
+        padding: 0;
+        width: 100%;
+    }
+
+    body.wp-adminify-login-customizer #login #wp-adminify-lost-password {
+        color: #0347FF;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    body.wp-adminify-login-customizer #login #backtoblog a {
+        background: #0347FF;
+        box-shadow: 0px 2px 35px rgba(78, 75, 102, 0.05);
+        border-radius: 6px;
+        color: #fff;
+        display: inline-block;
+        font-size: 13px;
+        line-height: 20px;
+        left: 30px;
+        top: 30px;
+        padding: 8px 10px;
+        position: fixed;
+    }
+</style>
