@@ -6,6 +6,7 @@
                     <h6 class="text-boot fw600 font-20 tit-L-before">جستجوی پیشرفته محصول</h6>
                 </div>
                 <div class="col-12 col-md-8 col-lg-10 my-auto text-md-right text-center">
+                    <?php echo do_shortcode('[fibosearch]'); ?>
                     <div class="row align-items-end">
                         <div class="col-6 col-sm-4">
                             <label for="search_select">

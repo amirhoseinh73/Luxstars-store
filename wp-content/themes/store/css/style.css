@@ -6,7 +6,8 @@ ul.navbar-nav > li ul.sub-menu {
     -o-border-radius: 0;
 }
 
-ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu {
+ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu,
+ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu {
 	opacity: 0;
 	transform: scaleY(0);
 	-webkit-transform: scaleY(0);
@@ -17,10 +18,13 @@ ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu {
 	top: 0;
 	display: flex;
 	justify-content: flex-start;
-	align-items: center;
+	align-items: flex-start;
 	height: 100%;
 	flex-wrap: wrap;
 	flex-direction: row;
+	/* width: calc( 100% - 18rem - ( 12rem * 2 ) ); */
+	width: 24rem;
+    align-content: flex-start;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
@@ -59,6 +63,11 @@ ul.navbar-nav > li:not(:last-of-type) {
 ul.navbar-nav > li.menu-item-has-children {
     padding-left: 0.75rem;
     margin-left: 0.75rem;
+}
+
+#menu_items > ul.navbar-nav > li {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 ul.navbar-nav > li.menu-item-has-children::after {
@@ -114,7 +123,20 @@ ul.navbar-nav > li > ul.sub-menu li.menu-item-has-children:hover::after {
 	background-position: 0.75rem center;
 }
 
-ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li {
-	flex: 0 0 10rem;
+ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li,
+    ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li {
+	flex: 0 0 12rem;
 	max-width: 15rem;
+}
+
+.woocommerce .col2-set .col-1,
+.woocommerce-page .col2-set .col-1 {
+    flex: 0 0 40%;
+    max-width: 40%;
+}
+
+.woocommerce .col2-set .col-2,
+.woocommerce-page .col2-set .col-2 {
+    flex: 0 0 60%;
+    max-width: 60%;
 }

@@ -171,3 +171,90 @@ function rename_flamingo_to_inbox($translated, $original, $domain)
 }
 
 add_filter('gettext', 'rename_flamingo_to_inbox', 10, 3);
+
+
+//woocommerce register user with phone
+// function wooc_add_phone_number_field() {
+//     return apply_filters( 'woocommerce_forms_field', array(
+//         'wooc_user_phone' => array(
+//             'type'        => 'text',
+//             'label'       => __( 'شماره تلفن', ' woocommerce' ),
+//             'placeholder' => __( 'شماره تلفن همراه خود را وارد کنید', 'woocommerce' ),
+//             'required'    => true,
+//         ),
+//     ) );
+// }
+// add_action( 'woocommerce_register_form', 'wooc_add_field_to_registeration_form', 15 );
+// function wooc_add_field_to_registeration_form() {
+//     $fields = wooc_add_phone_number_field();
+//     foreach ( $fields as $key => $field_args ) {
+//         woocommerce_form_field( $key, $field_args );
+//     }
+// }
+
+// add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );
+// function wooc_save_extra_register_fields( $customer_id ) {
+//     if (isset($_POST['wooc_user_phone'])){
+//         update_user_meta( $customer_id, 'wooc_user_phone', sanitize_text_field( $_POST['wooc_user_phone'] ) );
+//     }
+// }
+
+// function wooc_get_users_by_phone($phone_number){
+//     $user_query = new \WP_User_Query( array(
+//         'meta_key' => 'wooc_user_phone',
+//         'meta_value' => $phone_number,
+//         'compare'=> '='
+//     ));
+//     return $user_query->get_results();
+// }
+
+// add_filter('authenticate','wooc_login_with_phone',30,3);
+// function wooc_login_with_phone($user, $username, $password ){
+//     if($username != ''){
+//         $users_with_phone = wooc_get_users_by_phone($username);
+//         if(empty($users_with_phone)){
+//             return $user;
+// 		}
+// 		$phone_user = $users_with_phone[0];
+		
+// 		if ( wp_check_password( $password, $phone_user->user_pass, $phone_user->ID ) ){
+// 			return $phone_user;
+// 		}
+//     }
+//     return $user;
+// }
+
+// add_filter( 'gettext', 'wooc_change_login_label', 10, 3 );
+// function wooc_change_login_label( $translated, $original, $domain ) {
+//     if ( $original == "Username or email address" && $domain === 'woocommerce' ) {
+//         $translated = "نام کاربری یا ایمیل یا شماره تلفن";
+//     }
+//     return $translated;
+// }
+
+// add_filter('woocommerce_save_account_details_required_fields', 'remove_required_email_address');
+
+// function remove_required_email_address( $required_fields ) {
+//     unset($required_fields['account_email']);
+
+//     return $required_fields;
+// }
+
+
+function wooc_extra_register_fields() {?>
+    <p class="form-row form-row-wide">
+    <label for="reg_billing_phone"><?php _e( 'Phone', 'woocommerce' ); ?></label>
+    <input type="text" class="input-text" name="billing_phone" id="reg_billing_phone" value="<?php esc_attr_e( $_POST['billing_phone'] ); ?>" />
+    </p>
+    <p class="form-row form-row-first">
+    <label for="reg_billing_first_name"><?php _e( 'First name', 'woocommerce' ); ?><span class="required">*</span></label>
+    <input type="text" class="input-text" name="billing_first_name" id="reg_billing_first_name" value="<?php if ( ! empty( $_POST['billing_first_name'] ) ) esc_attr_e( $_POST['billing_first_name'] ); ?>" />
+    </p>
+    <p class="form-row form-row-last">
+    <label for="reg_billing_last_name"><?php _e( 'Last name', 'woocommerce' ); ?><span class="required">*</span></label>
+    <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="<?php if ( ! empty( $_POST['billing_last_name'] ) ) esc_attr_e( $_POST['billing_last_name'] ); ?>" />
+    </p>
+    <div class="clear"></div>
+    <?php
+}
+add_action( 'woocommerce_register_form_start', 'wooc_extra_register_fields' );
