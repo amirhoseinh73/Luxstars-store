@@ -1,7 +1,7 @@
-<section id="social" class="pt-boot-18 pb-boot-18">
+<section id="social" class="pt-boot-18 pb-boot-18 bg-boot-2">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-6 my-auto text-right text-light">
+            <div class="col-12 col-sm-6 my-auto text-right text-color-5">
                 <h4 class="fw400 font-17 mb-0">ما را در شبکه های اجتماعی دنبال کنید:</h4>
             </div>
             <div class="col-12 col-sm-6 my-auto text-left justify-content-sm-end">

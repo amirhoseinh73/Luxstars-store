@@ -238,7 +238,8 @@ ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li,
 .woof_sid_auto_shortcode .woof_container {
 	float: unset;
 	flex: 0 0 45%;
-    width: auto;
+	width: auto;
+	margin: 0 auto;
 }
 
 .woof_sid_auto_shortcode .woof_container_inner > h4 {
@@ -305,4 +306,9 @@ ul.woof_list {
 
 .woof_reset_button_2:hover {
     background-color: var(--color-3-75);
+}
+
+.woocommerce-form.woocommerce-form-register.register > .woocommerce-form-row.woocommerce-form-row--wide.form-row.form-row-wide + p,
+.woocommerce-privacy-policy-text {
+    display: none;
 }

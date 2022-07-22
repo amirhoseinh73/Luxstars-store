@@ -124,6 +124,64 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <section id="special_products" class="pt-boot-22 mt-boot-30 pb-boot-45">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="fw600 font-20 text-boot text-right tit-L-before">
+                        آخرین خرید های شما
+                    </h1>
+                    <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                    <div class="row mt-boot-30">
+
+                        <?php
+                        $params_product = array('posts_per_page' => 3, 'post_type' => 'product');
+                        $last_products = new WP_Query($params_product);
+                        ?>
+                        <?php if ($last_products->have_posts()) : ?>
+                            <?php while ($last_products->have_posts()) :
+                                $last_products->the_post();
+                                $product = get_product(get_the_ID());
+                            ?>
+                                <section class="pro-card card-width-1">
+                                    <a href="<?php echo get_the_permalink(); ?>" class="blog-link-absolute"></a>
+                                    <div class="pro-img">
+                                        <?php if ($product->is_on_sale()):?>
+                                        <img src="<?php echo get_template_directory_uri().'/img/special.png';?>" class="img-special-pro" alt="">
+                                        <?php endif;?>
+                                        <?php the_post_thumbnail('full', ['class' => '', 'alt' => get_the_title()]); ?>
+                                    </div>
+                                    <div class="pro-content">
+                                        <div class="pro-title">
+                                            <div class="row">
+                                                <div class="col-6 text-center my-auto pl-0">
+                                                    <h1 class="font-13 fw500 text-boot-5 pr-2 mb-0"><?php the_title(); ?></h1>
+                                                </div>
+                                                <div class="col-6 my-auto pr-0">
+                                                    <p class="font-14 fw600 pro-price mb-0 text-boot-1">
+                                                        <?php
+                                                        echo $product->get_price_html();
+                                                        ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            <?php endwhile; ?>
+                            <?php wp_reset_postdata(); ?>
+                        <?php else:  ?>
+                            <p>
+                                <?php _e( 'محصولی یافت نشد'); ?>
+                            </p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+
             <div class="row mt-boot-45">
                 <div class="col-12">
                     <h1 class="fw600 font-20 text-boot-5 text-right tit-L-before">
@@ -181,28 +239,6 @@
         </div>
     </section>
     
-    <section id="about_index_2" class="mb-boot-30 mt-boot-30">
-        <div class="container">
-            <div class="row flex-row-reverse">
-                <div class="col-12 col-sm-6 col-lg-4 my-auto img-about-shape-2-p">
-                    <img src="<?php echo get_theme_mod( 'about_2_img', get_template_directory_uri().'/img/about.jpg'); ?>" class="img-fluid img-about-shape-2" alt="">
-                </div>
-                <div class="col-12 col-lg-8 my-auto">
-                    <div class="about-contain">
-                        <h3 class="text-boot-5 fw600 font-20 tit-L-before">
-                            <?php echo get_theme_mod( 'about_2_title_1', __('Title')); ?>
-                        </h3>
-                        <p class="text-boot-4 font-15 fw400">
-                            <?php echo get_theme_mod( 'about_2_title_2', __('Title')); ?>
-                        </p>
-                        <p class="text-boot-sec font-13 text-justify fw400 lh-2">
-                            <?php echo get_theme_mod( 'about_2_text', __('Text')); ?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section id="advice_index" class="pt-boot-45 pb-boot-45">
         <div class="container">
             <div class="row">
@@ -258,6 +294,29 @@
                         </svg>
                         </span>
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about_index_2" class="mb-boot-30 mt-boot-30">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-12 col-sm-6 col-lg-4 my-auto img-about-shape-2-p">
+                    <img src="<?php echo get_theme_mod( 'about_2_img', get_template_directory_uri().'/img/about.jpg'); ?>" class="img-fluid img-about-shape-2" alt="">
+                </div>
+                <div class="col-12 col-lg-8 my-auto">
+                    <div class="about-contain">
+                        <h3 class="text-boot-5 fw600 font-20 tit-L-before">
+                            <?php echo get_theme_mod( 'about_2_title_1', __('Title')); ?>
+                        </h3>
+                        <p class="text-boot-4 font-15 fw400">
+                            <?php echo get_theme_mod( 'about_2_title_2', __('Title')); ?>
+                        </p>
+                        <p class="text-boot-sec font-13 text-justify fw400 lh-2">
+                            <?php echo get_theme_mod( 'about_2_text', __('Text')); ?>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
