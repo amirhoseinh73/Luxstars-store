@@ -185,7 +185,7 @@
 
     #menu_items1 ul.navbar-nav:not(.submenu) li {
         font-size: 1.25rem;
-        border: 2px solid var(--white);
+        border: 2px solid var(--color-3-100);
         width: 2.5rem;
         height: 2.5rem;
         display: flex;
@@ -193,6 +193,7 @@
         align-items: center;
         border-radius: 50%;
         /* padding: 0.5rem; */
+        color: var(--color-3-100);
     }
 
     #menu_items1 ul.navbar-nav:not(.submenu) li:not(:last-of-type) {
@@ -207,6 +208,7 @@
         opacity: 0;
         width: 100%;
         height: 100%;
+        color: var(--color-3-100);
     }
 
     .slide-caption {
@@ -376,7 +378,7 @@
 
 ul.navbar-nav:not(.submenu) li,
 ul.navbar-nav:not(.submenu) li a.nav-link {
-    color: #ffffff;
+    color: var(--color-4-100);
     font-weight: 400;
     transition: all 100ms linear;
     -webkit-transition: all 100ms linear;
@@ -614,13 +616,14 @@ ul.hover-li-bef li:hover a {
 #service_index {
     position: relative;
     z-index: 3;
-    /*background-image: radial-gradient(558px,#fff 32%,rgb(204,204,204) 100%);*/
 }
 
 .conts {
-    background-image: var(--boot-theme-grad);
-    border-radius: 10px;
-    cursor: pointer;
+	background-image: var(--boot-theme-grad);
+	border-radius: 10px;
+	cursor: pointer;
+	height: 100%;
+	width: 100%;
 }
 
 .captionss {
@@ -634,6 +637,7 @@ ul.hover-li-bef li:hover a {
     border: 2px solid #fff;
     box-shadow: 0 2px 10px #9a9a9a;
     transition: all 0.2s ease-in-out;
+    height: 100%;
 }
 
 .content-one:hover {
@@ -642,7 +646,7 @@ ul.hover-li-bef li:hover a {
 
 .cont-icon-rotate {
 	display: block;
-	background: #e5e5e5;
+	background: var(--color-2-100);
 	padding: 8px 25px 8px 25px;
 	border-radius: 50%;
 	transform: rotate(-10deg);
@@ -650,7 +654,7 @@ ul.hover-li-bef li:hover a {
 	width: 8rem;
 	text-align: center;
 	margin: 6px auto;
-	color: var(--color-1-100);
+	color: var(--color-3-100);
 	height: 8rem;
 	display: flex;
 	justify-content: center;
@@ -712,19 +716,21 @@ ul.hover-li-bef li:hover a {
     right: 0;
 }
 
+#last_blog_index,
 #last_products {
-    background-image: radial-gradient(358px, #fff 32%, rgb(204, 204, 204) 100%);
+    background-image: radial-gradient(358px, var(--color-2-50) 32%, var(--color-2-100) 100%);
 }
 
 .pro-card {
     text-align: center;
-    background-color: #ffffff;
+    background-color: var(--color-2-100);
     position: relative;
     margin: 0 auto 15px auto;
     overflow: hidden;
     height: 250px;
     border-radius: 25px;
     transition: all 300ms linear;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
 }
 
 .pro-img {
@@ -766,7 +772,7 @@ ul.hover-li-bef li:hover a {
     right: 0;
     width: 90%;
     height: 90%;
-    border: 1px solid #f8f8f899;
+    border: 1px solid var(--color-3-75);
     border-radius: 22px;
     margin: auto;
     overflow: hidden;
@@ -778,7 +784,7 @@ ul.hover-li-bef li:hover a {
     right: 0;
     left: 0;
     margin: auto;
-    background-color: #f8f8f8d4;
+    background-color: var(--color-3-75);
     width: 100%;
 }
 
@@ -852,16 +858,12 @@ p.border-b-grad {
     color: #555555;
 }
 
-#last_blog_index {
-    background-image: radial-gradient(358px, #fff 32%, rgb(204, 204, 204) 100%);
-}
-
 .blog-2-card {
-    background-color: #ffffff;
+    background-color: var(--color-1-100);
     border-radius: 2px 60px 20px 20px;
     text-align: center;
     padding: 8px !important;
-    box-shadow: 0 15px 87px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 9px 3px rgba(0, 0, 0, 0.3);
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 29px;
@@ -878,7 +880,6 @@ p.border-b-grad {
     position: relative;
     right: 0;
     top: -18px;
-    box-shadow: 0 0 9px 3px rgba(0, 0, 0, 0.3);
 }
 
 .blog-2-content {
@@ -887,27 +888,25 @@ p.border-b-grad {
 }
 
 .blog-2-content h6 {
-    color: #363535;
+    color: var(--color-4-100);
     transition: all 300ms linear;
     font-weight: 500;
 }
 
 .blog-2-content p {
-    color: #909090;
+    color: var(--boot-theme-black);
     font-weight: 500;
     text-align: justify;
 }
 
-.blog-2-card:hover a.btn-boot {
-    background: #eeeeee;
-    color: var(--color-1-100);
+.blog-2-card:hover a.btn-boot-3 {
+    background: var(--color-2-100);
+    color: var(--color-3-100);
     box-shadow: 0 5px 12px 0 var(--color-1-25);
 }
 
 .blog-2-card:hover h6 {
-    background: var(--boot-theme-grad);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--color-3-100);
 }
 
 /*************************************************************main***********************************amh_nj*************/
@@ -933,25 +932,17 @@ img.img-header {
 }
 
 .header-caption h1 {
-    background-image: linear-gradient(15deg, var(--color-1-100) 0%, var(--color-2-100) 35%, var(--color-3-100) 68%, var(--color-1-100) 98%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     padding-top: 15px;
     margin-bottom: 5px;
-}
-
-.header-caption h1::selection {
-    background-image: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
+    color: var(--color-4-100);
 }
 
 .header-caption p {
-    color: #272727;
+    color: var(--color-4-75);
 }
 
 .page-content p {
-    color: #444444;
+    color: var(--boot-theme-black);
     font-size: 13px;
     text-align: justify;
     line-height: 2;
@@ -1147,61 +1138,46 @@ img.img-header {
 }
 
 .woocommerce ul li.product {
-    background-color: #eeeeee;
+    background-color: var(--color-2-100);
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
     border-radius: 15px;
     text-align: center;
     padding: 4px 8px;
     height: 100%;
     overflow: hidden;
+    width: 30% !important;
 }
 
 .woocommerce img.attachment-woocommerce_thumbnail {
     border-radius: 15px;
     padding: 0;
     height: 320px !important;
-    object-fit: cover;
+    object-fit: fill;
     margin: 0 !important;
 }
 
-/*.woocommerce img.attachment-woocommerce_thumbnail {
-    border-radius: 15px;
-    padding: 0;
-    height: 320px !important;
-    object-fit: cover;
-    margin: 0 !important;
-}*/
-/*
 .woocommerce ul li a.add_to_cart_button {
-    background: var(--boot-theme-grad);
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 400;
-    transition: all 300ms linear;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    !* max-width: 75%; *!
-    bottom: 0;
-    border-radius: 0 !important;
-}*/
-.woocommerce ul li a.add_to_cart_button {
-    background: var(--boot-theme-grad);
-    color: #ffffff;
+    background-image: var(--boot-theme-grad);
+    color: var(--color-1-100);
     font-size: 14px;
     font-weight: 400;
     transition: all 300ms linear;
     border-radius: 12px;
     overflow: hidden;
     margin-top: 0 !important;
+    background-color: transparent;
+    background-size: 100% 100%;
+    background-position: right center;
 }
 
-/*.woocommerce ul.products li.product span.price, .woocommerce p.price {
-    display: flex;
-    flex-direction: column;
-}*/
+.woocommerce ul li a.add_to_cart_button:hover,
+.woocommerce ul li:hover a.add_to_cart_button {
+    background-size: 200% 200%;
+    background-image: var(--boot-theme-grad);
+    background-color: transparent;
+    color: var(--color-1-100);
+}
+
 .woocommerce ul.products li.product span.price, .woocommerce p.price {
     display: flex;
     flex-direction: column;
@@ -1281,7 +1257,7 @@ img.img-header {
     height: auto;
 }
 
-.woocommerce select {
+.woocommerce .woocommerce-ordering select.orderby {
     display: inline-block !important;
     width: 100% !important;
     height: 35px !important;
@@ -1406,6 +1382,7 @@ ul.page-numbers a.prev::after {
 
 .woocommerce .products ul li.product, .woocommerce ul.products li.product {
     margin: 15px auto !important;
+    border: 1px solid var(--color-4-75);
 }
 
 .woocommerce .woocommerce-product-gallery__image a {
@@ -1439,7 +1416,8 @@ ul.page-numbers a.prev::after {
 }
 
 form.cart button.single_add_to_cart_button {
-    background: linear-gradient(to right, var(--color-2-100), var(--color-1-100));
+    background-image: var(--boot-theme-grad);
+    background-color: transparent;
     border-radius: 25px;
     color: #ffffff;
     padding: 12px 18px;
@@ -1451,7 +1429,8 @@ form.cart button.single_add_to_cart_button {
 }
 
 form.cart button.single_add_to_cart_button:hover {
-    background: linear-gradient(to right, var(--color-2-100) 50%, var(--color-1-100)) !important;
+    background-image: var(--boot-theme-grad);
+    background-color: transparent;
 }
 
 .woocommerce div.product div.images img {
@@ -1465,16 +1444,29 @@ form.cart button.single_add_to_cart_button:hover {
     padding: 4px;
     margin: 0;
     height: 40px;
-    border: 1px solid #a8a8a8;
+    border: 1px solid var(--color-2-100);
     border-radius: 25px;
     width: 150px;
 }
 
-.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt, .woocommerce button.button.alt,
+.woocommerce input.button.alt,
 .woocommerce a.button, .woocommerce .form-row button.button {
     font-size: 14px !important;
     font-weight: 400 !important;
     border-radius: 25px !important;
+    background-color: var(--color-3-100);
+    color: var(--color-1-100);
+    transition: all 200ms linear;
+}
+
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+	background-color: var(--color-4-100);
+	color: var(--color-1-100);
 }
 
 .woocommerce .form-row button.button {
@@ -1486,14 +1478,16 @@ form.cart button.single_add_to_cart_button:hover {
 
 .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt,
 .woocommerce a.checkout-button, .woocommerce .form-row button.button {
-    background: linear-gradient(to right, var(--color-2-100), var(--color-1-100));
+    background-image: var(--boot-theme-grad);
+    background-color: transparent;
     min-width: 40%;
     margin: 0 15px;
 }
 
 .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt,
 .woocommerce a.checkout-button, .woocommerce .form-row button.button  {
-    background: linear-gradient(to right, var(--color-2-100) 50%, var(--color-1-100));
+    background-image: var(--boot-theme-grad);
+    background-color: transparent;
 }
 
 #add_payment_method table.cart img, .woocommerce-cart table.cart img, .woocommerce-checkout table.cart img {
@@ -1541,11 +1535,11 @@ form.cart button.single_add_to_cart_button:hover {
 }
 
 .woocommerce ul.order_details li:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: var(--secondary);
 }
 
 .woocommerce ul.order_details li:nth-child(odd) {
-    background-color: #e8e8e8;
+    background-color: var(--color-2-100);
 }
 
 .woocommerce ul.order_details li strong {
@@ -1559,23 +1553,23 @@ form.cart button.single_add_to_cart_button:hover {
 }
 
 .woocommerce table.woocommerce-table tr:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: var(--secondary);
 }
 
 .woocommerce table.woocommerce-table tr:nth-child(odd) {
-    background-color: #e8e8e8;
+    background-color: var(--color-2-100);
 }
 
 .woocommerce table.woocommerce-table tr.woocommerce-table__line-item.order_item:nth-child(odd) {
-    background-color: #f8f8f8;
+    background-color: var(--secondary);
 }
 
 .woocommerce table.woocommerce-table tr.woocommerce-table__line-item.order_item:nth-child(even) {
-    background-color: #e8e8e8;
+    background-color: var(--color-2-100);
 }
 
 .woocommerce .woocommerce-MyAccount-content {
-    background-color: #f8f8f8;
+    background-color: var(--color-2-100);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
     border-radius: 15px;
     padding: 8px;
@@ -1588,11 +1582,11 @@ form.cart button.single_add_to_cart_button:hover {
 }
 
 .woocommerce .woocommerce-MyAccount-content table tr:nth-child(even) {
-    background-color: #f1f1f1;
+    background-color: var(--secondary);
 }
 
 .woocommerce .woocommerce-MyAccount-content table tr:nth-child(odd) {
-    background-color: #e8e8e8;
+    background-color: var(--color-2-100);
 }
 
 .woocommerce .woocommerce-MyAccount-content table td, .woocommerce .woocommerce-MyAccount-content table th {
@@ -1600,7 +1594,7 @@ form.cart button.single_add_to_cart_button:hover {
 }
 
 .woocommerce .woocommerce-MyAccount-navigation {
-    background-color: #f8f8f8;
+    background-color: var(--color-2-100);
     border-radius: 15px;
     overflow: hidden;
 }
@@ -1651,10 +1645,6 @@ form.cart button.single_add_to_cart_button:hover {
     display: none;
 }
 
-a.button.add_to_cart_button {
-    /*display: none;*/
-}
-
 .woocommerce .product span.price {
     display: none;
 }
@@ -1669,35 +1659,6 @@ a.button.add_to_cart_button {
     font-weight: 500;
 }
 
-/*.woocommerce .product .woocommerce-loop-product__title {
-    position: absolute;
-    bottom: 76px;
-    right: 0;
-    left: 0;
-    margin: auto !important;
-    background-color: #f8f8f8e3;
-    min-height: 50px;
-    border-radius: 0;
-    line-height: 2.5;
-    color: rgba(57, 57, 57, 0.93);
-    font-size: 14px !important;
-    font-weight: 500;
-}*/
-
-/*.woocommerce .product a.woocommerce-LoopProduct-link.woocommerce-loop-product__link::after {
-    content: '';
-    position: absolute;
-    top: 5%;
-    left: 0;
-    right: 0;
-    width: 90%;
-    height: 90%;
-    border: 1px solid #f8f8f899;
-    border-radius: 22px;
-    margin: auto;
-    overflow: hidden;
-}*/
-
 .woocommerce .product a.woocommerce-LoopProduct-link.woocommerce-loop-product__link::after {
     content: '';
     position: absolute;
@@ -1706,7 +1667,7 @@ a.button.add_to_cart_button {
     right: 0;
     width: calc(100% - 20px);
     height: 300px;
-    border: 1px solid #f8f8f899;
+    border: 1px solid var(--color-3-75);
     border-radius: 10px;
     margin: auto;
     overflow: hidden;
@@ -1788,4 +1749,18 @@ a.button.add_to_cart_button {
         margin-top: -190px;
         margin-bottom: -150px;
     }
+}
+
+.woocommerce table.shop_attributes tr td a {
+    color: var(--color-3-100);
+}
+
+.woocommerce table.shop_attributes tr:nth-child(2n+1) td, .woocommerce table.shop_attributes tr:nth-child(2n+1) th {
+	background: var(--secondary);
+    color: var(--color-1-100);
+}
+
+.woocommerce table.shop_attributes tr:nth-child(2n) td, .woocommerce table.shop_attributes tr:nth-child(2n) th {
+	background: var(--color-4-100);
+    color: var(--color-1-100);
 }

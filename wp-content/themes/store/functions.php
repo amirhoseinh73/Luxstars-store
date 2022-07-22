@@ -102,6 +102,7 @@ if (function_exists('add_theme_support')) {
 function gt_get_post_view()
 {
     $count = get_post_meta(get_the_ID(), 'post_views_count', true);
+    if ( intval( $count ) === 0 ) $count = "0";
     return "$count";
 }
 

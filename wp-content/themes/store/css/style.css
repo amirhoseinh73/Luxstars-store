@@ -1,3 +1,30 @@
+
+@supports (scrollbar-width: thin) {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-3-100) var(--color-2-100);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    padding: 15px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-2-100);
+    border-width: 4px;
+    border-color: var(--color-3-100);
+    padding: 15px;
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-3-100);
+    border-radius: 0;
+}
+
 ul.navbar-nav > li ul.sub-menu {
     border-radius: 0;
     -webkit-border-radius: 0;
@@ -10,10 +37,6 @@ ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu,
 ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu {
 	opacity: 0;
 	transform: scaleY(0);
-	-webkit-transform: scaleY(0);
-	-moz-transform: scaleY(0);
-	-ms-transform: scaleY(0);
-	-o-transform: scaleY(0);
 	right: 18rem;
 	top: 0;
 	display: flex;
@@ -29,30 +52,18 @@ ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu {
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
     transform: scaleY(1);
-    -webkit-transform: scaleY(1);
-    -moz-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    -o-transform: scaleY(1);
     opacity: 1;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > ul.sub-menu {
     opacity: 0;
     transform: scaleY(0);
-    -webkit-transform: scaleY(0);
-    -moz-transform: scaleY(0);
-    -ms-transform: scaleY(0);
-    -o-transform: scaleY(0);
     right: 100%;
     top: 0;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
     transform: scaleY(1);
-    -webkit-transform: scaleY(1);
-    -moz-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    -o-transform: scaleY(1);
     opacity: 1;
 }
 
@@ -139,4 +150,159 @@ ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li,
 .woocommerce-page .col2-set .col-2 {
     flex: 0 0 60%;
     max-width: 60%;
+}
+
+.btn-search {
+	position: absolute;
+	left: 0.25rem;
+	top: 0;
+	width: 10rem;
+	height: calc(100% - 0.5rem);
+	max-width: 20%;
+	bottom: 0;
+	margin: auto;
+}
+
+.dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+	padding-right: 2rem;
+	padding-left: 11rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: var(--boot-theme-black);
+}
+
+.dgwt-wcas-suggestion {
+	text-align: right;
+}
+
+.dgwt-wcas-full-width .dgwt-wcas-details-wrapp,
+.dgwt-wcas-is-details .dgwt-wcas-suggestions-wrapp {
+	border-radius: 0 25px 25px 0;
+	overflow: hidden;
+	border: 1px solid var(--color-2-100);
+}
+
+.dgwt-wcas-full-width .dgwt-wcas-details-wrapp {
+    border-radius: 25px 0 0 25px;   
+}
+
+.woocommerce a.added_to_cart {
+	background-color: var(--color-3-75);
+	padding: 0.5rem;
+	margin-right: 0.5rem;
+	border-radius: 50px;
+	font-size: 0.8rem;
+	color: var(--color-4-100);
+}
+
+.chosen-container-multi .chosen-choices li {
+	float: right;
+}
+
+.irs-from, .irs-to, .irs-single {
+	direction: ltr;
+}
+
+.irs-grid-text {
+    direction: ltr;
+}
+
+.woof label {
+	margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+	font-size: 0.75rem;
+	font-weight: 500;
+	border-radius: 5px;
+	color: var(--color-1-100);
+	background-color: var(--color-3-100);
+    transition: all 200ms linear;
+}
+
+.woof_redraw_zone {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.woof_sid_auto_shortcode .woof_container {
+	float: unset;
+	flex: 0 0 45%;
+    width: auto;
+}
+
+.woof_sid_auto_shortcode .woof_container_inner > h4 {
+	font-size: 0.9rem;
+	font-weight: 600;
+	background-color: var(--color-2-100);
+	border-radius: 8px;
+	padding: 0.5rem;
+}
+
+ul.woof_list {
+    padding-right: 0.5rem;
+}
+
+.woof_submit_search_form_container {
+	margin: 0;
+}
+
+.woof_sid_auto_shortcode.woof {
+	padding: 1rem 2rem;
+	font-size: 0.7rem;
+	border: 1px dashed var(--color-3-100);
+}
+
+.woof_products_top_panel ul {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+    align-items: center;
+}
+
+.woof_products_top_panel li span {
+	padding-right: 16px;
+	position: relative;
+    background: none;
+}
+
+.woof_products_top_panel li span::after {
+	content: "\f057";
+	font-family: "Font Awesome 6 Duotone";
+	color: var(--color-3-100);
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	font-size: 1.5rem;
+	width: 1rem;
+	height: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.woof_reset_button_2 {
+	background-color: var(--color-4-100);
+    font-size: 0.7rem;
+    color: var(--color-1-100);
+    border-radius: 25px;
+    border: 0;
+    padding: 0.25rem 1.25rem;
+    transition: all 200ms linear;
+}
+
+.woof_reset_button_2:hover {
+    background-color: var(--color-3-75);
 }
