@@ -118,7 +118,7 @@ if (have_posts()) :
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 text-center font-11">
+                        <div class="col-12 text-center font-11 d-none">
                             <?php echo do_shortcode('[ratemypost]'); ?>
                         </div>
                     </div>

@@ -25,47 +25,80 @@
     border-radius: 0;
 }
 
-ul.navbar-nav > li ul.sub-menu {
+/* ul.navbar-nav > li ul.sub-menu {
     border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
+} */
+
+ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu,
+ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu {
+    opacity: 0;
+	right: 15rem;
+	top: 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	height: 0;
+	flex-wrap: wrap;
+	flex-direction: row;
+	width: calc(100% - 15rem);
+	align-content: flex-start;
+	margin: 0;
+	background-color: var(--color-2-100);
+	border-radius: 0;
+	border-radius: 0 0 0 8px;
+	transition-delay: 0ms;
+	position: absolute;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu,
 ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu {
 	opacity: 0;
-	transform: scaleY(0);
-	right: 18rem;
+	/* transform: scaleY(0); */
+	right: 15rem;
 	top: 0;
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-start;
-	height: 100%;
+	height: 0;
 	flex-wrap: wrap;
 	flex-direction: row;
 	/* width: calc( 100% - 18rem - ( 12rem * 2 ) ); */
-	width: 24rem;
-    align-content: flex-start;
+	width: calc(100% - 15rem);
+	align-content: flex-start;
+	margin: 0;
+	background-color: var(--color-2-100);
+	border-radius: 0;
+	border-radius: 0 0 0 8px;
+	transition-delay: 0ms;
+	position: absolute;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
-    transform: scaleY(1);
+    /* transform: scaleY(1); */
     opacity: 1;
+    height: 20rem;
+}
+
+ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > a:hover {
+    background-color: var(--color-1-100);
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > ul.sub-menu {
-    opacity: 0;
-    transform: scaleY(0);
-    right: 100%;
-    top: 0;
+	right: 0;
+	top: 0;
+	position: relative;
+	opacity: 1;
+	height: auto;
+	width: 100%;
 }
 
-ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
-    transform: scaleY(1);
-    opacity: 1;
+ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > ul.sub-menu > li > a {
+    color: #666666;
 }
+
+/* ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
+    opacity: 1;
+} */
 
 ul.navbar-nav > li:not(:last-of-type) {
     margin-left: 1rem;
@@ -89,27 +122,19 @@ ul.navbar-nav > li.menu-item-has-children::after {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
     font-weight: 700;
 }
 
 ul.navbar-nav > li > ul.sub-menu li.menu-item-has-children::after {
-    content: "\f104";
-    font-size: 1rem;
-    font-family: "Font Awesome 6 Pro";
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    font-weight: 700;
-    color: #333333;
+	/* content: "\f104"; */
+	font-size: 1rem;
+	font-family: "Font Awesome 6 Pro";
+	position: absolute;
+	right: 16rem;
+	top: 0.4rem;
+	transform: none;
+	font-weight: 700;
+	color: #333333;
 }
 
 ul.navbar-nav > li > ul.sub-menu li.menu-item-has-children:hover::after {
@@ -121,10 +146,6 @@ ul.navbar-nav > li > ul.sub-menu li.menu-item-has-children:hover::after {
     left: 2rem;
     top: 50%;
     transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
     color: var(--color-1-100);
 }
 
@@ -134,10 +155,14 @@ ul.navbar-nav > li > ul.sub-menu li.menu-item-has-children:hover::after {
 	background-position: 0.75rem center;
 }
 
-ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li,
-    ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li {
-	flex: 0 0 12rem;
-	max-width: 15rem;
+ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li {
+	flex: 0 0 33.33333%;
+	max-width: 33.33333%;
+}
+
+ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li {
+    flex: 0 0 50%;
+	max-width: 12rem;
 }
 
 .woocommerce .col2-set .col-1,

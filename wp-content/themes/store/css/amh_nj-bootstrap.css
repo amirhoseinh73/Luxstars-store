@@ -1605,22 +1605,25 @@ div.wpcf7-mail-sent-ng {
 
 /*********************************************navbar**************************************************/
 ul.navbar-nav li ul.sub-menu {
-	margin: 0;
+	margin: auto;
 	padding: 0;
 	position: fixed;
 	z-index: 99999;
 	background-color: var(--color-1-100);
-	border-radius: 0 0 15px 15px;
+	border-radius: 0 0 8px 8px;
 	transition: all 500ms ease;
-	transition-delay: 100ms;
+	transition-delay: 500ms;
 	border: none;
-	transform: scaleY(0);
-	transform-origin: top;
+	/* transform: scaleY(0); */
+	/* transform-origin: top; */
+    overflow: hidden;
 	list-style: none;
-	width: 100%;
+    width: 60rem;
+	max-width: calc( 100vw - 24rem );
 	right: 0;
-	top: 5rem;
-	height: 20rem;
+    left: 0;
+	top: 5.4rem;
+	height: 0;
 }
 
 ul.navbar-nav li:focus ul.sub-menu,
@@ -1631,7 +1634,8 @@ ul.navbar-nav li:focus-visible ul.sub-menu {
 }
 
 ul.navbar-nav li:hover ul.sub-menu {
-    transform: scaleY(1);
+    /* transform: scaleY(1); */
+    height: 20rem;
     transition-delay: 100ms;
 }
 
@@ -1667,42 +1671,36 @@ ul.navbar-nav li:hover ul.sub-menu {
     width: calc(100% - 15px);
     height: 1px;
     z-index: 1;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
     transition: all 0.5s;
-    -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
     background-color: var(--color-4-100);
-    -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
     transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
 
-ul.navbar-nav li ul.sub-menu li {
-    list-style: none !important;
-    padding: 0 !important;
-    max-width: 18rem;
+ul {
+    list-style: none;
 }
 
-ul.navbar-nav:not(.sub-menu) li {
+ul.navbar-nav > li > ul.sub-menu > li {
+    padding: 0;
+    width: 15rem;
+}
+
+ul.navbar-nav:not(.sub-menu) > li {
     position: relative;
 }
 
 ul.navbar-nav li ul.sub-menu li a {
-    color: #333333 !important;
-    margin: 0 !important;
-    padding: 10px 15px !important;
-    transition: all 200ms ease !important;
-    font-weight: 400 !important;
-    border: 0 !important;
-    -webkit-transition: all 200ms ease !important;
-    -moz-transition: all 200ms ease !important;
-    -ms-transition: all 200ms ease !important;
-    -o-transition: all 200ms ease !important;
+    color: #333333;
+    margin: 0;
+    padding: 10px 15px;
+    transition: all 200ms ease;
+    font-weight: 400;
+    border: 0;
 }
-ul.navbar-nav li ul.sub-menu li a:hover {
-    background-color: var(--color-2-100) !important;
-    color: #000000 !important;
+ul.navbar-nav > li > ul.sub-menu > li > a:hover {
+    background-color: var(--color-2-100);
+    color: #000000;
 }
 
 #nav_menu .sub-menu:not(.navbar-nav) a.nav-link::after {

@@ -16,6 +16,7 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-3 conts-parent mb-boot-15 px-2">
                     <div class="conts">
+                        <a href="<?= home_url( "product-category/کاربرد/" ); ?>" class="blog-link-absolute"></a>
                         <div class="content-one img-thumbnail">
                             <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_1_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
                             <div class="caption p-2">
@@ -29,6 +30,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 conts-parent mb-boot-15 px-2">
                     <div class="conts">
+                        <a href="<?= home_url( "product-category/جنس/" ); ?>" class="blog-link-absolute"></a>
                         <div class="content-one img-thumbnail">
                             <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_2_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
                             <div class="caption p-2">
@@ -42,6 +44,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 conts-parent mb-boot-15 px-2">
                     <div class="conts">
+                        <a href="<?= home_url( "product-category/رنگ/" ); ?>" class="blog-link-absolute"></a>
                         <div class="content-one img-thumbnail">
                             <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_3_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
                             <div class="caption p-2">
@@ -55,6 +58,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 conts-parent mb-boot-15 px-2">
                     <div class="conts">
+                        <a href="<?= home_url( "product-category/برند/" ); ?>" class="blog-link-absolute"></a>
                         <div class="content-one img-thumbnail">
                             <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_4_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
                             <div class="caption p-2">
