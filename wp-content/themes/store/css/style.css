@@ -337,3 +337,11 @@ ul.woof_list {
 .woocommerce-privacy-policy-text {
     display: none;
 }
+
+.img-cat-icon-page-title {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	right: -25px;
+	top: 0;
+}

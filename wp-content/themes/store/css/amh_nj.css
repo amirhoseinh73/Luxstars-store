@@ -777,7 +777,7 @@ ul.hover-li-bef li:hover a {
     right: 0;
     width: 90%;
     height: 90%;
-    border: 1px solid var(--color-3-75);
+    border: 1px solid var(--color-4-75);
     border-radius: 22px;
     margin: auto;
     overflow: hidden;
@@ -789,7 +789,7 @@ ul.hover-li-bef li:hover a {
     right: 0;
     left: 0;
     margin: auto;
-    background-color: var(--color-3-75);
+    background-color: var(--color-4-75);
     width: 100%;
 }
 

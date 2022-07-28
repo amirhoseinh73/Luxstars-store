@@ -5,6 +5,18 @@
 ?>
 <?php get_header(); ?>
 
+<?php
+
+$current_cat_id = get_queried_object_id();
+$kids = get_terms([
+    'taxonomy' => get_queried_object()->taxonomy,
+    'parent'   => $current_cat_id,
+]);
+
+var_dump( $current_cat_id );
+var_dump( $kids );
+?>
+
     <header id="header" class="container-fluid position-relative">
         <div class="row">
             <div class="col-12 px-0">
