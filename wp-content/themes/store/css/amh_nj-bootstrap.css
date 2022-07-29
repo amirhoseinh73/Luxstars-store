@@ -1651,8 +1651,9 @@ ul.navbar-nav li:hover ul.sub-menu {
     }
 }
 
-#nav_menu ul.navbar-nav.sub-menu [aria-current]:not([aria-current="false"]) {
-    color: var(--boot-theme-color-hover-3);
+#nav_menu ul.sub-menu > li.active-parent {
+    background-color: var(--color-3-75);
+    color: var(--color-4-100);
 }
 
 #nav_menu [aria-current]:not([aria-current="false"]) {
@@ -2334,7 +2335,7 @@ a.blog-link-absolute {
     }
 
     .card-width-1 {
-        width: 30%;
+        width: 32%;
     }
 }
 

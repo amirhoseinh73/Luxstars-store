@@ -57,6 +57,8 @@ jQuery(function () {
     onDomChange( function() {
         woofFilters2();
     } );
+
+    nav_menu_submenu_hover();
 });
 
 function openNav() {
@@ -340,3 +342,34 @@ function woofFilters2() {
     // expose
     window.onDomChange = onDomChange;
 })(window);
+
+function nav_menu_submenu_hover() {
+    const all_li = document.querySelectorAll( "li.menu-item" );
+    if ( ! all_li ) return
+
+    all_li.forEach( li => {
+        li.addEventListener( "mouseenter", function() {
+            const ul = this.closest( "ul.sub-menu" )
+            if ( ! ul ) return
+            const li = ul.closest( "li.menu-item-has-children" )
+            if ( ! li ) return
+
+            li.classList.add( "active-parent" );
+        } )
+        li.addEventListener( "mouseleave", function() {
+            this.classList.remove( "active-parent" );
+        } )
+    } );
+
+    const all_ul_sub_menu = document.querySelectorAll( "ul.sub-menu" );
+    if ( ! all_ul_sub_menu ) return
+
+    all_ul_sub_menu.forEach( ul => {
+        ul.addEventListener( "mouseenter", function() {
+            const li = this.closest( "li.menu-item-has-children" )
+            if ( ! li ) return
+
+            li.classList.add( "active-parent" );
+        } )
+    } );
+}

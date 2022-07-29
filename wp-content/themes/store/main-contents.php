@@ -83,13 +83,13 @@
                     <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
                     <div class="row mt-boot-30">
                         <?php
-                        $params_product = array('posts_per_page' => 6, 'post_type' => 'product');
+                        $params_product = array('posts_per_page' => 8, 'post_type' => 'product');
                         $last_products = new WP_Query($params_product);
                         if ($last_products->have_posts()) :
                             while ( $last_products->have_posts() ) :
                                 $last_products->the_post();
                                 $product = wc_get_product( get_the_ID() );
-                                get_template_part( "./woocommerce/content", "product", $product );
+                                get_template_part( "./woocommerce/content", "product4", $product );
                             endwhile;
                             wp_reset_postdata();
                         else:
@@ -115,13 +115,13 @@
                     <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
                     <div class="row mt-boot-30">
                     <?php
-                        $params_product = array('posts_per_page' => 3, 'post_type' => 'product');
+                        $params_product = array('posts_per_page' => 4, 'post_type' => 'product');
                         $last_products = new WP_Query($params_product);
                         if ($last_products->have_posts()) :
                             while ( $last_products->have_posts() ) :
                                 $last_products->the_post();
                                 $product = wc_get_product( get_the_ID() );
-                                get_template_part( "./woocommerce/content", "product", $product );
+                                get_template_part( "./woocommerce/content", "product4", $product );
                             endwhile;
                             wp_reset_postdata();
                         else:
@@ -144,13 +144,13 @@
                     <div class="row mt-boot-30">
 
                     <?php
-                        $params_product = array('posts_per_page' => 3, 'post_type' => 'product');
+                        $params_product = array('posts_per_page' => 4, 'post_type' => 'product');
                         $last_products = new WP_Query($params_product);
                         if ($last_products->have_posts()) :
                             while ( $last_products->have_posts() ) :
                                 $last_products->the_post();
                                 $product = wc_get_product( get_the_ID() );
-                                get_template_part( "./woocommerce/content", "product", $product );
+                                get_template_part( "./woocommerce/content", "product4", $product );
                             endwhile;
                             wp_reset_postdata();
                         else:

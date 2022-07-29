@@ -259,3 +259,15 @@ function wooc_extra_register_fields() {?>
     <?php
 }
 add_action( 'woocommerce_register_form_start', 'wooc_extra_register_fields' );
+
+add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
+function jk_woocommerce_breadcrumbs() {
+    return array(
+        'delimiter'   => ' <i class="far fa-angle-left pl-1 align-middle font-15 fw300"></i> ',
+        'wrap_before' => '<nav class="woocommerce-breadcrumb" itemprop="breadcrumb">',
+        'wrap_after'  => '</nav>',
+        'before'      => '',
+        'after'       => '',
+        'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
+    );
+}

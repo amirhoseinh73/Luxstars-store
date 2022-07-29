@@ -4,7 +4,7 @@
             <div class="col-12 px-0">
                 <img src="<?php echo get_template_directory_uri().'/img/footer-img.jpg'; ?>" class="img-header" alt="">
                 <div class="header-caption">
-                    <h1 class="fw600">فروشگاه</h1>
+                    <h1 class="fw600"><?= get_the_title()?></h1>
                     <p class="fw400 font-15">
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت ...
                     </p>
@@ -16,7 +16,7 @@
                                 </a>
                                 <a href="<?php echo home_url() ?>" class="amh_nj-breadcrumb-link font-13">خانه</a>
                                 <i class="far fa-angle-left pl-1 align-middle font-15 fw300"></i>
-                                <a class="amh_nj-breadcrumb-text font-12">فروشگاه</a>
+                                <a class="amh_nj-breadcrumb-text font-12"><?= get_the_title()?></a>
                             </div>
                         </div>
                     </div>
@@ -24,8 +24,7 @@
             </div>
         </div>
     </header>
-    <main class="page-content">
-        <section class="mb-boot-45 mt-boot-22">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
+    <main class="page-content mb-boot-45 mt-boot-22">
+        <div class="container">
+            <div class="row">
+                <section class="col-12">

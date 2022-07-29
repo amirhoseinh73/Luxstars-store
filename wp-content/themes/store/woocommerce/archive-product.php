@@ -94,15 +94,11 @@ foreach ($all_categories as $cat) {
 	if ( ! $sub_cats ) break;
 	echo '<div class="row">';
 	foreach( $sub_cats as $sub_category ) {
-		// echo "<pre/>";
-		// var_dump($sub_category);
-		// die;
-
 		$thumbnail_id = get_term_meta( $sub_category->term_id, 'thumbnail_id', true );
 	    $image = wp_get_attachment_url( $thumbnail_id );
 		$image_default_url = home_url( "wp-content/themes/store/img/no-icons.png" );
 
-		echo '<div class="col-12 col-sm-4 col-lg-3 col-xl-25 conts-parent mb-boot-15 px-2">
+		echo '<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 conts-parent mb-boot-15 px-2">
 			<div class="conts">
 				<a href="' . $sub_category->slug . '" class="blog-link-absolute"></a>
 				<div class="content-one img-thumbnail">
@@ -145,7 +141,6 @@ if ( ! $show_category ) {
 				 * Hook: woocommerce_shop_loop.
 				 */
 				do_action( 'woocommerce_shop_loop' );
-
 				wc_get_template_part( 'content', 'product' );
 			}
 		}
