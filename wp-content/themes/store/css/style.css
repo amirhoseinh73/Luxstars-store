@@ -444,3 +444,12 @@ ul.woof_list {
 	margin-right: 0;
 	margin-left: 15px;
 }
+
+.woocommerce form .form-row label, .woocommerce-page form .form-row label {
+	display: block;
+	width: 100%;
+}
+
+.woocommerce form .password-input, .woocommerce-page form .password-input {
+	width: 100%;
+}

@@ -3,7 +3,7 @@
 function custom_loginlogo_url($url)
 {
 
-    return 'http://idesigner.ir';
+    return 'https://instagram.com/amirhoseinh73';
 
 }
 
@@ -239,7 +239,7 @@ add_filter('gettext', 'rename_flamingo_to_inbox', 10, 3);
 //     unset($required_fields['account_email']);
 
 //     return $required_fields;
-// }
+// // }
 
 
 function wooc_extra_register_fields() {?>
@@ -258,7 +258,7 @@ function wooc_extra_register_fields() {?>
     <div class="clear"></div>
     <?php
 }
-add_action( 'woocommerce_register_form_start', 'wooc_extra_register_fields' );
+// add_action( 'woocommerce_register_form_start', 'wooc_extra_register_fields' );
 
 add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
 function jk_woocommerce_breadcrumbs() {
@@ -271,3 +271,37 @@ function jk_woocommerce_breadcrumbs() {
         'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
     );
 }
+
+add_action('user_register','my_function');
+
+function my_function($user_id){
+  //do your stuff
+  echo $user_id;
+}
+
+add_filter('woocommerce_save_account_details_required_fields', 'remove_required_email_address');
+
+function remove_required_email_address( $required_fields ) {
+    unset($required_fields['account_email']);
+
+    return $required_fields;
+}
+
+function custom_override_checkout_fields( $fields ) {
+    unset($fields['billing']['billing_email']);    
+    return $fields;
+}
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields', 1000, 1 );
+
+add_action( 'woocommerce_process_registration_errors', 'custom_registration_error' );
+
+function custom_registration_errors( $validation_error ){
+    if ( ! isset( $_POST['phone'] ) ){
+        $validation_error = new WP_Error( 'phone-error', __( 'Please enter a phone number.', 'your-plugin' ) );
+    }
+    return $validation_error;
+}
+
+//woocommerce_register_post 
+//wc_create_new_customer
+//woocommerce -> includes -> wc-user-function.php -> PHP Intelisense line 41
