@@ -1050,7 +1050,7 @@ img.img-header {
 .page-content div.lh-2.text-justify h1, .page-content div.lh-2.text-justify h2, .page-content div.lh-2.text-justify h3,
 .page-content div.lh-2.text-justify h4, .page-content div.lh-2.text-justify h5, .page-content div.lh-2.text-justify h6 {
     font-weight: 500;
-    color: var(--color-1-100);
+    color: var(--color-4-100);
     font-size: var(--boot-font-size-h);
     margin-top: 15px;
 }
