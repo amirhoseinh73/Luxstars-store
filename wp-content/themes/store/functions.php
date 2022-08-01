@@ -272,7 +272,7 @@ function jk_woocommerce_breadcrumbs() {
     );
 }
 
-function register_new_user( $user_login, $user_email ) {
+function test_register_new_user( $user_login, $user_email ) {
 	$errors = new WP_Error();
 
 	$sanitized_user_login = sanitize_user( $user_login );
@@ -389,7 +389,13 @@ function register_new_user( $user_login, $user_email ) {
 	return $user_id;
 }
 
-function wc_create_new_customer( $email, $username = '', $password = '', $args = array() ) {
+function amhnj_create_new_user( $username, $password = '', $args = array(), $role = "customer" ) {
+    if ( empty( $username ) || strlen( $username ) !== 11 || $username[ 0 ] !== "0" || $username[ 1 ] !== "9" ) {
+        return new WP_Error( 'registration-error-invalid-username', __( 'Please enter a valid account username.', 'woocommerce' ) );
+    }
+
+    $email = "$username@luxstars.ir";
+
     if ( empty( $email ) || ! is_email( $email ) ) {
         return new WP_Error( 'registration-error-invalid-email', __( 'Please provide a valid email address.', 'woocommerce' ) );
     }
@@ -398,13 +404,13 @@ function wc_create_new_customer( $email, $username = '', $password = '', $args =
         return new WP_Error( 'registration-error-email-exists', apply_filters( 'woocommerce_registration_error_email_exists', __( 'An account is already registered with your email address. <a href="#" class="showlogin">Please log in.</a>', 'woocommerce' ), $email ) );
     }
 
-    if ( 'yes' === get_option( 'woocommerce_registration_generate_username', 'yes' ) && empty( $username ) ) {
-        $username = wc_create_new_customer_username( $email, $args );
-    }
+    // if ( 'yes' === get_option( 'woocommerce_registration_generate_username', 'yes' ) && empty( $username ) ) {
+    //     $username = wc_create_new_customer_username( $email, $args );
+    // }
 
     $username = sanitize_user( $username );
 
-    if ( empty( $username ) || ! validate_username( $username ) ) {
+    if ( ! validate_username( $username ) ) {
         return new WP_Error( 'registration-error-invalid-username', __( 'Please enter a valid account username.', 'woocommerce' ) );
     }
 
@@ -442,7 +448,7 @@ function wc_create_new_customer( $email, $username = '', $password = '', $args =
                 'user_login' => $username,
                 'user_pass'  => $password,
                 'user_email' => $email,
-                'role'       => 'customer',
+                'role'       => $role,
             )
         )
     );
