@@ -261,11 +261,6 @@ ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li {
     transition: all 200ms linear;
 }
 
-.woocommerce-form.woocommerce-form-register.register > .woocommerce-form-row.woocommerce-form-row--wide.form-row.form-row-wide + p,
-.woocommerce-privacy-policy-text {
-    display: none;
-}
-
 .img-cat-icon-page-title {
 	position: absolute;
 	width: 35px;

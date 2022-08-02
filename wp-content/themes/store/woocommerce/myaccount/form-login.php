@@ -19,7 +19,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-do_action( 'woocommerce_before_customer_login_form' ); ?>
+	function amhnj_create_new_user() {
+
+		$username = $_POST[ "username" ];
+		if ( empty( $username ) || strlen( $username ) !== 11 || $username[ 0 ] !== "0" || $username[ 1 ] !== "9" ) {
+			return new WP_Error( 'registration-error-invalid-username', __( 'Please enter a valid account username.', 'woocommerce' ) );
+		}
+		$username = sanitize_user( $username );
+		$email = "$username@luxstars.ir";
+		if ( ! validate_username( $username ) ) {
+			return new WP_Error( 'registration-error-invalid-username', __( 'Please enter a valid account username.', 'woocommerce' ) );
+		}
+		if ( username_exists( $username ) || email_exists( $email ) ) {
+			return new WP_Error( 'registration-error-username-exists', __( 'An account is already registered with that username. Please choose another.', 'woocommerce' ) );
+		}
+
+		$new_customer_data = apply_filters(
+			'woocommerce_new_customer_data',
+			array_merge(
+				array(
+					'user_login' => $username,
+					'user_pass'  => $password,
+					'user_email' => $email,
+					'role'       => "customer",
+				)
+			)
+		);
+
+		$customer_id = wp_insert_user( $new_customer_data );
+
+		if ( is_wp_error( $customer_id ) ) {
+			return $customer_id;
+		}
+
+		do_action( 'woocommerce_created_customer', $customer_id, $new_customer_data, $password_generated );
+
+		return $customer_id;
+	}
+
+	if ( $_POST[ "amhnj_create_new_user" ] ) {
+		$result_register = amhnj_create_new_user();
+
+		if ( is_wp_error( $result_register ) ) {
+			$error_message = $result_register->get_error_message();
+			echo "<p class='woocommerce-error'>$error_message</p>";
+		}
+	}
+
+?>
 
 <?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
 
@@ -69,45 +116,21 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 		<h2><?php esc_html_e( 'Register', 'woocommerce' ); ?></h2>
 
-		<form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >
-
-			<?php do_action( 'woocommerce_register_form_start' ); ?>
-
-			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
-
-				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_username"><?php esc_html_e( 'Username', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
-					<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
-				</p>
-
-			<?php endif; ?>
+		<form method="post" class="woocommerce-form woocommerce-form-register register">
+			<!-- action="<?= home_url( "wp-admin/admin-post.php" )?>" -->
 
 			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-				<label for="reg_email"><?php esc_html_e( 'Phone Number', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
-				<input type="tel" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="<?php echo ( ! empty( $_POST['email'] ) ) ? esc_attr( wp_unslash( $_POST['email'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
+				<label for="reg_username"><?php esc_html_e( 'Phone Number', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+				<input type="tel" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
 			</p>
-
-			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
-
-				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_password"><?php esc_html_e( 'Password', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
-					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" autocomplete="new-password" />
-				</p>
-
-			<?php else : ?>
-
-				<p><?php esc_html_e( 'A link to set a new password will be sent to your email address.', 'woocommerce' ); ?></p>
-
-			<?php endif; ?>
-
-			<?php do_action( 'woocommerce_register_form' ); ?>
 
 			<p class="woocommerce-form-row form-row">
-				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
-				<button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php esc_html_e( 'Register', 'woocommerce' ); ?></button>
+				<!-- <input type="hidden" name="action" value="amhnj_create_new_user"/> -->
+				<button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
+				name="amhnj_create_new_user" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>">
+					<?php esc_html_e( 'Register', 'woocommerce' ); ?>
+				</button>
 			</p>
-
-			<?php do_action( 'woocommerce_register_form_end' ); ?>
 
 		</form>
 
@@ -115,5 +138,3 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 </div>
 <?php endif; ?>
-
-<?php do_action( 'woocommerce_after_customer_login_form' ); ?>
