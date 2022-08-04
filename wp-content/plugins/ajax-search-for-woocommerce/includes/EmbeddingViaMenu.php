@@ -125,15 +125,15 @@ class EmbeddingViaMenu {
 			$args   = '';
 			$style  = '';
 			$layout = get_post_meta( $item->ID, '_menu_item_dgwt_wcas_layout', true );
-			if ( in_array( $layout, array( 'classic', 'icon', 'icon-flexible' ) ) ) {
+			if ( in_array( $layout, array( 'classic', 'icon', 'icon-flexible', 'icon-flexible-inv' ) ) ) {
 				$args .= 'layout="' . $layout . '" ';
 			}
 			$searchIconColor = get_post_meta( $item->ID, '_menu_item_dgwt_wcas_search_icon_color', true );
-			if ( in_array( $layout, array( 'icon', 'icon-flexible' ) ) && ! empty( $searchIconColor ) ) {
+			if ( in_array( $layout, array( 'icon', 'icon-flexible', 'icon-flexible-inv' ) ) && ! empty( $searchIconColor ) ) {
 				$args  .= 'class="dgwt-wcas-menu-item-' . $item->ID . ' " ';
 				$style = sprintf( '<style>.dgwt-wcas-menu-item-%d .dgwt-wcas-ico-magnifier-handler path {fill: %s;}</style>', $item->ID, esc_attr( $searchIconColor ) );
 			}
-			$itemOutput = do_shortcode( sprintf( '[wcas-search-form %s]', $args ) ) . $style;
+			$itemOutput = do_shortcode( sprintf( '[fibosearch %s]', $args ) ) . $style;
 		}
 
 		return $itemOutput;
@@ -153,7 +153,7 @@ class EmbeddingViaMenu {
 					<li>
 						<label class="menu-item-title">
 							<input type="checkbox" class="menu-item-checkbox" name="menu-item[-1][menu-item-object-id]"
-							       value="-1"/> <?php echo __( 'FiboSearch bar', 'ajax-search-for-woocommerce' ); ?>
+								   value="-1"/> <?php echo __( 'FiboSearch bar', 'ajax-search-for-woocommerce' ); ?>
 						</label>
 						<input type="hidden" class="menu-item-type" name="menu-item[-1][menu-item-type]" value="custom"/>
 						<input type="hidden" class="menu-item-title" name="menu-item[-1][menu-item-title]" value="<?php echo self::SEARCH_PLACEHOLDER; ?>"/>
@@ -164,7 +164,7 @@ class EmbeddingViaMenu {
 			<p class="button-controls">
                 <span class="add-to-menu">
 					<button type="submit" class="button-secondary submit-add-to-menu right" value="<?php esc_attr_e( 'Add to menu', 'woocommerce' ); ?>"
-					        name="add-post-type-menu-item" id="submit-posttype-dgwt-wcas-endpoints"><?php esc_html_e( 'Add to menu', 'woocommerce' ); ?></button>
+							name="add-post-type-menu-item" id="submit-posttype-dgwt-wcas-endpoints"><?php esc_html_e( 'Add to menu', 'woocommerce' ); ?></button>
 					<span class="spinner"></span>
 				</span>
 			</p>
@@ -183,10 +183,11 @@ class EmbeddingViaMenu {
 
 	public function getLayoutOptions() {
 		return array(
-			'default'       => __( 'Default', 'ajax-search-for-woocommerce' ),
-			'classic'       => __( 'Search bar only', 'ajax-search-for-woocommerce' ),
-			'icon'          => __( 'Search icon', 'ajax-search-for-woocommerce' ),
-			'icon-flexible' => __( 'Icon on mobile, search bar on desktop', 'ajax-search-for-woocommerce' ),
+			'default'           => __( 'Default', 'ajax-search-for-woocommerce' ),
+			'classic'           => __( 'Search bar', 'ajax-search-for-woocommerce' ),
+			'icon'              => __( 'Search icon', 'ajax-search-for-woocommerce' ),
+			'icon-flexible'     => __( 'Icon on mobile, search bar on desktop', 'ajax-search-for-woocommerce' ),
+			'icon-flexible-inv' => __( 'Icon on desktop, search bar on mobile', 'ajax-search-for-woocommerce' ),
 		);
 	}
 

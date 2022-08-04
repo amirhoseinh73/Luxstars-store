@@ -163,7 +163,7 @@ function rename_flamingo_to_inbox($translated, $original, $domain)
         'WooCommerce' => 'فروشگاه'
     );
 
-    if (isset($strings[$original]) && is_admin()) {
+    if ( isset($strings[$original]) && is_admin() ) {
         $translations = &get_translations_for_domain($domain);
         $translated = $translations->translate($strings[$original]);
     }
@@ -172,7 +172,6 @@ function rename_flamingo_to_inbox($translated, $original, $domain)
 }
 
 add_filter('gettext', 'rename_flamingo_to_inbox', 10, 3);
-
 
 //woocommerce register user with phone
 // function wooc_add_phone_number_field() {

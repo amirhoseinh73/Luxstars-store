@@ -5,6 +5,15 @@ if ( ! defined( 'DGWT_WCAS_FILE' ) ) {
 	exit;
 }
 
+add_filter( 'et_builder_load_requests', function ( $requests ) {
+	if ( ! isset( $requests['wc-ajax'] ) ) {
+		$requests['wc-ajax'] = array();
+	}
+	$requests['wc-ajax'][] = 'dgwt_wcas_result_details';
+
+	return $requests;
+} );
+
 add_filter( 'dgwt/wcas/scripts/mobile_breakpoint', function () {
 	return 980;
 } );

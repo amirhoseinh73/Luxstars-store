@@ -5,6 +5,7 @@ namespace DgoraWcas;
 use  DgoraWcas\Admin\Promo\Upgrade ;
 use  DgoraWcas\Admin\SettingsAPI ;
 use  DgoraWcas\Admin\Promo\FeedbackNotice ;
+use  DgoraWcas\Engines\TNTSearchMySQL\Config ;
 use  DgoraWcas\Engines\TNTSearchMySQL\Indexer\Builder ;
 use  DgoraWcas\Engines\TNTSearchMySQL\Indexer\Scheduler ;
 // Exit if accessed directly
@@ -67,6 +68,7 @@ class Settings
             3
         );
         add_action( 'wp_ajax_dgwt_wcas_adv_settings', array( $this, 'toggleAdvancedSettings' ) );
+        $this->dependentOptions();
     }
     
     /**
@@ -111,15 +113,16 @@ class Settings
         
         if ( dgoraAsfwFs()->is_premium() ) {
             $suffix = '';
+            // TODO tutaj trzeba wskazac budowany indeks
             
-            if ( Builder::getInfo( 'status' ) === 'error' || Builder::isIndexerWorkingTooLong() ) {
+            if ( Builder::getInfo( 'status', Config::getIndexRole() ) === 'error' || Builder::isIndexerWorkingTooLong() ) {
                 $suffix .= '<span class="js-dgwt-wcas-indexer-tab-error dgwt-wcas-tab-mark active">!</span>';
             } else {
                 $suffix .= '<span class="js-dgwt-wcas-indexer-tab-error dgwt-wcas-tab-mark">!</span>';
             }
             
             
-            if ( in_array( Builder::getInfo( 'status' ), array( 'preparing', 'building', 'cancellation' ) ) ) {
+            if ( in_array( Builder::getInfo( 'status', Config::getIndexRole() ), array( 'preparing', 'building', 'cancellation' ) ) ) {
                 $suffix .= '<span class="js-dgwt-wcas-indexer-tab-progress dgwt-wcas-tab-progress active"></span>';
             } else {
                 $suffix .= '<span class="js-dgwt-wcas-indexer-tab-progress dgwt-wcas-tab-progress"></span>';
@@ -150,8 +153,17 @@ class Settings
      */
     function settingsFields()
     {
+        $styleLink = 'https://fibosearch.com/pirx-a-bean-shaped-search-bar-design-youll-love/';
         $darkenedBgLink = 'https://fibosearch.com/darkened-background/';
         $fuzzySearchLink = 'https://fibosearch.com/documentation/features/fuzzy-search/';
+        $synonymsLink = 'https://fibosearch.com/documentation/features/synonyms/';
+        $excludeIncludeLink = 'https://fibosearch.com/documentation/features/exclude-include/';
+        $detailsPanelLink = 'https://fibosearch.com/feature/details-panel/';
+        $schedulerLink = 'https://fibosearch.com/documentation/features/index-scheduling/';
+        $customFieldsLink = 'https://fibosearch.com/documentation/features/search-in-custom-fields/';
+        $mobileOverlayLink = 'https://fibosearch.com/documentation/features/overlay-on-mobile/';
+        $searchLayoutLink = 'https://fibosearch.com/documentation/features/search-bar-layout/';
+        $readMore = __( '<a target="_blank" href="%s">Read more</a> about this feature.', 'ajax-search-for-woocommerce' );
         $settingsFields = array(
             'dgwt_wcas_basic'        => apply_filters( 'dgwt/wcas/settings/section=basic', array(
             90  => array(
@@ -203,10 +215,24 @@ class Settings
         ),
             500  => array(
             'name'    => 'search_submit_text',
-            'label'   => __( 'Submit label', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'search-submit-text', __( 'To display the magnifier icon leave this field empty.', 'ajax-search-for-woocommerce' ) ),
+            'label'   => __( 'Label', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'search-submit-text', __( 'To display the magnifier icon leave this field empty.', 'ajax-search-for-woocommerce' ) ),
             'type'    => 'text',
-            'class'   => 'js-dgwt-wcas-cbtgroup-submit-btn',
+            'class'   => 'js-dgwt-wcas-cbtgroup-submit-btn dgwt-wcas-settings-suboption',
             'default' => __( 'Search', 'ajax-search-for-woocommerce' ),
+        ),
+            510  => array(
+            'name'    => 'bg_submit_color',
+            'label'   => __( 'Background color', 'ajax-search-for-woocommerce' ),
+            'type'    => 'color',
+            'class'   => 'js-dgwt-wcas-adv-settings js-dgwt-wcas-cbtgroup-submit-btn dgwt-wcas-settings-suboption',
+            'default' => '',
+        ),
+            520  => array(
+            'name'    => 'text_submit_color',
+            'label'   => '<span>' . __( 'Text color', 'ajax-search-for-woocommerce' ) . ' </span><span>' . __( 'Search icon color', 'ajax-search-for-woocommerce' ) . '</span>',
+            'type'    => 'color',
+            'class'   => 'js-dgwt-wcas-adv-settings js-dgwt-wcas-cbtgroup-submit-btn dgwt-wcas-settings-suboption',
+            'default' => '',
         ),
             600  => array(
             'name'    => 'search_placeholder',
@@ -216,42 +242,70 @@ class Settings
         ),
             630  => array(
             'name'  => 'layout_head',
-            'label' => __( 'Layout', 'ajax-search-for-woocommerce' ),
+            'label' => __( 'Appearance', 'ajax-search-for-woocommerce' ),
             'type'  => 'head',
             'class' => 'dgwt-wcas-sgs-header js-dgwt-wcas-adv-settings',
         ),
-            660  => array(
-            'name'    => 'search_layout',
-            'label'   => __( 'Layout', 'ajax-search-for-woocommerce' ),
+            645  => array(
+            'name'    => 'search_style',
+            'label'   => __( 'Style', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'search_style', sprintf( __( 'FiboSearch provides two different styles of search bars: Solaris and Pirx. Solaris has a rectangular shape while Pirx is a bean-shaped bar with curvy and smooth edges. <a target="_blank" href="%s">See the differences</a> between Solaris and Pirx style.', 'ajax-search-for-woocommerce' ), $styleLink ) ),
             'type'    => 'select',
             'options' => array(
-            'classic'       => __( 'Search bar only', 'ajax-search-for-woocommerce' ),
-            'icon'          => __( 'Search icon', 'ajax-search-for-woocommerce' ),
-            'icon-flexible' => __( 'Icon on mobile, search bar on desktop', 'ajax-search-for-woocommerce' ),
+            'solaris' => _x( 'Solaris (default)', 'Solaris is proper name.', 'ajax-search-for-woocommerce' ),
+            'pirx'    => _x( 'Pirx (beta)', 'Pirx is proper name.', 'ajax-search-for-woocommerce' ),
+        ),
+            'default' => 'solaris',
+            'class'   => 'js-dgwt-wcas-adv-settings',
+        ),
+            660  => array(
+            'name'    => 'search_layout',
+            'label'   => __( 'Layout', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'search_layout', __( 'FiboSearch might be displayed as a search bar, icon, or mixed of them.', 'ajax-search-for-woocommerce' ) . ' <a target="_blank" href="' . $searchLayoutLink . '">' . __( 'See what each of these layouts looks like', 'ajax-search-for-woocommerce' ) . '</a>' ),
+            'type'    => 'select',
+            'options' => array(
+            'classic'           => __( 'Search bar', 'ajax-search-for-woocommerce' ),
+            'icon'              => __( 'Search icon', 'ajax-search-for-woocommerce' ),
+            'icon-flexible'     => __( 'Icon on mobile, search bar on desktop', 'ajax-search-for-woocommerce' ),
+            'icon-flexible-inv' => __( 'Icon on desktop, search bar on mobile', 'ajax-search-for-woocommerce' ),
         ),
             'default' => 'classic',
             'class'   => 'js-dgwt-wcas-adv-settings',
         ),
+            670  => array(
+            'name'    => 'mobile_breakpoint',
+            'label'   => __( 'Breakpoint', 'ajax-search-for-woocommerce' ),
+            'desc'    => __( 'px', 'ajax-search-for-woocommerce' ),
+            'type'    => 'number',
+            'class'   => 'js-dgwt-wcas-adv-settings dgwt-wcas-settings-suboption',
+            'size'    => 'small',
+            'default' => 992,
+        ),
+            675  => array(
+            'name'    => 'search_icon_color',
+            'label'   => __( 'Search icon color', 'ajax-search-for-woocommerce' ),
+            'type'    => 'color',
+            'class'   => 'js-dgwt-wcas-adv-settings dgwt-wcas-settings-suboption',
+            'default' => '',
+        ),
             680  => array(
             'name'    => 'enable_mobile_overlay',
-            'label'   => __( 'Overlay on mobile', 'ajax-search-for-woocommerce' ),
-            'desc'    => __( 'The search will open in overlay on mobile', 'ajax-search-for-woocommerce' ),
+            'label'   => __( 'Overlay on mobile', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'enable_mobile_overlay', __( 'Covers anything that is displayed on the screen and simplifies the view to search bar + results.', 'ajax-search-for-woocommerce' ) . ' ' . sprintf( $readMore, $mobileOverlayLink ) ),
+            'desc'    => __( 'The search will open as an overlay on mobile', 'ajax-search-for-woocommerce' ),
             'type'    => 'checkbox',
             'default' => 'on',
             'class'   => 'js-dgwt-wcas-adv-settings',
         ),
-            690  => array(
-            'name'    => 'mobile_breakpoint',
-            'label'   => __( 'Mobile breakpoint', 'ajax-search-for-woocommerce' ),
+            685  => array(
+            'name'    => 'mobile_overlay_breakpoint',
+            'label'   => __( 'Breakpoint', 'ajax-search-for-woocommerce' ),
             'desc'    => __( 'px', 'ajax-search-for-woocommerce' ),
             'type'    => 'number',
-            'class'   => 'js-dgwt-wcas-adv-settings',
+            'class'   => 'js-dgwt-wcas-adv-settings dgwt-wcas-settings-suboption',
             'size'    => 'small',
             'default' => 992,
         ),
             695  => array(
             'name'    => 'darken_background',
-            'label'   => __( 'Darkened background', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'darken-_background', sprintf( __( 'Darkening the page background while autocomplete is active gives it stronger emphasis, minimizing elements (e.g., ads, carousels, and other page content) that could distract users from considering autocomplete suggestions. <a target="_blank" href="%s">Read more</a> about this feature.', 'ajax-search-for-woocommerce' ), $darkenedBgLink ) ),
+            'label'   => __( 'Darkened background', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'darken-_background', __( 'Darkening the page background while autocomplete is active gives it stronger emphasis, minimizing elements (e.g., ads, carousels, and other page content) that could distract users from considering autocomplete suggestions.', 'ajax-search-for-woocommerce' ) . ' ' . sprintf( $readMore, $darkenedBgLink ) ),
             'desc'    => __( '(beta feature)', 'ajax-search-for-woocommerce' ),
             'type'    => 'checkbox',
             'class'   => 'js-dgwt-wcas-adv-settings',
@@ -260,16 +314,9 @@ class Settings
         ),
             700  => array(
             'name'  => 'search_form',
-            'label' => __( 'Colors', 'ajax-search-for-woocommerce' ),
+            'label' => __( 'Other colors', 'ajax-search-for-woocommerce' ),
             'type'  => 'head',
             'class' => 'dgwt-wcas-sgs-header js-dgwt-wcas-adv-settings',
-        ),
-            750  => array(
-            'name'    => 'search_icon_color',
-            'label'   => __( 'Search icon', 'ajax-search-for-woocommerce' ),
-            'type'    => 'color',
-            'class'   => 'js-dgwt-wcas-adv-settings',
-            'default' => '',
         ),
             800  => array(
             'name'    => 'bg_input_color',
@@ -290,20 +337,6 @@ class Settings
             'label'   => __( 'Search input border', 'ajax-search-for-woocommerce' ),
             'type'    => 'color',
             'class'   => 'js-dgwt-wcas-adv-settings',
-            'default' => '',
-        ),
-            1100 => array(
-            'name'    => 'bg_submit_color',
-            'label'   => __( 'Search submit background', 'ajax-search-for-woocommerce' ),
-            'type'    => 'color',
-            'class'   => 'js-dgwt-wcas-adv-settings js-dgwt-wcas-cbtgroup-submit-btn',
-            'default' => '',
-        ),
-            1200 => array(
-            'name'    => 'text_submit_color',
-            'label'   => __( 'Search submit text', 'ajax-search-for-woocommerce' ),
-            'type'    => 'color',
-            'class'   => 'js-dgwt-wcas-adv-settings js-dgwt-wcas-cbtgroup-submit-btn',
             'default' => '',
         ),
             1500 => array(
@@ -447,7 +480,7 @@ class Settings
         ),
             2100 => array(
             'name'    => 'show_details_box',
-            'label'   => __( 'Show Details panel', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'details-box', __( 'The Details panel is an additional container for extended information. The details are changed dynamically when a user mouse over one of the suggestions.', 'ajax-search-for-woocommerce' ) ),
+            'label'   => __( 'Show Details panel', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'details-box', __( 'The Details panel is an additional container for extended information. The details change dynamically when the cursor hovers over one of the suggestions.', 'ajax-search-for-woocommerce' ) . ' ' . sprintf( $readMore, $detailsPanelLink ) ),
             'type'    => 'checkbox',
             'size'    => 'small',
             'default' => 'off',
@@ -543,7 +576,7 @@ class Settings
         ),
             300 => array(
             'name'    => 'search_in_custom_fields',
-            'label'   => __( 'Search in custom fields', 'ajax-search-for-woocommerce' ),
+            'label'   => __( 'Search in custom fields', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'search_in_custom_fields', __( 'Make your custom fields searchable from our search bar.', 'ajax-search-for-woocommerce' ) . ' ' . sprintf( $readMore, $customFieldsLink ) ),
             'class'   => 'dgwt-wcas-premium-only',
             'type'    => 'text',
             'default' => '',
@@ -568,9 +601,9 @@ class Settings
         ),
             520 => array(
             'name'  => 'search_synonyms',
-            'label' => __( 'Synonyms', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'synonyms', __( "The synonyms feature allows your users to find more relevant results. If your products have alternative names and users often misspell them, consider adding synonyms.", 'ajax-search-for-woocommerce' ) ),
+            'label' => __( 'Synonyms', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'synonyms', sprintf( __( 'The synonyms feature allows your users to find more relevant results. If your products have alternative names and users often misspell them, consider adding synonyms. <a target="_blank" href="%s">Read more</a> about this feature.', 'ajax-search-for-woocommerce' ), $synonymsLink ) ),
             'type'  => 'textarea',
-            'desc'  => __( 'Synonyms should be separated by a comma. Each new synonyms group is entered on a new line. You can use a phrase instead of a single word. <br /> <br />Sample list:<br /> <br /><span class="dgwt-wcas-synonyms-sample">sofa, couch, davenport, divan, settee<br />big, grand, great, large, outsize</span>', 'ajax-search-for-woocommerce' ),
+            'desc'  => __( 'Synonyms should be separated by a comma. Each new synonyms group is entered in a new line. You can use a phrase instead of a single word. <br /> <br />Sample list:<br /> <br /><span class="dgwt-wcas-synonyms-sample">sofa, couch, davenport, divan, settee<br />big, grand, great, large, outsize</span>', 'ajax-search-for-woocommerce' ),
             'class' => 'dgwt-wcas-settings-synonyms js-dgwt-wcas-adv-settings dgwt-wcas-premium-only',
         ),
             600 => array(
@@ -583,7 +616,7 @@ class Settings
             'name'    => 'filter_products_mode',
             'label'   => __( 'Filtering mode', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark(
             'filter_products_mode',
-            __( 'Exclude the product group from the search results or allow search only among the indicated product group', 'ajax-search-for-woocommerce' ),
+            __( 'Exclude the product group from the search results or allow search only among the indicated product group.', 'ajax-search-for-woocommerce' ) . ' ' . sprintf( $readMore, $excludeIncludeLink ),
             '',
             'right'
         ),
@@ -629,7 +662,7 @@ class Settings
         ),
             110 => array(
             'name'    => 'indexer_schedule',
-            'label'   => __( 'Enable Scheduler', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'indexer-schedule', __( "In most cases, you don't need to use the scheduler because the search index updates when you edit products. If you use import tools or custom code to refresh prices or bulk add/edit products, the indexing scheduler will be helpful.", 'ajax-search-for-woocommerce' ) ),
+            'label'   => __( 'Enable Scheduler', 'ajax-search-for-woocommerce' ) . ' ' . Helpers::createQuestionMark( 'indexer-schedule', __( "In most cases, you don't need to use the scheduler because the search index updates when you edit products. If you use import tools or custom code to refresh prices or bulk add/edit products, the indexing scheduler will be helpful.", 'ajax-search-for-woocommerce' ) . ' ' . sprintf( $readMore, $schedulerLink ) ),
             'type'    => 'checkbox',
             'size'    => 'small',
             'class'   => 'dgwt-wcas-options-cb-toggle js-dgwt-wcas-cbtgroup-indexer-schedule js-dgwt-wcas-adv-settings dgwt-wcas-premium-only',
@@ -657,7 +690,7 @@ class Settings
         ) ),
         );
         $fuzzinesText1 = '<strong>' . __( 'Increases sales conversions', 'ajax-search-for-woocommerce' ) . '</strong>';
-        $fuzzinesText2 = sprintf( __( 'Returns suggestions based on likely relevance, even though a search keyword may not exactly match. E.g if you type “ipho<b>m</b>e” you get the same results as for “iphone”. <a target="_blank" href="%s">Read more</a> about fuzzy search feature.', 'ajax-search-for-woocommerce' ), $fuzzySearchLink );
+        $fuzzinesText2 = sprintf( __( 'Returns suggestions based on likely relevance, even though a search keyword may not exactly match. E.g if you type “ipho<b>m</b>e” you get the same results as for “iphone”. <a target="_blank" href="%s">Read more</a> about the fuzzy search feature.', 'ajax-search-for-woocommerce' ), $fuzzySearchLink );
         
         if ( dgoraAsfwFs()->is_premium() ) {
         } else {
@@ -758,10 +791,10 @@ class Settings
         return $value;
     }
     
-    /*
+    /**
      * Update option
      *
-     * @param string $option_key
+     * @param string $optionKey
      * @param string $value
      *
      * @return bool
@@ -784,7 +817,12 @@ class Settings
             
             if ( $canUpdate ) {
                 $updated = update_option( $this->settingSlug, $settings );
-                $this->settingsCache = array();
+                
+                if ( $updated ) {
+                    $this->settingsCache = array();
+                    do_action( 'dgwt/wcas/settings/option_updated', $optionKey, $value );
+                }
+            
             }
         
         }
@@ -881,6 +919,52 @@ class Settings
             $is_premium = true;
         }
         return $is_premium;
+    }
+    
+    /**
+     * Force values of some settings if they depend on other settings
+     *
+     * @return void
+     */
+    private function dependentOptions()
+    {
+        add_filter( 'dgwt/wcas/settings/section=form', function ( $settings ) {
+            $text = __( "You have selected the <b>Style -> Style -> Pirx (bean-shaped)</b> option. Pirx style forces a submit button to be enabled. You can find this option a few rows below. That's why this option is blocked.", 'ajax-search-for-woocommerce' );
+            $settings[400]['label'] = Helpers::createOverrideTooltip( 'ovtt-pirx-submit-button', '<p>' . $text . '</p>' ) . $settings[400]['label'];
+            return $settings;
+        } );
+        // Pirx style - force options for submit button
+        // Mark that the value of the option "mobile overlay" is forced
+        
+        if ( $this->getOption( 'search_style' ) === 'pirx' ) {
+            //Submit button
+            add_filter( 'dgwt/wcas/settings/load_value/key=show_submit_button', function () {
+                return 'on';
+            } );
+            add_filter( 'dgwt/wcas/settings/section=form', function ( $settings ) {
+                $settings[400]['disabled'] = true;
+                return $settings;
+            } );
+            // Value of submit button
+            add_filter( 'dgwt/wcas/settings/load_value/key=search_submit_text', function () {
+                return '';
+            } );
+            add_filter( 'dgwt/wcas/settings/section=form', function ( $settings ) {
+                $settings[500]['disabled'] = true;
+                $settings[500]['class'] = $settings[500]['class'] . ' dgwt-wcas-hidden';
+                return $settings;
+            } );
+            // Submit background color
+            add_filter( 'dgwt/wcas/settings/load_value/key=bg_submit_color', function () {
+                return '';
+            } );
+            add_filter( 'dgwt/wcas/settings/section=form', function ( $settings ) {
+                $settings[510]['disabled'] = true;
+                $settings[510]['class'] = $settings[510]['class'] . ' dgwt-wcas-hidden';
+                return $settings;
+            } );
+        }
+    
     }
     
     /**

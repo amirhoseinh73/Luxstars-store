@@ -39,12 +39,73 @@ add_action( 'wp_footer', function () {
 			});
 		}(jQuery));
 	</script>
+	<script>
+		(function ($) {
+			function avia_apply_quant_btn() {
+				jQuery(".quantity input[type=number]").each(function () {
+					var number = $(this),
+						max = parseFloat(number.attr('max')),
+						min = parseFloat(number.attr('min')),
+						step = parseInt(number.attr('step'), 10),
+						newNum = jQuery(jQuery('<div />').append(number.clone(true)).html().replace('number', 'text')).insertAfter(number);
+					number.remove();
+
+					setTimeout(function () {
+						if (newNum.next('.plus').length === 0) {
+							var minus = jQuery('<input type="button" value="-" class="minus">').insertBefore(newNum),
+								plus = jQuery('<input type="button" value="+" class="plus">').insertAfter(newNum);
+
+							minus.on('click', function () {
+								var the_val = parseInt(newNum.val(), 10) - step;
+								the_val = the_val < 0 ? 0 : the_val;
+								the_val = the_val < min ? min : the_val;
+								newNum.val(the_val).trigger("change");
+							});
+							plus.on('click', function () {
+								var the_val = parseInt(newNum.val(), 10) + step;
+								the_val = the_val > max ? max : the_val;
+								newNum.val(the_val).trigger("change");
+
+							});
+						}
+					}, 10);
+
+				});
+			}
+
+			$(document).ready(function () {
+
+				$(document).on('dgwtWcasDetailsPanelLoaded', function () {
+					avia_apply_quant_btn();
+				});
+			});
+
+		}(jQuery));
+	</script>
 	<?php
 } );
 
 add_action( 'wp_head', function () {
 	?>
 	<style>
+		#top .dgwt-wcas-no-submit .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+			padding: 10px 15px 10px 40px;
+			margin: 0;
+		}
+
+		#top.rtl .dgwt-wcas-no-submit .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+			padding: 10px 40px 10px 15px
+		}
+
+		#top .av-main-nav .dgwt-wcas-no-submit .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+			padding: 10px 15px 10px 15px;
+			margin: 0;
+		}
+
+		#top.rtl .av-main-nav .dgwt-wcas-no-submit .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+			padding: 10px 15px 10px 15px
+		}
+
 		.dgwt-wcas-search-enfold-wrapper {
 			cursor: default;
 		}

@@ -33,9 +33,9 @@ class WooCommerceProductsFilter {
 
 		add_filter( 'woof_get_filtered_price_query', array( $this, 'get_filtered_price_query' ) );
 
-		add_filter( 'woof_get_terms_args', array( $this, 'get_terms_args' ) );
-
 		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ) );
+
+		add_filter( 'woof_dynamic_count_attr', array( $this, 'dynamic_count_attr' ), 10, 2 );
 	}
 
 	/**
@@ -110,25 +110,6 @@ class WooCommerceProductsFilter {
 	}
 
 	/**
-	 * Passing our search results to plugin's terms filters
-	 *
-	 * The plugin will use our products IDs to determine terms in the displayed filters.
-	 *
-	 * @param array $args
-	 *
-	 * @return array
-	 */
-	public function get_terms_args( $args ) {
-		$post_ids = apply_filters( 'dgwt/wcas/search_page/result_post_ids', array() );
-
-		if ( $post_ids ) {
-			$args['object_ids'] = $post_ids;
-		}
-
-		return $args;
-	}
-
-	/**
 	 * Check if it's search page
 	 *
 	 * @return bool
@@ -151,16 +132,38 @@ class WooCommerceProductsFilter {
 	/**
 	 * Filter posts used to show counters next to the filters
 	 *
-	 * @param $query
+	 * @param \WP_Query $query
 	 *
 	 * @return mixed
 	 */
 	public function pre_get_posts( $query ) {
-		if ( $this->is_search() && Helpers::is_running_inside_class( 'WP_QueryWoofCounter' ) ) {
+		if ( $this->is_search() && Helpers::is_running_inside_class( 'WP_QueryWoofCounter', 15 ) ) {
 			$post_ids = apply_filters( 'dgwt/wcas/search_page/result_post_ids', array() );
 			$query->set( 'post__in', $post_ids );
 		}
 
 		return $query;
+	}
+
+	/**
+	 * Including search results in the query used to determine the counters for the filters
+	 *
+	 * @param array $args
+	 * @param string $custom_type
+	 *
+	 * @return array
+	 */
+	public function dynamic_count_attr( $args, $custom_type ) {
+		if ( ! empty( $custom_type ) ) {
+			return $args;
+		}
+
+		$post_ids = apply_filters( 'dgwt/wcas/search_page/result_post_ids', array() );
+
+		if ( $post_ids ) {
+			$args['post__in'] = $post_ids;
+		}
+
+		return $args;
 	}
 }

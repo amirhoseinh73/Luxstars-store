@@ -8,7 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class ThemesCompatibility {
+	private $themeSlug = '';
 	private $themeName = '';
+	private $parentThemeName = '';
 	private $theme = null;
 	private $supportActive = false;
 
@@ -19,25 +21,28 @@ class ThemesCompatibility {
 	}
 
 	private function setCurrentTheme() {
-		$name = '';
-
 		$theme = wp_get_theme();
 
 		if ( is_object( $theme ) && is_a( $theme, 'WP_Theme' ) ) {
-			$template     = $theme->get_template();
-			$stylesheet   = $theme->get_stylesheet();
-			$isChildTheme = $template !== $stylesheet;
-			$name         = sanitize_title( $theme->Name );
+			$template        = $theme->get_template();
+			$stylesheet      = $theme->get_stylesheet();
+			$isChildTheme    = $template !== $stylesheet;
+			$this->themeSlug = sanitize_title( $theme->Name );
 
 			if ( $isChildTheme ) {
-				$name = strtolower( $template );
+				$this->themeSlug = strtolower( $template );
 			}
 
-			$this->theme = $theme;
+			$this->theme           = $theme;
+			$this->themeName       = $theme->name;
+			$this->parentThemeName = ! empty( $theme->parent_theme ) ? $theme->parent_theme : '';
 		}
 
-		$this->themeName = $name;
-
+		$this->themeSlug = apply_filters( 'dgwt/wcas/integrations/themes/current_theme_slug', $this->themeSlug );
+		$this->themeName = apply_filters( 'dgwt/wcas/integrations/themes/current_theme_name', $this->themeName );
+		if ( $this->isChildTheme() ) {
+			$this->parentThemeName = apply_filters( 'dgwt/wcas/integrations/themes/current_parent_theme_name', $this->parentThemeName );
+		}
 	}
 
 	/**
@@ -47,185 +52,198 @@ class ThemesCompatibility {
 	 */
 	public function supportedThemes() {
 		return array(
-			'storefront'    => array(
+			'storefront'       => array(
 				'slug' => 'storefront',
 				'name' => 'Storefront',
 			),
-			'flatsome'      => array(
+			'flatsome'         => array(
 				'slug' => 'flatsome',
 				'name' => 'Flatsome',
 			),
-			'astra'         => array(
+			'astra'            => array(
 				'slug' => 'astra',
 				'name' => 'Astra',
 			),
-			'thegem'        => array(
+			'thegem'           => array(
 				'slug' => 'thegem',
 				'name' => 'TheGem',
 			),
-			'impreza'       => array(
+			'impreza'          => array(
 				'slug' => 'impreza',
 				'name' => 'Impreza',
+				'args' => array(
+					'alwaysEnabled' => true,
+				),
 			),
-			'woodmart'      => array(
+			'woodmart'         => array(
 				'slug' => 'woodmart',
 				'name' => 'Woodmart',
 			),
-			'enfold'        => array(
+			'enfold'           => array(
 				'slug' => 'enfold',
 				'name' => 'Enfold',
 			),
-			'shopkeeper'    => array(
+			'shopkeeper'       => array(
 				'slug' => 'shopkeeper',
 				'name' => 'Shopkeeper',
 			),
-			'the7'          => array(
+			'the7'             => array(
 				'slug' => 'the7',
 				'name' => 'The7',
 			),
-			'dt-the7'       => array(
+			'dt-the7'          => array(
 				'slug' => 'dt-the7',
 				'name' => 'The7',
 			),
-			'avada'         => array(
+			'avada'            => array(
 				'slug' => 'avada',
 				'name' => 'Avada',
 			),
-			'shop-isle'     => array(
-				'slug'      => 'shop-isle',
-				'className' => 'ShopIsle',
-				'name'      => 'Shop Isle',
+			'shop-isle'        => array(
+				'slug' => 'shop-isle',
+				'name' => 'Shop Isle',
 			),
-			'shopical'      => array(
+			'shopical'         => array(
 				'slug' => 'shopical',
 				'name' => 'Shopical',
 			),
-			'shopical-pro'  => array(
+			'shopical-pro'     => array(
 				'slug' => 'shopical-pro',
 				'name' => 'ShopicalPro',
+				'args' => array(
+					'partialFilename' => 'shopical.php',
+				)
 			),
-			'ekommart'      => array(
+			'ekommart'         => array(
 				'slug' => 'ekommart',
 				'name' => 'Ekommart',
 			),
-			'savoy'         => array(
+			'savoy'            => array(
 				'slug' => 'savoy',
 				'name' => 'Savoy',
 			),
-			'sober'         => array(
+			'sober'            => array(
 				'slug' => 'sober',
 				'name' => 'Sober',
 			),
-			'bridge'        => array(
+			'bridge'           => array(
 				'slug' => 'bridge',
 				'name' => 'Bridge',
 			),
-			'divi'          => array(
+			'divi'             => array(
 				'slug' => 'divi',
 				'name' => 'Divi',
 			),
-			'block-shop'    => array(
+			'block-shop'       => array(
 				'slug' => 'block-shop',
 				'name' => 'BlockShop',
 			),
-			'dfd-ronneby'   => array(
+			'dfd-ronneby'      => array(
 				'slug' => 'dfd-ronneby',
 				'name' => 'DFDRonneby',
 			),
-			'restoration'   => array(
+			'restoration'      => array(
 				'slug' => 'restoration',
 				'name' => 'Restoration',
 			),
-			'salient'       => array(
+			'salient'          => array(
 				'slug' => 'salient',
 				'name' => 'Salient',
 			),
-			'konte'         => array(
+			'konte'            => array(
 				'slug' => 'konte',
 				'name' => 'Konte',
 			),
-			'rehub-theme'   => array(
+			'rehub-theme'      => array(
 				'slug' => 'rehub-theme',
 				'name' => 'Rehub',
 			),
-			'supro'         => array(
+			'supro'            => array(
 				'slug' => 'supro',
 				'name' => 'Supro',
 			),
-			'open-shop'     => array(
+			'open-shop'        => array(
 				'slug' => 'open-shop',
 				'name' => 'OpenShop',
 			),
-			'ciyashop'      => array(
+			'ciyashop'         => array(
 				'slug' => 'ciyashop',
 				'name' => 'CiyaShop',
 			),
-			'bigcart'       => array(
+			'bigcart'          => array(
 				'slug' => 'bigcart',
 				'name' => 'BigCart',
 			),
-			'top-store-pro' => array(
+			'top-store-pro'    => array(
 				'slug' => 'top-store-pro',
 				'name' => 'TopStorePro',
 			),
-			'top-store'     => array(
+			'top-store'        => array(
 				'slug' => 'top-store',
 				'name' => 'TopStore',
+				'args' => array(
+					'partialFilename' => 'top-store-pro.php',
+				)
 			),
-			'goya'          => array(
+			'goya'             => array(
 				'slug' => 'goya',
 				'name' => 'Goya',
 			),
-			'electro'       => array(
+			'electro'          => array(
 				'slug' => 'electro',
 				'name' => 'Electro',
 			),
-			'shopisle-pro'  => array(
-				'slug'      => 'shopisle-pro',
-				'className' => 'ShopIslePro',
-				'name'      => 'ShopIsle PRO',
+			'shopisle-pro'     => array(
+				'slug' => 'shopisle-pro',
+				'name' => 'ShopIsle PRO',
+				'args' => array(
+					'partialFilename' => 'shop-isle.php',
+				)
 			),
-			'estore'        => array(
-				'slug'      => 'estore',
-				'className' => 'Estore',
-				'name'      => 'eStore',
+			'estore'           => array(
+				'slug' => 'estore',
+				'name' => 'eStore',
 			),
-			'estore-pro'    => array(
-				'slug'      => 'estore-pro',
-				'className' => 'EstorePro',
-				'name'      => 'eStore Pro',
+			'estore-pro'       => array(
+				'slug' => 'estore-pro',
+				'name' => 'eStore Pro',
+				'args' => array(
+					'partialFilename' => 'estore.php',
+				)
 			),
-			'generatepress' => array(
+			'generatepress'    => array(
 				'slug' => 'generatepress',
 				'name' => 'GeneratePress',
 			),
-			'open-shop-pro' => array(
-				'slug'      => 'open-shop-pro',
-				'className' => 'OpenShopPro',
-				'name'      => 'Open Shop Pro',
+			'open-shop-pro'    => array(
+				'slug' => 'open-shop-pro',
+				'name' => 'Open Shop Pro',
+				'args' => array(
+					'partialFilename' => 'open-shop.php',
+				)
 			),
-			'uncode'        => array(
+			'uncode'           => array(
 				'slug' => 'uncode',
 				'name' => 'Uncode',
 			),
-			'xstore'        => array(
-				'slug'      => 'xstore',
-				'className' => 'Xstore',
-				'name'      => 'XStore',
+			'xstore'           => array(
+				'slug' => 'xstore',
+				'name' => 'XStore',
 			),
-			'kadence'       => array(
+			'kadence'          => array(
 				'slug' => 'kadence',
 				'name' => 'Kadence',
 			),
 			'thegem-elementor' => array(
-				'slug'      => 'thegem-elementor',
-				'className' => 'TheGemElementor',
-				'name'      => 'TheGem (Elementor)',
+				'slug' => 'thegem-elementor',
+				'name' => 'TheGem (Elementor)',
 			),
-			'thegem-wpbakery' => array(
-				'slug'      => 'thegem-wpbakery',
-				'className' => 'TheGemWPBakery',
-				'name'      => 'TheGem (WPBakery)',
+			'thegem-wpbakery'  => array(
+				'slug' => 'thegem-wpbakery',
+				'name' => 'TheGem (WPBakery)',
+				'args' => array(
+					'partialFilename' => 'thegem-elementor.php',
+				)
 			),
 		);
 	}
@@ -237,8 +255,7 @@ class ThemesCompatibility {
 	 */
 	private function loadCompatibilities() {
 		foreach ( $this->supportedThemes() as $theme ) {
-			if ( $theme['slug'] === $this->themeName ) {
-
+			if ( $theme['slug'] === $this->themeSlug ) {
 				$this->supportActive = true;
 
 				$class = '\\DgoraWcas\\Integrations\\Themes\\';
@@ -249,7 +266,17 @@ class ThemesCompatibility {
 					$class .= $theme['name'] . '\\' . $theme['name'];
 				}
 
-				new $class;
+				$args = isset( $theme['args'] ) && is_array( $theme['args'] ) ? $theme['args'] : array();
+
+				if ( $this->isWhiteLabel() ) {
+					$args['whiteLabel'] = true;
+				}
+
+				if ( class_exists( $class ) ) {
+					new $class( $this->themeSlug, $this->themeName, $args );
+				} else {
+					new GenericTheme( $this->themeSlug, $this->themeName, $args );
+				}
 
 				break;
 			}
@@ -272,6 +299,42 @@ class ThemesCompatibility {
 	 */
 	public function getTheme() {
 		return $this->theme;
+	}
+
+	/**
+	 * Get the name of the current theme
+	 *
+	 * @return string
+	 */
+	public function getThemeName() {
+		return ! empty( $this->themeName ) && is_string( $this->themeName ) ? $this->themeName : '';
+	}
+
+	/**
+	 * Check if the current them is child theme
+	 *
+	 * @return bool
+	 */
+	public function isChildTheme() {
+		return ! empty( $this->parentThemeName );
+	}
+
+	/**
+	 * Check if the integration is under white label
+	 *
+	 * @return bool
+	 */
+	public function isWhiteLabel() {
+		return apply_filters( 'dgwt/wcas/integrations/themes/white_label', false );
+	}
+
+	/**
+	 * Get the name of the current parent theme
+	 *
+	 * @return string
+	 */
+	public function getParentThemeName() {
+		return ! empty( $this->parentThemeName ) ? $this->parentThemeName : '';
 	}
 
 	/**

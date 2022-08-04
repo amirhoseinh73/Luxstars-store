@@ -356,7 +356,7 @@ class UserInterface
             case 'with-results':
                 $html = '<p>';
                 $html .= '<b class="dgwt-wcas-analytics-text-good">' . __( "Perfect!", 'ajax-search-for-woocommerce' ) . '</b>';
-                $html .= ' ' . __( "It's solved.", 'ajax-search-for-woocommerce' );
+                $html .= ' ' . __( "It's sorted.", 'ajax-search-for-woocommerce' );
                 $html .= ' ' . sprintf( _n(
                     "This phrase returns 1 product.",
                     "This phrase returns %d products.",
@@ -369,7 +369,7 @@ class UserInterface
                 break;
             case 'without-results':
                 $html = '<p>';
-                $html .= '<b class="dgwt-wcas-analytics-text-poorly">' . __( "Poorly!", 'ajax-search-for-woocommerce' ) . '</b>';
+                $html .= '<b class="dgwt-wcas-analytics-text-poorly">' . __( "Poor!", 'ajax-search-for-woocommerce' ) . '</b>';
                 $html .= ' ' . __( "Still this phrase doesn't return any results. Learn how to fix it.", 'ajax-search-for-woocommerce' );
                 $html .= '</p>';
                 break;
@@ -408,7 +408,7 @@ class UserInterface
                 $data->setLang( $lang );
             }
             if ( $data->markAsSolved( $phrase ) ) {
-                wp_send_json_success( '<p>' . __( 'This phrase has been solved! This row will disappear after refreshing the page.', 'ajax-search-for-woocommerce' ) . '</p>' );
+                wp_send_json_success( '<p>' . __( 'This phrase has been resolved! This row will disappear after refreshing the page.', 'ajax-search-for-woocommerce' ) . '</p>' );
             }
         }
         

@@ -5,6 +5,19 @@ if ( ! defined( 'DGWT_WCAS_FILE' ) ) {
 	exit;
 }
 
+add_action( 'wp_head', function () {
+	?>
+	<style>
+		.dgwt-wcas-search-wrapp {
+			max-width: none;
+		}
+		.ekommart-handheld-footer-bar ul li.search.active .site-search{
+			bottom: -100%;
+		}
+	</style>
+	<?php
+} );
+
 if ( ! function_exists( 'ekommart_product_search' ) ) {
 	function ekommart_product_search() {
 		?>

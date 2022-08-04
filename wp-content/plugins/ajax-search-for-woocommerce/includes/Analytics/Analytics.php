@@ -16,7 +16,7 @@ class Analytics {
 
 		// Publish this module conditionally in v1.18.0 and for everyone in v1.19.0
 		if ( ! $this->isModuleEnabled()
-		     && version_compare( DGWT_WCAS_VERSION, '1.19.0' ) < 0
+		     && version_compare( DGWT_WCAS_VERSION, '1.18.99' ) < 0
 		     && ! $allowByConstant
 		) {
 			return;

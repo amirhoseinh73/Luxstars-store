@@ -5,6 +5,7 @@
  */
 namespace DgoraWcas\Integrations\Plugins\WooCommercePrivateStore;
 
+use  DgoraWcas\Helpers ;
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) {
     exit;

@@ -4,7 +4,7 @@
 }
 
 .dgwt-wcas-hidden {
-	display: none;
+	display: none!important;
 }
 
 .dgwt-wcas-font-thin {
@@ -63,7 +63,7 @@
 
 .dgwt_wcas_settings-group .form-table th {
 	vertical-align: middle;
-	min-width: 165px;
+	min-width: 210px;
 }
 
 .dgwt_wcas_settings-group .form-table td fieldset {
@@ -324,6 +324,47 @@
 	color: #bbb;
 }
 
+.dgwt-wcas-settings-suboption {
+
+}
+
+.dgwt-wcas-settings-suboption label {
+	padding-left: 34px;
+	position: relative;
+	font-size: 90%;
+}
+
+.dgwt_wcas_settings-group .form-table > tbody > tr.dgwt-wcas-settings-suboption > th,
+.dgwt_wcas_settings-group .form-table > tbody > tr.dgwt-wcas-settings-suboption > td {
+	padding-top: 0;
+}
+.dgwt-wcas-settings-suboption th label:before{
+	content: "\f474";
+	position: absolute;
+	color: #676767;
+	left: 7px;
+	top: -2px;
+	display: block;
+	transform: scaleX(-1);
+	font-family: dashicons;
+	display: inline-block;
+	line-height: 1;
+	font-weight: 400;
+	font-style: normal;
+	speak: never;
+	text-decoration: inherit;
+	text-transform: none;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+	vertical-align: top;
+	text-align: center;
+	transition: color 0.1s ease-in;
+}
+
 .dgwt-wcas-settings-synonyms textarea.regular-text {
 	min-height: 200px;
 	width: 35em;
@@ -348,6 +389,17 @@
 	height: 22px;
 	vertical-align: middle;
 	margin-right: 5px;
+}
+
+.dgwt-wcas-preview .dgwt-wcas-style-solaris .dgwt-wcas-preloader.dgwt-wcas-close {
+	right: 10px;
+}
+
+.dgwt-wcas-preview .dgwt-wcas-style-pirx .dgwt-wcas-preloader.dgwt-wcas-close {
+	right: 33px;
+}
+.dgwt-wcas-preview .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+	transition: all 150ms ease-in-out;
 }
 
 .dgwt_wcas_settings-group .form-table td {
@@ -461,7 +513,8 @@ table.widefat.dgwt-wcas-analytics-table {
 	justify-content: flex-start;
 	align-items: center;
 }
-.dgwt-wcas-analytics-btn-mark .dashicons{
+
+.dgwt-wcas-analytics-btn-mark .dashicons {
 	color: #0f5132;
 }
 
@@ -1216,6 +1269,31 @@ td.dgwt-wcas-indexing-details-row a {
 
 }
 
+.dgwt-wcas-indexing-notices {
+	margin-bottom: 10px;
+}
+
+.dgwt-wcas-indexing-notice {
+	display: flex;
+	border: 1px solid #e8e8e8;
+	padding: 6px 10px;
+	align-items: center;
+	margin-bottom: 15px;
+	line-height: 130%;
+	background: #fff;
+}
+
+.dgwt-wcas-indexing-notice .dashicons {
+	margin-right: 10px;
+	width: 25px;
+	height: 25px;
+	font-size: 25px;
+}
+
+.dgwt-wcas-indexing-notice--info .dashicons {
+	color: #999;
+}
+
 .dgwt-wcas-requirements {
 	margin-right: 20px;
 }
@@ -1302,7 +1380,12 @@ td.dgwt-wcas-indexing-details-row a {
 .dgwt-wcas-preview {
 	display: none;
 	width: 100%;
-
+	position: relative;
+}
+.dgwt-wcas-preview-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 [data-dgwt-wcas-active="form_body"] .dgwt-wcas-preview,
@@ -1436,6 +1519,44 @@ td.dgwt-wcas-indexing-details-row a {
 	width: 38px;
 }
 
+.dgwt-wcas-settings-body[data-dgwt-wcas-active="autocomplete"] .dgwt-wcas-preview-device-info,
+.dgwt-wcas-settings-body[data-dgwt-wcas-active="autocomplete"] .js-dgwt-wcas-preview-icon-example {
+	display: none;
+}
+.dgwt-wcas-settings-body[data-dgwt-wcas-active="autocomplete"] .js-dgwt-wcas-preview-bar-example {
+	display: block!important;
+}
+
+.dgwt-wcas-preview-source .dgwt-wcas-search-icon {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.js-dgwt-wcas-preview-icon-example.dgwt-wcas-layout-icon-open .dgwt-wcas-search-icon-arrow {
+	left: 107px;
+	top: 22px;
+	z-index: 0;
+}
+.js-dgwt-wcas-preview-icon-example .dgwt-wcas-search-form {
+	margin-top: 10px;
+}
+
+.dgwt-wcas-preview-device-info {
+	display: block;
+	text-align: center;
+	margin-bottom: 12px;
+	color: #aaa;
+	font-size: 19px;
+	font-weight: 100;
+}
+.dgwt-wcas-preview-source .dgwt-wcas-preview-device-info:nth-of-type(2) {
+	margin-top: 35px;
+}
+.dgwt-wcas-preview-icon-only .dgwt-wcas-search-icon {
+	margin-left: 106px;
+	margin-right: 0;
+}
+
 @media only screen and (max-width: 782px) {
 	.dgwt-wcas-settings-body[data-dgwt-wcas-active="form_body"] .metabox-holder,
 	.dgwt-wcas-settings-body[data-dgwt-wcas-active="autocomplete"] .metabox-holder {
@@ -1566,6 +1687,7 @@ td.dgwt-wcas-indexing-details-row a {
 
 .dgwt-wcas-tooltip-inner {
 	max-width: 280px;
+	min-width: 150px;
 	line-height: 158%;
 	font-size: 14px;
 	padding: 10px 15px;
@@ -1958,6 +2080,11 @@ h3.dgwt-wcas-troubleshooting-issue-title {
 
 .dgwt-wcas-analytics-module-table tr > th:last-child {
 	width: 110px
+}
+
+.dgwt-wcas-analytics-module-table .dgwt-wcas-analytics-subtitle {
+	min-height: 68px;
+	margin-bottom: 0;
 }
 
 .dgwt-wcas-analytics-module-critical-body {

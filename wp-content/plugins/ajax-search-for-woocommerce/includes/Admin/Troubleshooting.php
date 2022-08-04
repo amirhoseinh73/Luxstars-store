@@ -219,11 +219,11 @@ class Troubleshooting
         $errors = array();
         // GTranslate
         if ( class_exists( 'GTranslate' ) ) {
-            $errors[] = sprintf( __( 'You use the %s plugin. The %s does not support this plugin.', 'ajax-search-for-woocommerce' ), 'GTranslate', DGWT_WCAS_NAME );
+            $errors[] = sprintf( __( 'You are using the %s plugin. The %s does not support this plugin.', 'ajax-search-for-woocommerce' ), 'GTranslate', DGWT_WCAS_NAME );
         }
         // WooCommerce Product Sort and Display
         if ( defined( 'WC_PSAD_VERSION' ) ) {
-            $errors[] = sprintf( __( 'You use the %s plugin. The %s does not support this plugin.', 'ajax-search-for-woocommerce' ), 'WooCommerce Product Sort and Display', DGWT_WCAS_NAME );
+            $errors[] = sprintf( __( 'You are using the %s plugin. The %s does not support this plugin.', 'ajax-search-for-woocommerce' ), 'WooCommerce Product Sort and Display', DGWT_WCAS_NAME );
         }
         
         if ( !empty($errors) ) {
@@ -299,13 +299,10 @@ class Troubleshooting
             $linkToDocs = 'https://fibosearch.com/documentation/troubleshooting/the-search-index-could-not-be-built/';
             $linkToWpHealth = admin_url( 'site-health.php' );
             $result['label'] = __( 'Your site could not complete a loopback request', 'ajax-search-for-woocommerce' );
-            if ( !dgoraAsfwFs()->is_premium() ) {
-                $result['description'] = __( 'This issue may affect the search results page and e.g. display all products every time', 'ajax-search-for-woocommerce' );
-            }
             $result['description'] .= '<h3 class="dgwt-wcas-font-thin">' . __( 'Solutions:', 'ajax-search-for-woocommerce' ) . '</h3>';
             $result['description'] .= '<h4>' . __( "Your server can't send an HTTP request to itself", 'ajax-search-for-woocommerce' ) . '</h4>';
             $result['description'] .= '<p>' . sprintf( __( 'Go to <a href="%s" target="_blank">Tools -> Site Health</a> in your WordPress. You should see issues related to REST API or Loopback request. Expand descriptions of these errors and follow the instructions. Probably you will need to contact your hosting provider to solve it.', 'ajax-search-for-woocommerce' ), $linkToWpHealth ) . '</p>';
-            $result['description'] .= '<p>' . __( 'Is your website publicly available only for whitelisted IPs? <b>Add your server IP to the whitelist</b>. That’s all. This is a common mistake when access is blocked by a <code>.htaccess</code> file. Developers add a list of allowed IPs, but they forget to add the IP of the server to allow make HTTP requests to itself.', 'ajax-search-for-woocommerce' ) . '</p>';
+            $result['description'] .= '<p>' . __( 'Is your website publicly available only for whitelisted IPs? <b>Add your server IP to the whitelist</b>. That’s all. This is a common mistake when access is blocked by a <code>.htaccess</code> file. Developers add a list of allowed IPs, but they forget to add the IP of the server to allow it to make HTTP requests to itself.', 'ajax-search-for-woocommerce' ) . '</p>';
         }
         
         $this->storeResult( $result );
@@ -329,9 +326,6 @@ class Troubleshooting
         $errors = array();
         if ( !extension_loaded( 'mbstring' ) ) {
             $errors[] = sprintf( __( 'Required PHP extension: %s', 'ajax-search-for-woocommerce' ), 'mbstring' );
-        }
-        if ( !extension_loaded( 'pdo_mysql' ) ) {
-            $errors[] = sprintf( __( 'Required PHP extension: %s', 'ajax-search-for-woocommerce' ), 'pdo_mysql' );
         }
         
         if ( !empty($errors) ) {
@@ -362,7 +356,7 @@ class Troubleshooting
             $result['description'] = __( 'Great! Our plugin works great with this version of WordPress.', 'ajax-search-for-woocommerce' );
             $result['status'] = 'good';
         } else {
-            $result['description'] = __( 'Install the latest version of WordPress for our plugin to work as best it can!', 'ajax-search-for-woocommerce' );
+            $result['description'] = __( 'Install the latest version of WordPress for our plugin for optimal performance!', 'ajax-search-for-woocommerce' );
             $result['status'] = 'critical';
         }
         
@@ -397,7 +391,7 @@ class Troubleshooting
                 $ajaxAtcLabel,
                 $redirectLabel
             ) . '</p>';
-            $result['description'] .= __( 'Your settings should looks like the picture below:', 'ajax-search-for-woocommerce' );
+            $result['description'] .= __( 'Your settings should look like the picture below:', 'ajax-search-for-woocommerce' );
             $result['description'] .= '<p><img style="max-width: 720px" src="' . DGWT_WCAS_URL . 'assets/img/admin-troubleshooting-atc.png" /></p>';
             $result['status'] = 'critical';
         }
@@ -406,7 +400,53 @@ class Troubleshooting
     }
     
     /**
-     * Tests if "Searching by Text" extension from WOOF - WooCommerce Products Filter is enabled.
+     * Tests if "Searching by Text (old version)" extension from WOOF - WooCommerce Products Filter is enabled.
+     * It's incompatible with our plugin and should be disabled.
+     *
+     * @return array The test result.
+     */
+    public function getTestWoofSearchText2Extension()
+    {
+        $result = array(
+            'label'       => '',
+            'status'      => 'good',
+            'description' => '',
+            'actions'     => '',
+            'test'        => 'WoofSearchText2Extension',
+        );
+        if ( !defined( 'WOOF_VERSION' ) || !isset( $GLOBALS['WOOF'] ) ) {
+            return $result;
+        }
+        if ( !method_exists( 'WOOF_EXT', 'is_ext_activated' ) ) {
+            return $result;
+        }
+        $extDirs = $GLOBALS['WOOF']->get_ext_directories();
+        if ( empty($extDirs['default']) ) {
+            return $result;
+        }
+        $extPaths = array_filter( $extDirs['default'], function ( $path ) {
+            return Helpers::endsWith( $path, 'ext/by_text_2' );
+        } );
+        if ( empty($extPaths) ) {
+            return $result;
+        }
+        $extPath = array_shift( $extPaths );
+        
+        if ( \WOOF_EXT::is_ext_activated( $extPath ) ) {
+            $settingsUrl = admin_url( 'admin.php?page=wc-settings&tab=woof' );
+            $result['label'] = __( 'Incompatible "Searching by Text" extension from "WOOF - WooCommerce Products Filter plugin" is active', 'ajax-search-for-woocommerce' );
+            $result['description'] = '<p><b>' . __( 'Solution', 'ajax-search-for-woocommerce' ) . '</b></p>';
+            $result['description'] .= '<p>' . sprintf( __( 'Go to <code>WooCommerce -> Settings -> <a href="%s" target="_blank">Products Filter (tab)</a> -> Extensions (tab)</code>, uncheck <code>Searching by Text</code> extension and save changes.', 'ajax-search-for-woocommerce' ), $settingsUrl ) . '</p>';
+            $result['description'] .= __( 'Extensions should looks like the picture below:', 'ajax-search-for-woocommerce' );
+            $result['description'] .= '<p><img style="max-width: 720px" src="' . DGWT_WCAS_URL . 'assets/img/admin-troubleshooting-woof.png?rev=2" /></p>';
+            $result['status'] = 'critical';
+        }
+        
+        return $result;
+    }
+    
+    /**
+     * Tests if "HUSKY - Advanced searching by Text" extension from WOOF - WooCommerce Products Filter is enabled.
      * It's incompatible with our plugin and should be disabled.
      *
      * @return array The test result.
@@ -431,7 +471,7 @@ class Troubleshooting
             return $result;
         }
         $extPaths = array_filter( $extDirs['default'], function ( $path ) {
-            return strpos( $path, 'ext/by_text' ) !== false;
+            return Helpers::endsWith( $path, 'ext/by_text' );
         } );
         if ( empty($extPaths) ) {
             return $result;
@@ -440,14 +480,46 @@ class Troubleshooting
         
         if ( \WOOF_EXT::is_ext_activated( $extPath ) ) {
             $settingsUrl = admin_url( 'admin.php?page=wc-settings&tab=woof' );
-            $result['label'] = __( 'Incompatible "Searching by Text" extension from WOOF - WooCommerce Products Filter plugin is active', 'ajax-search-for-woocommerce' );
+            $result['label'] = __( 'Incompatible "HUSKY - Advanced searching by Text" extension from "WOOF - WooCommerce Products Filter plugin" is active', 'ajax-search-for-woocommerce' );
             $result['description'] = '<p><b>' . __( 'Solution', 'ajax-search-for-woocommerce' ) . '</b></p>';
-            $result['description'] .= '<p>' . sprintf( __( 'Go to <code>WooCommerce -> Settings -> <a href="%s" target="_blank">Products Filter (tab)</a> -> Extensions (tab)</code>, uncheck <code>Searching by Text</code> extension and save changes.', 'ajax-search-for-woocommerce' ), $settingsUrl ) . '</p>';
+            $result['description'] .= '<p>' . sprintf( __( 'Go to <code>WooCommerce -> Settings -> <a href="%s" target="_blank">Products Filter (tab)</a> -> Extensions (tab)</code>, uncheck <code>HUSKY - Advanced searching by Text</code> extension and save changes.', 'ajax-search-for-woocommerce' ), $settingsUrl ) . '</p>';
             $result['description'] .= __( 'Extensions should looks like the picture below:', 'ajax-search-for-woocommerce' );
-            $result['description'] .= '<p><img style="max-width: 720px" src="' . DGWT_WCAS_URL . 'assets/img/admin-troubleshooting-woof.png" /></p>';
+            $result['description'] .= '<p><img style="max-width: 720px" src="' . DGWT_WCAS_URL . 'assets/img/admin-troubleshooting-woof2.png" /></p>';
             $result['status'] = 'critical';
         }
         
+        return $result;
+    }
+    
+    /**
+     * Tests if "Try to ajaxify the shop" option from WOOF - WooCommerce Products Filter is enabled.
+     * It's incompatible with our plugin and should be disabled.
+     *
+     * @return array The test result.
+     */
+    public function getTestWoofTryToAjaxifyOption()
+    {
+        $result = array(
+            'label'       => '',
+            'status'      => 'good',
+            'description' => '',
+            'actions'     => '',
+            'test'        => 'WoofTryToAjaxifyOption',
+        );
+        if ( !defined( 'WOOF_VERSION' ) ) {
+            return $result;
+        }
+        if ( version_compare( WOOF_VERSION, '1.2.3' ) < 0 ) {
+            return $result;
+        }
+        if ( !get_option( 'woof_try_ajax', 0 ) ) {
+            return $result;
+        }
+        $settingsUrl = admin_url( 'admin.php?page=wc-settings&tab=woof' );
+        $result['label'] = __( 'Incompatible "Try to ajaxify the shop" option from WOOF - WooCommerce Products Filter plugin is enabled', 'ajax-search-for-woocommerce' );
+        $result['description'] = '<p><b>' . __( 'Solution', 'ajax-search-for-woocommerce' ) . '</b></p>';
+        $result['description'] .= '<p>' . sprintf( __( 'Go to <code>WooCommerce -> Settings -> <a href="%s" target="_blank">Products Filter (tab)</a> -> Options (tab)</code>, set <code>Try to ajaxify the shop</code> option to <code>No</code> and save changes.', 'ajax-search-for-woocommerce' ), $settingsUrl ) . '</p>';
+        $result['status'] = 'critical';
         return $result;
     }
     
@@ -503,7 +575,7 @@ class Troubleshooting
                 false
             );
             $templateLink = '<a target="_blank" href="' . admin_url( 'post.php?post=' . $document->get_post()->ID . '&action=elementor' ) . '">' . $document->get_post()->post_title . '</a>';
-            $result['label'] = __( 'There is no correct template in Elementor Theme Builder for the WooCommerce search results page.', 'ajax-search-for-woocommerce' );
+            $result['label'] = __( 'There is no correct template in the Elementor Theme Builder for the WooCommerce search results page.', 'ajax-search-for-woocommerce' );
             $result['description'] = '<p>' . sprintf( __( 'You are using Elementor and we noticed that the template used in the search results page titled <strong>%s</strong> does not include the <strong>Archive Products</strong> widget.', 'ajax-search-for-woocommerce' ), $templateLink ) . '</p>';
             $result['description'] .= '<p><b>' . __( 'Solution', 'ajax-search-for-woocommerce' ) . '</b></p>';
             $result['description'] .= '<p>' . sprintf( __( 'Add <strong>Archive Products</strong> widget to the template <strong>%s</strong> or create a new template dedicated to the WooCommerce search results page. Learn how to do it in <a href="%s" target="_blank">our documentation</a>.', 'ajax-search-for-woocommerce' ), $templateLink, $linkToDocs ) . '</p>';
@@ -543,7 +615,15 @@ class Troubleshooting
         ),
             array(
             'label' => __( 'Incompatible "Searching by Text" extension in WOOF - WooCommerce Products Filter', 'ajax-search-for-woocommerce' ),
+            'test'  => 'WoofSearchText2Extension',
+        ),
+            array(
+            'label' => __( 'Incompatible "HUSKY - Advanced searching by Text" extension in WOOF - WooCommerce Products Filter', 'ajax-search-for-woocommerce' ),
             'test'  => 'WoofSearchTextExtension',
+        ),
+            array(
+            'label' => __( 'Incompatible "Try to ajaxify the shop" option in WOOF - WooCommerce Products Filter', 'ajax-search-for-woocommerce' ),
+            'test'  => 'WoofTryToAjaxifyOption',
         ),
             array(
             'label' => __( 'Elementor search results template', 'ajax-search-for-woocommerce' ),

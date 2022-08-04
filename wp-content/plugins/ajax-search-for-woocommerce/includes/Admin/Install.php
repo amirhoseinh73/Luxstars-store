@@ -2,13 +2,16 @@
 
 namespace DgoraWcas\Admin;
 
+use  DgoraWcas\Engines\TNTSearchMySQL\Config ;
 use  DgoraWcas\Engines\TNTSearchMySQL\Indexer\Builder ;
+use  DgoraWcas\Engines\TNTSearchMySQL\Indexer\Updater ;
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 class Install
 {
+    const  SETTINGS_VERSION = 2 ;
     /**
      * Call installation callback
      *
@@ -43,7 +46,7 @@ class Install
      *
      * @return void
      */
-    private static function createOptions()
+    public static function createOptions()
     {
         global  $dgwtWcasSettings ;
         $sections = DGWT_WCAS()->settings->settingsFields();
@@ -63,15 +66,39 @@ class Install
         update_option( DGWT_WCAS_SETTINGS_KEY, $updateOptions );
     }
     
-    private static function maybeUpgradeOptions()
+    /**
+     * Maybe update settings structure or values
+     *
+     * @param string $version free | pro
+     */
+    private static function maybeUpgradeOptions( $version = 'free' )
     {
-        $settingsVersion = (int) get_option( 'dgwt_wcas_settings_version', 0 );
+        $freeSettingsVersion = (int) get_option( 'dgwt_wcas_settings_version', 0 );
+        $proSettingsVersion = (int) get_option( 'dgwt_wcas_settings_version_pro', 0 );
+        $mainVersion = $freeSettingsVersion;
+        $mainKey = 'dgwt_wcas_settings_version';
+        $upgraded = false;
         
-        if ( $settingsVersion < 1 ) {
-            if ( (int) get_option( 'dgwt_wcas_settings_version_pro', 0 ) === 0 ) {
-                self::upgradeOptionsTo1();
+        if ( $version === 'pro' ) {
+            $mainVersion = $proSettingsVersion;
+            $mainKey = 'dgwt_wcas_settings_version_pro';
+        }
+        
+        
+        if ( $freeSettingsVersion === 0 && $proSettingsVersion === 0 ) {
+            self::upgradeOptionsTo1();
+            self::upgradeOptionsTo2();
+            $upgraded = true;
+        }
+        
+        if ( !$upgraded ) {
+            if ( $version === 'free' && $freeSettingsVersion < 2 && $proSettingsVersion !== 2 || $version === 'pro' && $proSettingsVersion < 2 && $freeSettingsVersion !== 2 ) {
+                self::upgradeOptionsTo2();
             }
-            update_option( 'dgwt_wcas_settings_version', 1 );
+        }
+        
+        if ( $mainVersion < self::SETTINGS_VERSION ) {
+            update_option( $mainKey, self::SETTINGS_VERSION );
             DGWT_WCAS()->settings->clearCache();
         }
     
@@ -139,6 +166,32 @@ class Install
         }
         
         update_option( DGWT_WCAS_SETTINGS_KEY, $settings );
+    }
+    
+    /**
+     * Since v1.19.0 we've started to use two separated breakpoints in the search bar layout settings:
+     *
+     *   1. "mobile_breakpoint" - set the breakpoint for switching between icon and search bar layout
+     *
+     *   2. "mobile_overlay_breakpoint" - new option added since v1.19.0.
+     *   Set the breakpoint after which the mobile search overlay is activated
+     *
+     *  Before v1.19.0 "mobile_breakpoint" was in charge of these two things.
+     *  We don't know if users set "mobile_breakpoint" to handle overlay on mobile or icon/bar toggle.
+     *  So we have to copy value of "mobile_breakpoint" to "mobile_overlay_breakpoint" to keep backwards compatibility
+     */
+    private static function upgradeOptionsTo2()
+    {
+        $settings = get_option( DGWT_WCAS_SETTINGS_KEY );
+        if ( empty($settings) ) {
+            return;
+        }
+        
+        if ( isset( $settings['mobile_breakpoint'] ) && isset( $settings['mobile_overlay_breakpoint'] ) ) {
+            $settings['mobile_overlay_breakpoint'] = $settings['mobile_breakpoint'];
+            update_option( DGWT_WCAS_SETTINGS_KEY, $settings );
+        }
+    
     }
     
     /**

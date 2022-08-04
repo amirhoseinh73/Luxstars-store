@@ -118,8 +118,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="dgwt-wcas-analytics-module-tables">
 	<div class="dgwt-wcas-analytics-module-table">
-		<h3><?php _e( 'Top searches with results', 'ajax-search-for-woocommerce' ); ?></h3>
-		<p class="dgwt-wcas-analytics-subtitle"><?php _e( 'autocomplete', 'ajax-search-for-woocommerce' ); ?></p>
+		<h3><?php _e( 'Top searches - autocomplete', 'ajax-search-for-woocommerce' ); ?></h3>
+		<p class="dgwt-wcas-analytics-subtitle"><?php _e( 'The list of phrases with results is displayed to users as a drop down list with auto suggestions.', 'ajax-search-for-woocommerce' ); ?></p>
 
 		<table class="widefat fixed dgwt-wcas-analytics-table">
 			<thead>
@@ -166,8 +166,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 	<div class="dgwt-wcas-analytics-module-table">
 
-		<h3><?php _e( 'Top searches with results', 'ajax-search-for-woocommerce' ); ?></h3>
-		<p class="dgwt-wcas-analytics-subtitle"><?php _e( 'search results page', 'ajax-search-for-woocommerce' ); ?></p>
+		<h3><?php _e( 'Top searches - WooCommerce search results page', 'ajax-search-for-woocommerce' ); ?></h3>
+		<p class="dgwt-wcas-analytics-subtitle"><?php _e( 'Here is the list of phrases that were typed by users who followed the pattern: type the phrase into the bar → clicked “See all results” or just hit enter/return (for Mac users)', 'ajax-search-for-woocommerce' ); ?></p>
 
 
 		<table class="widefat fixed dgwt-wcas-analytics-table">

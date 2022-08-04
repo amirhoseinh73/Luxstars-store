@@ -49,13 +49,13 @@ class Upgrade {
 			__( 'Fuzzy search', 'ajax-search-for-woocommerce' ),
 			__( 'Synonyms', 'ajax-search-for-woocommerce' ),
 			__( 'Search in attributes and variation products SKUs (option)', 'ajax-search-for-woocommerce' ),
-			__( 'Individual tips and support by FiboSearch team', 'ajax-search-for-woocommerce' )
+			__( 'Individual tips and support from the FiboSearch team', 'ajax-search-for-woocommerce' )
 		);
 		echo '<a style="display:none;" class="thickbox js-dgwt-wcas-modal-pro-handler" href="#TB_inline?width=600&height=380&inlineId=dgwt-wcas-modal" title="' . __( 'FiboSearch Pro - Upgrade Now', 'ajax-search-for-woocommerce' ) . '"></a>';
 		echo '<div id="dgwt-wcas-modal" class="dgwt-wcas-modal-upgrade" style="display:none;">';
 		echo '<img class="dgwt-wcas-modal-logo" src="' . DGWT_WCAS_URL . 'assets/img/logo-128.png" width="128" height="128" />';
 		echo '
-		<h2 class="dgwt-wcas-modal-title">' . __( 'Update now and increase your sales. You will receive 30-day satisfaction guarantee.  A return on investment will come very quickly.', 'ajax-search-for-woocommerce' ) . '</h2>';
+		<h2 class="dgwt-wcas-modal-title">' . __( 'Update now and increase your sales. You will receive a 30-day satisfaction guarantee.  A return on investment will come very quickly.', 'ajax-search-for-woocommerce' ) . '</h2>';
 		echo '<ul>';
 		foreach ( $features as $feature ) {
 			echo '<li><strong>+ ' . $feature . '</strong></li>';

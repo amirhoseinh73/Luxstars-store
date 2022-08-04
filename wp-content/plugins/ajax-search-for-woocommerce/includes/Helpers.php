@@ -2,7 +2,6 @@
 
 namespace DgoraWcas;
 
-use  DgoraWcas\Engines\TNTSearchMySQL\Indexer\Builder ;
 use  DgoraWcas\Engines\TNTSearchMySQL\SearchQuery\SearchResultsPageQuery ;
 use  DgoraWcas\Integrations\Solver ;
 // Exit if accessed directly
@@ -70,8 +69,9 @@ class Helpers
         if ( DGWT_WCAS()->settings->getOption( 'show_details_box' ) === 'on' ) {
             $classes[] = 'dgwt-wcas-is-detail-box';
         }
+        $hasSubmit = ( isset( $args['submit_btn'] ) ? $args['submit_btn'] : DGWT_WCAS()->settings->getOption( 'show_submit_button' ) );
         
-        if ( DGWT_WCAS()->settings->getOption( 'show_submit_button' ) === 'on' ) {
+        if ( $hasSubmit === 'on' ) {
             $classes[] = 'dgwt-wcas-has-submit';
         } else {
             $classes[] = 'dgwt-wcas-no-submit';
@@ -80,6 +80,12 @@ class Helpers
         if ( !empty($args['class']) ) {
             $classes[] = esc_html( $args['class'] );
         }
+        
+        if ( !empty($args['style']) ) {
+            $type = esc_html( $args['style'] );
+            $classes[] = 'dgwt-wcas-style-' . $type;
+        }
+        
         
         if ( !empty($args['layout']) ) {
             $type = esc_html( $args['layout'] );
@@ -247,6 +253,90 @@ class Helpers
                 ?>"
 							d="m 98.621511,94.193314 c -42.884393,-20.805093 -21.442196,-10.402547 0,0 z M 47.743964,73.489793 c -0.309888,-0.59465 -0.464319,-1.51592 -0.477161,-2.84652 -0.02483,-2.57365 0.873951,-4.54095 2.753263,-6.02646 1.633788,-1.29143 2.83173,-1.69831 4.961024,-1.685 2.909938,0.0182 5.40834,1.54992 6.76366,4.14667 0.581876,1.11485 0.698121,1.68141 0.704505,3.43363 0.0045,1.23792 -0.144736,2.45984 -0.363942,2.97966 -0.361143,0.85641 -0.401692,0.87525 -1.4427,0.67016 -1.441299,-0.28395 -9.681541,-0.29597 -11.215046,-0.0164 -1.208977,0.22044 -1.231574,0.21163 -1.683603,-0.65577 z m 23.590775,-0.1224 c -0.24773,-0.57773 -0.44716,-1.76886 -0.46047,-2.75021 -0.0439,-3.23955 2.24441,-6.50245 5.168157,-7.3692 3.62299,-1.07405 7.38202,0.40563 9.28658,3.6555 0.92458,1.57769 1.14637,4.5061 0.47452,6.26533 l -0.46168,1.20889 -1.21243,-0.22321 c -1.58287,-0.29141 -9.51286,-0.28827 -11.113147,0.004 l -1.24453,0.22755 z"/>
 					</g>
+				</svg>
+				<?php 
+                break;
+            case 'voice-search-inactive':
+                $color = ( empty($color) ? '#444' : $color );
+                ?>
+				<svg class="<?php 
+                echo  $class ;
+                ?>" xmlns="http://www.w3.org/2000/svg" height="24"
+					 width="24">
+					<path fill="<?php 
+                echo  $color ;
+                ?>"
+						  d="M12 13Q11.15 13 10.575 12.425Q10 11.85 10 11V5Q10 4.15 10.575 3.575Q11.15 3 12 3Q12.85 3 13.425 3.575Q14 4.15 14 5V11Q14 11.85 13.425 12.425Q12.85 13 12 13ZM12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8ZM11.5 20.5V16.975Q9.15 16.775 7.575 15.062Q6 13.35 6 11H7Q7 13.075 8.463 14.537Q9.925 16 12 16Q14.075 16 15.538 14.537Q17 13.075 17 11H18Q18 13.35 16.425 15.062Q14.85 16.775 12.5 16.975V20.5ZM12 12Q12.425 12 12.713 11.712Q13 11.425 13 11V5Q13 4.575 12.713 4.287Q12.425 4 12 4Q11.575 4 11.288 4.287Q11 4.575 11 5V11Q11 11.425 11.288 11.712Q11.575 12 12 12Z"/>
+				</svg>
+				<?php 
+                break;
+            case 'voice-search-inactive-pirx':
+                // https://fonts.google.com/icons Icon: Mic Fill: 0 Weight: 400 Grade: 0 Optical size: 24
+                $color = ( empty($color) ? '#444' : $color );
+                ?>
+				<svg class="<?php 
+                echo  $class ;
+                ?>" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+					<path fill="<?php 
+                echo  $color ;
+                ?>"
+						  d="M12 14q-1.25 0-2.125-.875T9 11V5q0-1.25.875-2.125T12 2q1.25 0 2.125.875T15 5v6q0 1.25-.875 2.125T12 14Zm0-6Zm-1 13v-3.075q-2.6-.35-4.3-2.325Q5 13.625 5 11h2q0 2.075 1.463 3.537Q9.925 16 12 16t3.538-1.463Q17 13.075 17 11h2q0 2.625-1.7 4.6-1.7 1.975-4.3 2.325V21Zm1-9q.425 0 .713-.288Q13 11.425 13 11V5q0-.425-.287-.713Q12.425 4 12 4t-.712.287Q11 4.575 11 5v6q0 .425.288.712.287.288.712.288Z"/>
+				</svg>
+				<?php 
+                break;
+            case 'voice-search-active':
+                $color = ( empty($color) ? '#444' : $color );
+                ?>
+				<svg class="<?php 
+                echo  $class ;
+                ?>" xmlns="http://www.w3.org/2000/svg" height="24"
+					 width="24">
+					<path fill="<?php 
+                echo  $color ;
+                ?>"
+						  d="M12 13Q11.15 13 10.575 12.425Q10 11.85 10 11V5Q10 4.15 10.575 3.575Q11.15 3 12 3Q12.85 3 13.425 3.575Q14 4.15 14 5V11Q14 11.85 13.425 12.425Q12.85 13 12 13ZM11.5 20.5V16.975Q9.15 16.775 7.575 15.062Q6 13.35 6 11H7Q7 13.075 8.463 14.537Q9.925 16 12 16Q14.075 16 15.538 14.537Q17 13.075 17 11H18Q18 13.35 16.425 15.062Q14.85 16.775 12.5 16.975V20.5Z"/>
+				</svg>
+				<?php 
+                break;
+            case 'voice-search-active-pirx':
+                // https://fonts.google.com/icons Icon: Mic Fill: 1 Weight: 400 Grade: 0 Optical size: 24
+                $color = ( empty($color) ? '#444' : $color );
+                ?>
+				<svg class="<?php 
+                echo  $class ;
+                ?>" xmlns="http://www.w3.org/2000/svg" height="24"
+					 width="24">
+					<path fill="<?php 
+                echo  $color ;
+                ?>"
+						  d="M12 14q-1.25 0-2.125-.875T9 11V5q0-1.25.875-2.125T12 2q1.25 0 2.125.875T15 5v6q0 1.25-.875 2.125T12 14Zm-1 7v-3.075q-2.6-.35-4.3-2.325Q5 13.625 5 11h2q0 2.075 1.463 3.537Q9.925 16 12 16t3.538-1.463Q17 13.075 17 11h2q0 2.625-1.7 4.6-1.7 1.975-4.3 2.325V21Z"/>
+				</svg>
+				<?php 
+                break;
+            case 'voice-search-disabled':
+                $color = ( empty($color) ? '#444' : $color );
+                ?>
+				<svg class="<?php 
+                echo  $class ;
+                ?>" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+					<path fill="<?php 
+                echo  $color ;
+                ?>"
+						  d="M16.725 13.4 15.975 12.625Q16.1 12.325 16.2 11.9Q16.3 11.475 16.3 11H17.3Q17.3 11.75 17.138 12.337Q16.975 12.925 16.725 13.4ZM13.25 9.9 9.3 5.925V5Q9.3 4.15 9.875 3.575Q10.45 3 11.3 3Q12.125 3 12.713 3.575Q13.3 4.15 13.3 5V9.7Q13.3 9.75 13.275 9.8Q13.25 9.85 13.25 9.9ZM10.8 20.5V17.025Q8.45 16.775 6.875 15.062Q5.3 13.35 5.3 11H6.3Q6.3 13.075 7.763 14.537Q9.225 16 11.3 16Q12.375 16 13.312 15.575Q14.25 15.15 14.925 14.4L15.625 15.125Q14.9 15.9 13.913 16.4Q12.925 16.9 11.8 17.025V20.5ZM19.925 20.825 1.95 2.85 2.675 2.15 20.65 20.125Z"/>
+				</svg>
+				<?php 
+                break;
+            case 'voice-search-disabled-pirx':
+                // https://fonts.google.com/icons Icon: Mic Off Fill: 1 Weight: 400 Grade: 0 Optical size: 24
+                $color = ( empty($color) ? '#444' : $color );
+                ?>
+				<svg class="<?php 
+                echo  $class ;
+                ?>" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+					<path fill="<?php 
+                echo  $color ;
+                ?>"
+						  d="M17.75 14.95 16.3 13.5q.35-.575.525-1.2Q17 11.675 17 11h2q0 1.1-.325 2.087-.325.988-.925 1.863Zm-2.95-3L9 6.15V5q0-1.25.875-2.125T12 2q1.25 0 2.125.875T15 5v6q0 .275-.062.5-.063.225-.138.45ZM11 21v-3.1q-2.6-.35-4.3-2.312Q5 13.625 5 11h2q0 2.075 1.463 3.537Q9.925 16 12 16q.85 0 1.613-.262.762-.263 1.387-.738l1.425 1.425q-.725.575-1.587.962-.863.388-1.838.513V21Zm8.8 1.6L1.4 4.2l1.4-1.4 18.4 18.4Z"/>
 				</svg>
 				<?php 
                 break;
@@ -1055,6 +1145,9 @@ class Helpers
      */
     public static function localDate( $timestamp, $format = '' )
     {
+        if ( empty($timestamp) ) {
+            return '';
+        }
         if ( empty($format) ) {
             $format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
         }
@@ -1245,16 +1338,22 @@ class Helpers
      */
     public static function getLayoutSettings()
     {
-        $breakpoint = DGWT_WCAS()->settings->getOption( 'mobile_breakpoint', 992 );
+        $layoutBreakpoint = DGWT_WCAS()->settings->getOption( 'mobile_breakpoint', 992 );
+        $layoutBreakpoint = apply_filters( 'dgwt/wcas/scripts/mobile_breakpoint', $layoutBreakpoint );
+        // deprecated
+        $mobileOverlayBreakpoint = DGWT_WCAS()->settings->getOption( 'mobile_overlay_breakpoint', 992 );
         $layout = array(
-            'layout'                 => DGWT_WCAS()->settings->getOption( 'search_layout', 'classic' ),
-            'mobile_overlay'         => ( DGWT_WCAS()->settings->getOption( 'enable_mobile_overlay' ) === 'on' ? true : false ),
-            'mobile_overlay_wrapper' => apply_filters( 'dgwt/wcas/scripts/mobile_overlay_wrapper', 'body' ),
-            'breakpoint'             => apply_filters( 'dgwt/wcas/scripts/mobile_breakpoint', $breakpoint ),
-            'darken_background'      => ( DGWT_WCAS()->settings->getOption( 'darken_background', 'off' ) === 'on' ? true : false ),
+            'style'                     => DGWT_WCAS()->settings->getOption( 'search_style', 'solaris' ),
+            'icon'                      => 'magnifier-thin',
+            'layout'                    => DGWT_WCAS()->settings->getOption( 'search_layout', 'classic' ),
+            'layout_breakpoint'         => apply_filters( 'dgwt/wcas/scripts/layout_breakpoint', $layoutBreakpoint ),
+            'mobile_overlay'            => ( DGWT_WCAS()->settings->getOption( 'enable_mobile_overlay' ) === 'on' ? true : false ),
+            'mobile_overlay_breakpoint' => apply_filters( 'dgwt/wcas/scripts/mobile_overlay_breakpoint', $mobileOverlayBreakpoint ),
+            'mobile_overlay_wrapper'    => apply_filters( 'dgwt/wcas/scripts/mobile_overlay_wrapper', 'body' ),
+            'darken_background'         => ( DGWT_WCAS()->settings->getOption( 'darken_background', 'off' ) === 'on' ? true : false ),
         );
-        if ( in_array( $layout['layout'], array( 'icon', 'icon-flexible' ) ) ) {
-            $layout['mobile_overlay'] = true;
+        if ( $layout['style'] === 'pirx' ) {
+            $layout['icon'] = 'magnifier-pirx';
         }
         return (object) $layout;
     }
@@ -1278,7 +1377,7 @@ class Helpers
             'action_get_prices'            => DGWT_WCAS_GET_PRICES_ACTION,
             'min_chars'                    => 3,
             'width'                        => 'auto',
-            'show_details_box'             => false,
+            'show_details_panel'           => false,
             'show_images'                  => false,
             'show_price'                   => false,
             'show_desc'                    => false,
@@ -1292,7 +1391,8 @@ class Helpers
             'taxonomy_brands'              => '',
             'img_url'                      => DGWT_WCAS_URL . 'assets/img/',
             'is_premium'                   => dgoraAsfwFs()->is_premium(),
-            'mobile_breakpoint'            => $layout->breakpoint,
+            'layout_breakpoint'            => $layout->layout_breakpoint,
+            'mobile_overlay_breakpoint'    => $layout->mobile_overlay_breakpoint,
             'mobile_overlay_wrapper'       => $layout->mobile_overlay_wrapper,
             'mobile_overlay_delay'         => apply_filters( 'dgwt/wcas/scripts/overlay_delay_ms', 0 ),
             'debounce_wait_ms'             => apply_filters( 'dgwt/wcas/scripts/debounce_wait_ms', 400 ),
@@ -1302,12 +1402,25 @@ class Helpers
             'close_icon'                   => self::getIcon( 'close' ),
             'back_icon'                    => self::getIcon( 'arrow-left' ),
             'preloader_icon'               => self::getIcon( 'preloader' ),
+            'voice_search_inactive_icon'   => self::getIcon( ( $layout->style === 'pirx' ? 'voice-search-inactive-pirx' : 'voice-search-inactive' ), 'dgwt-wcas-voice-search-mic-inactive' ),
+            'voice_search_active_icon'     => self::getIcon( ( $layout->style === 'pirx' ? 'voice-search-active-pirx' : 'voice-search-active' ), 'dgwt-wcas-voice-search-mic-active' ),
+            'voice_search_disabled_icon'   => self::getIcon( ( $layout->style === 'pirx' ? 'voice-search-disabled-pirx' : 'voice-search-disabled' ), 'dgwt-wcas-voice-search-mic-disabled' ),
             'custom_params'                => (object) apply_filters( 'dgwt/wcas/scripts/custom_params', array() ),
             'convert_html'                 => true,
             'suggestions_wrapper'          => apply_filters( 'dgwt/wcas/scripts/suggestions_wrapper', 'body' ),
             'show_product_vendor'          => dgoraAsfwFs()->is_premium() && class_exists( 'DgoraWcas\\Integrations\\Marketplace\\Marketplace' ) && DGWT_WCAS()->marketplace->showProductVendor(),
             'disable_hits'                 => apply_filters( 'dgwt/wcas/scripts/disable_hits', false ),
             'disable_submit'               => apply_filters( 'dgwt/wcas/scripts/disable_submit', false ),
+            'fixer'                        => apply_filters( 'dgwt/wcas/scripts/fixer', array(
+            'broken_search_ui'                  => true,
+            'broken_search_ui_ajax'             => true,
+            'broken_search_ui_hard'             => false,
+            'broken_search_elementor_popups'    => true,
+            'broken_search_browsers_back_arrow' => true,
+            'force_refresh_checkout'            => true,
+        ) ),
+            'voice_search_enabled'         => defined( 'DGWT_WCAS_VOICE_SEARCH_ENABLE' ) && DGWT_WCAS_VOICE_SEARCH_ENABLE,
+            'voice_search_lang'            => apply_filters( 'dgwt/wcas/scripts/voice_search_lang', get_bloginfo( 'language' ) ),
         );
         if ( Multilingual::isMultilingual() ) {
             $localize['current_lang'] = Multilingual::getCurrentLanguage();
@@ -1323,7 +1436,7 @@ class Helpers
         }
         // Show/hide Details panel
         if ( DGWT_WCAS()->settings->getOption( 'show_details_box' ) === 'on' ) {
-            $localize['show_details_box'] = true;
+            $localize['show_details_panel'] = true;
         }
         // Show/hide images
         if ( DGWT_WCAS()->settings->getOption( 'show_product_image' ) === 'on' ) {
@@ -1632,6 +1745,20 @@ class Helpers
             $sql .= " COLLATE " . $collate;
         }
         return apply_filters( 'dgwt/wcas/db/collation/sql', $sql, $context );
+    }
+    
+    /**
+     * Check if string ends with another string
+     *
+     * @param string $haystack
+     * @param string $needle
+     *
+     * @return bool
+     */
+    public static function endsWith( $haystack, $needle )
+    {
+        $length = strlen( $needle );
+        return ( $length > 0 ? substr( $haystack, -$length ) === $needle : true );
     }
 
 }

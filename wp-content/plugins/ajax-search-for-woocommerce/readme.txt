@@ -4,7 +4,7 @@ Tags: woocommerce search, ajax search, search by sku, product search, woocommerc
 Requires at least: 5.0
 Tested up to: 6.0
 Requires PHP: 7.0
-Stable tag: 1.18.1
+Stable tag: 1.19.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,6 +141,39 @@ You can read more and compare Pro and Free features here: [Full comparison - Pro
 5. Settings page
 
 == Changelog ==
+
+= 1.19.0, July 27, 2022 =
+* ADD: New feature - New search layout called “Pirx”
+* ADD: New feature - FiboSearch Analytics
+* ADD: New feature - Layout type: Icon on desktop, search bar on mobile
+* ADD: New feature - Voice search
+* ADD: New feature - FiboSearch blocks in the block editor
+* ADD: Separated option “mobile_overlay_breakpoint” to handle overlay on mobile breakpoint
+* ADD: Add "mobile_overlay_breakpoint" as a shortcode param to add the opportunity to set this value independently from global settings
+* ADD: New search bars fixer: try to regenerate search bars when they were added by AJAX callbacks
+* ADD: Support for header builder in integration with Astra theme
+* ADD: Another question marks for FiboSearch settings that cover our documentation
+* ADD: Settings preview - smooth scrolling
+* ADD: Settings preview - animate typing on a search preview for “Search bar” tab
+* ADD: Support all types of layout in widget and embedding via Menu
+* ADD: Ability to reset plugin settings to default values
+* ADD: New shortcode params: “submit_btn” and “submit_text”
+
+* FIX: WOOF – Products Filter for WooCommerce integration: broken counters on the search results page
+* FIX: Interdependent settings in Settings -> Search bar -> Style -> Design
+* FIX: Improved darkened background positioning (support for sticky elements as well)
+* FIX: Improved search suggestions and the details panel positioning (support for sticky elements as well)
+* FIX: Settings page - wrong position of a questions mark (Safari)
+* FIX: JavaScript errors in the settings page when the GeoTargetingWP plugin is active
+* FIX: Try to add “dgwt-wcas-active” class again if it has not been added by other events
+* FIX: Incorrect elements position after load “iconMode”
+* FIX: Incorrect adding CSS class as shortcode parameter
+* FIX: English grammar typos
+
+* CHANGE: Updated Freemius SDK to v2.4.4
+* REFACTOR: Indexer - Replacing “PDO” with WPDB”
+* REFACTOR: Settings page - rebuild the settings section Search Bar -> Appearance to improve UX
+* REFACTOR: Search bars fixer
 
 = 1.18.1, May 23, 2022 =
 * FIX: Exceeding the memory limit on the search results page

@@ -848,9 +848,22 @@ class SettingsAPI
 
 				//Initiate Color Picker
 				if ($('.wp-color-picker-field').length > 0) {
+					var addedClearer = false;
 					$('.wp-color-picker-field').wpColorPicker({
+						palettes: false,
 						change: function (event, ui) {
 							window.DGWT_WCAS_SEARCH_PREVIEW.onColorChangeHandler($(event.target), ui.color.toString());
+
+							//https://github.com/Automattic/Iris/issues/57#issuecomment-899685019
+							if (!addedClearer) {
+								$('.wp-picker-clear').on('click', function () {
+									var $input = $(this).parent('.wp-picker-input-wrap').find('input.wp-color-picker');
+									if($input.length > 0){
+										window.DGWT_WCAS_SEARCH_PREVIEW.onColorChangeHandler($input, '');
+									}
+								});
+								addedClearer = true;
+							}
 						},
 					});
 				}

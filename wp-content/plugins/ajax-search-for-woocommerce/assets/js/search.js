@@ -212,7 +212,8 @@
             suggestion: 'dgwt-wcas-suggestion',
             suggestionsContainerOrientTop: 'dgwt-wcas-suggestions-wrapp--top',
             inputFilled: 'dgwt-wcas-search-filled',
-            darkenOverlayMounted: 'js-dgwt-wcas-search-darkoverl-mounted'
+            darkenOverlayMounted: 'js-dgwt-wcas-search-darkoverl-mounted',
+            fixed: 'dgwt-wcas-suggestions-wrapp-fixed'
         };
         that.hint = null;
         that.hintValue = '';
@@ -220,6 +221,10 @@
         that.overlayMobileState = 'off';
         that.overlayDarkenedState = 'off';
         that.isMouseDownOnSearchElements = false;
+
+        // Voice search
+        that.voiceSearchRecognition = null;
+        that.voiceSearchStarted = null;
 
         // Initialize and set options:
         that.initialize();
@@ -272,6 +277,10 @@
         preloaderClass: 'dgwt-wcas-preloader',
         closeTrigger: 'dgwt-wcas-close',
         formClass: 'dgwt-wcas-search-form',
+        voiceSearchClass: 'dgwt-wcas-voice-search',
+        voiceSearchSupportedClass: 'dgwt-wcas-voice-search-supported',
+        voiceSearchActiveClass: 'dgwt-wcas-voice-search-active',
+        voiceSearchDisabledClass: 'dgwt-wcas-voice-search-disabled',
         tabDisabled: false,
         dataType: 'text',
         currentRequest: null,
@@ -283,7 +292,6 @@
         paramName: 'query',
         transformResult: _transformResult,
         noSuggestionNotice: 'No results',
-        orientation: 'bottom',
         forceFixPosition: false,
         positionFixed: false,
         debounceWaitMs: 400,
@@ -292,6 +300,8 @@
         showProductVendor: false,
         disableHits: false,
         disableSubmit: false,
+        voiceSearchEnabled: false,
+        voiceSearchLang: '',
     }
 
     function _lookupFilter(suggestion, originalQuery, queryLowerCase) {
@@ -336,26 +346,47 @@
             // Remove autocomplete attribute to prevent native suggestions:
             that.element.setAttribute('autocomplete', 'off');
 
+            that.options.params = that.applyCustomParams(that.options.params);
+
             that.createContainers();
 
             that.registerEventsSearchBar();
             that.registerEventsSuggestions();
             that.registerEventsDetailsPanel();
             that.registerIconHandler();
-            that.registerEventsFixedMenu();
+            that.registerFlexibleLayout();
+            that.initVoiceSearch();
 
-            that.fixPositionCapture = function () {
+            that.fixPosition = function () {
                 that.adjustContainerWidth();
                 if (that.visible) {
-                    that.fixPosition();
+                    that.fixPositionSuggestions();
+                    if (that.canShowDetailsPanel()) {
+                        that.fixPositionDetailsPanel();
+                    }
                 }
                 that.positionOverlayDarkened();
             };
 
+            // Fix position on resize
             $(window).on('resize.autocomplete', function () {
                 var that = utils.getActiveInstance();
+                clearTimeout(window.dgwt_wcas.resizeOnlyOnce);
                 if (typeof that != 'undefined') {
-                    that.fixPositionCapture();
+                    window.dgwt_wcas.resizeOnlyOnce = setTimeout(function () {
+                        that.fixPosition();
+                    }, 100);
+                }
+            });
+
+            // Fix position on scroll
+            $(window).on('scroll.autocomplete', function () {
+                var that = utils.getActiveInstance();
+                clearTimeout(window.dgwt_wcas.scrollOnlyOnce);
+                if (typeof that != 'undefined') {
+                    window.dgwt_wcas.scrollOnlyOnce = setTimeout(function () {
+                        that.fixPosition();
+                    }, 100);
                 }
             });
 
@@ -364,17 +395,16 @@
             $(window).on('resize.autocomplete', function () {
                 var newWidth = $(window).width();
                 if (newWidth != windowWidth) {
-                    that.toggleMobileMode();
+                    that.toggleMobileOverlayMode();
                     windowWidth = newWidth;
                 }
             });
 
-            if (that.isMobileMode()) {
-                that.initMobileMode();
+            if (that.isBreakpointReached('mobile-overlay')) {
+                that.activateMobileOverlayMode();
             }
 
             that.hideAfterClickOutsideListener();
-
 
             // Mark as initialized
             that.suggestionsContainer.addClass('js-dgwt-wcas-initialized');
@@ -382,7 +412,6 @@
             if (that.detailsContainer && that.detailsContainer.length > 0) {
                 that.detailsContainer.addClass('js-dgwt-wcas-initialized');
             }
-
         },
         createContainers: function (type) {
             var that = this,
@@ -429,7 +458,7 @@
             }
 
             // Details Panel
-            if (that.canShowDetailsBox()) {
+            if (that.canShowDetailsPanel()) {
 
                 if ($('.' + options.containerDetailsClass).length == 0) {
                     that.detailsContainer = $(DgwtWcasAutocompleteSearch.utils.createNode(options.containerDetailsClass));
@@ -448,7 +477,7 @@
             var that = this;
 
             // Extra tasks on submit
-            that.el.closest('.' + that.options.formClass).on('submit.autocomplete', function (e) {
+            that.getForm().on('submit.autocomplete', function (e) {
 
                 if (that.options.disableSubmit) {
                     e.preventDefault();
@@ -480,16 +509,16 @@
                 }
 
                 // Clean before submit
-                that.disableOverlayMobile();
+                that.closeOverlayMobile();
 
             });
 
             // Position preloader
             if (document.readyState === 'complete') {
-                that.positionPreloader();
+                that.positionPreloaderAndMic();
             } else {
                 $(window).on('load', function () {
-                    that.positionPreloader();
+                    that.positionPreloaderAndMic();
                 });
             }
 
@@ -534,7 +563,7 @@
                 var currentIndex = $(this).data('index');
                 var selector = '.dgwt-wcas-suggestion[data-index="' + currentIndex + '"]';
 
-                var timeOffset = that.canShowDetailsBox() ? 100 : 1;
+                var timeOffset = that.canShowDetailsPanel() ? 100 : 1;
 
                 if (that.selectedIndex != currentIndex) {
                     utils.mouseHoverDebounce(function () {
@@ -593,7 +622,7 @@
             var that = this,
                 detailsContainer = that.getDetailsContainer();
 
-            if (!that.canShowDetailsBox() || detailsContainer.hasClass('js-dgwt-wcas-initialized')) {
+            if (!that.canShowDetailsPanel() || detailsContainer.hasClass('js-dgwt-wcas-initialized')) {
                 return;
             }
 
@@ -612,15 +641,14 @@
         },
         registerIconHandler: function () {
             var that = this,
-                $formWrapper = that.getFormWrapper();
-            var $form = $formWrapper.find('.' + that.options.formClass);
+                $formWrapper = that.getFormWrapper(),
+                $form = that.getForm();
 
             $formWrapper.on('click.autocomplete', '.js-dgwt-wcas-search-icon-handler', function (e) {
 
                 var $input = $formWrapper.find('.' + that.options.searchInputClass);
 
                 if ($formWrapper.hasClass('dgwt-wcas-layout-icon-open')) {
-
                     that.hide();
                     $form.hide(true);
 
@@ -634,14 +662,17 @@
                     $formWrapper.addClass('dgwt-wcas-layout-icon-open');
                     that.positionIconSearchMode($formWrapper);
 
-                    $form.fadeIn(200, function () {
+                    $form.fadeIn(50, function () {
                         $arrow.show();
-                        that.positionPreloader($formWrapper);
+                        that.positionPreloaderAndMic($formWrapper);
                         $input.focus();
                     });
 
-                }
+                    setTimeout(function () {
+                        that.fixPosition();
+                    }, 110);
 
+                }
 
             });
 
@@ -663,50 +694,30 @@
                     }
                 });
             }
+        },
+        registerFlexibleLayout: function () {
+            var that = this;
 
             // Trigger only when x axis is changed
             var windowWidth = $(window).width();
             $(window).on('resize.autocomplete', function () {
                 var newWidth = $(window).width();
                 if (newWidth != windowWidth) {
-                    that.applyFlexibleMode();
+                    that.reloadFlexibleLayout();
                     windowWidth = newWidth;
                 }
             });
 
             if (document.readyState == 'complete') {
-                that.applyFlexibleMode();
+                that.reloadFlexibleLayout();
             } else {
                 $(window).on('load.autocomplete', function () {
-                    that.applyFlexibleMode();
+                    that.reloadFlexibleLayout();
                 });
             }
 
         },
-        registerEventsFixedMenu: function () {
-            var that = this;
-
-            $(window).on('scroll.autocomplete', function () {
-
-                if (that.suggestions.length > 0 && that.elementOrParentIsFixed(that.getFormWrapper())) {
-                    if ($(window).scrollTop() === 0) {
-                        var timeSteps = [1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 120, 140, 170, 200, 250, 400, 700, 1000, 2000];
-
-                        timeSteps.forEach(function (offset) {
-                            setTimeout(function () {
-                                that.fixHeight();
-                                that.fixPositionCapture();
-                            }, offset);
-                        });
-                    } else {
-                        that.fixHeight();
-                        that.fixPositionCapture();
-                    }
-                }
-            });
-
-        },
-        initMobileMode: function () {
+        activateMobileOverlayMode: function () {
             var that = this,
                 $formWrapper = that.getFormWrapper();
 
@@ -716,6 +727,7 @@
             ) {
 
                 $formWrapper.prepend('<div class="js-dgwt-wcas-enable-mobile-form dgwt-wcas-enable-mobile-form"></div>');
+                $formWrapper.addClass('dgwt-wcas-mobile-overlay-trigger-active');
 
                 var $el = $formWrapper.find('.js-dgwt-wcas-enable-mobile-form');
 
@@ -723,10 +735,10 @@
 
                     if (that.options.mobileOverlayDelay > 0) {
                         setTimeout(function () {
-                            that.enableOverlayMobile();
+                            that.showMobileOverlay();
                         }, that.options.mobileOverlayDelay);
                     } else {
-                        that.enableOverlayMobile();
+                        that.showMobileOverlay();
                     }
 
                 });
@@ -734,7 +746,7 @@
             }
 
         },
-        destroyMobileMode: function () {
+        deactivateMobileOverlayMode: function () {
             var that = this,
                 $formWrapper = that.getFormWrapper(),
                 $suggestionsWrapper = that.getSuggestionsContainer();
@@ -744,17 +756,16 @@
             if ($formWrapper.hasClass('js-dgwt-wcas-mobile-overlay-enabled')
                 && $el.length
             ) {
-
-                that.disableOverlayMobile();
+                that.closeOverlayMobile();
                 $el.remove();
-
+                $formWrapper.removeClass('dgwt-wcas-mobile-overlay-trigger-active');
             }
 
         },
-        toggleMobileMode: function () {
+        toggleMobileOverlayMode: function () {
             var that = this,
                 $formWrapper = that.getFormWrapper(),
-                currentMode = 'desktop';
+                isMobOverlayEnabled = false;
 
             // Break early if this search bar shouldn't open in overlay mobile mode
             if (!$formWrapper.hasClass('js-dgwt-wcas-mobile-overlay-enabled')) {
@@ -763,12 +774,13 @@
 
             // Determine the search should open in mobile overlay
             if ($formWrapper.find('.js-dgwt-wcas-enable-mobile-form').length) {
-                currentMode = 'mobile';
+                isMobOverlayEnabled = true;
             }
 
             // Toggled?
-            if ((currentMode === 'desktop' && that.isMobileMode())
-                || (currentMode === 'mobile' && !that.isMobileMode())
+            if (
+                (!isMobOverlayEnabled && that.isBreakpointReached('mobile-overlay'))
+                || (isMobOverlayEnabled && !that.isBreakpointReached('mobile-overlay'))
             ) {
 
                 var $suggestionsWrapper = that.getSuggestionsContainer();
@@ -780,34 +792,140 @@
                 }
 
                 that.hideIconModeSearch();
-
             }
 
-            // Switch to mobile mode
-            if (currentMode === 'desktop' && that.isMobileMode()) {
-                that.initMobileMode();
+            // Activate overlay on mobile feature
+            if (!isMobOverlayEnabled && that.isBreakpointReached('mobile-overlay')) {
+                that.activateMobileOverlayMode();
             }
 
-            // Switch to desktop mode
-            if (currentMode === 'mobile' && !that.isMobileMode()) {
-                that.destroyMobileMode();
+            // Deactivate overlay on mobile feature
+            if (isMobOverlayEnabled && !that.isBreakpointReached('mobile-overlay')) {
+                that.deactivateMobileOverlayMode();
             }
         },
-        applyFlexibleMode: function () {
+        showMobileOverlay: function () {
             var that = this;
-            var $flexibleSearch = $('.js-dgwt-wcas-layout-icon-flexible');
 
-            if ($flexibleSearch.length) {
+            if (that.overlayMobileState === 'on') {
+                return;
+            }
 
-                if (that.isMobileMode()) {
-                    $flexibleSearch.addClass('js-dgwt-wcas-layout-icon');
-                    $flexibleSearch.addClass('dgwt-wcas-layout-icon');
-                } else {
-                    $flexibleSearch.removeClass('js-dgwt-wcas-layout-icon');
-                    $flexibleSearch.removeClass('dgwt-wcas-layout-icon');
+            that.overlayMobileState = 'on';
+
+            var zIndex = 99999999999,
+                $wrapper = that.getFormWrapper(),
+                $suggestionsWrapp = that.getSuggestionsContainer(),
+                $overlayWrap,
+                html = '';
+
+            $('html').addClass('dgwt-wcas-overlay-mobile-on');
+            $('html').addClass('dgwt-wcas-open-' + that.getSearchStyle());
+            html += '<div class="js-dgwt-wcas-overlay-mobile dgwt-wcas-overlay-mobile">';
+            html += '<div class="dgwt-wcas-om-bar js-dgwt-wcas-om-bar">';
+            html += '<button class="dgwt-wcas-om-return js-dgwt-wcas-om-return">'
+            if (typeof dgwt_wcas.back_icon == 'string') {
+                html += dgwt_wcas.back_icon;
+            }
+            html += '</button>';
+            html += '</div>';
+            html += '</div>';
+
+            // Create overlay
+            $(that.options.mobileOverlayWrapper).append(html);
+            $overlayWrap = $('.js-dgwt-wcas-overlay-mobile');
+            $overlayWrap.css('zIndex', zIndex);
+
+            $wrapper.after('<span class="js-dgwt-wcas-om-hook"></span>');
+            $wrapper.appendTo('.js-dgwt-wcas-om-bar');
+            $suggestionsWrapp.appendTo('.js-dgwt-wcas-om-bar');
+            $wrapper.addClass('dgwt-wcas-search-wrapp-mobile');
+
+            if ($wrapper.hasClass('dgwt-wcas-has-submit')) {
+                $wrapper.addClass('dgwt-wcas-has-submit-off');
+                $wrapper.removeClass('dgwt-wcas-has-submit');
+            }
+
+            $wrapper.find('.' + that.options.searchInputClass).focus();
+
+            $(document).on('click.autocomplete', '.js-dgwt-wcas-om-return', function (e) {
+                that.closeOverlayMobile($overlayWrap);
+            });
+        },
+        closeOverlayMobile: function ($overlayWrap) {
+            var that = this;
+
+            if (!$('html').hasClass('dgwt-wcas-overlay-mobile-on')) {
+                that.overlayMobileState = 'off';
+                return;
+            }
+
+            var $suggestionsWrapp = that.getSuggestionsContainer();
+
+            var $clonedForm = $('.js-dgwt-wcas-om-bar').find('.' + that.options.searchFormClass);
+
+            if ($clonedForm.hasClass('dgwt-wcas-has-submit-off')) {
+                $clonedForm.removeClass('dgwt-wcas-has-submit-off');
+                $clonedForm.addClass('dgwt-wcas-has-submit');
+            }
+
+            $clonedForm.removeClass('dgwt-wcas-search-wrapp-mobile');
+            $('html').removeClass('dgwt-wcas-overlay-mobile-on');
+            $('html').removeClass('dgwt-wcas-open-' + that.getSearchStyle());
+            $suggestionsWrapp.appendTo('body');
+            $suggestionsWrapp.removeAttr('body-scroll-lock-ignore');
+            $('.js-dgwt-wcas-om-hook').after($clonedForm);
+            $('.js-dgwt-wcas-overlay-mobile').remove();
+            $('.js-dgwt-wcas-om-hook').remove();
+
+            setTimeout(function () {
+                $clonedForm.find('.' + that.options.searchInputClass).val('');
+                var $closeBtn = $clonedForm.find('.dgwt-wcas-close');
+                if ($clonedForm.length > 0) {
+                    $closeBtn.removeClass('dgwt-wcas-close');
+                    $closeBtn.html('');
                 }
 
-                $flexibleSearch.addClass('dgwt-wcas-layout-icon-flexible-loaded');
+                that.hide();
+
+            }, 150);
+
+
+            that.overlayMobileState = 'off';
+        },
+        reloadFlexibleLayout: function () {
+            var that = this,
+                $searchWrapp = that.getFormWrapper(),
+                flexibleMode = 0;
+
+            /**
+             * flexibleMode
+             * 0 = not set
+             * 1 = Icon on mobile, search bar on desktop
+             * 2 = Icon on desktop, search bar on mobile
+             */
+
+            if ($searchWrapp.hasClass('js-dgwt-wcas-layout-icon-flexible')) {
+                flexibleMode = 1;
+            }
+
+            if ($searchWrapp.hasClass('js-dgwt-wcas-layout-icon-flexible-inv')) {
+                flexibleMode = 2;
+            }
+            if (flexibleMode > 0) {
+
+                if (
+                    (flexibleMode === 1 && that.isBreakpointReached('search-layout'))
+                    || (flexibleMode === 2 && !that.isBreakpointReached('search-layout'))
+                ) {
+                    $searchWrapp.addClass('js-dgwt-wcas-layout-icon');
+                    $searchWrapp.addClass('dgwt-wcas-layout-icon');
+                } else {
+                    $searchWrapp.removeClass('js-dgwt-wcas-layout-icon');
+                    $searchWrapp.removeClass('dgwt-wcas-layout-icon');
+                }
+
+                $searchWrapp.addClass('dgwt-wcas-layout-icon-flexible-loaded');
             }
         },
         onFocus: function (e) {
@@ -826,7 +944,7 @@
                 that.enableOverlayDarkened();
             }
 
-            that.fixPositionCapture();
+            that.fixPosition();
             if (that.el.val().length >= that.options.minChars) {
                 that.onValueChange();
             }
@@ -842,12 +960,8 @@
             $('body').removeClass('dgwt-wcas-focused');
             $('.' + options.searchFormClass).removeClass('dgwt-wcas-search-focused');
 
-
-            if (that.isMobileMode()) {
-                return;
-            }
-
             if (!that.isMouseDownOnSearchElements) {
+
                 that.hide();
 
                 if (that.selection && that.currentValue !== query) {
@@ -874,15 +988,13 @@
                 options.lookup = that.verifySuggestionsFormat(options.lookup);
             }
 
-            options.orientation = that.validateOrientation(options.orientation, 'bottom');
-
             $suggestionsContainer.css({
-                'max-height': !that.canShowDetailsBox() ? options.maxHeight + 'px' : 'none',
+                'max-height': !that.canShowDetailsPanel() ? options.maxHeight + 'px' : 'none',
                 'z-index': options.zIndex
             });
 
             // Add classes
-            if (options.showDetailsPanel === true) {
+            if (that.canShowDetailsPanel()) {
                 var $detailsContainer = that.getDetailsContainer();
 
                 $detailsContainer.css({
@@ -927,32 +1039,52 @@
                 $el.focus();
             }
         },
-        fixPosition: function () {
+        fixPositionSuggestions: function () {
             var that = this,
-                offset = that.getFormOffset(),
-                suggestionsContainer = that.getSuggestionsContainer();
+                $suggestions = that.getSuggestionsContainer(),
+                $formEl = that.getForm(),
+                $input = that.el,
+                formData = that.getElementInfo($formEl),
+                inputData = that.getElementInfo($input),
+                offset = {
+                    top: inputData.top + inputData.height,
+                    left: formData.left
+                };
 
-            suggestionsContainer.css(offset);
-
-            if (that.canShowDetailsBox()) {
-                that.fixPositionDetailsBox();
+            // Set different vertical coordinates when the search bar is in the fixed position
+            if (that.ancestorHasPositionFixed($formEl)) {
+                offset.top = inputData.topViewPort + inputData.height;
+                $suggestions.addClass(that.classes.fixed);
+            } else {
+                $suggestions.removeClass(that.classes.fixed);
             }
 
+            that.getSuggestionsContainer().css(offset);
         },
-        fixPositionDetailsBox: function () {
+        fixPositionDetailsPanel: function () {
             var that = this,
                 $searchBar = that.getFormWrapper(),
-                $containerSuggestions = that.getSuggestionsContainer(),
-                $containerDetails = that.getDetailsContainer(),
-                searchBarOffset = that.getFormOffset();
+                $suggestions = that.getSuggestionsContainer(),
+                $detailsPanel = that.getDetailsContainer(),
+                $formEl = that.getForm(),
+                $input = that.el,
+                formData = that.getElementInfo($formEl),
+                inputData = that.getElementInfo($input),
+                offset = {
+                    top: inputData.top + inputData.height,
+                    left: formData.left + $suggestions.outerWidth(false)
+                };
 
-            if ($containerDetails.length == 0) {
-                return false;
+            // Set different vertical coordinate when the search bar is in the fixed position
+            if(that.ancestorHasPositionFixed($searchBar)) {
+                offset.top = inputData.topViewPort + inputData.height;
+                $detailsPanel.addClass(that.classes.fixed);
+            }else{
+                $detailsPanel.removeClass(that.classes.fixed)
             }
 
-            // Set details panel to the right side of the suggestion wrapper
-            var leftAbsolute = searchBarOffset.left + $containerSuggestions.outerWidth(false);
-            $containerDetails.css({top: searchBarOffset.top, 'left': leftAbsolute});
+            // Stick the details panel to the right side of the suggestion wrapper and to the bottom border of the search form
+            $detailsPanel.css(offset);
 
             $('body').removeClass('dgwt-wcas-full-width dgwt-wcas-details-outside dgwt-wcas-details-right dgwt-wcas-details-left dgwt-wcas-details-notfit');
 
@@ -961,19 +1093,19 @@
                 $('body').addClass('dgwt-wcas-full-width');
 
                 if (that.options.isRtl === true) {
-                    leftAbsolute = searchBarOffset.left + $containerDetails.outerWidth(false);
-                    $containerSuggestions.css('left', leftAbsolute);
-                    $containerDetails.css('left', searchBarOffset.left);
+                    offset.left = formData.left + $detailsPanel.outerWidth(false);
+                    $suggestions.css('left', offset.left);
+                    $detailsPanel.css('left', formData.left);
                 }
 
                 return;
             }
 
-            // Details Panel Mode 2: The suggestions wrapper has the same width as the search bar.
+            // Details Panel Mode 2: The suggestions' wrapper has the same width as the search bar.
             // Details panel clings to the left or right side of the suggestion wrapper.
             var windowWidth = $(window).width(),
-                cDWidth = $containerDetails.outerWidth(),
-                cOffset = $containerDetails.offset();
+                cDWidth = $detailsPanel.outerWidth(),
+                cOffset = $detailsPanel.offset();
 
             $('body').addClass('dgwt-wcas-details-outside dgwt-wcas-details-right');
 
@@ -982,12 +1114,12 @@
             if (windowWidth < (cOffset.left + cDWidth)) {
                 $('body').removeClass('dgwt-wcas-details-right');
                 $('body').addClass('dgwt-wcas-details-left');
-                leftAbsolute = $containerSuggestions.offset().left - $containerDetails.outerWidth();
-                $containerDetails.css('left', leftAbsolute);
-                cOffset = $containerDetails.offset();
+                offset.left = $suggestions.offset().left - $detailsPanel.outerWidth(false);
+                $detailsPanel.css('left', offset.left);
+                cOffset = $detailsPanel.offset();
             }
 
-            // Is the details panel fits the space of the left side?
+            // Is the details' panel fits the space of the left side?
             // Not? Try to hide it by adding class "dgwt-wcas-details-notfit"
             if (cOffset.left < 1) {
                 $('body').removeClass('dgwt-wcas-details-left dgwt-wcas-details-right');
@@ -995,11 +1127,9 @@
             }
         },
         fixHeight: function () {
+            var that = this;
 
-            var that = this,
-                options = that.options;
-
-            if (options.showDetailsPanel != true) {
+            if (!that.canShowDetailsPanel()) {
                 return false;
             }
 
@@ -1042,14 +1172,14 @@
             }
 
             var markers = [$input.width(), $suggestionsContainer.height()];
-            if (that.options.showDetailsPanel) {
+            if (that.canShowDetailsPanel()) {
                 markers[2] = $detailsWrapp.height();
             }
 
             that.autoAligmentprocess = setInterval(function () {
 
                 var newMarkers = [$input.width(), $suggestionsContainer.height()];
-                if (that.options.showDetailsPanel) {
+                if (that.canShowDetailsPanel()) {
                     newMarkers[2] = $detailsWrapp.height();
                 }
 
@@ -1058,14 +1188,14 @@
                     if (markers[i] != newMarkers[i]) {
 
                         that.fixHeight();
-                        that.fixPositionCapture();
+                        that.fixPosition();
                         markers = newMarkers;
                         break;
                     }
                 }
 
 
-                if (that.options.showDetailsPanel) {
+                if (that.canShowDetailsPanel()) {
 
                     var innerDetailsHeight = $detailsWrapp.find('.dgwt-wcas-details-inner').height();
 
@@ -1078,74 +1208,32 @@
             }, 10);
 
         },
-        getFormElementInfo: function () {
-            var that = this,
-                $form = that.getFormWrapper(),
-                data = {},
+        getElementInfo: function ($el) {
+            var data = {},
+                viewPort,
                 offset;
 
-            // Different position for search icon layout
-            if ($form.hasClass('js-dgwt-wcas-layout-icon')) {
-                $form = $form.find('.' + that.options.formClass);
-            }
-
-
-            offset = $form.offset();
+            viewPort = $el[0].getBoundingClientRect();
+            offset = $el.offset();
 
             data.left = offset.left;
             data.top = offset.top;
-            data.width = $form.outerWidth(false);
-            data.height = $form.outerHeight(false);
+            data.width = $el.outerWidth(false);
+            data.height = $el.outerHeight(false);
             data.right = data.left + data.width;
             data.bottom = data.top + data.height;
+            data.topViewPort = viewPort.top;
+            data.bottomViewPort = viewPort.top + data.height;
 
             return data;
-
-        },
-        getFormOffset: function () {
-            var that = this,
-                $wrapp = that.getFormWrapper(),
-                $suggestionsContainer = that.getSuggestionsContainer(),
-                $baseElementXAxis = $wrapp.find('.' + that.options.formClass),
-                $baseElementYAxis = that.el,
-                offsetTop = $baseElementYAxis.offset().top,
-                offsetLeft = $baseElementXAxis.offset().left;
-
-
-            // Choose orientation
-            var orientation = that.options.orientation,
-                containerHeight = $wrapp.outerHeight(false),
-                height = $baseElementYAxis.outerHeight(false),
-                styles = {'top': offsetTop, 'left': offsetLeft};
-
-            if (orientation === 'auto') {
-                var viewPortHeight = $(window).height(),
-                    scrollTop = $(window).scrollTop(),
-                    topOverflow = -scrollTop + offsetTop - containerHeight,
-                    bottomOverflow = scrollTop + viewPortHeight - (offsetTop + height + containerHeight);
-
-                orientation = (Math.max(topOverflow, bottomOverflow) === topOverflow) ? 'top' : 'bottom';
-            }
-
-            if (orientation === 'top') {
-                var ft = $baseElementYAxis[0].getBoundingClientRect().top;
-
-                $suggestionsContainer.css('height', 'auto');
-                if (ft < $suggestionsContainer.height()) {
-                    $suggestionsContainer.height(ft - 10);
-                }
-                styles.top += -$suggestionsContainer.outerHeight(false);
-            } else {
-                styles.top += height;
-            }
-
-            return styles;
-
         },
         getFormWrapper: function () {
             var that = this;
-
             return that.el.closest('.' + that.options.searchFormClass);
+        },
+        getForm: function () {
+            var that = this;
+            return that.el.closest('.' + that.options.formClass);
         },
         getSuggestionsContainer: function () {
             var that = this;
@@ -1179,6 +1267,8 @@
         onKeyPress: function (e) {
             var that = this,
                 $wrapp = that.getFormWrapper();
+
+            that.addActiveClassIfMissing();
 
             // If suggestions are hidden and user presses arrow down, display suggestions:
             if (!that.visible && e.keyCode === keys.DOWN && that.currentValue) {
@@ -1318,14 +1408,35 @@
 
             return (suggestions.length === 1 && suggestions[0].value.toLowerCase() === query.toLowerCase());
         },
-        canShowDetailsBox: function () {
-            var that = this;
+        canShowDetailsPanel: function () {
+            var that = this,
+                show = that.options.showDetailsPanel;
 
-            return that.options.showDetailsPanel == true && !that.isMobileMode();
+            if ($(window).width() < 768 || ('ontouchend' in document)) {
+                show = false;
+            }
+            return show;
         },
-        isMobileMode: function () {
-            var that = this;
-            return $(window).width() < that.options.mobileBreakpoint
+        isBreakpointReached: function (context) {
+            var that = this,
+                breakpoint = 0;
+
+            switch (context) {
+                case 'search-layout':
+                    breakpoint = that.options.layoutBreakpoint;
+                    if (that.isSetParam('layout_breakpoint')) {
+                        breakpoint = Number.parseInt(that.getParam('layout_breakpoint'));
+                    }
+                    break;
+                case 'mobile-overlay':
+                    breakpoint = that.options.mobileOverlayBreakpoint;
+                    if (that.isSetParam('mobile_overlay_breakpoint')) {
+                        breakpoint = Number.parseInt(that.getParam('mobile_overlay_breakpoint'));
+                    }
+                    break;
+            }
+
+            return $(window).width() <= breakpoint;
         },
         getQuery: function (value) {
             var delimiter = this.options.delimiter,
@@ -1373,8 +1484,6 @@
             if (typeof dgwt_wcas.current_lang != 'undefined') {
                 options.params['l'] = dgwt_wcas.current_lang;
             }
-
-            options.params = that.applyCustomParams(options.params);
 
             that.preloader('show', 'form', 'dgwt-wcas-inner-preloader');
             searchForm.addClass('dgwt-wcas-processing');
@@ -1458,7 +1567,7 @@
 
                         }
 
-                        that.fixPositionCapture();
+                        that.fixPosition();
 
                         that.options.onSearchComplete.call(that.element, q, result.suggestions);
 
@@ -1481,7 +1590,7 @@
             var that = this;
 
             // Disable details panel
-            if (!that.canShowDetailsBox()) {
+            if (!that.canShowDetailsPanel()) {
                 return false;
             }
 
@@ -1509,7 +1618,7 @@
                 // Load response from cache
                 that.detailsPanelSetScene(currentObjectID);
                 that.fixHeight();
-                that.fixPositionCapture();
+                that.fixPosition();
 
             } else {
 
@@ -1574,7 +1683,7 @@
                             // @TODO Maybe display some error or placeholder
                             that.detailsPanelClearScene();
                         }
-                        that.fixPositionCapture();
+                        that.fixPosition();
                         that.fixHeight();
 
                         that.updatePrices(true);
@@ -1584,7 +1693,7 @@
                         that.preloader('hide', 'details', '');
 
                         that.detailsPanelClearScene();
-                        that.fixPositionCapture();
+                        that.fixPosition();
                         that.fixHeight();
                     },
                 });
@@ -1713,6 +1822,14 @@
 
             return params;
         },
+        isSetParam: function (param) {
+            var that = this;
+            return typeof that.options.params[param] != 'undefined';
+        },
+        getParam: function (param) {
+            var that = this;
+            return that.isSetParam(param) ? that.options.params[param] : '';
+        },
         applyPreloaderForPrice: function (index) {
             var that = this;
 
@@ -1792,7 +1909,7 @@
                 index = 0,
                 noResults = false;
 
-            if (!that.canShowDetailsBox()) {
+            if (!that.canShowDetailsPanel()) {
                 return;
             }
 
@@ -1842,9 +1959,8 @@
         },
         hide: function (clear) {
             var that = this,
-                $formWrapper = that.getFormWrapper(),
-                $container = that.getSuggestionsContainer(),
-                $containerDetails = that.getDetailsContainer();
+                $suggestions = that.getSuggestionsContainer(),
+                $detailsPanel = that.getDetailsContainer();
 
             if ($.isFunction(that.options.onHide) && that.visible) {
                 that.options.onHide.call(that.element, container);
@@ -1853,11 +1969,19 @@
             that.visible = false;
             that.selectedIndex = -1;
             clearTimeout(that.onChangeTimeout);
-            $container.hide();
-            $container.removeClass(that.classes.suggestionsContainerOrientTop);
-            $containerDetails.hide();
+            $suggestions.hide();
+            $suggestions.removeClass(that.classes.suggestionsContainerOrientTop);
+            $suggestions.removeClass(that.classes.fixed);
+
+            if (that.canShowDetailsPanel()) {
+                $detailsPanel.hide();
+                $detailsPanel.removeClass(that.classes.fixed);
+            }
 
             $('body').removeClass('dgwt-wcas-open');
+            if (!$('html').hasClass('dgwt-wcas-overlay-mobile-on')) {
+                $('html').removeClass('dgwt-wcas-open-' + that.getSearchStyle());
+            }
             $('body').removeClass('dgwt-wcas-block-scroll');
             $('body').removeClass('dgwt-wcas-is-details');
             $('body').removeClass('dgwt-wcas-full-width');
@@ -1886,20 +2010,12 @@
         },
         positionIconSearchMode: function ($formWrapper) {
             var that = this,
-                side = 'right',
-                formLeftValue = -20;
-
-            var $form = $formWrapper.find('.' + that.options.formClass);
-            var formWidth = $form.width(),
+                formLeftValue = -20,
+                $form = that.getForm(),
+                formWidth = $form.width(),
                 windowWidth = $(window).width();
 
             var iconLeftOffset = $formWrapper[0].getBoundingClientRect().left;
-            var formLeftOffset = $form[0].getBoundingClientRect().left;
-
-            // Is the icon on left or right side of screen?
-            if (iconLeftOffset + 10 < windowWidth / 2) {
-                side = 'left';
-            }
 
             var iconLeftRatio = (iconLeftOffset + 10) / windowWidth;
 
@@ -1928,20 +2044,17 @@
         },
         hideAfterClickOutsideListener: function () {
             var that = this;
-            if (!that.isMobileMode()) {
+            if (!('ontouchend' in document)) {
 
                 $(document).mouseup(function (e) {
                     if (!that.visible) {
                         return;
                     }
 
-                    var $container = that.getSuggestionsContainer(),
-                        $containerDetails = that.getDetailsContainer(),
-                        outsideForm = !($(e.target).closest('.' + that.options.searchFormClass).length > 0 || $(e.target).hasClass(that.options.searchFormClass)),
+                    var outsideForm = !($(e.target).closest('.' + that.options.searchFormClass).length > 0 || $(e.target).hasClass(that.options.searchFormClass)),
                         outsideContainer = !($(e.target).closest('.' + that.options.containerClass).length > 0 || $(e.target).hasClass(that.options.containerClass));
 
-
-                    if (!that.canShowDetailsBox()) {
+                    if (!that.canShowDetailsPanel()) {
 
                         if (outsideForm && outsideContainer) {
                             that.hide();
@@ -2052,12 +2165,12 @@
                         if (!options.showHeadings) {
                             prepend += '<span class="dgwt-wcas-st--direct-headline">' + dgwt_wcas.labels.vendor + '</span>';
                         }
-                    } else if (options.isPremium && suggestion.type === 'post') {
-                        classes += ' dgwt-wcas-suggestion-pt dgwt-wcas-suggestion-tp-post';
+                    } else if (options.isPremium && suggestion.type === 'post' && typeof suggestion.post_type !== 'undefined' && suggestion.post_type === 'post') {
+                        classes += ' dgwt-wcas-suggestion-pt dgwt-wcas-suggestion-pt-post';
                         if (!options.showHeadings) {
                             prepend += '<span class="dgwt-wcas-st--direct-headline">' + dgwt_wcas.labels.post + '</span>';
                         }
-                    } else if (options.isPremium && suggestion.type === 'page') {
+                    } else if (options.isPremium && suggestion.type === 'post' && typeof suggestion.post_type !== 'undefined' && suggestion.post_type === 'page') {
                         classes += ' dgwt-wcas-suggestion-pt dgwt-wcas-suggestion-pt-page';
                         if (!options.showHeadings) {
                             prepend += '<span class="dgwt-wcas-st--direct-headline">' + dgwt_wcas.labels.page + '</span>';
@@ -2077,7 +2190,7 @@
                         classes += ' dgwt-wcas-suggestion-nores';
                         suggestion.value = dgwt_wcas.labels.no_results;
                         highlight = false;
-                        if (options.showDetailsPanel === true) {
+                        if (that.canShowDetailsPanel()) {
                             that.detailsPanelClearScene();
                         }
                         $('body').addClass('dgwt-wcas-nores');
@@ -2237,13 +2350,14 @@
 
             // Add class on show
             $('body').addClass('dgwt-wcas-open');
+            $('html').addClass('dgwt-wcas-open-' + that.getSearchStyle());
 
             // Reset the latest mousedown position
             that.isMouseDownOnSearchElements = false;
 
             that.automaticAlignment();
 
-            if (options.showDetailsPanel === true) {
+            if (that.canShowDetailsPanel()) {
                 $('body').addClass('dgwt-wcas-is-details');
                 containerDetails.show();
                 that.fixHeight();
@@ -2257,24 +2371,29 @@
             }
 
             that.visible = true;
-            that.fixPositionCapture();
-
-            if (that.options.orientation === 'top') {
-                that.getSuggestionsContainer().addClass(that.classes.suggestionsContainerOrientTop);
-                $('body').addClass('dgwt-wcas-block-scroll');
-                setTimeout(function () {
-                    that.scrollDownSuggestions();
-                }, 300);
-            }
+            that.fixPosition();
 
             that.findBestHint();
+        },
+        getSearchStyle() {
+            var that = this,
+                $searchWrapp = that.getFormWrapper(),
+                style = 'solaris'; //Default style
+
+            $($searchWrapp.attr('class').split(/\s+/)).each(function (index) {
+                if (/dgwt-wcas-style-/i.test(this)) {
+                    style = this.replace(/dgwt-wcas-style-/i, '');
+                }
+            });
+
+            return style;
         },
         adjustContainerWidth: function () {
             var that = this,
                 $searchBar = that.getFormWrapper(),
                 $suggestions = that.getSuggestionsContainer(),
                 $detailsPanel = that.getDetailsContainer(),
-                $baseElement = $searchBar.find('.' + that.options.formClass),
+                $baseElement = that.getForm(),
                 baseWidth = $baseElement.outerWidth();
 
             if (!$searchBar.length) {
@@ -2285,7 +2404,7 @@
             $suggestions.css('width', baseWidth + 'px');
 
             // Mode 2 - keep the suggestions wrapper and the details panel together under the search bar
-            if (that.canShowDetailsBox() && baseWidth >= that.options.dpusbBreakpoint) {
+            if (that.canShowDetailsPanel() && baseWidth >= that.options.dpusbBreakpoint) {
                 var measurementError = 0;
 
                 // Width 50:50
@@ -2299,19 +2418,31 @@
                 }
             }
         },
-        positionPreloader: function ($formWrapper) {
+        positionPreloaderAndMic: function ($formWrapper) {
+            var that = this;
 
             var $submit = typeof $formWrapper == 'object' ? $formWrapper.find('.dgwt-wcas-search-submit') : $('.dgwt-wcas-search-submit');
 
             if ($submit.length > 0) {
                 $submit.each(function () {
-
                     var $preloader = $(this).closest('.dgwt-wcas-search-wrapp').find('.dgwt-wcas-preloader');
+                    var $isVoiceSearchSupported = $(this).closest('.dgwt-wcas-search-wrapp').hasClass(that.options.voiceSearchSupportedClass);
+                    var $voiceSearch = $(this).closest('.dgwt-wcas-search-wrapp').find('.' + that.options.voiceSearchClass);
 
-                    if (dgwt_wcas.is_rtl == 1) {
-                        $preloader.css('left', (6 + $(this).outerWidth()) + 'px');
+                    if ($isVoiceSearchSupported) {
+                        if (dgwt_wcas.is_rtl == 1) {
+                            $voiceSearch.css('left', (6 + $(this).outerWidth()) + 'px');
+                            $preloader.css('left', (46 + $(this).outerWidth()) + 'px');
+                        } else {
+                            $voiceSearch.css('right', $(this).outerWidth() + 'px');
+                            $preloader.css('right', 40 + $(this).outerWidth() + 'px');
+                        }
                     } else {
-                        $preloader.css('right', $(this).outerWidth() + 'px');
+                        if (dgwt_wcas.is_rtl == 1) {
+                            $preloader.css('left', (6 + $(this).outerWidth()) + 'px');
+                        } else {
+                            $preloader.css('right', $(this).outerWidth() + 'px');
+                        }
                     }
                 });
             }
@@ -2425,15 +2556,6 @@
 
             return suggestions;
         },
-        validateOrientation: function (orientation, fallback) {
-            orientation = $.trim(orientation || '').toLowerCase();
-
-            if ($.inArray(orientation, ['auto', 'bottom', 'top']) === -1) {
-                orientation = fallback;
-            }
-
-            return orientation;
-        },
         processResponse: function (result, originalQuery, cacheKey) {
             var that = this,
                 options = that.options;
@@ -2451,10 +2573,6 @@
             // Return if originalQuery is not matching current query:
             if (originalQuery !== that.getQuery(that.currentValue)) {
                 return;
-            }
-
-            if (that.options.orientation === 'top') {
-                result.suggestions.reverse();
             }
 
             that.suggestions = result.suggestions;
@@ -2492,7 +2610,7 @@
                 return;
             }
 
-            that.disableOverlayMobile();
+            that.closeOverlayMobile();
             that.hide();
             that.onSelect(i);
         },
@@ -2548,7 +2666,7 @@
                 return;
             }
 
-            if (!activeItem || that.canShowDetailsBox()) {
+            if (!activeItem || that.canShowDetailsPanel()) {
                 return;
             }
 
@@ -2641,8 +2759,6 @@
                 $el = that.el,
                 $formWrapper = that.getFormWrapper(),
                 $suggestionsWrapper = that.getSuggestionsContainer(),
-                $detailsWrapper = that.getDetailsContainer(),
-                $form = $el.closest('.' + that.options.formClass),
                 $mobileHandler = $formWrapper.find('.js-dgwt-wcas-enable-mobile-form');
 
             // Remove all events
@@ -2654,7 +2770,7 @@
             }
 
             $el.removeData('autocomplete');
-            $(window).off('resize.autocomplete', that.fixPositionCapture);
+            $(window).off('resize.autocomplete', that.fixPosition);
 
             $formWrapper.removeClass('dgwt-wcas-active');
 
@@ -2735,21 +2851,45 @@
         },
         positionOverlayDarkened: function () {
             var that = this,
+                fixed = false,
                 $darkenedOverlay = $('.' + that.options.darkenedOverlayClass);
 
             if ($darkenedOverlay.length > 0) {
+
+                if (that.ancestorHasPositionFixed(that.getFormWrapper())) {
+                    fixed = true;
+                    $darkenedOverlay.addClass('dgwt-wcas-suggestions-wrapp-fixed');
+                } else {
+                    $darkenedOverlay.removeClass('dgwt-wcas-suggestions-wrapp-fixed');
+                }
+
                 $darkenedOverlay.children('div').each(function (i) {
-                    that.positionOverlayDarkenedDiv($(this), i + 1);
+                    that.positionOverlayDarkenedDiv($(this), i + 1, fixed);
                 });
             }
         },
-        positionOverlayDarkenedDiv: function ($el, orient) {
+        positionOverlayDarkenedDiv: function ($el, orient, fixed) {
             var that = this,
-                elData = that.getFormElementInfo(),
+                elData,
+                $baseEl = that.getFormWrapper(),
                 css,
-                secureOffset = 200; // Secure buffor
+                secureOffset = 200; // Secure buffer
 
-            // Note! It concerns cases 1,3 and 4. 1px is subtracted to achieve an exact match of document height. I don't know why it's needed.
+
+            // Different position for search icon layout
+            if ($baseEl.hasClass('js-dgwt-wcas-layout-icon')) {
+                $baseEl = that.getForm();
+            }
+
+            elData = that.getElementInfo($baseEl);
+
+            /**
+             * Note 1: If fixed == true, it means position should be calculated related to screen,
+             *         otherwise it will be calculated related to document
+             *
+             * Note 2: It concerns cases 1,3 and 4. 1px is subtracted to achieve an exact match of document height.
+             *         I don't know why it's needed.
+             */
 
             switch (orient) {
                 case 1:
@@ -2761,11 +2901,12 @@
                     };
                     break;
                 case 2:
+                    var topSpan = fixed ? elData.topViewPort : elData.top;
                     css = {
                         left: (-secureOffset) + 'px',
                         top: (-secureOffset) + 'px',
                         width: ($(window).outerWidth(false) + secureOffset) + 'px',
-                        height: (elData.top + secureOffset) + 'px',
+                        height: (topSpan + secureOffset) + 'px',
                     };
                     break;
                 case 3:
@@ -2777,9 +2918,10 @@
                     };
                     break;
                 case 4:
+                    var topSpan = fixed ? elData.topViewPort : elData.top;
                     css = {
                         left: (-secureOffset) + 'px',
-                        top: (elData.top + elData.height) + 'px',
+                        top: (topSpan + elData.height) + 'px',
                         width: ($(window).outerWidth(false) + secureOffset) + 'px',
                         height: ($(document).outerHeight(false) - elData.bottom - 1) + 'px'
                     };
@@ -2790,97 +2932,14 @@
                 $el.css(css);
             }
         },
-        enableOverlayMobile: function () {
-            var that = this;
-
-            if (that.overlayMobileState === 'on') {
-                return;
-            }
-
-            that.overlayMobileState = 'on';
-
-            var zIndex = 99999999999,
-                $wrapper = that.getFormWrapper(),
-                $suggestionsWrapp = that.getSuggestionsContainer(),
-                $overlayWrap,
-                html = '';
-
-            $('html').addClass('dgwt-wcas-overlay-mobile-on');
-            html += '<div class="js-dgwt-wcas-overlay-mobile dgwt-wcas-overlay-mobile">';
-            html += '<div class="dgwt-wcas-om-bar js-dgwt-wcas-om-bar">';
-            html += '<button class="dgwt-wcas-om-return js-dgwt-wcas-om-return">'
-            if (typeof dgwt_wcas.back_icon == 'string') {
-                html += dgwt_wcas.back_icon;
-            }
-            html += '</button>';
-            html += '</div>';
-            html += '</div>';
-
-            // Create overlay
-            $(that.options.mobileOverlayWrapper).append(html);
-            $overlayWrap = $('.js-dgwt-wcas-overlay-mobile');
-            $overlayWrap.css('zIndex', zIndex);
-
-            $wrapper.after('<span class="js-dgwt-wcas-om-hook"></span>');
-            $wrapper.appendTo('.js-dgwt-wcas-om-bar');
-            $suggestionsWrapp.appendTo('.js-dgwt-wcas-om-bar');
-            $wrapper.addClass('dgwt-wcas-search-wrapp-mobile');
-
-            if ($wrapper.hasClass('dgwt-wcas-has-submit')) {
-                $wrapper.addClass('dgwt-wcas-has-submit-off');
-                $wrapper.removeClass('dgwt-wcas-has-submit');
-            }
-
-            $wrapper.find('.' + that.options.searchInputClass).focus();
-
-            $(document).on('click.autocomplete', '.js-dgwt-wcas-om-return', function (e) {
-                that.disableOverlayMobile($overlayWrap);
-            });
-        },
-        disableOverlayMobile: function ($overlayWrap) {
-            var that = this;
-
-            if (!$('html').hasClass('dgwt-wcas-overlay-mobile-on')) {
-                that.overlayMobileState = 'off';
-                return;
-            }
-
-            var $suggestionsWrapp = that.getSuggestionsContainer();
-
-            var $clonedForm = $('.js-dgwt-wcas-om-bar').find('.' + that.options.searchFormClass);
-
-            if ($clonedForm.hasClass('dgwt-wcas-has-submit-off')) {
-                $clonedForm.removeClass('dgwt-wcas-has-submit-off');
-                $clonedForm.addClass('dgwt-wcas-has-submit');
-            }
-
-            $clonedForm.removeClass('dgwt-wcas-search-wrapp-mobile');
-            $('html').removeClass('dgwt-wcas-overlay-mobile-on');
-            $suggestionsWrapp.appendTo('body');
-            $suggestionsWrapp.removeAttr('body-scroll-lock-ignore');
-            $('.js-dgwt-wcas-om-hook').after($clonedForm);
-            $('.js-dgwt-wcas-overlay-mobile').remove();
-            $('.js-dgwt-wcas-om-hook').remove();
-
-            setTimeout(function () {
-                $clonedForm.find('.' + that.options.searchInputClass).val('');
-                var $closeBtn = $clonedForm.find('.dgwt-wcas-close');
-                if ($clonedForm.length > 0) {
-                    $closeBtn.removeClass('dgwt-wcas-close');
-                    $closeBtn.html('');
-                }
-
-                that.hide();
-
-            }, 150);
-
-
-            that.overlayMobileState = 'off';
-        },
         showCloseButton: function () {
             var that = this,
                 iconBody = typeof dgwt_wcas.close_icon != 'undefined' ? dgwt_wcas.close_icon : '',
                 $actionsEl = that.getFormWrapper().find('.' + that.options.preloaderClass);
+
+            if (that.el.val().length < that.options.minChars) {
+                return;
+            }
 
             // Click close icon
             if (!$actionsEl.hasClass(that.options.closeTrigger)) {
@@ -2904,7 +2963,22 @@
 
             $btn.off('click.autocomplete');
         },
-        elementOrParentIsFixed: function ($element) {
+        addActiveClassIfMissing: function () {
+            var activeEl = document.activeElement;
+            if (
+                typeof activeEl == 'object'
+                && $(activeEl).length
+                && $(activeEl).hasClass('dgwt-wcas-search-input')
+            ) {
+
+                var $search = $(activeEl).closest('.dgwt-wcas-search-wrapp');
+
+                if ($search.length && !$search.hasClass('dgwt-wcas-active')) {
+                    $search.addClass('dgwt-wcas-active');
+                }
+            }
+        },
+        ancestorHasPositionFixed: function ($element) {
 
             var $checkElements = $element.add($element.parents());
             var isFixed = false;
@@ -2958,9 +3032,127 @@
             }
 
             $(document).trigger('dgwtWcasGAEvent', {'term': label, 'category': category});
-        }
-    };
+        },
+        initVoiceSearch: function () {
+            var that = this;
+            if (!that.options.voiceSearchEnabled) {
+                return false;
+            }
+            var $formWrapper = that.getFormWrapper();
+            var $input = $formWrapper.find('.' + that.options.searchInputClass);
+            var $voiceSearch = $formWrapper.find('.' + that.options.voiceSearchClass);
+            var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 
+            if (!SpeechRecognition) {
+                return false;
+            }
+
+            that.voiceSearchSetState('inactive', $voiceSearch);
+            $formWrapper.addClass(that.options.voiceSearchSupportedClass);
+
+            that.voiceSearchRecognition = new SpeechRecognition();
+            that.voiceSearchRecognition.lang = that.options.voiceSearchLang;
+            that.voiceSearchRecognition.continuous = false;
+            that.voiceSearchRecognition.interimResults = true;
+            that.voiceSearchRecognition.maxAlternatives = 1;
+
+            $voiceSearch.on('click', function () {
+                if (
+                    $formWrapper.hasClass('dgwt-wcas-mobile-overlay-trigger-active') &&
+                    !$('html').hasClass('dgwt-wcas-overlay-mobile-on')
+                ) {
+                    $formWrapper.find('.js-dgwt-wcas-enable-mobile-form').click();
+                    $formWrapper.find('.' + that.options.searchInputClass).blur();
+                }
+                if (that.voiceSearchStarted) {
+                    that.voiceSearchAbort();
+                    return;
+                }
+                if (that.voiceSearchIsInitialized()) {
+                    that.voiceSearchAbort();
+                }
+                that.voiceSearchRecognition.start();
+            });
+
+            that.voiceSearchRecognition.onstart = function (event) {
+                that.voiceSearchSetState('active', $voiceSearch);
+            }
+
+            that.voiceSearchRecognition.onresult = function (event) {
+                const result = event.results[0];
+                const text = result[0].transcript;
+                $input.val(text);
+                if (result.isFinal) {
+                    $input.trigger('change');
+                    if (!'ontouchend' in document) {
+                        $input.focus();
+                    }
+                    that.voiceSearchSetState('inactive', $voiceSearch);
+                }
+            }
+
+            that.voiceSearchRecognition.onspeechend = function () {
+                that.voiceSearchSetState('inactive', $voiceSearch);
+                that.voiceSearchRecognition.stop();
+            }
+
+            that.voiceSearchRecognition.onnomatch = function (event) {
+                that.voiceSearchSetState('inactive', $voiceSearch);
+            }
+
+            that.voiceSearchRecognition.onerror = function (event) {
+                switch (event.error) {
+                    case 'aborted':
+                    case 'no-speech':
+                        that.voiceSearchSetState('inactive', $voiceSearch);
+                        break;
+                    case 'network':
+                        break;
+                    case 'not-allowed':
+                    case 'service-not-allowed':
+                        that.voiceSearchSetState('off', $voiceSearch);
+                        break;
+                }
+            }
+        },
+        voiceSearchAbort: function () {
+            var that = this;
+            if (that.voiceSearchIsInitialized()) {
+                that.voiceSearchRecognition.abort();
+                that.voiceSearchStarted = false;
+            }
+        },
+        voiceSearchIsInitialized: function () {
+            var that = this;
+            return that.voiceSearchRecognition !== null;
+        },
+        voiceSearchSetState: function (state, $voiceSearch) {
+            var that = this;
+            switch (state) {
+                case 'active':
+                    that.voiceSearchStarted = true;
+                    if (typeof dgwt_wcas.voice_search_active_icon == 'string') {
+                        $voiceSearch.html(dgwt_wcas.voice_search_active_icon);
+                    }
+                    // $voiceSearch.removeClass(that.options.voiceSearchDisabledClass).addClass(that.options.voiceSearchActiveClass);
+                    break;
+                case 'inactive':
+                    that.voiceSearchStarted = false;
+                    if (typeof dgwt_wcas.voice_search_inactive_icon == 'string') {
+                        $voiceSearch.html(dgwt_wcas.voice_search_inactive_icon);
+                    }
+                    // $voiceSearch.removeClass(that.options.voiceSearchActiveClass + ' ' + that.options.voiceSearchDisabledClass);
+                    break;
+                case 'off':
+                    that.voiceSearchStarted = false;
+                    // $voiceSearch.removeClass(that.options.voiceSearchActiveClass).addClass(that.options.voiceSearchDisabledClass);
+                    if (typeof dgwt_wcas.voice_search_disabled_icon == 'string') {
+                        $voiceSearch.html(dgwt_wcas.voice_search_disabled_icon);
+                    }
+                    break;
+            }
+        },
+    };
 
     // Create chainable jQuery plugin:
     $.fn.dgwtWcasAutocomplete = function (options, args) {
@@ -3189,15 +3381,14 @@
             }
 
             /*-----------------------------------------------------------------
+            /* Set some global variables
+            /*-----------------------------------------------------------------*/
+            window.dgwt_wcas.resizeOnlyOnce = null;
+            window.dgwt_wcas.scrollOnlyOnce = null;
+
+            /*-----------------------------------------------------------------
             /* Fire autocomplete
             /*-----------------------------------------------------------------*/
-            var showDetailsPanel = dgwt_wcas.show_details_box == 1 ? true : false;
-            var mobileBreakpoint = dgwt_wcas.mobile_breakpoint;
-
-            // Disable details panel on small screens
-            if (jQuery(window).width() < mobileBreakpoint || ('ontouchend' in document)) {
-                showDetailsPanel = false;
-            }
 
             window.dgwt_wcas.config = {
                 minChars: dgwt_wcas.min_chars,
@@ -3206,7 +3397,7 @@
                 triggerSelectOnValidInput: false,
                 serviceUrl: dgwt_wcas.ajax_search_endpoint,
                 paramName: 's',
-                showDetailsPanel: showDetailsPanel,
+                showDetailsPanel: dgwt_wcas.show_details_panel == 1 ? true : false,
                 showImage: dgwt_wcas.show_images == 1 ? true : false,
                 showPrice: dgwt_wcas.show_price == 1 ? true : false,
                 showDescription: dgwt_wcas.show_desc == 1 ? true : false,
@@ -3220,7 +3411,8 @@
                 showHeadings: dgwt_wcas.show_headings == 1 ? true : false,
                 isPremium: dgwt_wcas.is_premium == 1 ? true : false,
                 taxonomyBrands: dgwt_wcas.taxonomy_brands,
-                mobileBreakpoint: mobileBreakpoint,
+                layoutBreakpoint: dgwt_wcas.layout_breakpoint,
+                mobileOverlayBreakpoint: dgwt_wcas.mobile_overlay_breakpoint,
                 mobileOverlayWrapper: dgwt_wcas.mobile_overlay_wrapper,
                 mobileOverlayDelay: dgwt_wcas.mobile_overlay_delay,
                 debounceWaitMs: dgwt_wcas.debounce_wait_ms,
@@ -3231,174 +3423,265 @@
                 showProductVendor: typeof dgwt_wcas.show_product_vendor != 'undefined' && dgwt_wcas.show_product_vendor ? true : false,
                 disableHits: typeof dgwt_wcas.disable_hits != 'undefined' && dgwt_wcas.disable_hits ? true : false,
                 disableSubmit: typeof dgwt_wcas.disable_submit != 'undefined' && dgwt_wcas.disable_submit ? true : false,
+                voiceSearchEnabled: typeof dgwt_wcas.voice_search_enabled != 'undefined' && dgwt_wcas.voice_search_enabled ? true : false,
+                voiceSearchLang: typeof dgwt_wcas.voice_search_lang != 'undefined' ? dgwt_wcas.voice_search_lang  : '',
             };
 
             $('.dgwt-wcas-search-input').dgwtWcasAutocomplete(window.dgwt_wcas.config);
 
         });
 
-        /*-----------------------------------------------------------------
-        /* Fix broken search bars after click browser's back arrow.
-        /* Not worked for some browsers especially Safari and FF
-        /* Add dgwt-wcas-active class if wasn't added for some reason
-        /*
-        /*------------ -----------------------------------------------------*/
-        $(window).on('load', function () {
-            var i = 0;
-            var interval = setInterval(function () {
 
-                var activeEl = document.activeElement;
+        /**
+         * UI Fixer. Fixes several known UX issues related to search bars
+         */
+        var UI_FIXER = {
+            brokenSearchUi: typeof dgwt_wcas.fixer.broken_search_ui != 'undefined' && dgwt_wcas.fixer.broken_search_ui ? true : false,
+            brokenSearchUiAjax: typeof dgwt_wcas.fixer.broken_search_ui_ajax != 'undefined' && dgwt_wcas.fixer.broken_search_ui_ajax ? true : false,
+            brokenSearchUiHard: typeof dgwt_wcas.fixer.broken_search_ui_hard != 'undefined' && dgwt_wcas.fixer.broken_search_ui_hard ? true : false,
+            brokenSearchElementorPopups: typeof dgwt_wcas.fixer.broken_search_elementor_popups != 'undefined' && dgwt_wcas.fixer.broken_search_elementor_popups ? true : false,
+            brokenSearchBrowserBackArrow: typeof dgwt_wcas.fixer.broken_search_browsers_back_arrow != 'undefined' && dgwt_wcas.fixer.broken_search_browsers_back_arrow ? true : false,
+            forceRefreshCheckout: typeof dgwt_wcas.fixer.force_refresh_checkout != 'undefined' && dgwt_wcas.fixer.force_refresh_checkout ? true : false,
+            searchBars: [],
+            init: function () {
+                var that = this;
 
-                if (
-                    typeof activeEl == 'object'
-                    && $(activeEl).length
-                    && $(activeEl).hasClass('dgwt-wcas-search-input')
-                ) {
+                /**
+                 * Fix broken search bars UI - first approach, after loading the page
+                 * Some page builders can copy instances of search bar without events eg. mobile usage.
+                 */
+                if (that.brokenSearchUi) {
+                    $(document).ready(function () {
+                        that.fixBrokenSearchUi();
+                    });
+                }
 
-                    var $search = $(activeEl).closest('.dgwt-wcas-search-wrapp');
+                /**
+                 *
+                 */
+                if (that.brokenSearchUiAjax) {
+                    that.fixBrokenSearchUiAjax();
+                }
 
-                    if ($search.length && !$search.hasClass('dgwt-wcas-active')) {
-                        $search.addClass('dgwt-wcas-active');
-                        clearInterval(interval);
+                /**
+                 * Repair search bars continuously
+                 * May overload the browser. Disabled by default.
+                 */
+                if (that.brokenSearchUiHard) {
+                    that.fixBrokenSearchUiHard();
+                }
+
+                /**
+                 * Fix Elementor popups
+                 * Reinit the search bars after loading Elementor popup
+                 */
+                if (that.brokenSearchElementorPopups) {
+                    $(document).ready(function () {
+                        that.fixBrokenSearchOnElementorPopupsV1();
+                        that.fixBrokenSearchOnElementorPopupsV2();
+                    });
+                }
+
+                /**
+                 * Fix broken search bars after click browser's back arrow.
+                 * Not worked for some browsers especially Safari and FF
+                 * Add dgwt-wcas-active class if wasn't added for some reason
+                 */
+                if (that.brokenSearchBrowserBackArrow) {
+                    that.fixbrokenSearchBrowserBackArrow();
+                }
+
+                /**
+                 * Refreshing the content on the checkout page when a product is added to the cart from the search Details Panel
+                 */
+                if (that.forceRefreshCheckout) {
+                    that.fixforceRefreshCheckout();
+                }
+            },
+            fixBrokenSearchUi: function () {
+                var that = this;
+
+                $(document).ready(function () {
+                    setTimeout(function () {
+                        that.pullAndReconditionSearchBars();
+                    }, 50);
+                });
+
+                $(window).on('load', function () {
+                    setTimeout(function () {
+                        that.pullAndReconditionSearchBars();
+                    }, 500);
+                });
+            },
+            fixBrokenSearchUiAjax: function () {
+                var that = this;
+                $(document).ajaxSuccess(function (event, request, settings) {
+
+                    // Exclude FiboSearch and WooCommerce AJAX requests
+                    if (typeof settings.url == 'string' && new RegExp('search\.php|wc-ajax').test(settings.url)) {
+                        return;
                     }
-                }
 
-                // Stop after 5 seconds
-                if (i > 10) {
-                    clearInterval(interval);
-                }
+                    if (typeof request.responseText == 'string' && request.responseText.includes('dgwt-wcas-search-input')) {
+                        setTimeout(function () {
+                            that.pullAndReconditionSearchBars();
+                        }, 500);
+                    }
+                });
+            },
+            fixBrokenSearchUiHard: function () {
+                var that = this;
+                $(document).ready(function () {
 
-                i++;
+                    if (that.searchBars.length === 0) {
+                        that.pullAndReconditionSearchBars();
+                    }
 
-            }, 500);
-        });
+                    setInterval(function () {
+                        that.pullAndReconditionSearchBars();
+                    }, 1000);
+                });
+            },
+            fixBrokenSearchOnElementorPopupsV1: function () {
+                var that = this;
+                $(document).on('elementor/popup/show', () => {
+                    setTimeout(function () {
+                        that.pullAndReconditionSearchBars();
+                    }, 500);
+                });
+            },
+            fixBrokenSearchOnElementorPopupsV2: function () {
+                var that = this;
+                $(document).ready(function () {
+                    if (
+                        typeof window.elementorFrontend != 'undefined'
+                        && typeof window.elementorFrontend.documentsManager != 'undefined'
+                        && typeof window.elementorFrontend.documentsManager.documents != 'undefined'
+                    ) {
 
-        /*-----------------------------------------------------------------
-        /* Fix broken search bars by 3rd party plugins
-        /* Some page builders can copy instances of search bar without events
-        /* for eg. mobile usage. We try to fix all broken search bars.
-        /*------------ -----------------------------------------------------*/
-        $(document).ready(function () {
-            setTimeout(function () {
-                makeIDUnique();
-                maybeReinit();
-            }, 500);
-        });
+                        $.each(elementorFrontend.documentsManager.documents, function (id, document) {
 
-        $(window).on('load', function () {
-            setTimeout(function () {
-                makeIDUnique();
-                maybeReinit();
-            }, 500);
+                            if (typeof document.getModal != 'undefined' && document.getModal) {
 
-            // Support for Elementor popups
-            if (
-                typeof window.elementorFrontend != 'undefined'
-                && typeof window.elementorFrontend.documentsManager != 'undefined'
-                && typeof window.elementorFrontend.documentsManager.documents != 'undefined'
-            ) {
+                                document.getModal().on('show', function () {
+                                    setTimeout(function () {
+                                        that.pullAndReconditionSearchBars();
+                                    }, 500);
 
-                $.each(elementorFrontend.documentsManager.documents, function (id, document) {
-                    if (typeof document.getModal != 'undefined' && document.getModal) {
-
-                        document.getModal().on('show', function () {
-
-                            setTimeout(function () {
-                                maybeReinit();
-                            }, 300);
-
+                                });
+                            }
                         });
-
                     }
                 });
-
-            }
-        });
-
-        /**
-         * Fix duplicated ID created by some themes or builders
-         */
-        function makeIDUnique() {
-
-            var $inputs = $('.dgwt-wcas-search-input');
-
-            var uniqueID = [];
-
-            if ($inputs.length > 1) {
-                $inputs.each(function () {
-                    var id = $(this).attr('id');
-
-                    if ($.inArray(id, uniqueID) == -1) {
-                        uniqueID.push(id);
-
-                    } else {
-                        var newID = Math.random().toString(36).substring(2, 6);
-                        newID = 'dgwt-wcas-search-input-' + newID;
-
-                        $(this).attr('id', newID);
-                        $(this).closest('form').find('label').attr('for', newID);
-
+            },
+            fixforceRefreshCheckout: function () {
+                $(document.body).on('added_to_cart', function () {
+                    if (
+                        $(document.body).hasClass('woocommerce-checkout') &&
+                        $('.dgwt-wcas-search-input').length > 0
+                    ) {
+                        $(document.body).trigger('update_checkout');
                     }
                 });
-            }
+            },
+            fixbrokenSearchBrowserBackArrow: function () {
+                $(window).on('load', function () {
+                    var i = 0;
+                    var interval = setInterval(function () {
 
-        }
+                        var activeEl = document.activeElement;
+                        if (
+                            typeof activeEl == 'object'
+                            && $(activeEl).length
+                            && $(activeEl).hasClass('dgwt-wcas-search-input')
+                        ) {
 
-        /**
-         * Init not initialized search bar
-         */
-        function maybeReinit() {
+                            var $search = $(activeEl).closest('.dgwt-wcas-search-wrapp');
 
-            var $inputs = $('.dgwt-wcas-search-input');
+                            if ($search.length && !$search.hasClass('dgwt-wcas-active')) {
+                                $search.addClass('dgwt-wcas-active');
+                                clearInterval(interval);
+                            }
+                        }
 
-            if ($inputs.length > 0) {
-                $inputs.each(function () {
+                        // Stop after 5 seconds
+                        if (i > 10) {
+                            clearInterval(interval);
+                        }
 
-                    if (typeof $(this).data('autocomplete') != 'object') {
-                        $(this).dgwtWcasAutocomplete(window.dgwt_wcas.config);
-                    }
+                        i++;
 
+                    }, 500);
                 });
-            }
-
-        }
-
-        /**
-         * Refreshing the content on the checkout page when a product is added to the cart from the search Details Panel
-         */
-        $(document.body).on('added_to_cart', function () {
-            if (
-                $(document.body).hasClass('woocommerce-checkout') &&
-                $('.dgwt-wcas-search-input').length > 0
-            ) {
-                $(document.body).trigger('update_checkout');
-            }
-        });
-    }());
-
-    /**
-     * Fix Elementor popups
-     * Reinit the search bars after loading Elementor popup
-     */
-    $(document).ready(function () {
-        if ($('[href^="#elementor-action%3Aaction%3Dpopup%3Aopen"]').length > 0) {
-            $(document).on('elementor/popup/show', () => {
-                var $inputs = $('.elementor-popup-modal .dgwt-wcas-search-input');
+            },
+            pullAndReconditionSearchBars: function () {
+                var that = this,
+                    $inputs = $('.dgwt-wcas-search-input'),
+                    firstPull = that.searchBars.length == 0;
 
                 if ($inputs.length > 0) {
                     $inputs.each(function () {
-                        var $el = $(this);
+                        var $searchBar = $(this),
+                            isNew = true,
+                            i;
 
-                        setTimeout(function () {
-                            if (typeof $el.data('autocomplete') == 'object') {
-                                $el.data('autocomplete').dispose();
+                        // Check if this search bar is new one or not
+                        if (that.searchBars.length > 0) {
+                            for (i = 0; i < that.searchBars.length; i++) {
+                                if ($searchBar[0] === that.searchBars[i][0]) {
+                                    isNew = false;
+                                    break;
+                                }
                             }
-                            $el.dgwtWcasAutocomplete(window.dgwt_wcas.config);
-                        }, 500);
+                        }
+
+                        if (isNew) {
+                            var changedId = false;
+                            if (!that.hasUniqueId($searchBar)) {
+                                that.makeUniqueID($searchBar);
+                                changedId = true;
+                            }
+
+                            if (!firstPull || !that.isInitialized($searchBar) || changedId) {
+                                that.reinitSearchBar($searchBar)
+                            }
+
+                            that.searchBars.push($searchBar);
+                        }
                     });
                 }
-            });
+            },
+            isInitialized: function ($searchBarInput) {
+                return typeof $searchBarInput.data('autocomplete') == 'object';
+            },
+            hasUniqueId: function ($searchBarInput) {
+                var that = this,
+                    unique = true;
+                if (that.searchBars.length > 0) {
+                    for (var i = 0; i < that.searchBars.length; i++) {
+                        if ($searchBarInput.attr('id') === that.searchBars[i].attr('id')) {
+                            unique = false;
+                        }
+                    }
+                }
+                return unique;
+            },
+            reinitSearchBar: function ($searchBarInput) {
+                if (typeof $searchBarInput.data('autocomplete') == 'object') {
+                    $searchBarInput.data('autocomplete').dispose();
+                }
+                $searchBarInput.dgwtWcasAutocomplete(window.dgwt_wcas.config);
+            },
+            makeUniqueID: function ($searchBarInput) {
+                var newID = Math.random().toString(36).substring(2, 6);
+                newID = 'dgwt-wcas-search-input-' + newID;
+
+                $searchBarInput.attr('id', newID);
+                $searchBarInput.closest('form').find('label').attr('for', newID);
+            },
         }
-    });
+
+        UI_FIXER.init();
+    }());
 
 }));

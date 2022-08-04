@@ -52,7 +52,7 @@ class Multilingual {
 	/**
 	 * Get Provider
 	 *
-	 * @return bool
+	 * @return string
 	 */
 	public static function getProvider() {
 		$provider = 'not set';

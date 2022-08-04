@@ -25,14 +25,19 @@ class Shortcode {
 		$layout = Helpers::getLayoutSettings();
 
 		$searchArgs = shortcode_atts( array(
-			'class'          => '',
-			'layout'         => $layout->layout,
-			'mobile_overlay' => $layout->mobile_overlay,
-			'darken_bg'      => $layout->darken_background,
-			'details_box'    => 'hide'
+			'class'                     => '',
+			'style'                     => $layout->style,
+			'icon'                      => $layout->icon,
+			'layout'                    => $layout->layout,
+			'layout_breakpoint'         => '',
+			'mobile_overlay'            => $layout->mobile_overlay,
+			'mobile_overlay_breakpoint' => '',
+			'darken_bg'                 => $layout->darken_background,
+			'submit_btn'                => null,
+			'submit_text'               => null
 		), $atts, $tag );
 
-		$searchArgs['class'] .= empty( $search_args['class'] ) ? 'woocommerce' : ' woocommerce';
+		$searchArgs['class'] .= empty( $searchArgs['class'] ) ? 'woocommerce' : ' woocommerce';
 
 		$args = apply_filters( 'dgwt/wcas/shortcode/args', $searchArgs );
 
@@ -57,6 +62,10 @@ class Shortcode {
 			}
 		}
 
+		$args = self::mapAlternativeFormArgs( $args );
+
+		$args = self::applyCondtitionalFormArgs( $args );
+
 		ob_start();
 		$filename = apply_filters( 'dgwt/wcas/form/partial_path', DGWT_WCAS_DIR . 'partials/search-form.php' );
 		if ( file_exists( $filename ) ) {
@@ -69,6 +78,70 @@ class Shortcode {
 		$html = ob_get_clean();
 
 		return apply_filters( 'dgwt/wcas/form/html', $html, $args );
+	}
+
+	/**
+	 * Map alternative form of shortcode params values
+	 *
+	 * @param array $args
+	 *
+	 * @return array
+	 */
+	public static function mapAlternativeFormArgs( $args ) {
+
+		// Show submit button
+		if ( isset( $args['submit_btn'] ) ) {
+			if ( in_array( $args['submit_btn'], array( '1', 'yes', 'show' ) ) ) {
+				$args['submit_btn'] = 'on';
+			}
+
+			if ( in_array( $args['submit_btn'], array( '0', 'no', 'hide' ) ) ) {
+				$args['submit_btn'] = 'off';
+			}
+		}
+
+		// Style: solaris, pirx
+		if ( ! empty( $args['style'] ) ) {
+			if ( in_array( $args['style'], array( 'default', 'classic' ) ) ) {
+				$args['style'] = 'solaris';
+			}
+			if ( in_array( $args['style'], array( 'bean', 'rounded' ) ) ) {
+				$args['style'] = 'pirx';
+			}
+		}
+
+		// Layout: classic, icon, icon-flexible, icon-flexible-inv
+		if ( ! empty( $args['layout'] ) ) {
+			if ( in_array( $args['layout'], array( 'search-bar', 'default' ) ) ) {
+				$args['layout'] = 'classic';
+			}
+			if ( in_array( $args['layout'], array( 'flex-icon-on-mobile', 'flex-icon-mob', ) ) ) {
+				$args['layout'] = 'icon-flexible';
+			}
+			if ( in_array( $args['layout'], array( 'flex-icon-on-desktop', 'flex-icon-desktop', ) ) ) {
+				$args['layout'] = 'icon-flexible-inv';
+			}
+		}
+
+		return $args;
+	}
+
+	/**
+	 * Apply some conditions before pass shortcode args forward
+	 *
+	 * @param array $args
+	 *
+	 * @return array
+	 */
+	public static function applyCondtitionalFormArgs( $args ) {
+
+		// Force requires options for Pirx style
+		if ( ! empty( $args['style'] ) && $args['style'] === 'pirx' ) {
+			$args['submit_btn']  = 'on';
+			$args['submit_text'] = '';
+		}
+
+		return $args;
 	}
 
 }

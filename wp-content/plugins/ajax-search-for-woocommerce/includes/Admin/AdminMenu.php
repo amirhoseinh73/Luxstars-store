@@ -2,6 +2,7 @@
 
 namespace DgoraWcas\Admin;
 
+use  DgoraWcas\Engines\TNTSearchMySQL\Config ;
 use  DgoraWcas\Engines\TNTSearchMySQL\Indexer\Builder ;
 use  DgoraWcas\Settings ;
 // Exit if accessed directly
@@ -71,6 +72,7 @@ class AdminMenu
      */
     public function debugPage()
     {
+        include_once DGWT_WCAS_DIR . 'partials/admin/debug/debug.php';
     }
 
 }

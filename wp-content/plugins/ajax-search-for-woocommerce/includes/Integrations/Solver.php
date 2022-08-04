@@ -19,6 +19,7 @@ class Solver
         $this->solveSearchWPWooCommerceIntegration();
         $this->solveDiviWithBuilderWC();
         $this->solveMedicorCoreScrips();
+        $this->solveGeoTargetingWPScripts();
     }
     
     /**
@@ -65,6 +66,24 @@ class Solver
                 wp_enqueue_style( 'dgwt-wcas-style' );
             }, PHP_INT_MAX );
         }
+    }
+    
+    /**
+     * Preventing the GeoTargetingWP plugin from loading scripts in the settings page
+     * because the Selectize.js script is loaded twice
+     *
+     * @return void
+     */
+    public function solveGeoTargetingWPScripts()
+    {
+        if ( !Helpers::isSettingsPage() ) {
+            return;
+        }
+        add_action( 'admin_enqueue_scripts', function () {
+            wp_dequeue_script( 'geot' );
+            wp_dequeue_script( 'geot-chosen' );
+            wp_dequeue_script( 'geot-selectize' );
+        }, 999 );
     }
 
 }
