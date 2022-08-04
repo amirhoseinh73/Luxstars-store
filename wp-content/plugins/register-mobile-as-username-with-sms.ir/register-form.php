@@ -4,7 +4,7 @@ require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "sms.ir-send.php";
 
 function register_form() {
     global $phone_number, $form_error;
-    if ( isset( $_POST['username'] ) && ! empty( $_POST['username'] ) && count( $form_error->get_error_messages() ) < 1 ) :
+    if ( isset( $_POST['amhnj_create_new_customer'] ) && isset( $_POST['username'] ) && ! empty( $_POST['username'] ) && count( $form_error->get_error_messages() ) < 1 ) :
         echo '<form class="woocommerce-form woocommerce-form-login login" method="post">
 
             ' . do_action( 'woocommerce_login_form_start' ) . '
@@ -13,7 +13,7 @@ function register_form() {
                 <label for="username">' . __( 'Username or email address', 'woocommerce' ) . ' &nbsp;<span class="required">*</span></label>
                 <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
                 name="username" id="username" autocomplete="username"
-                value=" ' . ( ( ! empty( $_POST['username'] ) ) ? __( wp_unslash( $_POST['username'] ) ) : '' ) . ' " />
+                value="' . ( ( ! empty( $_POST['username'] ) ) ? __( wp_unslash( $_POST['username'] ) ) : '' ) . '" />
             </p>
             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                 <label for="password">کد تایید پیامک شده را وارد نمایید&nbsp;<span class="required">*</span></label>
@@ -59,9 +59,6 @@ function validate_form( $phone_number ) {
     // Make the WP_Error object global    
     global $form_error;
      
-    // instantiate the class
-    $form_error = new WP_Error;
-     
     // If any field is left empty, add the error message to the error object
     if ( empty( $phone_number ) || ! is_numeric( $phone_number ) || strlen( $phone_number ) !== 11 || $phone_number[ 0 ] !== "0" || $phone_number[ 1 ] !== "9" ) {
         $form_error->add( 'registration-error-invalid-username', __( 'شماره تلفن وارد شده صحیح نیست!', 'woocommerce' ) );
@@ -73,7 +70,7 @@ function validate_form( $phone_number ) {
 
 }
 
-function send_sms( $phone_number, $password ) {
+function send_sms_register( $phone_number, $password ) {
     global $form_error;
      
     if ( 1 > count( $form_error->get_error_messages() ) ) {
@@ -114,16 +111,18 @@ function register_customer( $phone_number, $password ) {
 
 function do_register_form() {
     global $form_error, $phone_number;
+    $form_error = new WP_Error;
+
     if ( isset( $_POST['amhnj_create_new_customer'] ) ) {
         // Get the form data
-        $phone_number = $_POST['username'];
+        $phone_number = trim( $_POST['username'] );
 
         // validate the user form input
         validate_form( $phone_number );
 
         $random_code = random_verficiraion_code();
         // send the sms
-        send_sms( $phone_number, $random_code );
+        send_sms_register( $phone_number, $random_code );
 
         register_customer( $phone_number, $random_code );
     }

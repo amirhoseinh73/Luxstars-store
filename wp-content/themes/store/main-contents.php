@@ -16,58 +16,62 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-3 conts-parent mb-boot-15 px-2">
                     <div class="conts">
-                        <a href="<?= home_url( "product-category/کاربرد/" ); ?>" class="blog-link-absolute"></a>
-                        <div class="content-one img-thumbnail">
-                            <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_1_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
-                            <div class="caption p-2">
-                                <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_1_title', __('Title')); ?></h1>
-                                <p class="font-13 fw400 text-justify lh-18 text-secondary">
-                                    <?php echo get_theme_mod( 'service_1_text', __('Text')); ?>
-                                </p>
+                        <a href="<?= home_url( "product-category/کاربرد/" ); ?>">
+                            <div class="content-one img-thumbnail">
+                                <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_1_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
+                                <div class="caption p-2">
+                                    <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_1_title', __('Title')); ?></h1>
+                                    <p class="font-13 fw400 text-justify lh-18 text-secondary">
+                                        <?php echo get_theme_mod( 'service_1_text', __('Text')); ?>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 conts-parent mb-boot-15 px-2">
                     <div class="conts">
-                        <a href="<?= home_url( "product-category/جنس/" ); ?>" class="blog-link-absolute"></a>
-                        <div class="content-one img-thumbnail">
-                            <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_2_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
-                            <div class="caption p-2">
-                                <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_2_title', __('Title')); ?></h1>
-                                <p class="font-13 fw400 text-justify lh-18 text-secondary">
-                                    <?php echo get_theme_mod( 'service_2_text', __('Text')); ?>
-                                </p>
+                        <a href="<?= home_url( "product-category/جنس/" ); ?>">
+                            <div class="content-one img-thumbnail">
+                                <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_2_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
+                                <div class="caption p-2">
+                                    <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_2_title', __('Title')); ?></h1>
+                                    <p class="font-13 fw400 text-justify lh-18 text-secondary">
+                                        <?php echo get_theme_mod( 'service_2_text', __('Text')); ?>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 conts-parent mb-boot-15 px-2">
                     <div class="conts">
-                        <a href="<?= home_url( "product-category/رنگ/" ); ?>" class="blog-link-absolute"></a>
-                        <div class="content-one img-thumbnail">
-                            <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_3_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
-                            <div class="caption p-2">
-                                <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_3_title', __('Title')); ?></h1>
-                                <p class="font-13 fw400 text-justify lh-18 text-secondary">
-                                    <?php echo get_theme_mod( 'service_3_text', __('Text')); ?>
-                                </p>
+                        <a href="<?= home_url( "product-category/رنگ/" ); ?>">
+                            <div class="content-one img-thumbnail">
+                                <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_3_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
+                                <div class="caption p-2">
+                                    <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_3_title', __('Title')); ?></h1>
+                                    <p class="font-13 fw400 text-justify lh-18 text-secondary">
+                                        <?php echo get_theme_mod( 'service_3_text', __('Text')); ?>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 conts-parent mb-boot-15 px-2">
                     <div class="conts">
-                        <a href="<?= home_url( "product-category/برند/" ); ?>" class="blog-link-absolute"></a>
-                        <div class="content-one img-thumbnail">
-                            <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_4_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
-                            <div class="caption p-2">
-                                <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_4_title', __('Title')); ?></h1>
-                                <p class="font-13 fw400 text-justify lh-18 text-secondary">
-                                    <?php echo get_theme_mod( 'service_4_text', __('Text')); ?>
-                                </p>
+                        <a href="<?= home_url( "product-category/برند/" ); ?>">
+                            <div class="content-one img-thumbnail">
+                                <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_4_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
+                                <div class="caption p-2">
+                                    <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_4_title', __('Title')); ?></h1>
+                                    <p class="font-13 fw400 text-justify lh-18 text-secondary">
+                                        <?php echo get_theme_mod( 'service_4_text', __('Text')); ?>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
