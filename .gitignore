@@ -15,3 +15,5 @@ wp-content/uploads/wc-logs/*
 # wp-content/plugins/ajax-search-for-woocommerce
 
 wp-content/backups-dup-lite
+
+*.zip

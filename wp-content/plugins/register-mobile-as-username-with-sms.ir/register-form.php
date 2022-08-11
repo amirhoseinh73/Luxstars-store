@@ -3,18 +3,15 @@
 require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "sms.ir-send.php";
 
 function register_form() {
-    global $phone_number, $form_error;
+    global $phone_number, $form_error, $first_name, $last_name;
     if ( isset( $_POST['amhnj_create_new_customer'] ) && isset( $_POST['username'] ) && ! empty( $_POST['username'] ) && count( $form_error->get_error_messages() ) < 1 ) :
         echo '<form class="woocommerce-form woocommerce-form-login login" method="post">
 
             ' . do_action( 'woocommerce_login_form_start' ) . '
 
-            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide d-none">
-                <label for="username">' . __( 'Username or email address', 'woocommerce' ) . ' &nbsp;<span class="required">*</span></label>
-                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
-                name="username" id="username" autocomplete="username"
-                value="' . ( ( ! empty( $_POST['username'] ) ) ? __( wp_unslash( $_POST['username'] ) ) : '' ) . '" />
-            </p>
+            <input type="hidden" name="username" value="' . __( wp_unslash( $_POST['username'] ) ) . '" />
+            <input type="hidden" name="first_name" value="' . __( wp_unslash( $_POST['first_name'] ) ) . '" />
+            <input type="hidden" name="last_name" value="' . __( wp_unslash( $_POST['last_name'] ) ) . '" />
             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                 <label for="password">کد تایید پیامک شده را وارد نمایید&nbsp;<span class="required">*</span></label>
                 <input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="password"
@@ -41,7 +38,23 @@ function register_form() {
             </label>
             <input type="tel" class="woocommerce-Input woocommerce-Input--text input-text"
             name="username" id="reg_username" autocomplete="username"
-            value="' . ( ( isset( $_POST['username'] ) && ! empty( $_POST['username'] ) ) ? __( wp_unslash( $phone_number ) ) : '' ) . '" />
+            value="' . ( ( isset( $_POST['amhnj_create_new_customer'] ) && isset( $_POST['username'] ) && ! empty( $_POST['username'] ) ) ? __( wp_unslash( $phone_number ) ) : '' ) . '" />
+        </p>
+        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+            <label for="reg_first_name">
+            ' . __( 'First name', 'woocommerce' ) . '&nbsp;<span class="required">*</span>
+            </label>
+            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
+            name="first_name" id="reg_first_name" autocomplete="first_name"
+            value="' . ( ( isset( $_POST['first_name'] ) && ! empty( $_POST['first_name'] ) ) ? __( wp_unslash( $first_name ) ) : '' ) . '" />
+        </p>
+        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+            <label for="reg_last_name">
+            ' . __( 'Last name', 'woocommerce' ) . '&nbsp;<span class="required">*</span>
+            </label>
+            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
+            name="last_name" id="reg_last_name" autocomplete="last_name"
+            value="' . ( ( isset( $_POST['last_name'] ) && ! empty( $_POST['last_name'] ) ) ? __( wp_unslash( $last_name ) ) : '' ) . '" />
         </p>
         <p class="woocommerce-form-row form-row">
             <button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
@@ -54,7 +67,7 @@ function register_form() {
     endif;
 }
 
-function validate_form( $phone_number ) {
+function validate_form( $phone_number, $first_name, $last_name ) {
  
     // Make the WP_Error object global    
     global $form_error;
@@ -62,6 +75,14 @@ function validate_form( $phone_number ) {
     // If any field is left empty, add the error message to the error object
     if ( empty( $phone_number ) || ! is_numeric( $phone_number ) || strlen( $phone_number ) !== 11 || $phone_number[ 0 ] !== "0" || $phone_number[ 1 ] !== "9" ) {
         $form_error->add( 'registration-error-invalid-username', __( 'شماره تلفن وارد شده صحیح نیست!', 'woocommerce' ) );
+    }
+
+    if ( empty( $first_name ) ) {
+        $form_error->add( 'registration-error-invalid-firstname', __( 'لطفا نام خود را وارد نمایید!', 'woocommerce' ) );
+    }
+
+    if ( empty( $last_name ) ) {
+        $form_error->add( 'registration-error-invalid-lastname', __( 'لطفا نام خانوادگی خود را وارد نمایید!', 'woocommerce' ) );
     }
 
     if ( username_exists( $phone_number ) ) {
@@ -80,7 +101,7 @@ function send_sms_register( $phone_number, $password ) {
     }
 }
 
-function register_customer( $phone_number, $password ) {
+function register_customer( $phone_number, $password, $first_name, $last_name ) {
     global $form_error;
 
     if ( 1 <= count( $form_error->get_error_messages() ) ) return;
@@ -95,6 +116,7 @@ function register_customer( $phone_number, $password ) {
         'user_login' => $phone_number,
         'user_pass'  => $password,
         'user_email' => $email,
+        'display_name' => $first_name . " " . $last_name,
         'role'       => "customer",
     );
 
@@ -104,27 +126,31 @@ function register_customer( $phone_number, $password ) {
         return $form_error->add( $customer_id );
     }
 
+    $userData[ "first_name" ] = $first_name;
+    $userData[ "last_name" ] = $last_name;
     do_action( 'woocommerce_created_customer', $customer_id, $userData, $password );
 
     return $customer_id;
 }
 
 function do_register_form() {
-    global $form_error, $phone_number;
+    global $form_error, $phone_number, $first_name, $last_name;
     $form_error = new WP_Error;
 
     if ( isset( $_POST['amhnj_create_new_customer'] ) ) {
         // Get the form data
         $phone_number = trim( $_POST['username'] );
+        $first_name = trim( $_POST['first_name'] );
+        $last_name = trim( $_POST['last_name'] );
 
         // validate the user form input
-        validate_form( $phone_number );
+        validate_form( $phone_number, $first_name, $last_name );
 
         $random_code = random_verficiraion_code();
         // send the sms
         send_sms_register( $phone_number, $random_code );
 
-        register_customer( $phone_number, $random_code );
+        register_customer( $phone_number, $random_code, $first_name, $last_name );
     }
 
     // if $form_error is WordPress Error, loop through the error object

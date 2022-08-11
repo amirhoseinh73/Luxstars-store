@@ -9,12 +9,7 @@ function login_form() {
 
             ' . do_action( 'woocommerce_login_form_start' ) . '
 
-            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide d-none">
-                <label for="username">' . __( 'Username or email address', 'woocommerce' ) . ' &nbsp;<span class="required">*</span></label>
-                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
-                name="username" id="username" autocomplete="username"
-                value="' . ( ( ! empty( $_POST['username'] ) ) ? __( wp_unslash( $_POST['username'] ) ) : '' ) . '" />
-            </p>
+            <input type="hidden" name="username" value="' . __( wp_unslash( $_POST['username'] ) ) . '" />
             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                 <label for="password">کد تایید پیامک شده را وارد نمایید&nbsp;<span class="required">*</span></label>
                 <input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="password"
@@ -39,7 +34,7 @@ function login_form() {
                     <label for="username">' . __( 'Phone Number', 'woocommerce' ) . ' &nbsp;<span class="required">*</span></label>
                     <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
                     name="username" id="username" autocomplete="username"
-                    value="' . ( ( ! empty( $_POST['username'] ) ) ? __( wp_unslash( $_POST['username'] ) ) : '' ) . ' " />
+                    value="' . ( ( isset( $_POST['amhnj_login_customer'] ) && ! empty( $_POST['username'] ) ) ? __( wp_unslash( $_POST['username'] ) ) : '' ) . ' " />
                 </p>
                 <p class="woocommerce-form-row form-row">
                     <button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
