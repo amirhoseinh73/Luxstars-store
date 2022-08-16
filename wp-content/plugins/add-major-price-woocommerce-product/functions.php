@@ -1,11 +1,7 @@
 <?php
 
-function random_verficiraion_code( $length = 6 ) {
-	return substr( str_shuffle( "1234567890" ), 0, $length );
-}
-
-add_filter( 'woocommerce_locate_template', 'woo_adon_plugin_template', 1, 3 );
-function woo_adon_plugin_template( $template, $template_name, $template_path ) {
+add_filter( 'woocommerce_locate_template', 'major_price_load_woocommerce_templates_from_plugin', 1, 3 );
+function major_price_load_woocommerce_templates_from_plugin( $template, $template_name, $template_path ) {
      global $woocommerce;
      $_template = $template;
      
@@ -28,11 +24,4 @@ function woo_adon_plugin_template( $template, $template_name, $template_path ) {
     $template = $_template;
 
    return $template;
-}
-
-add_filter( 'woocommerce_checkout_fields' , 'bbloomer_change_address_input_type', 10, 1 );
- 
-function bbloomer_change_address_input_type( $fields ) {
-$fields['billing']['billing_address_1']['type'] = 'textarea';
-return $fields;
 }

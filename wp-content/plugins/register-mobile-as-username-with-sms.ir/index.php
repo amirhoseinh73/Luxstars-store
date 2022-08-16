@@ -1,11 +1,11 @@
 <?php
 /*
- Plugin Name: Register mobile as username woocommerce
+ Plugin Name: AMHNJ Register mobile as username woocommerce
  Plugin URI: 
  Description: register woocommerce via mobile as email and username and send sms with sms.ir, require woocommerce plugin
  Author: amirhosein hasani
  Author URI: https://instagram.com/amirhoseinh73
- Version: 1.0.0
+ Version: 1.1.2
  WC requires at least: 5.5
  WC tested up to: 6.8
  Requires at least: 5.8
@@ -22,27 +22,37 @@ define('AMHNJ_REGISTER_PLUGIN_ADMIN_URL'  , AMHNJ_REGISTER_PLUGIN_DIR_URL . 'adm
 // define('AMHNJ_PROGRESS_PLUGIN_JS_URL'     , AMHNJ_PROGRESS_PLUGIN_DIR_URL . 'asset/js/');
 // define('AMHNJ_PROGRESS_PLUGIN_CSS_URL'    , AMHNJ_PROGRESS_PLUGIN_DIR_URL . 'asset/css/');
 
-function amhnj_admin_notice__success( $error_message ) {
-    ?>
-    <div class="notice notice-success is-dismissible">
-        <p><?php _e( $error_message, 'amhnj' ); ?></p>
-    </div>
-    <?php
+if ( ! function_exists( "amhnj_admin_notice__success" ) ) {
+    function amhnj_admin_notice__success( $error_message ) {
+        ?>
+        <div class="notice notice-success is-dismissible">
+            <p><?php _e( $error_message, 'amhnj' ); ?></p>
+        </div>
+        <?php
+    }
 }
 
-function amhnj_admin_notice__error( $error_message ) {
-    ?>
-    <div class="notice notice-warning is-dismissible">
-        <p><?php _e( $error_message, 'amhnj' ); ?></p>
-    </div>
-    <?php
+if ( ! function_exists( "amhnj_admin_notice__error" ) ) {
+    function amhnj_admin_notice__error( $error_message ) {
+        ?>
+        <div class="notice notice-warning is-dismissible">
+            <p><?php _e( $error_message, 'amhnj' ); ?></p>
+        </div>
+        <?php
+    }
 }
 
-if ( is_plugin_inactive( "woocommerce/woocommerce.php" ) ) {
-    $error_message = "افزونه ووکامرس باید فعال باشد!";
-    add_action( 'admin_notices', function() use( $error_message ) {
-        amhnj_admin_notice__error( $error_message );
-    }, 10, 1 );
+if ( ! function_exists( 'is_plugin_inactive' ) ) {
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+}
+
+if ( function_exists( "is_plugin_inactive" ) ) {
+    if ( is_plugin_inactive( "woocommerce/woocommerce.php" ) ) {
+        $error_message = "افزونه ووکامرس باید فعال باشد!";
+        add_action( 'admin_notices', function() use( $error_message ) {
+            amhnj_admin_notice__error( $error_message );
+        }, 10, 1 );
+    }
 }
 
 if ( is_admin() ) {
@@ -53,7 +63,7 @@ if ( is_admin() ) {
 
 date_default_timezone_set('Asia/Tehran');
 
-require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "fnuctions.php";
+require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "functions.php";
 require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "register-form.php";
 
 // Shortcode callback function

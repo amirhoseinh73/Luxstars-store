@@ -448,3 +448,7 @@ ul.woof_list {
 .woocommerce form .password-input, .woocommerce-page form .password-input {
 	width: 100%;
 }
+
+.page-content .woocommerce-page.woof_shortcode_output ul.products > li {
+	width: 32.05%;
+}

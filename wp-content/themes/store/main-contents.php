@@ -93,7 +93,7 @@
                             while ( $last_products->have_posts() ) :
                                 $last_products->the_post();
                                 $product = wc_get_product( get_the_ID() );
-                                get_template_part( "./woocommerce/content", "product4", $product );
+                                get_template_part( "./woocommerce/content", "product-section", $product );
                             endwhile;
                             wp_reset_postdata();
                         else:
@@ -125,7 +125,7 @@
                             while ( $last_products->have_posts() ) :
                                 $last_products->the_post();
                                 $product = wc_get_product( get_the_ID() );
-                                get_template_part( "./woocommerce/content", "product4", $product );
+                                get_template_part( "./woocommerce/content", "product-section", $product );
                             endwhile;
                             wp_reset_postdata();
                         else:
@@ -154,7 +154,7 @@
                             while ( $last_products->have_posts() ) :
                                 $last_products->the_post();
                                 $product = wc_get_product( get_the_ID() );
-                                get_template_part( "./woocommerce/content", "product4", $product );
+                                get_template_part( "./woocommerce/content", "product-section", $product );
                             endwhile;
                             wp_reset_postdata();
                         else:

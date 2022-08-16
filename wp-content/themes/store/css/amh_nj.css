@@ -1150,15 +1150,15 @@ img.img-header {
     padding: 4px 8px;
     height: 100%;
     overflow: hidden;
-    width: 30% !important;
+    /* width: 30% !important; */
 }
 
-.woocommerce img.attachment-woocommerce_thumbnail {
+.woocommerce ul.products li.product a img.attachment-woocommerce_thumbnail {
     border-radius: 15px;
     padding: 0;
-    height: 320px !important;
+    height: 13rem;
     object-fit: fill;
-    margin: 0 !important;
+    margin: 0;
 }
 
 .woocommerce ul li a.add_to_cart_button {
@@ -1186,14 +1186,13 @@ img.img-header {
 .woocommerce ul.products li.product span.price, .woocommerce p.price {
     display: flex;
     flex-direction: column;
-    height: 45px;
+    /* height: 45px; */
     justify-content: center;
 }
 
 .woocommerce .product .summary p.price {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    /* display: none; */
+    margin-top: 3rem;
+    margin-bottom: 1rem;
 }
 
 .woocommerce ul.products li.product span.price, .woocommerce p.price {
@@ -1211,7 +1210,7 @@ img.img-header {
 }
 
 .woocommerce p.price .amount {
-    justify-content: end !important;
+	font-size: 1.15rem;
 }
 
 .woocommerce ul.products li.product span.price span.woocommerce-Price-amount,
@@ -1386,22 +1385,22 @@ ul.page-numbers a.prev::after {
 }
 
 .woocommerce .products ul li.product, .woocommerce ul.products li.product {
-    margin: 15px auto !important;
+    margin: 15px auto 0;
     border: 1px solid var(--color-4-75);
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: center; */
 }
 
 .woocommerce .products ul li.product, .woocommerce ul.products li.product > a {
-    flex: 0 0 45%;
+    /* flex: 0 0 45%; */
     margin: 0 auto 25px;
 }
 
-.woocommerce .products ul li.product, .woocommerce ul.products li.product > a.woocommerce-LoopProduct-link {
+/* .woocommerce .products ul li.product, .woocommerce ul.products li.product > a.woocommerce-LoopProduct-link {
     flex: 0 0 100%;
-}
+} */
 
 .woocommerce .woocommerce-product-gallery__image a {
     border-radius: 12px;
@@ -1685,7 +1684,7 @@ form.cart button.single_add_to_cart_button:hover {
     left: 0;
     right: 0;
     width: calc(100% - 20px);
-    height: 300px;
+    height: calc( 13rem - 20px );
     border: 1px solid var(--color-3-75);
     border-radius: 10px;
     margin: auto;
