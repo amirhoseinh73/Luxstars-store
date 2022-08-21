@@ -25,3 +25,28 @@ function major_price_load_woocommerce_templates_from_plugin( $template, $templat
 
    return $template;
 }
+
+function separate_price_number_with_comma( $price ) {
+   if ( ! $price ) return 0;
+   return number_format( $price, 0, "", "." );
+}
+
+function user_is_wholesaler() {
+   $userInfo = wp_get_current_user();
+   if ( ! empty( $userInfo ) ) {
+      $userRole = $userInfo->roles[ 0 ];
+      if ( $userRole === "wholesaler" || $userRole === "administrator" ) return true;
+   }
+
+   return false;
+}
+
+function user_is_admin() {
+   $userInfo = wp_get_current_user();
+   if ( ! empty( $userInfo ) ) {
+      $userRole = $userInfo->roles[ 0 ];
+      if ( $userRole === "administrator" ) return true;
+   }
+
+   return false;
+}

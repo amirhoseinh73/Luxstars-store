@@ -421,6 +421,10 @@ ul.woof_list {
 	font-weight: 500;
 }
 
+.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
+	color: var(--color-3-100);
+}
+
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
 	background: var(--color-2-50);
 	color: var(--color-3-100);

@@ -21,46 +21,61 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 
-$productPrice = $product->get_price_html();
-$userInfo = wp_get_current_user();
-if ( ! empty( $userInfo ) ) {
-	$userRole = $userInfo->roles[ 0 ];
-	if ( $userRole === "wholesaler" || $userRole === "administrator" ) {
-		$prices = major_prices();
-		$_cash = $prices->_cash;
-		$_45 = $prices->_45;
-		$_90 = $prices->_90;
+$retail_price = $product->get_price();
+$retail_price = separate_price_number_with_comma( $retail_price );
+$productPrice = "<span class='woocommerce-Price-amount amount'>
+					<bdi>
+						قیمت فروش جزئی:
+						<abbr>$retail_price</abbr>
+						<span class='woocommerce-Price-currencySymbol'>تومان</span>
+					</bdi>
+				</span>";
+if ( user_is_wholesaler() ) {
+	$prices = major_prices();
+	$_cash = separate_price_number_with_comma( $prices->_cash );
+	$_45 = separate_price_number_with_comma( $prices->_45 );
+	$_90 = separate_price_number_with_comma( $prices->_90 );
 
-		$productPrice = "
-		<span class='woocommerce-Price-amount amount'>
-			<bdi>
-				پرداخت نقدی: $_cash
-				<span class='woocommerce-Price-currencySymbol'>تومان</span>
-			</bdi>
-		</span>
-		<span class='woocommerce-Price-amount amount'>
-			<bdi>
-				پرداخت 45 روزه: $_45
-				<span class='woocommerce-Price-currencySymbol'>تومان</span>
-			</bdi>
-		</span>
-		پرداخت 90 روزه:
-		<span class='woocommerce-Price-amount amount'>
-			<bdi>
-				$_90
-				<span class='woocommerce-Price-currencySymbol'>تومان</span>
-			</bdi>
-		</span>
-		";
+	$productPrice = "
+	<span class='woocommerce-Price-amount amount'>
+		<bdi>
+			پرداخت نقدی:
+			<abbr>$_cash</abbr>
+			<span class='woocommerce-Price-currencySymbol'>تومان</span>
+		</bdi>
+	</span>
+	<span class='woocommerce-Price-amount amount'>
+		<bdi>
+			پرداخت 45 روزه:
+			<abbr>$_45</abbr>
+			<span class='woocommerce-Price-currencySymbol'>تومان</span>
+		</bdi>
+	</span>
+	<span class='woocommerce-Price-amount amount'>
+		<bdi>
+			پرداخت 90 روزه:
+			<abbr>$_90</abbr>
+			<span class='woocommerce-Price-currencySymbol'>تومان</span>
+		</bdi>
+	</span>
+	";
 
-		if ( $userRole === "administrator" ) {
-			add_filter( 'woocommerce_get_price_html', 'change_price_html', 100, 2 );
-			function change_price_html( $price, $product ){
-				return 'قیمت فروش جزئی' . $price;
-			}
-			$productPrice .= $product->get_price_html();
+	if ( user_is_admin() ) {
+		// add_filter( 'woocommerce_get_price_html', 'change_price_html', 100, 2 );
+		// function change_price_html( $price, $product ){
+		// 	var_dump( $price );
+		// 	return str_replace( $price, "قیمت فروش جزئی: $price", $price );
+		// }
+		// $productPrice .= $product->get_price_html();
+		$productPrice .= "
+		<span class='woocommerce-Price-amount amount'>
+			<bdi>
+				قیمت فروش جزئی:
+				<abbr>$retail_price</abbr>
+				<span class='woocommerce-Price-currencySymbol'>تومان</span>
+			</bdi>
+		</span>";
 		}
-	}
 }
 ?>
 <p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>">
