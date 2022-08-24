@@ -1,7 +1,5 @@
 <?php
 
-require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "sms.ir-send.php";
-
 function register_form() {
     global $phone_number, $form_error, $first_name, $last_name;
     if ( isset( $_POST['amhnj_create_new_customer'] ) && isset( $_POST['username'] ) && ! empty( $_POST['username'] ) && count( $form_error->get_error_messages() ) < 1 ) :
@@ -96,7 +94,7 @@ function send_sms_register( $phone_number, $password ) {
      
     if ( 1 > count( $form_error->get_error_messages() ) ) {
              
-        send_sms_ir( $phone_number, "VerificationCode", $password );
+        send_sms_ir( "register", $phone_number, $password );
  
     }
 }
@@ -118,6 +116,11 @@ function register_customer( $phone_number, $password, $first_name, $last_name ) 
         'user_email' => $email,
         'display_name' => $first_name . " " . $last_name,
         'role'       => "customer",
+
+        "first_name"        => $first_name,
+        "billing_first_name" => $first_name,
+        "last_name"          => $last_name,
+        "billing_last_name"  => $last_name,
     );
 
     $customer_id = wp_insert_user( $userData );
@@ -126,8 +129,6 @@ function register_customer( $phone_number, $password, $first_name, $last_name ) 
         return $form_error->add( $customer_id );
     }
 
-    $userData[ "first_name" ] = $first_name;
-    $userData[ "last_name" ] = $last_name;
     do_action( 'woocommerce_created_customer', $customer_id, $userData, $password );
 
     return $customer_id;

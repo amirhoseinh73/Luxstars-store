@@ -23,13 +23,7 @@ global $product;
 
 $retail_price = $product->get_price();
 $retail_price = separate_price_number_with_comma( $retail_price );
-$productPrice = "<span class='woocommerce-Price-amount amount'>
-					<bdi>
-						قیمت فروش جزئی:
-						<abbr>$retail_price</abbr>
-						<span class='woocommerce-Price-currencySymbol'>تومان</span>
-					</bdi>
-				</span>";
+$productPrice = $product->get_price_html();
 if ( user_is_wholesaler() ) {
 	$prices = major_prices();
 	$_cash = separate_price_number_with_comma( $prices->_cash );
@@ -61,12 +55,6 @@ if ( user_is_wholesaler() ) {
 	";
 
 	if ( user_is_admin() ) {
-		// add_filter( 'woocommerce_get_price_html', 'change_price_html', 100, 2 );
-		// function change_price_html( $price, $product ){
-		// 	var_dump( $price );
-		// 	return str_replace( $price, "قیمت فروش جزئی: $price", $price );
-		// }
-		// $productPrice .= $product->get_price_html();
 		$productPrice .= "
 		<span class='woocommerce-Price-amount amount'>
 			<bdi>

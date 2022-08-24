@@ -1,7 +1,5 @@
 <?php
 
-require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "sms.ir-send.php";
-
 function login_form() {
     global $form_error_login;
     if ( isset( $_POST['amhnj_login_customer'] ) && isset( $_POST['username'] ) && ! empty( $_POST['username'] ) && count( $form_error_login->get_error_messages() ) < 1 ) :
@@ -67,7 +65,7 @@ function send_sms_login( $phone_number, $password ) {
      
     if ( 1 > count( $form_error_login->get_error_messages() ) ) {
              
-        send_sms_ir( $phone_number, "VerificationCode", $password );
+        send_sms_ir( "login", $phone_number, $password );
  
     }
 }

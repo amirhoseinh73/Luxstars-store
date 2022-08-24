@@ -1,51 +1,48 @@
 <?php
 
-require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "sms.ir-class.php";
+function send_sms_ir( $template, $mobile, $value ) {
 
-function send_sms_ir( $mobile, $param_1, $value_1, $param_2 = null, $value_2 = null ) {
+    $url = "https://api.sms.ir/v1/send/verify";
+
+    switch( $template ) {
+        case "login":
+            $templateID = 821420;
+            break;
+        case "register":
+            $templateID = 144692;
+            break;
+    }
+
+    $dataHeader = array(
+        "Content-Type: application/json",
+        "ACCEPT: application/json",
+        "X-API-KEY: MP1ujNFIXu0f1AFSzSfZ0OWp5Ilj8rZ0WS7jK8956qtKMT4GXnbXYylHwOrqflPw"
+    );
+
+    $dataPost = array(
+        "mobile" => $mobile,
+        "templateId" => $templateID,
+        "parameters" => array(
+            array(
+                "name" => "VERIFICATIONCODE",
+                "value" => $value,
+            )
+        )
+    );
+
 	try {
-        date_default_timezone_set("Asia/Tehran");
+        $ch = curl_init( $url );
+        curl_setopt( $ch, CURLOPT_HTTPHEADER, $dataHeader );
+        curl_setopt( $ch, CURLOPT_HEADER, false );
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+        curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, false );
+        curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode( $dataPost ) );
 
-        // your sms.ir panel configuration
-        $APIKey = "646a2a1a76f4451355e3745";
-        $SecretKey = "amirhoseinh730016973178";
-
-        $APIURL = "https://ws.sms.ir/";
-
-        switch ( $param_1 ) {
-            case "VerificationCode":
-                $template_ID = "64651";
-                break;
-            case "Password":
-                $template_ID = "64975";
-                break;
-            default:
-                return;
-        }
-
-        // message data
-        $data = array(
-            "ParameterArray" => array(
-                array(
-                    "Parameter" => "$param_1",
-                    "ParameterValue" => $value_1
-                ),
-            ),
-            "Mobile" => $mobile,
-            "TemplateId" => $template_ID,
-        );
-        if ( ! empty( $param_2 ) ) {
-            $data[ "ParameterArray" ][] =  array(
-                "Parameter" => "$param_2",
-                "ParameterValue" => $value_2
-            );
-        }
-
-        $SmsIR_UltraFastSend = new SmsIrUltraFastSend($APIKey, $SecretKey, $APIURL);
-        $UltraFastSend = $SmsIR_UltraFastSend->ultraFastSend($data);
-
-        return $UltraFastSend;
+        $result = curl_exec($ch);
+        curl_close($ch);
+        
+        return json_decode($result);
     } catch ( \Exception $e ) {
-        echo 'Error UltraFastSend : ' . $e->getMessage();
+        echo 'Error sms send : ' . $e->getMessage();
     }
 }

@@ -64,6 +64,9 @@ if ( is_admin() ) {
 date_default_timezone_set('Asia/Tehran');
 
 require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "functions.php";
+
+require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "sms.ir-send.php";
+
 require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "register-form.php";
 
 // Shortcode callback function
