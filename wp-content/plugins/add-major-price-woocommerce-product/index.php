@@ -60,4 +60,4 @@ date_default_timezone_set('Asia/Tehran');
 
 require_once AMHNJ_MULTIPLE_PRICE_PLUGIN_DIR_PATH . "functions.php";
 require_once AMHNJ_MULTIPLE_PRICE_PLUGIN_DIR_PATH . "add-price-for-product-admin.php";
-require_once AMHNJ_MULTIPLE_PRICE_PLUGIN_DIR_PATH . "cart.php";
+require_once AMHNJ_MULTIPLE_PRICE_PLUGIN_DIR_PATH . "calc-cart-price.php";

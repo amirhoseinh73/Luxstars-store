@@ -1,5 +1,10 @@
 <?php
 
+add_filter( 'woocommerce_calculated_total', 'change_calculated_total', 10, 2 );
+function change_calculated_total( $total, $cart ) {
+    return $total + 300;
+}
+
 // Change the line total price
 // add_filter( 'woocommerce_get_discounted_price', 'calculate_discounted_price', 10, 2 );
 // // Display the line total price

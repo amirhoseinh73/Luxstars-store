@@ -28,15 +28,17 @@ do_action( 'woocommerce_before_cart' ); ?>
 				<th class="product-remove">&nbsp;</th>
 				<th class="product-thumbnail">&nbsp;</th>
 				<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
+				<th class="product-quantity"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
+				<?php if ( ! user_is_wholesaler() ) :?>
+					<th class="product-price"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th>
+				<?php endif;?>
 				<?php if ( user_is_wholesaler() ) :?>
 					<th class="product-price">قیمت نقدی</th>
 					<th class="product-price">قیمت 45 روزه</th>
 					<th class="product-price">قیمت 90 روزه</th>
 				<?php else :?>
-					<th class="product-price"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th>
+					<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
 				<?php endif;?>
-				<th class="product-quantity"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
-				<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -100,28 +102,12 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 						</td>
 
-						<?php if ( user_is_wholesaler() ) : ?>
-							<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
-								<?php
-									echo apply_filters( 'woocommerce_cart_item_price', separate_price_number_with_comma( $_product->get_meta( '_major_price_cash' ) ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
-								?>
-							</td>
-							<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
-								<?php
-									echo apply_filters( 'woocommerce_cart_item_price', separate_price_number_with_comma( $_product->get_meta( '_major_price_45' ) ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
-								?>
-							</td>
-							<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
-								<?php
-									echo apply_filters( 'woocommerce_cart_item_price', separate_price_number_with_comma( $_product->get_meta( '_major_price_90' ) ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
-								?>
-							</td>
-						<?php else :?>
+						<?php if ( ! user_is_wholesaler() ) : ?>
 							<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
 								<?php
 									echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 								?>
-							</td>
+							</td>							
 						<?php endif;?>
 
 						<td class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
@@ -146,11 +132,35 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 						</td>
 
-						<td class="product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
-							<?php
-								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
-							?>
-						</td>
+						<?php if( user_is_wholesaler() ) : ?>
+							<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
+								<?php
+									$price_with_quantity = intval( $_product->get_meta( '_major_price_cash' ) ) * intval( $cart_item['quantity'] );
+									echo apply_filters( 'woocommerce_cart_item_price', separate_price_number_with_comma( $price_with_quantity ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+									// echo $cart_item['quantity'];
+								?>
+							</td>
+							<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
+								<?php
+									$price_with_quantity = intval( $_product->get_meta( '_major_price_45' ) ) * intval( $cart_item['quantity'] );
+									echo apply_filters( 'woocommerce_cart_item_price', separate_price_number_with_comma( $price_with_quantity ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+									// echo $cart_item['quantity'];
+								?>
+							</td>
+							<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
+								<?php
+									$price_with_quantity = intval( $_product->get_meta( '_major_price_90' ) ) * intval( $cart_item['quantity'] );
+									echo apply_filters( 'woocommerce_cart_item_price', separate_price_number_with_comma( $price_with_quantity ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+									// echo $cart_item['quantity'];
+								?>
+							</td>
+						<?php else : ?>
+							<td class="product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
+								<?php
+									echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+								?>
+							</td>
+						<?php endif; ?>
 					</tr>
 					<?php
 				}
@@ -161,7 +171,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 			<tr>
 				<?php if ( user_is_wholesaler() ) :?>
-					<td colspan="8" class="actions">
+					<td colspan="7" class="actions">
 				<?php else :?>
 					<td colspan="6" class="actions">
 				<?php endif;?>
