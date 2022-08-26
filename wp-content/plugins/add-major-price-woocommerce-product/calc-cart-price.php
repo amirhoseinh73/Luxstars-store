@@ -1,9 +1,96 @@
 <?php
 
 add_filter( 'woocommerce_calculated_total', 'change_calculated_total', 10, 2 );
-function change_calculated_total( $total, $cart ) {
-    return $total + 300;
+function change_calculated_total( $total ) {
+    if ( user_is_wholesaler() ) {
+        // var_dump( $_GET );
+        if ( isset( $_GET[ "pay_way" ] ) ) {
+            return calc_wholesaler_total_cart( $_GET[ "pay_way" ] );
+        }
+        if ( isset( $_SESSION[ "pay_way" ] ) ) {
+            return calc_wholesaler_total_cart( $_SESSION[ "pay_way" ] );
+        }
+        return calc_wholesaler_total_cart( "cash" );
+    }
+    return $total;
 }
+
+function calc_wholesaler_total_cart( $which_pay = "cash" ) {
+    $price = 0;
+    foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+        $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+
+        switch( $which_pay ) {
+            default:
+            case "cash":
+                $price += intval( $_product->get_meta( '_major_price_cash' ) ) * intval( $cart_item['quantity'] );
+                break;
+            case "45":
+                $price += intval( $_product->get_meta( '_major_price_45' ) ) * intval( $cart_item['quantity'] );
+                break;
+            case "90":
+                $price += intval( $_product->get_meta( '_major_price_90' ) ) * intval( $cart_item['quantity'] );
+                break;
+        }
+
+    }
+    return $price;
+}
+
+add_action( 'wp_footer', 'add_js_to_footer' ); 
+ 
+function add_js_to_footer() {
+    if ( user_is_wholesaler() ) {
+        if ( is_cart() || ( is_cart() && is_checkout() ) ) {
+            enqueue_js_cart();
+        }
+        wc_enqueue_js( "
+        jQuery(document.body).on('update_checkout', function(e){
+            //e.preventDefault();
+            //e.stopPropagation();
+            e.stopImmediatePropagation();
+            //console.log(e);
+        });
+        " );
+    }
+}
+
+function enqueue_js_cart() {
+    wp_enqueue_script( 'cart-calc', AMHNJ_MULTIPLE_PRICE_PLUGIN_DIR_URL . 'js/cart-calc.js', array(), '1.0.0');
+}
+
+function so_27023433_disable_checkout_script(){
+    wp_dequeue_script( 'wc-checkout' );
+    wp_dequeue_script( 'wc-cart-fragments' );
+}
+add_action( 'wp_enqueue_scripts', 'so_27023433_disable_checkout_script' );
+
+add_action( 'wp_print_footer_scripts', function(){
+    wp_dequeue_script( 'wc-cart-fragments' );
+} );
+
+// function filter_woocommerce_update_cart_action_cart_updated( $cart_updated ) {
+//     $cart_updated = false;
+
+//     if ( $cart_updated == false ) {
+//         if ( user_is_wholesaler() ) {
+//             $payment_way = $_POST[ "wholesaler_payment_way" ];
+//             if ( isset( $payment_way ) && ! empty( $payment_way ) ) {
+//                 add_filter( 'woocommerce_calculated_total', 'change_calculated_total', 10, 2 );
+//                 function change_calculated_total( $total, $payment_way ) {
+//                     var_dump( $payment_way );
+//                     return calc_wholesaler_total_cart( $payment_way );
+//                 }
+//             }
+//             wc_add_notice( __( "sawfa", 'woocommerce' ), 'error' );
+//         }
+
+//         wc_add_notice( __( "bbb", 'woocommerce' ), 'error' );
+//     }
+
+//     return $cart_updated;
+// }
+// add_filter( 'woocommerce_update_cart_action_cart_updated', 'filter_woocommerce_update_cart_action_cart_updated', 10, 1 );
 
 // Change the line total price
 // add_filter( 'woocommerce_get_discounted_price', 'calculate_discounted_price', 10, 2 );

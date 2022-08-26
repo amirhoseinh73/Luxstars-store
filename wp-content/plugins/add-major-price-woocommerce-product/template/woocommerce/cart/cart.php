@@ -169,6 +169,26 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 			<?php do_action( 'woocommerce_cart_contents' ); ?>
 
+			<?php if ( user_is_wholesaler() ) :?>
+				<tr>
+					<td colspan="4" class="text-left">
+						لطفا نوع پرداخت را انتخاب کنید
+					</td>
+					<td colspan="1" class="text-center">
+						<label for="wholesaler_payment_way_1">نقدی</label>
+						<input id="wholesaler_payment_way_1" type="radio" name="wholesaler_payment_way" value="cash" checked />
+					</td>
+					<td colspan="1" class="text-center">
+						<label for="wholesaler_payment_way_2">45 روزه</label>
+						<input id="wholesaler_payment_way_2" type="radio" name="wholesaler_payment_way" value="45" />						
+					</td>
+					<td colspan="1" class="text-center">
+						<label for="wholesaler_payment_way_3">90 روزه</label>
+						<input id="wholesaler_payment_way_3" type="radio" name="wholesaler_payment_way" value="90" />
+					</td>
+				</tr>
+			<?php endif;?>
+
 			<tr>
 				<?php if ( user_is_wholesaler() ) :?>
 					<td colspan="7" class="actions">
@@ -178,7 +198,13 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<?php if ( wc_coupons_enabled() ) { ?>
 						<div class="coupon">
-							<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
+							<div class="d-flex flex-row flex-wrap">
+								<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
+								<input type="text" name="coupon_code" class="input-text form-control form-control-sm col-7 d-block w-100" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" />
+								<button type="submit" class="button col-4 d-block w-100" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>">
+									<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>
+								</button>
+							</div>
 							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 						</div>
 					<?php } ?>

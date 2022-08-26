@@ -63,7 +63,7 @@ if ( user_is_wholesaler() ) {
 				<span class='woocommerce-Price-currencySymbol'>تومان</span>
 			</bdi>
 		</span>";
-		}
+	}
 }
 ?>
 <p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>">

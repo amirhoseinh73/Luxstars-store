@@ -1239,7 +1239,7 @@ img.img-header {
     background-color: transparent;
 }
 
-.woocommerce input[type=text], .woocommerce textarea, .woocommerce input[type=tel], .woocommerce input[type=email],
+/* .woocommerce input[type=text], .woocommerce textarea, .woocommerce input[type=tel], .woocommerce input[type=email],
 .woocommerce input[type=password] {
     display: inline-block;
     width: 100%;
@@ -1259,7 +1259,7 @@ img.img-header {
 }
 .woocommerce textarea{
     height: auto;
-}
+} */
 
 .woocommerce .woocommerce-ordering select.orderby {
     display: inline-block !important;
