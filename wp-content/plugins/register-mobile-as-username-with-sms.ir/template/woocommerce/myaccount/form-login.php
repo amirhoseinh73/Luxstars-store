@@ -21,6 +21,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
+<?php
+$isError = $_REQUEST[ "error" ];
+if ( isset( $isError ) && ! empty( $isError ) ) {
+	echo "<p class='woocommerce-error d-block w-100'>" . 
+	esc_html( apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) ) )
+	. "</p>";
+}
+?>
+
 <?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
 
 <div class="u-columns col2-set" id="customer_login">

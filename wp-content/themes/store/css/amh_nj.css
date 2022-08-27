@@ -1287,15 +1287,6 @@ img.img-header {
     opacity: 1;
 }
 
-.woocommerce input[type=text]:focus, .woocommerce textarea:focus, select:focus, .woocommerce .select2:focus,
-.woocommerce input[type=tel]:focus, .woocommerce input[type=email]:focus, .woocommerce input[type=password]:focus {
-    color: #231f20 !important;
-    background-color: #fff !important;
-    border-color: var(--color-2-100) !important;
-    outline: 0 !important;
-    box-shadow: 0 0 5px 1px var(--color-2-25);
-}
-
 ul.page-numbers {
     padding: 0 !important;
     border: 0 !important;
@@ -1502,10 +1493,17 @@ form.cart button.single_add_to_cart_button:hover {
 .woocommerce input.button.alt,
 .woocommerce a.checkout-button,
 .woocommerce .form-row button.button  {
-    background-image: var(--boot-theme-grad);
-    background-color: transparent;
+    background-color: var(--color-3-100);
     min-width: 40%;
     margin: 0 15px;
+}
+
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce input.button.alt:hover,
+.woocommerce a.checkout-button:hover,
+.woocommerce .form-row button.button:hover  {
+    background-color: var(--color-4-100);
 }
 
 #add_payment_method table.cart img, .woocommerce-cart table.cart img, .woocommerce-checkout table.cart img {
@@ -1586,11 +1584,56 @@ form.cart button.single_add_to_cart_button:hover {
     background-color: var(--color-2-100);
 }
 
-.woocommerce .woocommerce-MyAccount-content {
-    background-color: var(--color-2-100);
+.woocommerce-account .page-content .woocommerce {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.woocommerce-account .page-content .woocommerce > .woocommerce-MyAccount-navigation {
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.woocommerce-account .page-content .woocommerce > .woocommerce-MyAccount-content {
+    margin-right: 0.75rem;
+    flex: 1;
+    max-width: 100%;
+    background-color: var(--color-1-100);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
-    border-radius: 15px;
-    padding: 8px;
+    border-radius: 8px;
+    padding: 0 0.5rem;
+}
+
+.woocommerce-account a {
+    color: var(--color-3-100);
+}
+
+.custom-label-box-shadow,
+.woocommerce-EditAccountForm.edit-account .woocommerce-form-row label {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.custom-input-box-shadow,
+.woocommerce-EditAccountForm.edit-account .woocommerce-form-row input {
+    height: 3rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+    border: 1px solid var(--color-2-100);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 4px 8px 12px -4px #00000055;
+    margin-bottom: 2rem !important;
+}
+
+.custom-input-box-shadow:focus,
+.woocommerce-EditAccountForm.edit-account .woocommerce-form-row input:focus {
+    box-shadow: inset 0 0 8px 0 #00000044;
+}
+
+.woocommerce form .show-password-input, .woocommerce-page form .show-password-input {
+	top: 0.75rem;
 }
 
 .woocommerce .woocommerce-MyAccount-content table {
@@ -1611,40 +1654,43 @@ form.cart button.single_add_to_cart_button:hover {
     border: 1px solid #eeeeee;
 }
 
-.woocommerce .woocommerce-MyAccount-navigation {
+/* .woocommerce .woocommerce-MyAccount-navigation {
     background-color: var(--color-2-100);
     border-radius: 15px;
     overflow: hidden;
-}
+} */
 
 .woocommerce .woocommerce-MyAccount-navigation ul {
     list-style: none;
-    padding: 0 8px;
+    padding: 0;
     margin: 0;
-    overflow: hidden;
-    border: 1px solid #eeeeee;
-    border-radius: 15px;
 }
 
 .woocommerce .woocommerce-MyAccount-navigation ul li {
     position: relative;
-    padding: 12px 18px 12px 0;
+    padding: 12px 28px;
     transition: all 200ms linear;
-    border-bottom: 1px solid #dddddd;
+    background-color: var(--color-4-100);
+    margin: 0 auto 2rem;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .woocommerce .woocommerce-MyAccount-navigation ul li:last-child {
-    border-bottom: 0;
+    margin-bottom: 0;
 }
 
+.woocommerce .woocommerce-MyAccount-navigation ul li.is-active,
 .woocommerce .woocommerce-MyAccount-navigation ul li:hover {
-    background-color: #e8e8e8;
+    background-color: var(--color-3-100);
 }
 
 .woocommerce .woocommerce-MyAccount-navigation ul li::before {
     content: '';
-    top: 18px;
-    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 12px;
     background-image: url(../img/angle-left.svg);
     background-repeat: no-repeat;
     background-size: contain;
@@ -1656,7 +1702,9 @@ form.cart button.single_add_to_cart_button:hover {
 }
 
 .woocommerce .woocommerce-MyAccount-navigation ul li a {
-    color: #000000;
+    color: var(--color-1-100);
+    display: block;
+    font-size: 1rem;
 }
 
 #tab-description.woocommerce-Tabs-panel.woocommerce-Tabs-panel--description h2 {

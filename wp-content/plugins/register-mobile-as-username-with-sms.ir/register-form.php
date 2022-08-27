@@ -11,8 +11,8 @@ function register_form() {
             <input type="hidden" name="first_name" value="' . __( wp_unslash( $_POST['first_name'] ) ) . '" />
             <input type="hidden" name="last_name" value="' . __( wp_unslash( $_POST['last_name'] ) ) . '" />
             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                <label for="password">کد تایید پیامک شده را وارد نمایید&nbsp;<span class="required">*</span></label>
-                <input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="password"
+                <label class="custom-label-box-shadow" for="password">کد تایید پیامک شده را وارد نمایید&nbsp;<span class="required">*</span></label>
+                <input class="woocommerce-Input woocommerce-Input--text input-text custom-input-box-shadow" type="text" name="password"
                 id="password" autocomplete="current-password" />
             </p>
 
@@ -31,26 +31,26 @@ function register_form() {
     echo '<form action="' . get_permalink() . '" method="post"
         class="woocommerce-form woocommerce-form-register register">
         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_username">
+            <label for="reg_username" class="custom-label-box-shadow">
             ' . __( 'Phone Number', 'woocommerce' ) . '&nbsp;<span class="required">*</span>
             </label>
-            <input type="tel" class="woocommerce-Input woocommerce-Input--text input-text"
+            <input type="tel" class="woocommerce-Input woocommerce-Input--text input-text custom-input-box-shadow"
             name="username" id="reg_username" autocomplete="username"
             value="' . ( ( isset( $_POST['amhnj_create_new_customer'] ) && isset( $_POST['username'] ) && ! empty( $_POST['username'] ) ) ? __( wp_unslash( $phone_number ) ) : '' ) . '" />
         </p>
         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_first_name">
+            <label for="reg_first_name" class="custom-label-box-shadow">
             ' . __( 'First name', 'woocommerce' ) . '&nbsp;<span class="required">*</span>
             </label>
-            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
+            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text custom-input-box-shadow"
             name="first_name" id="reg_first_name" autocomplete="first_name"
             value="' . ( ( isset( $_POST['first_name'] ) && ! empty( $_POST['first_name'] ) ) ? __( wp_unslash( $first_name ) ) : '' ) . '" />
         </p>
         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_last_name">
+            <label for="reg_last_name" class="custom-label-box-shadow">
             ' . __( 'Last name', 'woocommerce' ) . '&nbsp;<span class="required">*</span>
             </label>
-            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
+            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text custom-input-box-shadow"
             name="last_name" id="reg_last_name" autocomplete="last_name"
             value="' . ( ( isset( $_POST['last_name'] ) && ! empty( $_POST['last_name'] ) ) ? __( wp_unslash( $last_name ) ) : '' ) . '" />
         </p>

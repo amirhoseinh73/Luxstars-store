@@ -9,8 +9,8 @@ function login_form() {
 
             <input type="hidden" name="username" value="' . __( wp_unslash( $_POST['username'] ) ) . '" />
             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                <label for="password">کد تایید پیامک شده را وارد نمایید&nbsp;<span class="required">*</span></label>
-                <input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="password"
+                <label for="password" class="custom-label-box-shadow">کد تایید پیامک شده را وارد نمایید&nbsp;<span class="required">*</span></label>
+                <input class="woocommerce-Input woocommerce-Input--text input-text custom-label-box-shadow custom-input-box-shadow" type="text" name="password"
                 id="password" autocomplete="current-password" />
             </p>
 
@@ -29,8 +29,8 @@ function login_form() {
     echo '<form action="' . get_permalink() . '" method="post"
             class="woocommerce-form woocommerce-form-register register">
                 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                    <label for="username">' . __( 'Phone Number', 'woocommerce' ) . ' &nbsp;<span class="required">*</span></label>
-                    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
+                    <label for="username" class="custom-label-box-shadow">' . __( 'Phone Number', 'woocommerce' ) . ' &nbsp;<span class="required">*</span></label>
+                    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text custom-input-box-shadow"
                     name="username" id="username" autocomplete="username"
                     value="' . ( ( isset( $_POST['amhnj_login_customer'] ) && ! empty( $_POST['username'] ) ) ? __( wp_unslash( $_POST['username'] ) ) : '' ) . ' " />
                 </p>

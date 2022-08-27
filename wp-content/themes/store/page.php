@@ -27,7 +27,7 @@
             </div>
         </header>
         <main>
-        <section class="mb-boot-45 mt-boot-22">
+        <section class="mb-boot-45 mt-boot-45">
             <div class="container">
                 <?php if (has_post_thumbnail()): ?>
                     <div class="row">

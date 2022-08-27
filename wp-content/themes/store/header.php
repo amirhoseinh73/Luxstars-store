@@ -1,3 +1,13 @@
+<?php
+session_start();
+if ( is_user_logged_in() && isset( $_SESSION[ "is_checkout_not_logged_in" ] ) && $_SESSION[ "is_checkout_not_logged_in" ] === true ) {
+	$_SESSION[ "is_checkout_not_logged_in" ] = false;
+
+	wp_redirect( wc_get_checkout_url() );
+	exit;
+}
+?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>

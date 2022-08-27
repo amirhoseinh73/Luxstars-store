@@ -28,7 +28,16 @@ $allowed_html = array(
 );
 ?>
 
-<p>
+<p class="font-18">
+	کاربر گرامی
+	جناب آقای / سرکار خانم
+
+	<strong class="px-3"><?= esc_html( $current_user->display_name )?></strong>
+
+	خوش آمدید!
+</p>
+
+<!-- <p>
 	<?php
 	printf(
 		/* translators: 1: user display name 2: logout url */
@@ -37,7 +46,7 @@ $allowed_html = array(
 		esc_url( wc_logout_url() )
 	);
 	?>
-</p>
+</p> -->
 
 <p>
 	<?php
