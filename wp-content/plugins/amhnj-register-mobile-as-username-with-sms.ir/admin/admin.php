@@ -1,6 +1,6 @@
 <?php
 
-require_once AMHNJ_REGISTER_PLUGIN_ADMIN_PATH . "public.php";
+// require_once AMHNJ_REGISTER_PLUGIN_ADMIN_PATH . "public.php";
 require_once AMHNJ_REGISTER_PLUGIN_ADMIN_PATH . "database.php";
 require_once AMHNJ_REGISTER_PLUGIN_ADMIN_PATH . "menu.php";
 require_once AMHNJ_REGISTER_PLUGIN_ADMIN_PATH . "settings.php";

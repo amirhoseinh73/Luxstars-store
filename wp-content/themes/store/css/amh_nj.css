@@ -1215,7 +1215,20 @@ img.img-header {
 
 .woocommerce ul.products li.product span.price span.woocommerce-Price-amount,
 .woocommerce p.price span.woocommerce-Price-amount {
+    color: var(--color-4-100);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce-Price-currencySymbol,
+.woocommerce ul.products li.product span.price span.woocommerce-Price-amount abbr,
+.woocommerce p.price span.woocommerce-Price-amount abbr {
+    margin-right: 0.75rem;
     color: var(--color-3-100);
+}
+
+.woocommerce-Price-currencySymbol {
+    color: var(--color-4-100);
 }
 
 .woocommerce ul.products li.product span.price ins,
@@ -1825,4 +1838,8 @@ form.cart button.single_add_to_cart_button:hover {
 .woocommerce table.shop_attributes tr:nth-child(2n) td, .woocommerce table.shop_attributes tr:nth-child(2n) th {
 	background: var(--color-4-100);
     color: var(--color-1-100);
+}
+
+.woocommerce div.product .stock {
+	color: var(--color-4-100);
 }

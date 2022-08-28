@@ -109,66 +109,68 @@
         </div>
     </section>
 
-    <section id="special_products" class="pt-boot-22 mt-boot-30 pb-boot-45">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="fw600 font-20 text-boot text-right tit-L-before">
-                        آخرین خرید های شما
-                    </h1>
-                    <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                    <div class="row mt-boot-30">
-                    <?php
-                        $params_product = array('posts_per_page' => 4, 'post_type' => 'product');
-                        $last_products = new WP_Query($params_product);
-                        if ($last_products->have_posts()) :
-                            while ( $last_products->have_posts() ) :
-                                $last_products->the_post();
-                                $product = wc_get_product( get_the_ID() );
-                                get_template_part( "./woocommerce/content", "product-section", $product );
-                            endwhile;
-                            wp_reset_postdata();
-                        else:
-                            echo "<p>"
-                                . _e( 'محصولی یافت نشد') .
-                            "</p>";
-                        endif;
-                    ?>
-                    
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-boot-45">
-                <div class="col-12">
-                    <h1 class="fw600 font-20 text-boot-5 text-right tit-L-before">
-                        پیشنهاد های ویژه
-                    </h1>
-                    <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                    <div class="row mt-boot-30">
-
-                    <?php
-                        $params_product = array('posts_per_page' => 4, 'post_type' => 'product');
-                        $last_products = new WP_Query($params_product);
-                        if ($last_products->have_posts()) :
-                            while ( $last_products->have_posts() ) :
-                                $last_products->the_post();
-                                $product = wc_get_product( get_the_ID() );
-                                get_template_part( "./woocommerce/content", "product-section", $product );
-                            endwhile;
-                            wp_reset_postdata();
-                        else:
-                            echo "<p>"
-                                . _e( 'محصولی یافت نشد') .
-                            "</p>";
-                        endif;
+    <?php if( is_user_logged_in() ) : ?>
+        <section id="special_products" class="pt-boot-22 mt-boot-30 pb-boot-45">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="fw600 font-20 text-boot text-right tit-L-before">
+                            آخرین خرید های شما
+                        </h1>
+                        <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                        <div class="row mt-boot-30">
+                        <?php
+                            $params_product = array('posts_per_page' => 4, 'post_type' => 'product');
+                            $last_products = new WP_Query($params_product);
+                            if ($last_products->have_posts()) :
+                                while ( $last_products->have_posts() ) :
+                                    $last_products->the_post();
+                                    $product = wc_get_product( get_the_ID() );
+                                    get_template_part( "./woocommerce/content", "product-section", $product );
+                                endwhile;
+                                wp_reset_postdata();
+                            else:
+                                echo "<p>"
+                                    . _e( 'محصولی یافت نشد') .
+                                "</p>";
+                            endif;
                         ?>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-boot-45">
+                    <div class="col-12">
+                        <h1 class="fw600 font-20 text-boot-5 text-right tit-L-before">
+                            پیشنهاد های ویژه
+                        </h1>
+                        <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                        <div class="row mt-boot-30">
+
+                        <?php
+                            $params_product = array('posts_per_page' => 4, 'post_type' => 'product');
+                            $last_products = new WP_Query($params_product);
+                            if ($last_products->have_posts()) :
+                                while ( $last_products->have_posts() ) :
+                                    $last_products->the_post();
+                                    $product = wc_get_product( get_the_ID() );
+                                    get_template_part( "./woocommerce/content", "product-section", $product );
+                                endwhile;
+                                wp_reset_postdata();
+                            else:
+                                echo "<p>"
+                                    . _e( 'محصولی یافت نشد') .
+                                "</p>";
+                            endif;
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
+        </section>
+    <?php endif; ?>
+
     <section id="advice_index" class="pt-boot-45 pb-boot-45">
         <div class="container">
             <div class="row">

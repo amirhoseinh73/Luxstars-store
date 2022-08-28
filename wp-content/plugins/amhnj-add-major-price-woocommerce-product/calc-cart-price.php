@@ -44,14 +44,8 @@ function add_js_to_footer() {
         if ( is_cart() || ( is_cart() && is_checkout() ) ) {
             enqueue_js_cart();
         }
-        wc_enqueue_js( "
-        jQuery(document.body).on('update_checkout', function(e){
-            //e.preventDefault();
-            //e.stopPropagation();
-            e.stopImmediatePropagation();
-            //console.log(e);
-        });
-        " );
+        enqueue_js_add_banner();
+
     }
 }
 
@@ -59,15 +53,19 @@ function enqueue_js_cart() {
     wp_enqueue_script( 'cart-calc', AMHNJ_MULTIPLE_PRICE_PLUGIN_DIR_URL . 'js/cart-calc.js', array(), '1.0.0');
 }
 
-function so_27023433_disable_checkout_script(){
-    wp_dequeue_script( 'wc-checkout' );
-    wp_dequeue_script( 'wc-cart-fragments' );
+function enqueue_js_add_banner() {
+    wp_enqueue_script( 'add-banner-wholesaler', AMHNJ_MULTIPLE_PRICE_PLUGIN_DIR_URL . 'js/add-banner-after-payment.js', array(), '1.0.0');
 }
-add_action( 'wp_enqueue_scripts', 'so_27023433_disable_checkout_script' );
 
-add_action( 'wp_print_footer_scripts', function(){
-    wp_dequeue_script( 'wc-cart-fragments' );
-} );
+// function so_27023433_disable_checkout_script(){
+//     wp_dequeue_script( 'wc-checkout' );
+//     wp_dequeue_script( 'wc-cart-fragments' );
+// }
+// add_action( 'wp_enqueue_scripts', 'so_27023433_disable_checkout_script' );
+
+// add_action( 'wp_print_footer_scripts', function(){
+//     wp_dequeue_script( 'wc-cart-fragments' );
+// } );
 
 // function filter_woocommerce_update_cart_action_cart_updated( $cart_updated ) {
 //     $cart_updated = false;
