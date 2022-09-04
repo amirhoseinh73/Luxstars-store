@@ -2,6 +2,10 @@
 
 add_filter( 'woocommerce_calculated_total', 'change_calculated_total', 10, 2 );
 function change_calculated_total( $total ) {
+    // $packages = WC()->shipping()->get_packages();
+    
+    // var_dump( $packages );
+    
     if ( user_is_wholesaler() ) {
         // var_dump( $_GET );
         if ( isset( $_GET[ "pay_way" ] ) ) {

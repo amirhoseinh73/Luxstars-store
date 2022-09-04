@@ -52,10 +52,16 @@ jQuery(function () {
     });
     woocomeerce_gallery();
     fiboSearchClasses();
-    woofFilters();
-    woofFilters2();
-    onDomChange( function() {
+
+    setTimeout( () => {
+        woofFilters();
         woofFilters2();
+    }, 500 );
+    
+    onDomChange( function() {
+        setTimeout( () => {
+            woofFilters2();
+        }, 500 );
     } );
 
     nav_menu_submenu_hover();
@@ -63,11 +69,13 @@ jQuery(function () {
 
 function openNav() {
     document.getElementById("mySidenav").style.transform = "scaleX(1)";
+    document.getElementById("mySidenav").style.right = "0";
     document.getElementById("fix_hover_body_nav_menu").style.display = "block";
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.transform = "scaleX(0)";
+    document.getElementById("mySidenav").style.right = "-100%";
     document.getElementById("fix_hover_body_nav_menu").style.display = "none";
 }
 

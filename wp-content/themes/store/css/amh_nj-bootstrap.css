@@ -9,7 +9,7 @@
     --color-2-50: #E5E5E580;
     --color-2-25: #E5E5E540;
 
-    --color-3-100: #FCA311;
+    --color-3-100: #fca311;
     --color-3-75: #FCA311bf;
     --color-3-50: #FCA31180;
     --color-3-25: #FCA31140;
@@ -1651,7 +1651,7 @@ ul.navbar-nav li:hover ul.sub-menu {
     }
 }
 
-#nav_menu ul.sub-menu > li.active-parent {
+#nav_menu ul.sub-menu > li.active-parent > a {
     background-color: var(--color-3-75);
     color: var(--color-4-100);
 }
@@ -1738,11 +1738,10 @@ ul.navbar-nav > li > ul.sub-menu > li > a:hover {
     position: fixed;
     z-index: 99999;
     top: 0;
-    right: 0;
-    overflow-x: hidden;
     transition: 0.5s;
     padding-top: 26px;
     background-color: var(--color-1-100);
+    right: -100%;
     transform: scaleX(0);
     transform-origin: right;
 }

@@ -907,13 +907,13 @@ final class WOOF {
                 'orderby': "<?php _e('orderby', 'woocommerce-products-filter') ?>",
                 'date': "<?php _e('date', 'woocommerce-products-filter') ?>",
                 'perpage': "<?php _e('per page', 'woocommerce-products-filter') ?>",
-                'pricerange': "<?php _e('price range', 'woocommerce-products-filter') ?>",
+                'pricerange': "<?php _e('بازه قیمت', 'woocommerce-products-filter') ?>",
                 'menu_order': "<?php _e('menu order', 'woocommerce-products-filter') ?>",
                 'popularity': "<?php _e('popularity', 'woocommerce-products-filter') ?>",
                 'rating': "<?php _e('rating', 'woocommerce-products-filter') ?>",
                 'price': "<?php _e('price low to high', 'woocommerce-products-filter') ?>",
                 'price-desc': "<?php _e('price high to low', 'woocommerce-products-filter') ?>",
-                'clear_all': "<?php echo apply_filters('woof_clear_all_text', __('Clear All', 'woocommerce-products-filter')); ?>"
+                'clear_all': "<?php echo apply_filters('woof_clear_all_text', __('حذف همه', 'woocommerce-products-filter')); ?>"
             };
 
             if (typeof woof_lang_custom == 'undefined') {
