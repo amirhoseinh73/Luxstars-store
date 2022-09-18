@@ -28,7 +28,7 @@ if ( is_admin() ) {
 
 // require_once VIRA_PLUGIN_DIR_PATH . 'capabilities.php';
 
-date_default_timezone_set('Asia/Tehran');
+// date_default_timezone_set('Asia/Tehran');
 
 // add_action( 'woocommerce_add_to_cart', function ()
 // {

@@ -26,7 +26,7 @@ if ( is_admin() ) {
 	require_once AMHNJ_FUNCTIONS_PLUGIN_ADMIN_PATH . 'admin.php';
 }
 
-date_default_timezone_set('Asia/Tehran');
+// date_default_timezone_set('Asia/Tehran');
 
 add_filter( 'woocommerce_get_availability', 'change_out_of_stock_text_woocommerce', 1, 2);
 

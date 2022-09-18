@@ -1,98 +1,97 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>وردپرس &rsaquo; راهنما</title>
+	<title>WordPress &#8250; ReadMe</title>
 	<link rel="stylesheet" href="wp-admin/css/install.css?ver=20100228" type="text/css" />
-    <style type="text/css">
-		p, li, dt, dd {font-family: Tahoma, Geneva, sans-serif; text-align: justify}
-		dt, dd {font-size: 80%; line-height: 180%}
-		p {line-height: 200%}
-	</style>
 </head>
 <body>
-<h1 id="logo" style="text-align: center">
-	<img alt="WordPress" src="wp-admin/images/wordpress-logo.png" />
-	<br /> 
-	نگارش ۶.۰
+<h1 id="logo">
+	<a href="https://wordpress.org/"><img alt="WordPress" src="wp-admin/images/wordpress-logo.png" /></a>
 </h1>
-<p style="text-align: center"><strong>نرم‌افزار حرفه‌ای انتشار شخصی</strong></p>
+<p style="text-align: center">Semantic Personal Publishing Platform</p>
 
-<h1>مقدمه</h1>
-<p>خوش آمدید. پروژه وردپرس برای من جایگاه ویژه‌ای دارد. طراحان و برنامه‌نویسان مختلف هر کدام به نوبه خود چیزی به این پروژه اضافه می‌کنند. این همکاری‌ها منجر به تولید طرحی زیبا می‌شود که افتخار می‌کنم در آن نقش دارم. تاکنون هزاران ساعت صرف پیشبرد پروژه وردپرس شده است و همچنان نیز برای پیشرفت روزافزون این پروژه همه تلاش خود رو انجام می‌دهیم. از این که وردپرس را به عنوان بخشی از دنیای خود انتخاب کرده‌اید، سپاسگزاریم.</p>
-<p style="text-align: left;">&#8212; مت مولنوگ</p>
+<h2>First Things First</h2>
+<p>Welcome. WordPress is a very special project to me. Every developer and contributor adds something unique to the mix, and together we create something beautiful that I am proud to be a part of. Thousands of hours have gone into WordPress, and we are dedicated to making it better every day. Thank you for making it part of your world.</p>
+<p style="text-align: right">&#8212; Matt Mullenweg</p>
 
-<h1>راه‌اندازی معروف ۵ دقیقه‌ای</h1>
+<h2>Installation: Famous 5-minute install</h2>
 <ol>
-	<li>بسته فشرده وردپرس فارسی را در یک پوشه خالی از حالت فشرده خارج کنید.</li>
-	<li>پرونده <code>wp-config-sample.php</code> را با یک برنامه ویرایشگر متن مثل wordpad باز کنید و سپس اطلاعات مربوط به نحوه اتصال پایگاه داده‌ی خود را وارد کنید.</li>
-	<li>پرونده را با نام <code>wp-config.php</code> ذخیره کنید.</li>
-	<li>همه پرونده‌ها را بارگذاری کنید.</li>
-    <li>پرونده <span class="file"><a href="wp-admin/install.php">wp-admin/install.php</a></span> را در مرورگرتان باز کنید. با این کار جداول مورد نیاز برای وبلاگتان تنظیم می‌شود. اگر با پیغام خطا مواجه شدید پرونده <span class="file">wp-config.php</span> را دوباره بررسی کنید و بار دیگر مراحل قبل را تکرار کنید. چنانچه موفق به اشکال‌یابی نشدید به <a href="http://forum.wp-persian.com/">انجمن پشتیبانی وردپرس فارسی</a> مراجعه کنید و اطلاعات موردنیاز برای رفع خطای مربوطه را در آن‌جا جستجو کنید.</li>
-	<li><strong>اگر کلمه‌ی عبوری وارد نکردید، کلمه‌ی عبوری که برای شما ساخته می‌شود را یادداشت کنید.</strong> اگر نام کاربری انتخاب نکنید، نام کاربری شما admin خواهد بود.</li>
-    <li>برنامه‌ی راه‌انداز شما را به <a href="wp-login.php">صفحه ورود</a> به وردپرس می‌رساند. برای ورود نام کاربری و کلمه‌ی عبوری را که طی مرحله قبل انتخاب کردید، وارد کنید. اگر از کلمه‌ی عبور ساخته شده توسط وردپرس استفاده کردید می‌توانید برای تغییر آن به قسمت «شناسنامه» مراجعه کنید.</li>
+	<li>Unzip the package in an empty directory and upload everything.</li>
+	<li>Open <span class="file"><a href="wp-admin/install.php">wp-admin/install.php</a></span> in your browser. It will take you through the process to set up a <code>wp-config.php</code> file with your database connection details.
+		<ol>
+			<li>If for some reason this does not work, do not worry. It may not work on all web hosts. Open up <code>wp-config-sample.php</code> with a text editor like WordPad or similar and fill in your database connection details.</li>
+			<li>Save the file as <code>wp-config.php</code> and upload it.</li>
+			<li>Open <span class="file"><a href="wp-admin/install.php">wp-admin/install.php</a></span> in your browser.</li>
+		</ol>
+	</li>
+	<li>Once the configuration file is set up, the installer will set up the tables needed for your site. If there is an error, double check your <code>wp-config.php</code> file, and try again. If it fails again, please go to the <a href="https://wordpress.org/support/forums/">WordPress support forums</a> with as much data as you can gather.</li>
+	<li><strong>If you did not enter a password, note the password given to you.</strong> If you did not provide a username, it will be <code>admin</code>.</li>
+	<li>The installer should then send you to the <a href="wp-login.php">login page</a>. Sign in with the username and password you chose during the installation. If a password was generated for you, you can then click on &#8220;Profile&#8221; to change the password.</li>
 </ol>
 
-<h1>به‌روزرسانی</h1>
-<h2>به‌روزرسانی خودکار</h2>
-<p>در صورتی که از وردپرس نگارش ۲,۷ یا بالاتر استفاده می‌کنید می‌توانید از به‌روزرسانی خودکار استفاده کنید.</p>
+<h2>Updating</h2>
+<h3>Using the Automatic Updater</h3>
 <ol>
-	<li>با کمک مرورگرتان به آدرس <span class="file"><a href="wp-admin/update-core.php">/wp-admin/upgrade.php</a></span> بروید و مراحل را دنبال کنید.</li>
-	<li>منتظر مرحله دیگری هستید؟! همین! به‌روزرسانی تمام شد!</li>
+	<li>Open <span class="file"><a href="wp-admin/update-core.php">wp-admin/update-core.php</a></span> in your browser and follow the instructions.</li>
+	<li>You wanted more, perhaps? That&#8217;s it!</li>
 </ol>
-<h2>به‌روزرسانی دستی</h2>
-<p>قبل از شروع مراحل به‌روزرسانی مطمئن شوید که از همه پرونده‌های اصلاح شده از جمله <code>index.php</code> نسخه پشتیبان دارید.</p>
-<ol>
-	<li>پرونده‌های قدیمی وردپرس را به غیر از پرونده‌های اصلاح شده، پاک کنید.</li>
-	<li>پرونده‌های جدید را بارگذاری کنید.</li>
-<li>با کمک مرورگرتان به آدرس <span class="file"><a href="wp-admin/upgrade.php">/wp-admin/upgrade.php</a></span> بروید.</li>
-</ol>
-<h2>تغییرات پوسته</h2>
-<p>چنانچه پوسته‌ وبلاگتان را سفارشی‌ کرده‌اید، ممکن است لازم باشد در هنگام به‌روزرسانی به نگارش‌های اصلی تغییراتی در پوسته‌هایتان ایجاد کنید.</p>
 
-<h1>منابع اینترنتی</h1>
-<p>اگر پاسخ سؤال‌هایتان را در این متن پیدا نکردید از منابع اینترنتی بیشمار وردپرس استفاده کنید:</p>
+<h3>Updating Manually</h3>
+<ol>
+	<li>Before you update anything, make sure you have backup copies of any files you may have modified such as <code>index.php</code>.</li>
+	<li>Delete your old WordPress files, saving ones you&#8217;ve modified.</li>
+	<li>Upload the new files.</li>
+	<li>Point your browser to <span class="file"><a href="wp-admin/upgrade.php">/wp-admin/upgrade.php</a>.</span></li>
+</ol>
+
+<h2>Migrating from other systems</h2>
+<p>WordPress can <a href="https://wordpress.org/support/article/importing-content/">import from a number of systems</a>. First you need to get WordPress installed and working as described above, before using <a href="wp-admin/import.php">our import tools</a>.</p>
+
+<h2>System Requirements</h2>
+<ul>
+	<li><a href="https://secure.php.net/">PHP</a> version <strong>5.6.20</strong> or greater.</li>
+	<li><a href="https://www.mysql.com/">MySQL</a> version <strong>5.0</strong> or greater.</li>
+</ul>
+
+<h3>Recommendations</h3>
+<ul>
+	<li><a href="https://secure.php.net/">PHP</a> version <strong>7.4</strong> or greater.</li>
+	<li><a href="https://www.mysql.com/">MySQL</a> version <strong>5.7</strong> or greater OR <a href="https://mariadb.org/">MariaDB</a> version <strong>10.2</strong> or greater.</li>
+	<li>The <a href="https://httpd.apache.org/docs/2.2/mod/mod_rewrite.html">mod_rewrite</a> Apache module.</li>
+	<li><a href="https://wordpress.org/news/2016/12/moving-toward-ssl/">HTTPS</a> support.</li>
+	<li>A link to <a href="https://wordpress.org/">wordpress.org</a> on your site.</li>
+</ul>
+
+<h2>Online Resources</h2>
+<p>If you have any questions that are not addressed in this document, please take advantage of WordPress&#8217; numerous online resources:</p>
 <dl>
-	<dt><a href="http://codex.wordpress.org/">مستندات وردپرس انگلیسی</a></dt>
-		<dd>بخش مستندات دایرة‌المعارف انگلیسی وردپرس است. درواقع این بخش جامع‌ترین منبع اطلاعاتی انگلیسی در دسترس برای وردپرس است.</dd>
-	<dt><a href="http://wordpress.org/development/">وبلاگ توسعه وردپرس انگلیسی</a></dt>
-		<dd> در این وبلاگ از جدیدترین به‌روزرسانی‌ها و اخبار وردپرس اطلاع پیدا می‌کنید. این آدرس را در مرورگرتان ذخیره کنید و هرچند وقت بک بار به آن سر بزنید.</dd>
-    <dt><a href="http://planet.wordpress.org/">سیاره وردپرس انگلیسی</a></dt>
-		<dd>سیاره وردپرس انگلیسی گردآوردنده اخبار است. این سایت در واقع نوشته‌های مربوط به وردپرس را از وبلاگ‌های انگلیسی مختلف در اینترنت گردآوری می‌کند.</dd>
-    <dt><a href="http://wordpress.org/support/">انجمن‌های پشتیبانی وردپرس انگلیسی</a></dt>
-<dd>در این انجمن می‌توانید با کاربران انگلیسی‌زبان وردپرس در ارتباط باشید</dd>
-	<dt><a href="http://codex.wordpress.org/IRC">شبکه IRC  وردپرس</a></dt>
-		<dd>شبکه گفتگوی زنده با موضوع وردپرس که اعضای آن را کاربران و پشتیبان‌های وردپرس تشکیل می‌دهند. با مراجعه به صفحه ویکی فوق به این شبکه راهنمایی می‌شوید. (<a href="irc://irc.freenode.net/wordpress">irc.freenode.net #wordpress</a>)</dd>
+	<dt><a href="https://codex.wordpress.org/">The WordPress Codex</a></dt>
+		<dd>The Codex is the encyclopedia of all things WordPress. It is the most comprehensive source of information for WordPress available.</dd>
+	<dt><a href="https://wordpress.org/news/">The WordPress Blog</a></dt>
+		<dd>This is where you&#8217;ll find the latest updates and news related to WordPress. Recent WordPress news appears in your administrative dashboard by default.</dd>
+	<dt><a href="https://planet.wordpress.org/">WordPress Planet</a></dt>
+		<dd>The WordPress Planet is a news aggregator that brings together posts from WordPress blogs around the web.</dd>
+	<dt><a href="https://wordpress.org/support/forums/">WordPress Support Forums</a></dt>
+		<dd>If you&#8217;ve looked everywhere and still cannot find an answer, the support forums are very active and have a large community ready to help. To help them help you be sure to use a descriptive thread title and describe your question in as much detail as possible.</dd>
+	<dt><a href="https://make.wordpress.org/support/handbook/appendix/other-support-locations/introduction-to-irc/">WordPress <abbr>IRC</abbr> (Internet Relay Chat) Channel</a></dt>
+		<dd>There is an online chat channel that is used for discussion among people who use WordPress and occasionally support topics. The above wiki page should point you in the right direction. (<a href="https://web.libera.chat/#wordpress">irc.libera.chat #wordpress</a>)</dd>
 </dl>
 
-<h1>سیستم پیشنهادی</h1>
+<h2>Final Notes</h2>
 <ul>
-	<li>PHP نگارش <strong>5.2.4</strong> یا بالاتر.</li>
-	<li>MySQL نگارش <strong>5.0</strong> یا بالاتر</li>
+	<li>If you have any suggestions, ideas, or comments, or if you (gasp!) found a bug, join us in the <a href="https://wordpress.org/support/forums/">Support Forums</a>.</li>
+	<li>WordPress has a robust plugin <abbr>API</abbr> (Application Programming Interface) that makes extending the code easy. If you are a developer interested in utilizing this, see the <a href="https://developer.wordpress.org/plugins/">Plugin Developer Handbook</a>. You shouldn&#8217;t modify any of the core code.</li>
 </ul>
-<p>وردپرس نسخه رسمی ادامه پروژه Michel V   با نام <a href="http://cafelog.com/">b2/cafélog</a>  است. <a href="http://wordpress.org/about/">طراحان وردپرس</a> این پروژه را ادامه  دادند. برای حمایت مالی از پروژه وردپرس با مراجعه به آدرس  <a href="http://wordpress.org/donate">http://wordpress.org/donate</a>    مراجعه کنید.</p>
 
-<h1>مهاجرت از سایر سرویس های وبلاگ‌نویسی</h1>
-<p>می‌توان محتوای وبلاگ را <a href="http://codex.wordpress.org/Importing_Content">از سایر سیستم‌های وبلاگ‌نویسی به وردپرس انتقال داد</a>. برای این کار ابتدا باید وردپرس را نصب و طبق دستورات فوق راه‌اندازی کنید.</p>
+<h2>Share the Love</h2>
+<p>WordPress has no multi-million dollar marketing campaign or celebrity sponsors, but we do have something even better&#8212;you. If you enjoy WordPress please consider telling a friend, setting it up for someone less knowledgeable than yourself, or writing the author of a media article that overlooks us.</p>
 
-<h1>واسط XML-RPC و Atom</h1>
-<p>حالا  می توانید با استفاده از ابزارهایی مانند <a href="http://windowslivewriter.spaces.live.com/">Windows Live  Writer</a>  ، <a href="http://ecto.kung-foo.tv/">Ecto</a>  ، <a href="http://bloggar.com/">Bloggar</a>  ، <a href="http://radio.userland.com">Radio  Userland</a>  ، <a href="http://www.newzcrawler.com/">NewzCrawler</a>   و سایر ابزارهایی که  از API   وبلاگ پشتیبانی می‌کنند نوشته‌های  خود را در وبلاگ وردپرستان منتشر کنید.</p>
+<p>WordPress is the official continuation of <a href="http://cafelog.com/">b2/caf&#233;log</a>, which came from Michel V. The work has been continued by the <a href="https://wordpress.org/about/">WordPress developers</a>. If you would like to support WordPress, please consider <a href="https://wordpress.org/donate/">donating</a>.</p>
 
-<h1>انتشار از طریق ایمیل</h1>
-<p>حتی می‌تونید از طریق ایمیل نوشته‌های خود را منتشر کنید. برای انجام تنظیمات مربوط به این قابلیت به صفحه تنظیمات بخش نوشتن بروید و اطلاعات مربوط به اتصال حساب POP3 خود را وارد کنید. حالا <code>wp-mail.php</code>  را تنظیم کنید تا به صورت منظم در دوره‌های زمانی خاص ایمیل شما را برای دریافت نوشته‌های جدید بررسی کند.  با سیستم Cron-jobs می‌توانید این کار را انجام دهید ولی اگر میزبان سایتتان از این سیسم پشتیبانی نمی‌کند از سایر سرویس‌های مشابه استفاده کنید.
-</p><p>
-انتشار نوشته‌ها از این راه بسیار آسان است. ایمیل‌هایی که به آدرس مشخص شده ارسال شوند به عنوان نوشته در وبلاگ منتشر می‌شوند. عنوان ایمیل هم در واقع همان عنوان نوشته است. نرم‌افزار ایمیل‌هایی را که با موفقیت منتشر شوند، پاک می‌کند.
-</p>
-
-<h1>نقش‌های کاربری</h1>
-<p>به منظور منعطف‌تر ساختن سیستم وظایف ارانه شده در نگارش ۲٫۰ سطوح مختلف کاربری را حذف کرده‌ایم. برای کسب اطلاعات بیشتر <a href="http://codex.wordpress.org/Roles_and_Capabilities">درباره نقش‌ها و قابلیت‌های کاربران به مستندات مراحعه کنید</a>.</p>
-
-
-<h1>هر کاربر٬ یک ستاد</h1>
-<p>وردپرس برنامه‌ تبلیغاتی با هزینه‌های چند میلیون دلاری ندارد و با حتی از مشاهیر در این زمینه استفاده نمی کند. وردپرس در واقع سرمایه بزرگتری دارد و این سرمایه شما هستید. اگر از وردپرس راضی هستید این رضایت خود را با دوستان خود نیز در میان بگذارید، به دوستانی که دانش کمی درباره وردپرس دارند در مراحل راه‌اندازی و نصب کمک کنید و یا نظر خود را به صورت مکتوب با نویسندگان مقالات رسانه‌های مرتبط در میان بگذارید.</p>
-
-<h1>حق مالکیت معنوی</h1>
-<p>وردپرس تحت مجوز <abbr title="مجوز عمومی گنو">GPL</abbr> نگارش دوم منتشر می‌شود. (<a href="license.txt">متن مجوز</a>)</p>
+<h2>License</h2>
+<p>WordPress is free software, and is released under the terms of the <abbr>GPL</abbr> (GNU General Public License) version 2 or (at your option) any later version. See <a href="license.txt">license.txt</a>.</p>
 
 </body>
 </html>

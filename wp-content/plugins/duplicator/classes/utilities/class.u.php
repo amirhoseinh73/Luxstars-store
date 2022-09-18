@@ -1,5 +1,6 @@
 <?php
-defined('ABSPATH') || defined('DUPXABSPATH') || exit;
+
+use Duplicator\Libs\Snap\SnapIO;
 
 /**
  * Recursivly scans a directory and finds all sym-links and unreadable files
@@ -13,9 +14,9 @@ defined('ABSPATH') || defined('DUPXABSPATH') || exit;
  *
  * @todo Refactor out IO methods into class.io.php file
  */
+
 class DUP_Util
 {
-
     /**
      * Is PHP 5.2.9 or better running
      */
@@ -48,6 +49,7 @@ class DUP_Util
      */
     public static function init()
     {
+        /** @todo Remove the static init method in favor of always consistent values */
         self::$on_php_529_plus = version_compare(PHP_VERSION, '5.2.9') >= 0;
         self::$on_php_53_plus  = version_compare(PHP_VERSION, '5.3.0') >= 0;
         self::$on_php_54_plus  = version_compare(PHP_VERSION, '5.4.0') >= 0;
@@ -56,9 +58,7 @@ class DUP_Util
 
     public static function getArchitectureString()
     {
-        $php_int_size = PHP_INT_SIZE;
-
-        switch ($php_int_size) {
+        switch (PHP_INT_SIZE) {
             case 4:
                 return esc_html__('32-bit', 'duplicator');
                 break;
@@ -82,18 +82,18 @@ class DUP_Util
 
     public static function getWPCoreDirs()
     {
-        $wp_core_dirs = array(get_home_path().'wp-admin', get_home_path().'wp-includes');
+        $wp_core_dirs = array(get_home_path() . 'wp-admin', get_home_path() . 'wp-includes');
 
         //if wp_content is overrided
-        $wp_path = get_home_path()."wp-content";
-        if (get_home_path().'wp-content' != WP_CONTENT_DIR) {
+        $wp_path = get_home_path() . "wp-content";
+        if (get_home_path() . 'wp-content' != WP_CONTENT_DIR) {
             $wp_path = WP_CONTENT_DIR;
         }
         $wp_path = str_replace("\\", "/", $wp_path);
 
         $wp_core_dirs[] = $wp_path;
-        $wp_core_dirs[] = $wp_path.'/plugins';
-        $wp_core_dirs[] = $wp_path.'/themes';
+        $wp_core_dirs[] = $wp_path . '/plugins';
+        $wp_core_dirs[] = $wp_path . '/themes';
 
         return $wp_core_dirs;
     }
@@ -104,7 +104,7 @@ class DUP_Util
      */
     public static function getWPCoreFiles()
     {
-        $wp_cored_dirs = array(get_home_path().'wp-config.php');
+        $wp_cored_dirs = array(get_home_path() . 'wp-config.php');
         return $wp_cored_dirs;
     }
 
@@ -128,8 +128,8 @@ class DUP_Util
             trigger_error('array_group_by(): The key should be a string, an integer, or a callback', E_USER_ERROR);
             return null;
         }
-        $func    = (!is_string($key) && is_callable($key) ? $key : null);
-        $_key    = $key;
+        $func = (!is_string($key) && is_callable($key) ? $key : null);
+        $_key = $key;
         // Load the new array, splitting by the target key
         $grouped = array();
         foreach ($array as $value) {
@@ -188,8 +188,9 @@ class DUP_Util
     {
         // Open file
         $f = @fopen($filepath, "rb");
-        if ($f === false)
+        if ($f === false) {
             return false;
+        }
 
         // Sets buffer size
         $buffer = 256;
@@ -199,8 +200,9 @@ class DUP_Util
 
         // Read it and adjust line number if necessary
         // (Otherwise the result would be wrong if file doesn't end with a blank line)
-        if (fread($f, 1) != "\n")
+        if (fread($f, 1) != "\n") {
             $lines -= 1;
+        }
 
         // Start reading
         $output = '';
@@ -209,15 +211,15 @@ class DUP_Util
         // While we would like more
         while (ftell($f) > 0 && $lines >= 0) {
             // Figure out how far back we should jump
-            $seek   = min(ftell($f), $buffer);
+            $seek = min(ftell($f), $buffer);
             // Do the jump (backwards, relative to where we are)
             fseek($f, -$seek, SEEK_CUR);
             // Read a chunk and prepend it to our output
-            $output = ($chunk  = fread($f, $seek)).$output;
+            $output = ($chunk  = fread($f, $seek)) . $output;
             // Jump back to where we started reading
             fseek($f, -mb_strlen($chunk, '8bit'), SEEK_CUR);
             // Decrease our line counter
-            $lines  -= substr_count($chunk, "\n");
+            $lines -= substr_count($chunk, "\n");
         }
 
         // While we have too many lines
@@ -244,9 +246,8 @@ class DUP_Util
             for ($i = 0; $size >= 1024 && $i < 4; $i++) {
                 $size /= 1024;
             }
-            return round($size, $roundBy).$units[$i];
-        }
-        catch (Exception $e) {
+            return round($size, $roundBy) . $units[$i];
+        } catch (Exception $e) {
             return "n/a";
         }
     }
@@ -257,7 +258,7 @@ class DUP_Util
      *          uni: /home/path/file.txt
      *          win:  D:/home/path/file.txt
      *
-     * @param string $path		The path to make safe
+     * @param string $path      The path to make safe
      *
      * @return string A path with all slashes facing "/"
      */
@@ -288,7 +289,7 @@ class DUP_Util
      */
     public static function appendOnce($string, $value)
     {
-        return $string.(substr($string, -1) == $value ? '' : $value);
+        return $string . (substr($string, -1) == $value ? '' : $value);
     }
 
     /**
@@ -314,8 +315,8 @@ class DUP_Util
      * @return array of all files in that path
      *
      * Notes:
-     * 	- Avoid using glob() as GLOB_BRACE is not an option on some operating systems
-     * 	- Pre PHP 5.3 DirectoryIterator will crash on unreadable files
+     *  - Avoid using glob() as GLOB_BRACE is not an option on some operating systems
+     *  - Pre PHP 5.3 DirectoryIterator will crash on unreadable files
      *  - Scandir will not crash on unreadable items, but will not return results
      */
     public static function listFiles($path = '.')
@@ -324,21 +325,21 @@ class DUP_Util
             $files = array();
             if ($dh    = opendir($path)) {
                 while (($file = readdir($dh)) !== false) {
-                    if ($file == '.' || $file == '..')
+                    if ($file == '.' || $file == '..') {
                         continue;
-                    $full_file_path = trailingslashit($path).$file;
+                    }
+                    $full_file_path = trailingslashit($path) . $file;
                     $files[]        = str_replace("\\", '/', $full_file_path);
                 }
                 @closedir($dh);
             }
             return $files;
-        }
-        catch (Exception $exc) {
+        } catch (Exception $exc) {
             $result = array();
             $files  = @scandir($path);
             if (is_array($files)) {
                 foreach ($files as $file) {
-                    $result[] = str_replace("\\", '/', $path).$file;
+                    $result[] = str_replace("\\", '/', $path) . $file;
                 }
             }
             return $result;
@@ -373,8 +374,9 @@ class DUP_Util
      */
     public static function isDirectoryEmpty($path)
     {
-        if (!is_readable($path))
-            return NULL;
+        if (!is_readable($path)) {
+            return null;
+        }
         return (count(scandir($path)) == 2);
     }
 
@@ -388,16 +390,19 @@ class DUP_Util
      */
     public static function getDirectorySize($path)
     {
-        if (!file_exists($path))
+        if (!file_exists($path)) {
             return 0;
-        if (is_file($path))
+        }
+        if (is_file($path)) {
             return filesize($path);
+        }
 
         $size = 0;
-        $list = glob($path."/*");
+        $list = glob($path . "/*");
         if (!empty($list)) {
-            foreach ($list as $file)
+            foreach ($list as $file) {
                 $size += self::getDirectorySize($file);
+            }
         }
         return $size;
     }
@@ -413,24 +418,27 @@ class DUP_Util
         $cmds = array('shell_exec', 'escapeshellarg', 'escapeshellcmd', 'extension_loaded');
 
         //Function disabled at server level
-        if (array_intersect($cmds, array_map('trim', explode(',', @ini_get('disable_functions')))))
+        if (array_intersect($cmds, array_map('trim', explode(',', @ini_get('disable_functions'))))) {
             return apply_filters('duplicator_is_shellzip_available', false);
+        }
 
         //Suhosin: http://www.hardened-php.net/suhosin/
         //Will cause PHP to silently fail
         if (extension_loaded('suhosin')) {
             $suhosin_ini = @ini_get("suhosin.executor.func.blacklist");
-            if (array_intersect($cmds, array_map('trim', explode(',', $suhosin_ini))))
+            if (array_intersect($cmds, array_map('trim', explode(',', $suhosin_ini)))) {
                 return apply_filters('duplicator_is_shellzip_available', false);
+            }
         }
 
         if (! function_exists('shell_exec')) {
-			return apply_filters('duplicator_is_shellzip_available', false);
-	    }
+            return apply_filters('duplicator_is_shellzip_available', false);
+        }
 
         // Can we issue a simple echo command?
-        if (!@shell_exec('echo duplicator'))
+        if (!@shell_exec('echo duplicator')) {
             return apply_filters('duplicator_is_shellzip_available', false);
+        }
 
         return apply_filters('duplicator_is_shellzip_available', true);
     }
@@ -497,7 +505,7 @@ class DUP_Util
 
         if (!current_user_can($capability)) {
             $exitMsg = __('You do not have sufficient permissions to access this page.', 'duplicator');
-            DUP_LOG::Trace('You do not have sufficient permissions to access this page. PERMISSION: '.$permission);
+            DUP_LOG::Trace('You do not have sufficient permissions to access this page. PERMISSION: ' . $permission);
 
             switch ($exit) {
                 case self::SECURE_ISSUE_THROW:
@@ -547,8 +555,7 @@ class DUP_Util
             }
 
             return strlen($user) ? $user : $unreadable;
-        }
-        catch (Exception $ex) {
+        } catch (Exception $ex) {
             return $unreadable;
         }
     }
@@ -564,7 +571,6 @@ class DUP_Util
 
         $path_wproot = duplicator_get_abs_path();
         $path_ssdir  = DUP_Settings::getSsdirPath();
-        $path_plugin = DUP_Util::safePath(DUPLICATOR_PLUGIN_PATH);
 
         if (!file_exists($path_ssdir)) {
             $old_root_perm = @fileperms($path_wproot);
@@ -572,58 +578,31 @@ class DUP_Util
             //--------------------------------
             //CHMOD DIRECTORY ACCESS
             //wordpress root directory
-            DupLiteSnapLibIOU::chmod($path_wproot, 'u+rwx');
+            SnapIO::chmod($path_wproot, 'u+rwx');
 
             //snapshot directory
-            if (DupLiteSnapLibIOU::dirWriteCheckOrMkdir($path_ssdir, 'u+rwx,go+rx') == false) {
+            if (SnapIO::dirWriteCheckOrMkdir($path_ssdir, 'u+rwx,go+rx') == false) {
                 $error = true;
             }
 
             // restore original root perms
-            DupLiteSnapLibIOU::chmod($path_wproot, $old_root_perm);
+            SnapIO::chmod($path_wproot, $old_root_perm);
 
             if ($error) {
                 return false;
             }
         }
 
-        DupLiteSnapLibIOU::chmod($path_ssdir, 'u+rwx,go+rx');
-
-        DupLiteSnapLibIOU::dirWriteCheckOrMkdir(DUP_Settings::getSsdirTmpPath(), 'u+rwx');
-
-        //plugins dir/files
-        DupLiteSnapLibIOU::dirWriteCheckOrMkdir($path_plugin.'files', 'u+rwx');
+        SnapIO::chmod($path_ssdir, 'u+rwx,go+rx');
+        SnapIO::dirWriteCheckOrMkdir(DUP_Settings::getSsdirTmpPath(), 'u+rwx');
 
         //--------------------------------
-        //FILE CREATION
-        //SSDIR: Create Index File
-        $fileName = $path_ssdir.'/index.php';
-        if (!file_exists($fileName)) {
-            $ssfile = @fopen($fileName, 'w');
-            @fwrite($ssfile,
-                    '<?php error_reporting(0);  if (stristr(php_sapi_name(), "fcgi")) { $url  =  "http://" . $_SERVER["HTTP_HOST"]; header("Location: {$url}/404.html");} else { header("HTTP/1.1 404 Not Found", true, 404);} exit(); ?>');
-            @fclose($ssfile);
-        }
-
-        //SSDIR: Create .htaccess file
-        $storage_htaccess_off = DUP_Settings::Get('storage_htaccess_off');
-        $fileName             = $path_ssdir.'/.htaccess';
-        if ($storage_htaccess_off) {
-            @unlink($fileName);
-        } else if (!file_exists($fileName)) {
-            self::setupBackupDirHtaccess();
-        }
-
-        //SSDIR: Create Robots.txt file
-        $fileName = $path_ssdir.'/robots.txt';
-        if (!file_exists($fileName)) {
-            $robotfile = @fopen($fileName, 'w');
-            @fwrite($robotfile,
-                    "User-agent: * \n"
-                    ."Disallow: /".DUP_Settings::SSDIR_NAME_LEGACY."/\n"
-                    ."Disallow: /".DUP_Settings::SSDIR_NAME_NEW."/");
-            @fclose($robotfile);
-        }
+        //FILE CREATION & HARDEN PROCESS
+        //index.php, .htaccess, robots.txt
+        self::setupBackupDirIndexFile();
+        self::setupBackupDirRobotsFile();
+        self::setupBackupDirHtaccess();
+        self::performHardenProcesses();
 
         return true;
     }
@@ -631,21 +610,108 @@ class DUP_Util
     /**
      * Attempts to create a secure .htaccess file in the download directory
      *
-     * @return null
+     * @return void
      */
-    public static function setupBackupDirHtaccess()
+    protected static function setupBackupDirHtaccess()
     {
         try {
-            $backupDirPath  = DUP_Settings::getSsdirPath();
-            $fileName       = "{$backupDirPath}/.htaccess";
-            $htfile         = @fopen($fileName, 'w');
-            $htoutput       = "Options -Indexes \n";
-            $htoutput       .= "<Files *.php>\n deny from all\n</Files>";
-            @fwrite($htfile, $htoutput);
-            @fclose($htfile);
+            $storageHtaccessOff = DUP_Settings::Get('storage_htaccess_off');
+            $fileName           = DUP_Settings::getSsdirPath() . '/.htaccess';
+
+            if ($storageHtaccessOff) {
+                @unlink($fileName);
+            } elseif (!file_exists($fileName)) {
+                $fileContent = <<<HTACCESS
+Options -Indexes
+<Files *.php>\n deny from all\n</Files>
+HTACCESS;
+                if (file_put_contents($fileName, $fileContent) === false) {
+                    throw new Exception('Can\'t create .haccess');
+                }
+            }
         } catch (Exception $ex) {
-             DUP_Log::Info("Duplicator Error: Unable to properly configure .htaccess for servers storage directory {$fileName}" . $ex);
+            DUP_Log::Trace("Unable create file htaccess {$fileName} msg:" . $ex->getMessage());
         }
+    }
+
+    /**
+     * Attempts to create an index.php file in the backups directory
+     *
+     * @return void
+     */
+    protected static function setupBackupDirIndexFile()
+    {
+        try {
+            $fileName = DUP_Settings::getSsdirPath() . '/index.php';
+            if (!file_exists($fileName)) {
+                $fileContent = <<<HTACCESS
+<?php
+// silence;
+HTACCESS;
+                if (file_put_contents($fileName, $fileContent) === false) {
+                    throw new Exception('Can\'t create .haccess');
+                }
+            }
+        } catch (Exception $ex) {
+            DUP_Log::Trace("Unable create index.php {$fileName} msg:" . $ex->getMessage());
+        }
+    }
+
+    /**
+    * Attempts to create a robots.txt file in the backups directory
+    * to prevent search engines
+    *
+    * @return void
+    */
+    protected static function setupBackupDirRobotsFile()
+    {
+        try {
+            $fileName = DUP_Settings::getSsdirPath() . '/robots.txt';
+            if (!file_exists($fileName)) {
+                $fileContent = <<<HTACCESS
+User-agent: *
+Disallow: /
+HTACCESS;
+                if (file_put_contents($fileName, $fileContent) === false) {
+                    throw new Exception('Can\'t create .haccess');
+                }
+            }
+        } catch (Exception $ex) {
+            DUP_Log::Trace("Unable create robots.txt {$fileName} msg:" . $ex->getMessage());
+        }
+    }
+
+
+    /**
+    * Run various secure processes to harden the backups dir
+    *
+    * @return void
+    */
+    public static function performHardenProcesses()
+    {
+        $backupsDir = DUP_Settings::getSsdirPath();
+
+        //Edge Case: Remove any main.installer.php files
+        $dupInstallFile  = "{$backupsDir}/dup-installer/main.installer.php";
+        if (file_exists($dupInstallFile) ) {
+            SnapIO::chmod($dupInstallFile, "a+w");
+            SnapIO::unlink("{$dupInstallFile}");
+        }
+
+        //Rename installer php files to .bak
+        SnapIO::regexGlobCallback(
+            $backupsDir,
+            function ($path) {
+                $parts   = pathinfo($path);
+                $newPath = $parts['dirname'] . '/' . $parts['filename'] . DUP_Installer::INSTALLER_SERVER_EXTENSION;
+                SnapIO::rename($path, $newPath);
+            },
+            array(
+                'regexFile'     => '/^.+_installer.*\.php$/',
+                'regexFolder'   => false,
+                'recursive'     => true,
+            )
+        );
     }
 
     /**
@@ -658,7 +724,7 @@ class DUP_Util
         $filepath = null;
 
         if (self::hasShellExec()) {
-            if (shell_exec('hash zip 2>&1') == NULL) {
+            if (shell_exec('hash zip 2>&1') == null) {
                 $filepath = 'zip';
             } else {
                 $possible_paths = array(
@@ -699,7 +765,7 @@ class DUP_Util
         global $wpdb;
         $result = array();
         foreach (self::getWPCoreTablesEnd() as $tend) {
-            $result[] = $wpdb->prefix.$tend;
+            $result[] = $wpdb->prefix . $tend;
         }
         return $result;
     }
@@ -742,7 +808,7 @@ class DUP_Util
 
         if (in_array($subTName, $coreEnds)) {
             return true;
-        } else if (is_multisite()) {
+        } elseif (is_multisite()) {
             $exTable = explode('_', $subTName);
             if (count($exTable) >= 2 && is_numeric($exTable[0])) {
                 $tChekc = implode('_', array_slice($exTable, 1));
@@ -774,7 +840,7 @@ class DUP_Util
 
     /**
      * Check given table is exist in real
-     * 
+     *
      * @param $table string Table name
      * @return booleam
      */
@@ -782,10 +848,11 @@ class DUP_Util
     {
         // It will clear the $GLOBALS['wpdb']->last_error var
         $GLOBALS['wpdb']->flush();
-        $sql = "SELECT 1 FROM `".esc_sql($table)."` LIMIT 1;";
+        $sql = "SELECT 1 FROM `" . esc_sql($table) . "` LIMIT 1;";
         $ret = $GLOBALS['wpdb']->get_var($sql);
-        if (empty($GLOBALS['wpdb']->last_error))
+        if (empty($GLOBALS['wpdb']->last_error)) {
             return true;
+        }
         return false;
     }
 
@@ -798,8 +865,9 @@ class DUP_Util
      */
     public static function isExecutable($cmd)
     {
-        if (strlen($cmd) < 1)
+        if (strlen($cmd) < 1) {
             return false;
+        }
 
         if (@is_executable($cmd)) {
             return true;
@@ -810,7 +878,7 @@ class DUP_Util
             return true;
         }
 
-        $output = shell_exec($cmd.' -?');
+        $output = shell_exec($cmd . ' -?');
         if (!is_null($output)) {
             return true;
         }
@@ -821,7 +889,7 @@ class DUP_Util
     /**
      * Display human readable byte sizes
      *
-     * @param string $size	The size in bytes
+     * @param string $size  The size in bytes
      *
      * @return string Human readable bytes such as 50MB, 1GB
      */
@@ -829,11 +897,11 @@ class DUP_Util
     {
         try {
             $units = array('B', 'KB', 'MB', 'GB', 'TB');
-            for ($i = 0; $size >= 1024 && $i < 4; $i++)
-                $size  /= 1024;
-            return round($size, 2).$units[$i];
-        }
-        catch (Exception $e) {
+            for ($i = 0; $size >= 1024 && $i < 4; $i++) {
+                $size /= 1024;
+            }
+            return round($size, 2) . $units[$i];
+        } catch (Exception $e) {
             return "n/a";
         }
     }
@@ -874,22 +942,4 @@ class DUP_Util
     {
         return function_exists($function_name) && !in_array($function_name, self::getIniDisableFuncs());
     }
-
-    /**
-	* Is the web server IIS
-	*
-	* @return bool		Returns true if web server is IIS
-	*/
-    public static function isIISRunning()
-	{
-        if (isset($_SERVER["SERVER_SOFTWARE"])) {
-            $sSoftware = strtolower($_SERVER["SERVER_SOFTWARE"]);
-            if ( strpos($sSoftware, "microsoft-iis") !== false ) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return false;
-	}
 }

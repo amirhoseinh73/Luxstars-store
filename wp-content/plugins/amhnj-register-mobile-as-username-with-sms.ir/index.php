@@ -61,7 +61,7 @@ if ( is_admin() ) {
 
 // require_once VIRA_PLUGIN_DIR_PATH . 'capabilities.php';
 
-date_default_timezone_set('Asia/Tehran');
+// date_default_timezone_set('Asia/Tehran');
 
 require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "functions.php";
 
