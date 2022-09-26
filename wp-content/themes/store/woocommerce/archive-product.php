@@ -67,7 +67,7 @@ $args = array(
 $all_categories = get_categories( $args );
 foreach ($all_categories as $cat) {
 	if( $cat->category_parent != 0 ) continue;
-	if ( trim( woocommerce_page_title( false ) ) !== strtolower( trim( $cat->name ) ) ) continue;
+	if ( trim( woocommerce_page_title( false ) ) !== trim( $cat->name ) ) continue;
 	$show_category = true;
 
 	$category_id = $cat->term_id;

@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce -->
+<html itemscope="" itemtype="https://schema.org/QAPage" class="html__responsive " lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>Custom Payment Method in WooCommerce - Stack Overflow</title>
+        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico?v=ec617d715196">
+        <link rel="apple-touch-icon" href="https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a">
+        <link rel="image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a"> 
+        <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+        <link rel="canonical" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce">
+        <meta property="og:site_name" content="Stack Overflow">
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=73d79a89bded">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+        <meta name="twitter:title" property="og:title" itemprop="name" content="Custom Payment Method in WooCommerce">
+        <meta name="twitter:description" property="og:description" itemprop="description" content="I want to add a New Payment Method in WooCommerce.
+
+The New Method will be containing 2 Text Box Field, must be filled by Customer. How to do that?
+
+I attached a picture of what I want. Please help...">
+    <script async="" src="./Custom Payment Method in WooCommerce - Stack Overflow_files/analytics.js.download"></script><script id="webpack-public-path" type="text/uri-list">https://cdn.sstatic.net/</script>
+    <script src="./Custom Payment Method in WooCommerce - Stack Overflow_files/jquery.min.js.download"></script>
+    <script async="" src="./Custom Payment Method in WooCommerce - Stack Overflow_files/stacks.min.js.download"></script>
+    <script src="./Custom Payment Method in WooCommerce - Stack Overflow_files/stub.en.js.download"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="./Custom Payment Method in WooCommerce - Stack Overflow_files/stacks.css">
+    <link rel="stylesheet" type="text/css" href="./Custom Payment Method in WooCommerce - Stack Overflow_files/primary.css">
+
+
+    
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Custom Payment Method in WooCommerce&#39;" href="https://stackoverflow.com/feeds/question/17081483">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+            StackExchange.ready(function () {
+
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+
+                StackExchange.question.init({showAnswerHelp:true,showTrendingSortLaunchPopover:false,showTrendingSortPostLaunchPopover:false,totalCommentCount:1,shownCommentCount:1,enableTables:true,questionId:17081483});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '17081483');
+                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.js-post-body'); });
+
+
+            });
+        </script>
+
+        
+        
+        
+        <link rel="stylesheet" type="text/css" href="./Custom Payment Method in WooCommerce - Stack Overflow_files/channels.css">
+
+        
+        
+
+
+    <script type="application/json" data-role="module-args" data-module-name="Shared/options.mod">{"options":{"locale":"en","serverTime":1664192325,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q\u0026A for professional and enthusiast programmers","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"cookieDomain":".stackoverflow.com","childUrl":"https://meta.stackoverflow.com","negativeVoteScoreFloor":null,"enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"8e786a7ea972bdd6826f2bf64ceb7bad6674ad973546928c8efbb7f024ab2533","tid":"cd44b991-2e7c-5ab8-220e-4de8c1f511b9","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"ab":{"satisfaction_survey_anon":{"v":"anon","g":2}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"svgIconPath":"https://cdn.sstatic.net/Img/stacks-icons","svgIconHash":"0469d7b24c7b"}}</script>
+<script type="application/json" data-role="module-args" data-module-name="Shared/settings.mod">{"settings":{"userMessaging":{"showNewFeatureNotice":true},"tags":{},"subscriptions":{"defaultBasicMaxTrueUpSeats":250,"defaultFreemiumMaxTrueUpSeats":50,"defaultMaxTrueUpSeats":1000},"snippets":{"renderDomain":"stacksnippets.net","snippetsEnabled":true},"site":{"allowImageUploads":true,"enableImgurHttps":true,"enableUserHovercards":true,"forceHttpsImages":true,"stacksEditorPreviewEnabled":true,"styleCode":true},"questions":{"enableQuestionTitleLengthLiveWarning":true,"maxTitleSize":150,"questionTitleLengthStartLiveWarningChars":50},"intercom":{"appId":"inf0secd","hostBaseUrl":"https://stacksnippets.net"},"paths":{"jQueryUICSSPath":"https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css","jQueryUIJSPath":"https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"markdown":{"enableTables":true},"legal":{"oneTrustConfigId":"c3d9f1e3-55f3-4eba-b268-46cee4c6789c"},"flags":{"allowRetractingCommentFlags":true,"allowRetractingFlags":true},"elections":{"opaVoteResultsBaseUrl":"https://www.opavote.com/results/"},"comments":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true}}}</script>
+<script>StackExchange.init();</script>
+
+    <script>
+        StackExchange.using.setCacheBreakers({"Js/adops.en.js":"6da43f5e0a84","Js/ask.en.js":"","Js/begin-edit-event.en.js":"dd955babf04d","Js/copy-transpiled.en.js":"e7855bee94f2","Js/events.en.js":"","Js/explore-qlist.en.js":"2b1f34938b8b","Js/full-anon.en.js":"45a6d116231c","Js/full.en.js":"55fd47f0c803","Js/highlightjs-loader.en.js":"a284064706b3","Js/inline-tag-editing.en.js":"49709520b26d","Js/keyboard-shortcuts.en.js":"fa78d9020f1f","Js/markdown-it-loader.en.js":"5818ef89ff9d","Js/moderator.en.js":"b0dbcc103a8b","Js/postCollections-transpiled.en.js":"529276cfb7ae","Js/post-validation.en.js":"a49eba10a0e2","Js/question-editor.en.js":"","Js/review-v2-transpiled.en.js":"d5efdefd09e8","Js/revisions.en.js":"a86490719687","Js/stacks-editor.en.js":"ac05088e9d00","Js/tageditor.en.js":"825c9597ce2d","Js/tageditornew.en.js":"4340d4f2a34c","Js/tagsuggestions.en.js":"1bcff7d98f97","Js/unlimited-transpiled.en.js":"7ed67670b600","Js/wmd.en.js":"6a59bb1514a2","Js/snippet-javascript-codemirror.en.js":"73fce5cc7219"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css"><style>body,.s-topbar{margin-top:1.9em}</style></noscript>
+    <script async="" src="./Custom Payment Method in WooCommerce - Stack Overflow_files/full-anon.en.js.download"></script><meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><script src="./Custom Payment Method in WooCommerce - Stack Overflow_files/pubads_impl_2022092001.js.download" async=""></script><script async="" src="./Custom Payment Method in WooCommerce - Stack Overflow_files/post-validation.en.js.download"></script><script async="" src="./Custom Payment Method in WooCommerce - Stack Overflow_files/highlightjs-loader.en.js.download"></script><link rel="preload" href="./Custom Payment Method in WooCommerce - Stack Overflow_files/f.txt" as="script"><script type="text/javascript" src="./Custom Payment Method in WooCommerce - Stack Overflow_files/f.txt"></script><link rel="preload" href="./Custom Payment Method in WooCommerce - Stack Overflow_files/f(1).txt" as="script"><script type="text/javascript" src="./Custom Payment Method in WooCommerce - Stack Overflow_files/f(1).txt"></script></head>
+    <body class="question-page unified-theme">
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+        
+<header class="s-topbar ps-fixed t0 l0 js-top-bar">
+    <div class="s-topbar--container">
+            <a href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#" class="s-topbar--menu-btn js-left-sidebar-toggle" role="menuitem" aria-haspopup="true" aria-controls="left-sidebar" aria-expanded="false"><span></span></a>
+            <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
+                <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm"></div>
+            </div>
+                <a href="https://stackoverflow.com/" class="s-topbar--logo js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+                    <span class="-img _glyph">Stack Overflow</span>
+                </a>
+
+
+
+            <ol class="s-navigation" role="presentation">
+
+                    <li class="md:d-none">
+                        <a href="https://stackoverflow.co/" class="s-navigation--item js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:7})" data-ga="[&quot;top navigation&quot;,&quot;about menu click&quot;,null,null,null]">About</a>
+                    </li>
+
+                <li>
+                    <a href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#" class="s-navigation--item js-gps-track js-products-menu" aria-controls="products-popover" data-controller="s-popover" data-action="s-popover#toggle" data-s-popover-placement="bottom" data-s-popover-toggle-class="is-selected" data-gps-track="top_nav.products.click({location:2, destination:1})" data-ga="[&quot;top navigation&quot;,&quot;products menu click&quot;,null,null,null]" aria-expanded="false">
+                        Products
+                    </a>
+                </li>
+
+                    <li class="md:d-none">
+                        <a href="https://stackoverflow.com/teams" class="s-navigation--item js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:7})" data-ga="[&quot;top navigation&quot;,&quot;learn more - teams&quot;,null,null,null]">For Teams</a>
+                    </li>
+            </ol>
+            <div class="s-popover ws2 mtn2 p0" id="products-popover" role="menu" aria-hidden="true">
+                <div class="s-popover--arrow"></div>
+                <ol class="list-reset s-anchors s-anchors__inherit">
+                    <li class="m6">
+                        <a href="https://stackoverflow.com/questions" class="bar-sm p6 d-block h:bg-black-100 js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:2})" data-ga="[&quot;top navigation&quot;,&quot;public qa submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Stack Overflow</span>
+                            <span class="fs-caption d-block fc-light">Public questions &amp; answers</span>
+                        </a>
+                    </li>
+                    <li class="m6">
+                        <a href="https://stackoverflow.com/teams" class="bar-sm p6 d-block h:bg-black-100 js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:3})" data-ga="[&quot;top navigation&quot;,&quot;teams submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Stack Overflow for Teams</span>
+                            <span class="fs-caption d-block fc-light">Where developers &amp; technologists share private knowledge with coworkers</span>
+                        </a>
+                    </li>
+                    <li class="m6">
+                        <a href="https://stackoverflow.co/talent" class="bar-sm p6 d-block h:bg-black-100 js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:5})" data-ga="[&quot;top navigation&quot;,&quot;talent submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Talent</span>
+                            <span class="fs-caption d-block fc-light">
+                                Build your employer brand
+                            </span>
+                        </a>
+                    </li>
+                    <li class="m6">
+                        <a href="https://stackoverflow.co/advertising" class="bar-sm p6 d-block h:bg-black-100 js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:6})" data-ga="[&quot;top navigation&quot;,&quot;advertising submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Advertising</span>
+                            <span class="fs-caption d-block fc-light">Reach developers &amp; technologists worldwide</span>
+                        </a>
+                    </li>
+                    <li class="bg-black-025 bt bc-black-075 py6 px6 bbr-md">
+                        <a href="https://stackoverflow.co/" class="fc-light d-block py6 px6 h:fc-black-800 js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:7})" data-ga="[&quot;top navigation&quot;,&quot;about submenu click&quot;,null,null,null]">About the company</a>
+                    </li>
+                </ol>
+            </div>
+
+            <form id="search" role="search" action="https://stackoverflow.com/search" class="s-topbar--searchbar js-searchbar " autocomplete="off">
+                    <div class="s-topbar--searchbar--input-group">
+                        <input name="q" type="text" placeholder="Search…" value="" autocomplete="off" maxlength="240" class="s-input s-input__search js-search-field " aria-label="Search" aria-controls="top-search" data-controller="s-popover" data-action="focus-&gt;s-popover#show" data-s-popover-placement="bottom-start" aria-expanded="false">
+                        <svg aria-hidden="true" class="s-input-icon s-input-icon__search svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="m18 16.5-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5ZM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0Z"></path></svg>
+                        <div class="s-popover p0 wmx100 wmn4 sm:wmn-initial js-top-search-popover" id="top-search" role="menu">
+    <div class="s-popover--arrow"></div>
+    <div class="js-spinner p24 d-flex ai-center jc-center d-none">
+        <div class="s-spinner s-spinner__sm fc-orange-400">
+            <div class="v-visible-sr">Loading…</div>
+        </div>
+    </div>
+
+    <span class="v-visible-sr js-screen-reader-info"></span>
+    <div class="js-ac-results overflow-y-auto hmx3 d-none"></div>
+
+    <div class="js-search-hints" aria-describedby="Tips for searching"></div>
+</div>
+                    </div>
+            </form>
+
+        
+<nav class="h100 ml-auto overflow-x-auto pr12">
+    <ol class="s-topbar--content" role="menubar">
+    
+    
+    
+        <li class="js-topbar-dialog-corral" role="presentation">
+                
+
+    <div class="topbar-dialog siteSwitcher-dialog dno" role="menu">
+        <div class="header fw-wrap">
+            <h3 class="flex--item">
+                <a href="https://stackoverflow.com/">current community</a>
+            </h3>
+            <div class="flex--item fl1">
+                <div class="ai-center d-flex jc-end">
+                    <button class="js-close-button s-btn s-btn__muted p0 ml8 d-none sm:d-block" type="button" aria-label="Close">
+                        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41 13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41Z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-content bg-powder-050 current-site-container">
+            <ul class="current-site ">
+                    <li class="d-flex">
+                            <div class="fl1">
+                <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track d-flex gs8 gsx" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="favicon favicon-stackoverflow site-icon flex--item" title="Stack Overflow"></div>
+        <span class="flex--item fl1">
+            Stack Overflow
+        </span>
+    </a>
+
+    </div>
+    <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+            <a href="https://chat.stackoverflow.com/?tab=site&amp;host=stackoverflow.com" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+    </div>
+
+                    </li>
+                    <li class="related-site d-flex">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                            <a href="https://meta.stackoverflow.com/" class=" site-link js-gps-track d-flex gs8 gsx" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="favicon favicon-stackoverflowmeta site-icon flex--item" title="Meta Stack Overflow"></div>
+        <span class="flex--item fl1">
+            Meta Stack Overflow
+        </span>
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f17081483%2fcustom-payment-method-in-woocommerce" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f17081483%2fcustom-payment-method-in-woocommerce" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="float-right">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+
+        </li>
+    
+            <li role="none"><button class="s-topbar--item s-btn s-btn__icon s-btn__muted d-none sm:d-inline-flex js-searchbar-trigger" role="menuitem" aria-label="Search" aria-haspopup="true" aria-controls="search" title="Click to show search"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="m18 16.5-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5ZM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0Z"></path></svg></button></li>
+                        <li role="none">
+                            <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f17081483%2fcustom-payment-method-in-woocommerce" class="s-topbar--item s-topbar--item__unset s-btn s-btn__filled ws-nowrap js-gps-track" role="menuitem" rel="nofollow" data-gps-track="login.click" data-ga="[&quot;top navigation&quot;,&quot;login button click&quot;,null,null,null]">Log in</a>
+                        </li>
+                        <li role="none"><a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f17081483%2fcustom-payment-method-in-woocommerce" class="s-topbar--item s-topbar--item__unset ml4 s-btn s-btn__primary ws-nowrap" role="menuitem" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Header&quot;,null,null]">Sign up</a></li>
+    </ol>
+</nav>
+
+
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10); 
+    </script>
+
+
+
+            
+
+        
+    
+<div class="bg-black-025 bs-sm bt bc-black-100 ps-fixed l0 r0 b0 z-nav js-dismissable-hero" data-campaign-name="stk">
+    <div class="d-flex wmx12 mx-auto px8 py12 jc-space-between ai-center lg:pl24 lg:pr24 md:fd-column sm:fd-row sm:ai-center">
+        <div class="flex--item fs-body2 fl1 mr16 md:mr0 md:mb12 sm:mb0 sm:mr16">
+            <p class="mb0"><strong>Join Stack Overflow</strong> to find the best answer to your technical question, help others answer theirs.</p>
+        </div>
+
+        <div id="openid-buttons" class="d-flex gs8 gsx ai-center sm:jc-space-between">
+            <a class="flex--item s-btn s-btn__filled ws-nowrap" href="https://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f17081483%2fcustom-payment-method-in-woocommerce" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Question Hero&quot;,null,null]">
+                    <span class="sm:d-none">Sign up with email</span>
+                    <span class="d-none sm:d-inline">Sign up</span>
+                
+            </a>
+                <button class="flex--item ws-nowrap s-btn s-btn__icon s-btn__google ta-center js-major-provider sm:d-none" data-provider="google" data-oauthserver="https://accounts.google.com/o/oauth2/auth" data-oauthversion="2.0" data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - Google&quot;,&quot;Question Hero&quot;,null,null]">
+                    <svg aria-hidden="true" class="native svg-icon iconGoogle" width="18" height="18" viewBox="0 0 18 18"><path d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18Z" fill="#4285F4"></path><path d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17Z" fill="#34A853"></path><path d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07Z" fill="#FBBC05"></path><path d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3Z" fill="#EA4335"></path></svg>
+                    Sign up with Google
+                </button>
+                <button class="flex--item ws-nowrap s-btn s-btn__icon s-btn__github ta-center js-major-provider sm:d-none" data-provider="github" data-oauthserver="https://github.com/login/oauth/authorize" data-oauthversion="2.0" data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - GitHub&quot;,&quot;Question Hero&quot;,null,null]">
+                    <svg aria-hidden="true" class="svg-icon iconGitHub" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 9 1Z" fill="#010101"></path></svg>
+                    Sign up with GitHub
+                </button>
+                <button class="flex--item ws-nowrap s-btn s-btn__icon s-btn__facebook ta-center js-major-provider sm:d-none" data-provider="facebook" data-oauthserver="https://www.facebook.com/v2.0/dialog/oauth" data-oauthversion="2.0" data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - Facebook&quot;,&quot;Question Hero&quot;,null,null]">
+                    <svg aria-hidden="true" class="svg-icon iconFacebook" width="18" height="18" viewBox="0 0 18 18"><path d="M3 1a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H3Zm6.55 16v-6.2H7.46V8.4h2.09V6.61c0-2.07 1.26-3.2 3.1-3.2.88 0 1.64.07 1.87.1v2.16h-1.29c-1 0-1.19.48-1.19 1.18V8.4h2.39l-.31 2.42h-2.08V17h-2.5Z" fill="#4167B2"></path></svg>
+                    Sign up with Facebook
+                </button>
+                <button class="flex--item s-btn s-btn__muted s-btn__icon px8 js-dismiss" title="Dismiss"><svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41 13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41Z"></path></svg></button>
+        </div>
+
+        <form id="login-form" action="https://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f17081483%2fcustom-payment-method-in-woocommerce" method="POST">
+
+            <input type="hidden" name="fkey" value="8e786a7ea972bdd6826f2bf64ceb7bad6674ad973546928c8efbb7f024ab2533">
+
+            <input type="hidden" name="ssrc" value="">
+
+            <input type="hidden" id="oauth_version" name="oauth_version" value="">
+            <input type="hidden" id="oauth_server" name="oauth_server" value="">
+
+            <div id="se-login-fields">
+                <input type="hidden" name="legalLinksShown" value="0">
+            </div>
+        </form>
+        <script>
+            StackExchange.ready(function () {
+                StackExchange.InlineAuth.init();
+            })
+        </script>
+    </div>
+</div>
+
+<script>
+    StackExchange.ready(function () {
+        StackExchange.Hero.init("stk", "a");
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;
+        }
+
+        $('.js-cta-button').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+
+        // TODO: we should review the class names and whatnot in use here. Older heroes use id selectors, the newer
+        // sticky question hero on SO has a .js-dismiss class instead, but it's apparently not used anywhere... 
+        // It's not great. Ideally we'd have a set of classes in the partials above that would correspond to 
+        // the behaviours we want here in a more clear way. 
+
+        // sticky question-page hero at the bottom of the page on SO
+        $('.js-dismiss').on('click', function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close", location: location }, true);
+            });
+            StackExchange.Hero.dismiss();
+            $(".js-dismissable-hero").fadeOut("fast");
+        });
+    });
+</script>
+
+
+
+    <div class="container">
+            
+
+<div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar ps-relative">
+    <div class="left-sidebar--sticky-container js-sticky-leftnav">
+        <nav role="navigation">
+            <ol class="nav-links">
+                    
+
+<li class="ps-relative" aria-current="false">
+
+
+    <a href="https://stackoverflow.com/" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current: false, location:2, destination:8})" aria-controls="" data-controller="" data-s-popover-placement="right" aria-current="false" data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+            <div class="d-flex ai-center">
+                <div class="flex--item truncate">
+                    Home
+                </div>
+            </div>
+    </a>
+</li>
+
+                <li>
+                    <ol class="nav-links">
+                            <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Public</li>
+
+                            
+
+<li class="ps-relative  youarehere" aria-current="true">
+
+
+    <a id="nav-questions" href="https://stackoverflow.com/questions" class="pl8 js-gps-track nav-links--link -link__with-icon" data-gps-track="top_nav.click({is_current: true, location:2, destination:1})" aria-controls="" data-controller="" data-s-popover-placement="right" aria-current="false" data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+<svg aria-hidden="true" class="svg-icon iconGlobe" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1C4.64 1 1 4.64 1 9c0 4.36 3.64 8 8 8 4.36 0 8-3.64 8-8 0-4.36-3.64-8-8-8ZM8 15.32a6.46 6.46 0 0 1-4.3-2.74 6.46 6.46 0 0 1-.93-5.01L7 11.68v.8c0 .88.12 1.32 1 1.32v1.52Zm5.72-2c-.2-.66-1-1.32-1.72-1.32h-1v-2c0-.44-.56-1-1-1H6V7h1c.44 0 1-.56 1-1V5h2c.88 0 1.4-.72 1.4-1.6v-.33a6.45 6.45 0 0 1 3.83 4.51 6.45 6.45 0 0 1-1.51 5.73v.01Z"></path></svg>            <span class="-link--channel-name">Questions</span>
+    </a>
+</li>
+
+                                
+
+<li class="ps-relative" aria-current="false">
+
+
+    <a id="nav-tags" href="https://stackoverflow.com/tags" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current: false, location:2, destination:2})" aria-controls="" data-controller="" data-s-popover-placement="right" aria-current="false" data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+            <div class="d-flex ai-center">
+                <div class="flex--item truncate">
+                    Tags
+                </div>
+            </div>
+    </a>
+</li>
+
+                                
+
+<li class="ps-relative" aria-current="false">
+
+
+    <a id="nav-users" href="https://stackoverflow.com/users" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current: false, location:2, destination:3})" aria-controls="" data-controller="" data-s-popover-placement="right" aria-current="false" data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+            <div class="d-flex ai-center">
+                <div class="flex--item truncate">
+                    Users
+                </div>
+            </div>
+    </a>
+</li>
+
+                                    
+
+<li class="ps-relative" aria-current="false">
+
+
+    <a id="nav-companies" href="https://stackoverflow.com/jobs/companies?so_medium=stackoverflow&amp;so_source=SiteNav" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current: false, location:2, destination:12})" aria-controls="" data-controller="" data-s-popover-placement="right" aria-current="false" data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+            <div class="d-flex ai-center">
+                <div class="flex--item truncate">
+                    Companies
+                </div>
+            </div>
+    </a>
+</li>
+
+                                <li class="d-flex ml8 mt16 jc-space-between">
+                                    <div class="flex--item tt-uppercase tt-uppercase fs-fine fc-light">Collectives</div>
+                                    <div class="flex--item fs-fine fc-light">
+                                        <a href="javascript:void(0)" class="s-link s-link__inherit mr8 js-gps-track js-collectives-navcta-toggle" role="button" aria-controls="popover-discover-collectives" data-controller="s-popover" data-action="s-popover#toggle" data-s-popover-placement="top" data-s-popover-toggle-class="is-selected" data-gps-track="top_nav.click({is_current:false, location:2, destination:17})" aria-expanded="false">
+                                            <svg aria-hidden="true" class="svg-icon iconInfoSm" width="14" height="14" viewBox="0 0 14 14"><path d="M7 1a6 6 0 1 1 0 12A6 6 0 0 1 7 1Zm1 10V6H6v5h2Zm0-6V3H6v2h2Z"></path></svg>
+                                        </a>
+                                    </div>
+                                </li>
+                                    
+
+<li class="ps-relative" aria-current="false">
+
+
+    <a id="nav-collective-discover" href="https://stackoverflow.com/collectives" class="pl8 ai-center js-collectives-navcta-toggle js-gps-track nav-links--link -link__with-icon" data-gps-track="top_nav.click({is_current: false, location:2, destination:18})" aria-controls="" data-controller="" data-s-popover-placement="right" aria-current="false" data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+<svg aria-hidden="true" class="mt-auto fc-orange-400 svg-icon iconStarVerified" width="18" height="18" viewBox="0 0 18 18"><path d="M9.86.89a1.14 1.14 0 0 0-1.72 0l-.5.58c-.3.35-.79.48-1.23.33l-.72-.25a1.14 1.14 0 0 0-1.49.85l-.14.76c-.1.45-.45.8-.9.9l-.76.14c-.67.14-1.08.83-.85 1.49l.25.72c.15.44.02.92-.33 1.23l-.58.5a1.14 1.14 0 0 0 0 1.72l.58.5c.35.3.48.79.33 1.23l-.25.72c-.23.66.18 1.35.85 1.49l.76.14c.45.1.8.45.9.9l.14.76c.14.67.83 1.08 1.49.85l.72-.25c.44-.15.92-.02 1.23.33l.5.58c.46.52 1.26.52 1.72 0l.5-.58c.3-.35.79-.48 1.23-.33l.72.25c.66.23 1.35-.18 1.49-.85l.14-.76c.1-.45.45-.8.9-.9l.76-.14c.67-.14 1.08-.83.85-1.49l-.25-.72c-.15-.44-.02-.92.33-1.23l.58-.5c.52-.46.52-1.26 0-1.72l-.58-.5c-.35-.3-.48-.79-.33-1.23l.25-.72a1.14 1.14 0 0 0-.85-1.49l-.76-.14c-.45-.1-.8-.45-.9-.9l-.14-.76a1.14 1.14 0 0 0-1.49-.85l-.72.25c-.44.15-.92.02-1.23-.33l-.5-.58Zm-.49 2.67L10.6 6.6c.05.15.19.24.34.25l3.26.22c.36.03.5.48.23.71l-2.5 2.1a.4.4 0 0 0-.14.4l.8 3.16a.4.4 0 0 1-.6.44L9.2 12.13a.4.4 0 0 0-.42 0l-2.77 1.74a.4.4 0 0 1-.6-.44l.8-3.16a.4.4 0 0 0-.13-.4l-2.5-2.1a.4.4 0 0 1 .22-.7l3.26-.23a.4.4 0 0 0 .34-.25l1.22-3.03a.4.4 0 0 1 .74 0Z"></path></svg>            <span class="-link--channel-name">Explore Collectives</span>
+    </a>
+</li>
+
+                    </ol>
+                </li>
+                   
+
+
+<li>
+    <ol class="nav-links">
+                
+
+<li class="js-freemium-cta ps-relative">
+
+    <div class="fs-fine tt-uppercase ml8 mt16 mb8 fc-light">Teams</div>
+
+    <div class="bt bl bb bc-black-075 p12 pb6 fc-black-600 blr-sm overflow-hidden">
+        <strong class="fc-black-750 mb6">Stack Overflow for Teams</strong>
+        – Start collaborating and sharing organizational knowledge.
+        
+        <img class="wmx100 mx-auto my8 h-auto d-block" width="139" height="114" src="./Custom Payment Method in WooCommerce - Stack Overflow_files/teams-illo-free-sidebar-promo.svg" alt="">
+
+        <a href="https://try.stackoverflow.co/why-teams/?utm_source=so-owned&amp;utm_medium=side-bar&amp;utm_campaign=campaign-38&amp;utm_content=cta" class="w100 s-btn s-btn__primary s-btn__xs bg-orange-400 js-gps-track" data-gps-track="teams.create.left-sidenav.click({ Action: 6 })" data-ga="[&quot;teams left navigation - anonymous&quot;,&quot;left nav free cta&quot;,&quot;stackoverflow.com/teams/create/free&quot;,null,null]">Create a free Team</a>
+        <a href="https://stackoverflow.co/teams" class="w100 s-btn s-btn__muted s-btn__xs js-gps-track" data-gps-track="teams.create.left-sidenav.click({ Action: 5 })" data-ga="[&quot;teams left navigation - anonymous&quot;,&quot;left nav free cta&quot;,&quot;stackoverflow.com/teams&quot;,null,null]">Why Teams?</a>
+
+    </div>
+</li>
+
+
+            <li class="d-flex ai-center jc-space-between ml8 mt24 mb4 js-create-team-cta d-none">
+                <div class="flex--item tt-uppercase fs-fine fc-light">Teams</div>
+                <div class="flex--item">
+                    <a href="javascript:void(0)" class="s-link p12 fc-black-500 h:fc-black-800 js-gps-track" role="button" aria-controls="popover-teams-create-cta" data-controller="s-popover" data-action="s-popover#toggle" data-s-popover-placement="bottom-start" data-s-popover-toggle-class="is-selected" data-gps-track="teams.create.left-sidenav.click({ Action: ShowInfo })" data-ga="[&quot;teams left navigation - anonymous&quot;,&quot;left nav show teams info&quot;,null,null,null]" aria-expanded="false">
+                        <svg aria-hidden="true" class="svg-icon iconInfoSm" width="14" height="14" viewBox="0 0 14 14"><path d="M7 1a6 6 0 1 1 0 12A6 6 0 0 1 7 1Zm1 10V6H6v5h2Zm0-6V3H6v2h2Z"></path></svg>
+                    </a>
+
+                </div>
+            </li>
+            <li class="ps-relative js-create-team-cta d-none">
+                <a href="https://stackoverflow.com/teams/create/free?utm_source=so-owned&amp;utm_medium=side-bar&amp;utm_campaign=campaign-38&amp;utm_content=cta" class="pl8 js-gps-track nav-links--link" title="Stack Overflow for Teams is a private, secure spot for your organization&#39;s questions and answers." data-gps-track="teams.create.left-sidenav.click({ Action: FreemiumTeamsCreateClick })" data-ga="[&quot;teams left navigation - anonymous&quot;,&quot;left nav team click&quot;,&quot;stackoverflow.com/teams/create/free&quot;,null,null]">
+                    <div class="d-flex ai-center">
+                        <div class="flex--item s-avatar va-middle bg-orange-400">
+                            <div class="s-avatar--letter mtn1">
+                                <svg aria-hidden="true" class="svg-icon iconBriefcaseSm" width="14" height="14" viewBox="0 0 14 14"><path d="M4 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1h.5c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5h-7A1.5 1.5 0 0 1 2 10.5v-5C2 4.67 2.67 4 3.5 4H4V3Zm5 1V3H5v1h4Z"></path></svg>
+                            </div>
+                            <svg aria-hidden="true" class="native s-avatar--badge svg-icon iconShieldXSm" width="9" height="10" viewBox="0 0 9 10"><path d="M0 1.84 4.5 0 9 1.84v3.17C9 7.53 6.3 10 4.5 10 2.7 10 0 7.53 0 5.01V1.84Z" fill="var(--white)"></path><path d="M1 2.5 4.5 1 8 2.5v2.51C8 7.34 5.34 9 4.5 9 3.65 9 1 7.34 1 5.01V2.5Zm2.98 3.02L3.2 7h2.6l-.78-1.48a.4.4 0 0 1 .15-.38c.34-.24.73-.7.73-1.14 0-.71-.5-1.23-1.41-1.23-.92 0-1.39.52-1.39 1.23 0 .44.4.9.73 1.14.12.08.18.23.15.38Z" fill="var(--black-500)"></path></svg>
+                        </div>
+                        <div class="flex--item pl6">
+                            Create free Team
+                        </div>
+                    </div>
+                </a>
+            </li>
+    </ol>
+</li>
+            </ol>
+        </nav>
+    </div>
+
+        <div class="s-popover ws2" id="popover-discover-collectives" role="menu">
+            <div class="s-popover--arrow"></div>
+            <div>
+                <svg aria-hidden="true" class="fc-orange-500 float-right ml24 svg-spot spotCollective" width="48" height="48" viewBox="0 0 48 48"><path d="M25.5 7a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM14 18.25c0-.69.56-1.25 1.25-1.25h22.5c.69 0 1.25.56 1.25 1.25V37.5a1 1 0 0 1-1.6.8l-4.07-3.05a1.25 1.25 0 0 0-.75-.25H15.25c-.69 0-1.25-.56-1.25-1.25v-15.5ZM7 24.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM25.5 48a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM48 24.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" opacity=".2"></path><path d="M21 3.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0ZM24.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM0 23.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0ZM3.5 22a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM21 44.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Zm3.5-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm20-23a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM43 23.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm-23.23-3.14a1 1 0 0 1-.13 1.4l-2.08 1.74 2.08 1.73a1 1 0 1 1-1.28 1.54l-2.42-2.02a1.63 1.63 0 0 1 0-2.5l2.42-2.02a1 1 0 0 1 1.4.13Zm7.59 1.41a1 1 0 1 1 1.28-1.54l2.42 2.02c.78.65.78 1.85 0 2.5l-2.42 2.02a1 1 0 1 1-1.28-1.54l2.08-1.73-2.08-1.73ZM24.12 18a1 1 0 0 1 .87 1.12l-1 8a1 1 0 1 1-1.98-.24l1-8a1 1 0 0 1 1.11-.87Zm-11.87-5C11.01 13 10 14 10 15.25v15.5c0 1.24 1 2.25 2.25 2.25h17.33c.06 0 .11.02.15.05l4.07 3.05a2 2 0 0 0 3.2-1.6V15.25c0-1.24-1-2.25-2.25-2.25h-22.5ZM12 15.25c0-.14.11-.25.25-.25h22.5c.14 0 .25.11.25.25V34.5l-4.07-3.05a2.2 2.2 0 0 0-1.35-.45H12.25a.25.25 0 0 1-.25-.25v-15.5Zm7.24-10.68a1 1 0 1 0-.48-1.94A22.04 22.04 0 0 0 2.91 17.7a1 1 0 1 0 1.92.58 20.04 20.04 0 0 1 14.4-13.72Zm11.05-1.66a1 1 0 0 0-.58 1.92c6.45 1.92 11.54 7 13.46 13.46a1 1 0 1 0 1.92-.58 22.05 22.05 0 0 0-14.8-14.8ZM4.57 28.76a1 1 0 0 0-1.94.48 22.03 22.03 0 0 0 16.13 16.13 1 1 0 1 0 .48-1.94A20.03 20.03 0 0 1 4.57 28.76Zm40.8.48a1 1 0 1 0-1.94-.48 20.04 20.04 0 0 1-13.72 14.41 1 1 0 0 0 .58 1.92 22.04 22.04 0 0 0 15.08-15.85Z"></path></svg>
+                <h5 class="pt4 fw-bold">Collectives™ on Stack Overflow</h5>
+                <p class="my16 fs-caption fc-medium">Find centralized, trusted content and collaborate around the technologies you use most.</p>
+                <a href="https://stackoverflow.com/collectives" class="js-gps-track s-btn s-btn__primary s-btn__xs" data-gps-track="top_nav.click({is_current:false, location:2, destination:18})">
+                    Learn more about Collectives
+                </a>
+            </div>
+        </div>
+
+
+        <div class="s-popover ws2" id="popover-teams-create-cta" role="menu" aria-hidden="true">
+            <div class="s-popover--arrow"></div>
+
+            <div class="ps-relative overflow-hidden">
+                <p class="mb2"><strong>Teams</strong></p>
+                <p class="mb12 fs-caption fc-black-400">Q&amp;A for work</p>
+                <p class="mb12 fs-caption fc-medium">Connect and share knowledge within a single location that is structured and easy to search.</p>
+                <a href="https://stackoverflow.co/teams" class="js-gps-track s-btn s-btn__primary s-btn__xs" data-gps-track="teams.create.left-sidenav.click({ Action: CtaClick })" data-ga="[&quot;teams left navigation - anonymous&quot;,&quot;left nav cta&quot;,&quot;stackoverflow.com/teams&quot;,null,null]">
+                    Learn more about Teams
+                </a>
+            </div>
+
+            <div class="ps-absolute t8 r8">
+                <svg aria-hidden="true" class="fc-orange-500 svg-spot spotPeople" width="48" height="48" viewBox="0 0 48 48"><path d="M13.5 28a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM7 30a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v5h11v-5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2H33v5a1 1 0 0 1-1 1H20a1 1 0 0 1-1-1v-5H8a1 1 0 0 1-1-1V30Zm25-6.5a4.5 4.5 0 1 0 9 0 4.5 4.5 0 0 0-9 0ZM24.5 34a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Z" opacity=".2"></path><path d="M16.4 26.08A6 6 0 1 0 7.53 26C5.64 26.06 4 27.52 4 29.45V40a1 1 0 0 0 1 1h9a1 1 0 1 0 0-2h-4v-7a1 1 0 1 0-2 0v7H6v-9.55c0-.73.67-1.45 1.64-1.45H16a1 1 0 0 0 .4-1.92ZM12 18a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm16.47 14a6 6 0 1 0-8.94 0A3.6 3.6 0 0 0 16 35.5V46a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V35.5c0-1.94-1.64-3.42-3.53-3.5ZM20 28a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-.3 6h8.6c1 0 1.7.75 1.7 1.5V45h-2v-7a1 1 0 1 0-2 0v7h-4v-7a1 1 0 1 0-2 0v7h-2v-9.5c0-.75.7-1.5 1.7-1.5ZM42 22c0 1.54-.58 2.94-1.53 4A3.5 3.5 0 0 1 44 29.45V40a1 1 0 0 1-1 1h-9a1 1 0 1 1 0-2h4v-7a1 1 0 1 1 2 0v7h2v-9.55A1.5 1.5 0 0 0 40.48 28H32a1 1 0 0 1-.4-1.92A6 6 0 1 1 42 22Zm-2 0a4 4 0 1 0-8 0 4 4 0 0 0 8 0Z"></path><g opacity=".35"><path d="M17 10a1 1 0 011-1h12a1 1 0 110 2H18a1 1 0 01-1-1Zm1-5a1 1 0 100 2h12a1 1 0 100-2H18ZM14 1a1 1 0 00-1 1v12a1 1 0 001 1h5.09l4.2 4.2a1 1 0 001.46-.04l3.7-4.16H34a1 1 0 001-1V2a1 1 0 00-1-1H14Zm1 12V3h18v10h-5a1 1 0 00-.75.34l-3.3 3.7-3.74-3.75a1 1 0 00-.71-.29H15Z"></path></g></svg>
+            </div>
+        </div>
+
+
+</div>
+
+
+
+
+        <div id="content" class="snippet-hidden">
+
+            
+
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a">
+
+    <div class="inner-content clearfix">
+
+        
+
+            <div id="question-header" class="d-flex sm:fd-column">
+                        <h1 itemprop="name" class="fs-headline1 ow-break-word mb8 flex--item fl1"><a href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce" class="question-hyperlink">Custom Payment Method in WooCommerce</a></h1>
+                <div class="ml12 aside-cta flex--item print:d-none sm:ml0 sm:mb12 sm:order-first sm:as-end">
+                        <a href="https://stackoverflow.com/questions/ask" class="ws-nowrap s-btn s-btn__primary">
+        Ask Question
+    </a>
+
+                </div>
+            </div>
+            <div class="d-flex fw-wrap pb8 mb16 bb bc-black-075">
+                    <div class="flex--item ws-nowrap mr16 mb8" title="2013-06-13 07:27:06Z">
+                        <span class="fc-light mr2">Asked</span>
+                        <time itemprop="dateCreated" datetime="2013-06-13T07:27:06">9 years, 3 months ago</time>
+                    </div>
+                    <div class="flex--item ws-nowrap mr16 mb8">
+                        <span class="fc-light mr2">Modified</span>
+                        <a href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce?lastactivity" class="s-link s-link__inherit" title="2021-06-27 06:26:54Z">1 year, 3 months ago</a>
+                    </div>
+                    <div class="flex--item ws-nowrap mb8" title="Viewed 32,941 times">
+                        <span class="fc-light mr2">Viewed</span>
+                        33k times
+                    </div>
+            </div>
+            <div id="mainbar" role="main" aria-label="question and answers">
+
+                
+<div class="question js-question" data-questionid="17081483" data-position-on-page="0" data-score="9" id="question">
+    <style>
+    </style>
+<div class="js-zone-container zone-container-main">
+    <div id="dfp-tlb" class="everyonelovesstackoverflow everyoneloves__top-leaderboard everyoneloves__leaderboard" data-dfp-zone="true" style="min-height: auto; height: auto; display: none;" data-google-query-id="CIGZp8SvsvoCFYm7dwod07oOOA"><div id="google_ads_iframe_/248424177/stackoverflow.com/lb/question-pages_0__container__" style="border: 0pt none; width: 728px; height: 0px;"></div></div>
+		<div class="js-report-ad-button-container " style="width: 728px"></div>
+</div>
+
+    <div class="post-layout">
+        <div class="votecell post-layout--left">
+            <div class="js-voting-container d-flex jc-center fd-column ai-stretch gs4 fc-black-200" data-post-id="17081483">
+        <button class="js-vote-up-btn flex--item s-btn s-btn__unset c-pointer " data-controller="s-tooltip" data-s-tooltip-placement="right" aria-pressed="false" aria-label="Up vote" data-selected-classes="fc-theme-primary" data-unselected-classes="" aria-describedby="--stacks-s-tooltip-7mv68w6b">
+            <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 25h32L18 9 2 25Z"></path></svg>
+        </button><div id="--stacks-s-tooltip-7mv68w6b" class="s-popover s-popover__tooltip" role="tooltip">This question shows research effort; it is useful and clear<div class="s-popover--arrow"></div></div>
+        <div class="js-vote-count flex--item d-flex fd-column ai-center fc-black-500 fs-title" itemprop="upvoteCount" data-value="9">
+            9
+        </div>
+        <button class="js-vote-down-btn flex--item s-btn s-btn__unset c-pointer " data-controller="s-tooltip" data-s-tooltip-placement="right" aria-pressed="false" aria-label="Down vote" data-selected-classes="fc-theme-primary" data-unselected-classes="" aria-describedby="--stacks-s-tooltip-p4y0cu6j">
+            <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 11h32L18 27 2 11Z"></path></svg>
+        </button><div id="--stacks-s-tooltip-p4y0cu6j" class="s-popover s-popover__tooltip" role="tooltip">This question does not show any research effort; it is unclear or not useful<div class="s-popover--arrow"></div></div>
+
+        <button class="js-bookmark-btn s-btn s-btn__unset c-pointer py4 js-gps-track" data-controller="s-tooltip" data-s-tooltip-placement="right" aria-pressed="false" aria-label="Bookmark (8)" data-selected-classes="fc-yellow-600" data-gps-track="post.click({ item: 1, priv: 0, post_type: 1 })" aria-describedby="--stacks-s-tooltip-ps69z98g">
+            <svg aria-hidden="true" class="svg-icon iconBookmark" width="18" height="18" viewBox="0 0 18 18"><path d="M3 17V3c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v14l-6-4-6 4Z"></path></svg>
+            <div class="js-bookmark-count mt4" data-value="8">8</div>
+        </button><div id="--stacks-s-tooltip-ps69z98g" class="s-popover s-popover__tooltip" role="tooltip">Bookmark this question.<div class="s-popover--arrow"></div></div>
+
+
+
+    
+        <a class="js-post-issue flex--item s-btn s-btn__unset c-pointer py6 mx-auto" href="https://stackoverflow.com/posts/17081483/timeline" data-shortcut="T" data-ks-title="timeline" data-controller="s-tooltip" data-s-tooltip-placement="right" aria-label="Timeline" aria-describedby="--stacks-s-tooltip-d5km3pyw"><svg aria-hidden="true" class="mln2 mr0 svg-icon iconHistory" width="19" height="18" viewBox="0 0 19 18"><path d="M3 9a8 8 0 1 1 3.73 6.77L8.2 14.3A6 6 0 1 0 5 9l3.01-.01-4 4-4-4h3L3 9Zm7-4h1.01L11 9.36l3.22 2.1-.6.93L10 10V5Z"></path></svg></a><div id="--stacks-s-tooltip-d5km3pyw" class="s-popover s-popover__tooltip" role="tooltip">Show activity on this post.<div class="s-popover--arrow"></div></div>
+
+</div>
+
+        </div>
+
+        
+
+<div class="postcell post-layout--right">
+    
+    <div class="s-prose js-post-body" itemprop="text">
+                
+<p>I want to add a New Payment Method in WooCommerce.</p>
+
+<p>The New Method will be containing 2 Text Box Field, must be filled by Customer. How to do that?</p>
+
+<p>I attached a picture of what I want. Please help if you can. Thanks in advance! :)</p>
+
+<p><img src="./Custom Payment Method in WooCommerce - Stack Overflow_files/gFe1f.jpg" alt="image"></p>
+    </div>
+
+        <div class="mt24 mb12">
+            <div class="post-taglist d-flex gs4 gsy fd-column">
+                <div class="d-flex ps-relative fw-wrap">
+                    <ul class="ml0 list-ls-none js-post-tag-list-wrapper d-inline"><li class="d-inline mr4 js-post-tag-list-item"><a href="https://stackoverflow.com/questions/tagged/methods" class="post-tag js-gps-track" title="show questions tagged &#39;methods&#39;" aria-label="show questions tagged &#39;methods&#39;" rel="tag" aria-labelledby="methods-container">methods</a></li><li class="d-inline mr4 js-post-tag-list-item"><a href="https://stackoverflow.com/questions/tagged/payment" class="post-tag js-gps-track" title="show questions tagged &#39;payment&#39;" aria-label="show questions tagged &#39;payment&#39;" rel="tag" aria-labelledby="payment-container">payment</a></li><li class="d-inline mr4 js-post-tag-list-item"><a href="https://stackoverflow.com/questions/tagged/woocommerce" class="post-tag js-gps-track" title="show questions tagged &#39;woocommerce&#39;" aria-label="show questions tagged &#39;woocommerce&#39;" rel="tag" aria-labelledby="woocommerce-container">woocommerce</a></li></ul>
+                </div>
+            </div>
+        </div>
+
+    <div class="mb0 ">
+        <div class="mt16 d-flex gs8 gsy fw-wrap jc-end ai-start pt4 mb16">
+            <div class="flex--item mr16 fl1 w96">
+                
+
+
+<div class="js-post-menu pt2" data-post-id="17081483">
+    <div class="d-flex gs8 s-anchors s-anchors__muted fw-wrap">
+
+            <div class="flex--item">
+                <a href="https://stackoverflow.com/q/17081483" rel="nofollow" itemprop="url" class="js-share-link js-gps-track" title="Short permalink to this question" data-gps-track="post.click({ item: 2, priv: 0, post_type: 1 })" data-controller="se-share-sheet s-popover" data-se-share-sheet-title="Share a link to this question" data-se-share-sheet-subtitle="" data-se-share-sheet-post-type="question" data-se-share-sheet-social="facebook twitter devto" data-se-share-sheet-location="1" data-se-share-sheet-license-url="https%3a%2f%2fcreativecommons.org%2flicenses%2fby-sa%2f3.0%2f" data-se-share-sheet-license-name="CC BY-SA 3.0" data-s-popover-placement="bottom-start" aria-controls="se-share-sheet-0" data-action=" s-popover#toggle se-share-sheet#preventNavigation s-popover:show-&gt;se-share-sheet#willShow s-popover:shown-&gt;se-share-sheet#didShow" aria-expanded="false">Share</a><div class="s-popover z-dropdown s-anchors s-anchors__default" style="width: unset; max-width: 28em;" id="se-share-sheet-0"><div class="s-popover--arrow"></div><div><label class="js-title fw-bold" for="share-sheet-input-se-share-sheet-0">Share a link to this question</label> <span class="js-subtitle"></span></div><div class="my8"><input type="text" id="share-sheet-input-se-share-sheet-0" class="js-input s-input wmn3 sm:wmn-initial bc-black-200 bg-white fc-dark" readonly=""></div><div class="d-flex jc-space-between ai-center mbn4"><button class="js-copy-link-btn s-btn s-btn__link js-gps-track" data-gps-track="">Copy link</button><a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license" class="js-license s-block-link w-auto" target="_blank" title="The current license for this post: CC BY-SA 3.0">CC BY-SA 3.0</a><div class="js-social-container d-none"></div></div></div>
+            </div>
+
+
+                    <div class="flex--item">
+                        <a href="https://stackoverflow.com/posts/17081483/edit" class="js-suggest-edit-post js-gps-track" data-gps-track="post.click({ item: 6, priv: 0, post_type: 1 })" title="">Improve this question</a>
+                    </div>
+
+            <div class="flex--item">
+                <button type="button" id="btnFollowPost-17081483" class="s-btn s-btn__link js-follow-post js-follow-question js-gps-track" data-gps-track="post.click({ item: 14, priv: 0, post_type: 1 })" data-controller="s-tooltip " data-s-tooltip-placement="bottom" data-s-popover-placement="bottom" aria-controls="" aria-describedby="--stacks-s-tooltip-i44vbsgi">
+                    Follow
+                </button><div id="--stacks-s-tooltip-i44vbsgi" class="s-popover s-popover__tooltip" role="tooltip">Follow this question to receive notifications<div class="s-popover--arrow"></div></div>
+            </div>
+
+
+
+
+
+
+    </div>
+    <div class="js-menu-popup-container"></div>
+</div>
+            </div>
+
+                <div class="post-signature flex--item">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/17081483/revisions" title="show all edits to this post" class="js-gps-track" data-gps-track="post.click({ item: 4, priv: 0, post_type: 1 })">edited <span title="2013-06-13 07:44:50Z" class="relativetime">Jun 13, 2013 at 7:44</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1411844/tkanzakic"><div class="gravatar-wrapper-32"><img src="./Custom Payment Method in WooCommerce - Stack Overflow_files/17160c1401b81f988bd6747bb36459ec.jpeg" alt="tkanzakic&#39;s user avatar" width="32" height="32" class="bar-sm"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1411844/tkanzakic">tkanzakic</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">5,491</span><span title="16 gold badges" aria-hidden="true"><span class="badge1"></span><span class="badgecount">16</span></span><span class="v-visible-sr">16 gold badges</span><span title="35 silver badges" aria-hidden="true"><span class="badge2"></span><span class="badgecount">35</span></span><span class="v-visible-sr">35 silver badges</span><span title="41 bronze badges" aria-hidden="true"><span class="badge3"></span><span class="badgecount">41</span></span><span class="v-visible-sr">41 bronze badges</span>
+        </div>
+    </div>
+</div>
+                </div>
+            <div class="post-signature owner flex--item">
+                <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2013-06-13 07:27:06Z" class="relativetime">Jun 13, 2013 at 7:27</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/2352775/shabab-ashique"><div class="gravatar-wrapper-32"><img src="./Custom Payment Method in WooCommerce - Stack Overflow_files/tOatJ.jpg" alt="Shabab Ashique&#39;s user avatar" width="32" height="32" class="bar-sm"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/2352775/shabab-ashique">Shabab Ashique</a><span class="d-none" itemprop="name">Shabab Ashique</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">91</span><span title="1 gold badge" aria-hidden="true"><span class="badge1"></span><span class="badgecount">1</span></span><span class="v-visible-sr">1 gold badge</span><span title="1 silver badge" aria-hidden="true"><span class="badge2"></span><span class="badgecount">1</span></span><span class="v-visible-sr">1 silver badge</span><span title="3 bronze badges" aria-hidden="true"><span class="badge3"></span><span class="badgecount">3</span></span><span class="v-visible-sr">3 bronze badges</span>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+            <span class="d-none" itemprop="commentCount">1</span> 
+    <div class="post-layout--right js-post-comments-component">
+        <div id="comments-17081483" class="comments js-comments-container bt bc-black-075 mt12 " data-post-id="17081483" data-min-length="15">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <li id="comment-24838767" class="comment js-comment " data-comment-id="24838767" data-comment-owner-id="237661" data-comment-score="0">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+        </div>
+        <div class="comment-text  js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">This is actually quite a long process. WooThemes does have a API ready for your use: <a href="http://docs.woothemes.com/document/payment-gateway-api/" rel="nofollow noreferrer">docs.woothemes.com/document/payment-gateway-api</a></span>
+                
+              <div class="d-inline-flex ai-center">
+–&nbsp;<a href="https://stackoverflow.com/users/237661/bftrick" title="5,011 reputation" class="comment-user">BFTrick</a>
+                </div>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#comment24838767_17081483" aria-label="Link to comment"><span title="2013-06-17 22:38:52Z, License: CC BY-SA 3.0" class="relativetime-clean">Jun 17, 2013 at 22:38</span></a></span>
+            </div>
+        </div>
+    </li>
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-17081483" data-rep="50" data-anon="true">
+                    <a class="js-add-link comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments." href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#" role="button">Add a comment</a>
+                <span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="Expand to show all comments on this post" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#" onclick="" role="button"></a>
+        </div>         
+    </div>
+    </div>
+
+</div>
+
+
+<div class="js-zone-container zone-container-responsive">
+    <div id="dfp-isb" class="everyonelovesstackoverflow everyoneloves__inline-sidebar mx-auto" style="min-height: auto; height: auto; display: none;"></div>
+		<div class="js-report-ad-button-container mx-auto" style="width: 300px"></div>
+</div>
+
+                <div id="answers">
+                    <a name="tab-top"></a>
+                    <div id="answers-header">
+                        <div class="answers-subheader d-flex ai-center mb8">
+                            <div class="flex--item fl1">
+                                <h2 class="mb0" data-answercount="1">
+                                        1 Answer
+                                    <span style="display:none;" itemprop="answerCount">1</span>
+                                </h2>
+                            </div>
+                            <div class="flex--item">
+                                
+
+<div class="d-flex g4 gsx ai-center sm:fd-column sm:ai-start">
+    <div class="d-flex fd-column ai-end sm:ai-start">
+        <label class="flex--item fs-caption" for="answer-sort-dropdown-select-menu">
+            Sorted by:
+        </label>
+        <a class="js-sort-preference-change s-link flex--item fs-fine" data-value="ScoreDesc" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce?answertab=scoredesc#tab-top">
+            Reset to default
+        </a>
+    </div>
+    <div class="flex--item s-select">
+        <select id="answer-sort-dropdown-select-menu">
+                    <option value="scoredesc">
+                        Highest score (default)
+                    </option>
+                    <option value="trending" selected="selected">
+                        Trending (recent votes count more)
+                    </option>
+                    <option value="modifieddesc">
+                        Date modified (newest first)
+                    </option>
+                    <option value="createdasc">
+                        Date created (oldest first)
+                    </option>
+        </select>
+    </div>
+</div>
+
+
+                            </div>
+                        </div>
+                            
+                    </div>
+
+
+                                        
+<a name="37631908"></a>
+<div id="answer-37631908" class="answer js-answer" data-answerid="37631908" data-parentid="17081483" data-score="34" data-position-on-page="1" data-highest-scored="1" data-question-has-accepted-highest-score="0" itemprop="suggestedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+    <div class="post-layout">
+        <div class="votecell post-layout--left">
+            <div class="js-voting-container d-flex jc-center fd-column ai-stretch gs4 fc-black-200" data-post-id="37631908">
+        <button class="js-vote-up-btn flex--item s-btn s-btn__unset c-pointer " data-controller="s-tooltip" data-s-tooltip-placement="right" aria-pressed="false" aria-label="Up vote" data-selected-classes="fc-theme-primary" data-unselected-classes="" aria-describedby="--stacks-s-tooltip-6sxk7jvd">
+            <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 25h32L18 9 2 25Z"></path></svg>
+        </button><div id="--stacks-s-tooltip-6sxk7jvd" class="s-popover s-popover__tooltip" role="tooltip">This answer is useful<div class="s-popover--arrow"></div></div>
+        <div class="js-vote-count flex--item d-flex fd-column ai-center fc-black-500 fs-title" itemprop="upvoteCount" data-value="34">
+            34
+        </div>
+        <button class="js-vote-down-btn flex--item s-btn s-btn__unset c-pointer " data-controller="s-tooltip" data-s-tooltip-placement="right" aria-pressed="false" aria-label="Down vote" data-selected-classes="fc-theme-primary" data-unselected-classes="" aria-describedby="--stacks-s-tooltip-59hoi24w">
+            <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 11h32L18 27 2 11Z"></path></svg>
+        </button><div id="--stacks-s-tooltip-59hoi24w" class="s-popover s-popover__tooltip" role="tooltip">This answer is not useful<div class="s-popover--arrow"></div></div>
+
+
+
+            <div class="js-accepted-answer-indicator flex--item fc-green-700 py6 mtn8 d-none" data-s-tooltip-placement="right" title="Loading when this answer was accepted…" tabindex="0" role="note" aria-label="Accepted">
+                <div class="ta-center">
+                    <svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="m6 14 8 8L30 6v8L14 30l-8-8v-8Z"></path></svg>
+                </div>
+            </div>
+
+    
+        <a class="js-post-issue flex--item s-btn s-btn__unset c-pointer py6 mx-auto" href="https://stackoverflow.com/posts/37631908/timeline" data-shortcut="T" data-ks-title="timeline" data-controller="s-tooltip" data-s-tooltip-placement="right" aria-label="Timeline" aria-describedby="--stacks-s-tooltip-tjpi7i4o"><svg aria-hidden="true" class="mln2 mr0 svg-icon iconHistory" width="19" height="18" viewBox="0 0 19 18"><path d="M3 9a8 8 0 1 1 3.73 6.77L8.2 14.3A6 6 0 1 0 5 9l3.01-.01-4 4-4-4h3L3 9Zm7-4h1.01L11 9.36l3.22 2.1-.6.93L10 10V5Z"></path></svg></a><div id="--stacks-s-tooltip-tjpi7i4o" class="s-popover s-popover__tooltip" role="tooltip">Show activity on this post.<div class="s-popover--arrow"></div></div>
+
+</div>
+
+        </div>
+
+        
+
+<div class="answercell post-layout--right">
+    
+    <div class="s-prose js-post-body" itemprop="text">
+<p>I know this is the old thread, but may my answer can help someone.
+i have done creating woocommerce custom payment gateway, so if someone need custom payment gateway like question above. may you can use code below.</p>
+<pre class="lang-php s-code-block"><code class="hljs language-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">/*
+Plugin Name: Custom Payment Gateway
+Description: Custom payment gateway example
+Author: Lafif Astahdziq
+Author URI: https://lafif.me
+*/</span>
+
+<span class="hljs-keyword">if</span> ( ! <span class="hljs-title function_ invoke__">defined</span>( <span class="hljs-string">'ABSPATH'</span> ) ) {
+    <span class="hljs-keyword">exit</span>; <span class="hljs-comment">// Exit if accessed directly</span>
+}
+
+<span class="hljs-comment">/**
+ * Custom Payment Gateway.
+ *
+ * Provides a Custom Payment Gateway, mainly for testing purposes.
+ */</span>
+<span class="hljs-title function_ invoke__">add_action</span>(<span class="hljs-string">'plugins_loaded'</span>, <span class="hljs-string">'init_custom_gateway_class'</span>);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init_custom_gateway_class</span>(<span class="hljs-params"></span>)</span>{
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WC_Gateway_Custom</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">WC_Payment_Gateway</span> </span>{
+
+        <span class="hljs-keyword">public</span> <span class="hljs-variable">$domain</span>;
+
+        <span class="hljs-comment">/**
+         * Constructor for the gateway.
+         */</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"></span>) </span>{
+
+            <span class="hljs-variable language_">$this</span>-&gt;domain = <span class="hljs-string">'custom_payment'</span>;
+
+            <span class="hljs-variable language_">$this</span>-&gt;id                 = <span class="hljs-string">'custom'</span>;
+            <span class="hljs-variable language_">$this</span>-&gt;icon               = <span class="hljs-title function_ invoke__">apply_filters</span>(<span class="hljs-string">'woocommerce_custom_gateway_icon'</span>, <span class="hljs-string">''</span>);
+            <span class="hljs-variable language_">$this</span>-&gt;has_fields         = <span class="hljs-literal">false</span>;
+            <span class="hljs-variable language_">$this</span>-&gt;method_title       = <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Custom'</span>, <span class="hljs-variable">$this</span>-&gt;domain );
+            <span class="hljs-variable language_">$this</span>-&gt;method_description = <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Allows payments with custom gateway.'</span>, <span class="hljs-variable">$this</span>-&gt;domain );
+
+            <span class="hljs-comment">// Load the settings.</span>
+            <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">init_form_fields</span>();
+            <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">init_settings</span>();
+
+            <span class="hljs-comment">// Define user set variables</span>
+            <span class="hljs-variable language_">$this</span>-&gt;title        = <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">get_option</span>( <span class="hljs-string">'title'</span> );
+            <span class="hljs-variable language_">$this</span>-&gt;description  = <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">get_option</span>( <span class="hljs-string">'description'</span> );
+            <span class="hljs-variable language_">$this</span>-&gt;instructions = <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">get_option</span>( <span class="hljs-string">'instructions'</span>, <span class="hljs-variable">$this</span>-&gt;description );
+            <span class="hljs-variable language_">$this</span>-&gt;order_status = <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">get_option</span>( <span class="hljs-string">'order_status'</span>, <span class="hljs-string">'completed'</span> );
+
+            <span class="hljs-comment">// Actions</span>
+            <span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">'woocommerce_update_options_payment_gateways_'</span> . <span class="hljs-variable">$this</span>-&gt;id, <span class="hljs-keyword">array</span>( <span class="hljs-variable">$this</span>, <span class="hljs-string">'process_admin_options'</span> ) );
+            <span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">'woocommerce_thankyou_'</span> . <span class="hljs-variable">$this</span>-&gt;id, <span class="hljs-keyword">array</span>( <span class="hljs-variable">$this</span>, <span class="hljs-string">'thankyou_page'</span> ) );
+
+            <span class="hljs-comment">// Customer Emails</span>
+            <span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">'woocommerce_email_before_order_table'</span>, <span class="hljs-keyword">array</span>( <span class="hljs-variable">$this</span>, <span class="hljs-string">'email_instructions'</span> ), <span class="hljs-number">10</span>, <span class="hljs-number">3</span> );
+        }
+
+        <span class="hljs-comment">/**
+         * Initialise Gateway Settings Form Fields.
+         */</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init_form_fields</span>(<span class="hljs-params"></span>) </span>{
+
+            <span class="hljs-variable language_">$this</span>-&gt;form_fields = <span class="hljs-keyword">array</span>(
+                <span class="hljs-string">'enabled'</span> =&gt; <span class="hljs-keyword">array</span>(
+                    <span class="hljs-string">'title'</span>   =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Enable/Disable'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'type'</span>    =&gt; <span class="hljs-string">'checkbox'</span>,
+                    <span class="hljs-string">'label'</span>   =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Enable Custom Payment'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'default'</span> =&gt; <span class="hljs-string">'yes'</span>
+                ),
+                <span class="hljs-string">'title'</span> =&gt; <span class="hljs-keyword">array</span>(
+                    <span class="hljs-string">'title'</span>       =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Title'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'type'</span>        =&gt; <span class="hljs-string">'text'</span>,
+                    <span class="hljs-string">'description'</span> =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'This controls the title which the user sees during checkout.'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'default'</span>     =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Custom Payment'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'desc_tip'</span>    =&gt; <span class="hljs-literal">true</span>,
+                ),
+                <span class="hljs-string">'order_status'</span> =&gt; <span class="hljs-keyword">array</span>(
+                    <span class="hljs-string">'title'</span>       =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Order Status'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'type'</span>        =&gt; <span class="hljs-string">'select'</span>,
+                    <span class="hljs-string">'class'</span>       =&gt; <span class="hljs-string">'wc-enhanced-select'</span>,
+                    <span class="hljs-string">'description'</span> =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Choose whether status you wish after checkout.'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'default'</span>     =&gt; <span class="hljs-string">'wc-completed'</span>,
+                    <span class="hljs-string">'desc_tip'</span>    =&gt; <span class="hljs-literal">true</span>,
+                    <span class="hljs-string">'options'</span>     =&gt; <span class="hljs-title function_ invoke__">wc_get_order_statuses</span>()
+                ),
+                <span class="hljs-string">'description'</span> =&gt; <span class="hljs-keyword">array</span>(
+                    <span class="hljs-string">'title'</span>       =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Description'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'type'</span>        =&gt; <span class="hljs-string">'textarea'</span>,
+                    <span class="hljs-string">'description'</span> =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Payment method description that the customer will see on your checkout.'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'default'</span>     =&gt; <span class="hljs-title function_ invoke__">__</span>(<span class="hljs-string">'Payment Information'</span>, <span class="hljs-variable">$this</span>-&gt;domain),
+                    <span class="hljs-string">'desc_tip'</span>    =&gt; <span class="hljs-literal">true</span>,
+                ),
+                <span class="hljs-string">'instructions'</span> =&gt; <span class="hljs-keyword">array</span>(
+                    <span class="hljs-string">'title'</span>       =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Instructions'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'type'</span>        =&gt; <span class="hljs-string">'textarea'</span>,
+                    <span class="hljs-string">'description'</span> =&gt; <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Instructions that will be added to the thank you page and emails.'</span>, <span class="hljs-variable">$this</span>-&gt;domain ),
+                    <span class="hljs-string">'default'</span>     =&gt; <span class="hljs-string">''</span>,
+                    <span class="hljs-string">'desc_tip'</span>    =&gt; <span class="hljs-literal">true</span>,
+                ),
+            );
+        }
+
+        <span class="hljs-comment">/**
+         * Output for the order received page.
+         */</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">thankyou_page</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> ( <span class="hljs-variable language_">$this</span>-&gt;instructions )
+                <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">wpautop</span>( <span class="hljs-title function_ invoke__">wptexturize</span>( <span class="hljs-variable">$this</span>-&gt;instructions ) );
+        }
+
+        <span class="hljs-comment">/**
+         * Add content to the WC emails.
+         *
+         * <span class="hljs-doctag">@access</span> public
+         * <span class="hljs-doctag">@param</span> WC_Order $order
+         * <span class="hljs-doctag">@param</span> bool $sent_to_admin
+         * <span class="hljs-doctag">@param</span> bool $plain_text
+         */</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">email_instructions</span>(<span class="hljs-params"> <span class="hljs-variable">$order</span>, <span class="hljs-variable">$sent_to_admin</span>, <span class="hljs-variable">$plain_text</span> = <span class="hljs-literal">false</span> </span>) </span>{
+            <span class="hljs-keyword">if</span> ( <span class="hljs-variable language_">$this</span>-&gt;instructions &amp;&amp; ! <span class="hljs-variable">$sent_to_admin</span> &amp;&amp; <span class="hljs-string">'custom'</span> === <span class="hljs-variable">$order</span>-&gt;payment_method &amp;&amp; <span class="hljs-variable">$order</span>-&gt;<span class="hljs-title function_ invoke__">has_status</span>( <span class="hljs-string">'on-hold'</span> ) ) {
+                <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">wpautop</span>( <span class="hljs-title function_ invoke__">wptexturize</span>( <span class="hljs-variable">$this</span>-&gt;instructions ) ) . PHP_EOL;
+            }
+        }
+
+        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">payment_fields</span>(<span class="hljs-params"></span>)</span>{
+
+            <span class="hljs-keyword">if</span> ( <span class="hljs-variable">$description</span> = <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">get_description</span>() ) {
+                <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">wpautop</span>( <span class="hljs-title function_ invoke__">wptexturize</span>( <span class="hljs-variable">$description</span> ) );
+            }
+
+            <span class="hljs-meta">?&gt;</span>
+            &lt;div id=<span class="hljs-string">"custom_input"</span>&gt;
+                &lt;p <span class="hljs-class"><span class="hljs-keyword">class</span>="<span class="hljs-title">form</span>-<span class="hljs-title">row</span> <span class="hljs-title">form</span>-<span class="hljs-title">row</span>-<span class="hljs-title">wide</span>"&gt;
+                    &lt;<span class="hljs-title">label</span> <span class="hljs-title">for</span>="<span class="hljs-title">mobile</span>" <span class="hljs-title">class</span>=""&gt;&lt;?<span class="hljs-title">php</span> <span class="hljs-title">_e</span>('<span class="hljs-title">Mobile</span> <span class="hljs-title">Number</span>', $<span class="hljs-title">this</span>-&gt;<span class="hljs-title">domain</span>); ?&gt;&lt;/<span class="hljs-title">label</span>&gt;
+                    &lt;<span class="hljs-title">input</span> <span class="hljs-title">type</span>="<span class="hljs-title">text</span>" <span class="hljs-title">class</span>="" <span class="hljs-title">name</span>="<span class="hljs-title">mobile</span>" <span class="hljs-title">id</span>="<span class="hljs-title">mobile</span>" <span class="hljs-title">placeholder</span>="" <span class="hljs-title">value</span>=""&gt;
+                &lt;/<span class="hljs-title">p</span>&gt;
+                &lt;<span class="hljs-title">p</span> <span class="hljs-title">class</span>="<span class="hljs-title">form</span>-<span class="hljs-title">row</span> <span class="hljs-title">form</span>-<span class="hljs-title">row</span>-<span class="hljs-title">wide</span>"&gt;
+                    &lt;<span class="hljs-title">label</span> <span class="hljs-title">for</span>="<span class="hljs-title">transaction</span>" <span class="hljs-title">class</span>=""&gt;&lt;?<span class="hljs-title">php</span> <span class="hljs-title">_e</span>('<span class="hljs-title">Transaction</span> <span class="hljs-title">ID</span>', $<span class="hljs-title">this</span>-&gt;<span class="hljs-title">domain</span>); ?&gt;&lt;/<span class="hljs-title">label</span>&gt;
+                    &lt;<span class="hljs-title">input</span> <span class="hljs-title">type</span>="<span class="hljs-title">text</span>" <span class="hljs-title">class</span>="" <span class="hljs-title">name</span>="<span class="hljs-title">transaction</span>" <span class="hljs-title">id</span>="<span class="hljs-title">transaction</span>" <span class="hljs-title">placeholder</span>="" <span class="hljs-title">value</span>=""&gt;
+                &lt;/<span class="hljs-title">p</span>&gt;
+            &lt;/<span class="hljs-title">div</span>&gt;
+            &lt;?<span class="hljs-title">php</span>
+        }
+
+        /**
+         * <span class="hljs-title">Process</span> <span class="hljs-title">the</span> <span class="hljs-title">payment</span> <span class="hljs-title">and</span> <span class="hljs-title">return</span> <span class="hljs-title">the</span> <span class="hljs-title">result</span>.
+         *
+         * @<span class="hljs-title">param</span> <span class="hljs-title">int</span> $<span class="hljs-title">order_id</span>
+         * @<span class="hljs-title">return</span> <span class="hljs-title">array</span>
+         */
+        <span class="hljs-title">public</span> <span class="hljs-title">function</span> <span class="hljs-title">process_payment</span>( $<span class="hljs-title">order_id</span> ) </span>{
+
+            <span class="hljs-variable">$order</span> = <span class="hljs-title function_ invoke__">wc_get_order</span>( <span class="hljs-variable">$order_id</span> );
+
+            <span class="hljs-variable">$status</span> = <span class="hljs-string">'wc-'</span> === <span class="hljs-title function_ invoke__">substr</span>( <span class="hljs-variable">$this</span>-&gt;order_status, <span class="hljs-number">0</span>, <span class="hljs-number">3</span> ) ? <span class="hljs-title function_ invoke__">substr</span>( <span class="hljs-variable">$this</span>-&gt;order_status, <span class="hljs-number">3</span> ) : <span class="hljs-variable language_">$this</span>-&gt;order_status;
+
+            <span class="hljs-comment">// Set order status</span>
+            <span class="hljs-variable">$order</span>-&gt;<span class="hljs-title function_ invoke__">update_status</span>( <span class="hljs-variable">$status</span>, <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Checkout with custom payment. '</span>, <span class="hljs-variable">$this</span>-&gt;domain ) );
+
+            <span class="hljs-comment">// or call the Payment complete</span>
+            <span class="hljs-comment">// $order-&gt;payment_complete();</span>
+
+            <span class="hljs-comment">// Reduce stock levels</span>
+            <span class="hljs-variable">$order</span>-&gt;<span class="hljs-title function_ invoke__">reduce_order_stock</span>();
+
+            <span class="hljs-comment">// Remove cart</span>
+            <span class="hljs-title function_ invoke__">WC</span>()-&gt;cart-&gt;<span class="hljs-title function_ invoke__">empty_cart</span>();
+
+            <span class="hljs-comment">// Return thankyou redirect</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">array</span>(
+                <span class="hljs-string">'result'</span>    =&gt; <span class="hljs-string">'success'</span>,
+                <span class="hljs-string">'redirect'</span>  =&gt; <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">get_return_url</span>( <span class="hljs-variable">$order</span> )
+            );
+        }
+    }
+}
+
+<span class="hljs-title function_ invoke__">add_filter</span>( <span class="hljs-string">'woocommerce_payment_gateways'</span>, <span class="hljs-string">'add_custom_gateway_class'</span> );
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add_custom_gateway_class</span>(<span class="hljs-params"> <span class="hljs-variable">$methods</span> </span>) </span>{
+    <span class="hljs-variable">$methods</span>[] = <span class="hljs-string">'WC_Gateway_Custom'</span>; 
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$methods</span>;
+}
+
+<span class="hljs-title function_ invoke__">add_action</span>(<span class="hljs-string">'woocommerce_checkout_process'</span>, <span class="hljs-string">'process_custom_payment'</span>);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">process_custom_payment</span>(<span class="hljs-params"></span>)</span>{
+
+    <span class="hljs-keyword">if</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">'payment_method'</span>] != <span class="hljs-string">'custom'</span>)
+        <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-keyword">if</span>( !<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">'mobile'</span>]) || <span class="hljs-keyword">empty</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">'mobile'</span>]) )
+        <span class="hljs-title function_ invoke__">wc_add_notice</span>( <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Please add your mobile number'</span>, <span class="hljs-variable">$this</span>-&gt;domain ), <span class="hljs-string">'error'</span> );
+
+
+    <span class="hljs-keyword">if</span>( !<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">'transaction'</span>]) || <span class="hljs-keyword">empty</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">'transaction'</span>]) )
+        <span class="hljs-title function_ invoke__">wc_add_notice</span>( <span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Please add your transaction ID'</span>, <span class="hljs-variable">$this</span>-&gt;domain ), <span class="hljs-string">'error'</span> );
+
+}
+
+<span class="hljs-comment">/**
+ * Update the order meta with field value
+ */</span>
+<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">'woocommerce_checkout_update_order_meta'</span>, <span class="hljs-string">'custom_payment_update_order_meta'</span> );
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">custom_payment_update_order_meta</span>(<span class="hljs-params"> <span class="hljs-variable">$order_id</span> </span>) </span>{
+
+    <span class="hljs-keyword">if</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">'payment_method'</span>] != <span class="hljs-string">'custom'</span>)
+        <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-comment">// echo "&lt;pre&gt;";</span>
+    <span class="hljs-comment">// print_r($_POST);</span>
+    <span class="hljs-comment">// echo "&lt;/pre&gt;";</span>
+    <span class="hljs-comment">// exit();</span>
+
+    <span class="hljs-title function_ invoke__">update_post_meta</span>( <span class="hljs-variable">$order_id</span>, <span class="hljs-string">'mobile'</span>, <span class="hljs-variable">$_POST</span>[<span class="hljs-string">'mobile'</span>] );
+    <span class="hljs-title function_ invoke__">update_post_meta</span>( <span class="hljs-variable">$order_id</span>, <span class="hljs-string">'transaction'</span>, <span class="hljs-variable">$_POST</span>[<span class="hljs-string">'transaction'</span>] );
+}
+
+<span class="hljs-comment">/**
+ * Display field value on the order edit page
+ */</span>
+<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">'woocommerce_admin_order_data_after_billing_address'</span>, <span class="hljs-string">'custom_checkout_field_display_admin_order_meta'</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span> );
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">custom_checkout_field_display_admin_order_meta</span>(<span class="hljs-params"><span class="hljs-variable">$order</span></span>)</span>{
+    <span class="hljs-variable">$method</span> = <span class="hljs-title function_ invoke__">get_post_meta</span>( <span class="hljs-variable">$order</span>-&gt;id, <span class="hljs-string">'_payment_method'</span>, <span class="hljs-literal">true</span> );
+    <span class="hljs-keyword">if</span>(<span class="hljs-variable">$method</span> != <span class="hljs-string">'custom'</span>)
+        <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-variable">$mobile</span> = <span class="hljs-title function_ invoke__">get_post_meta</span>( <span class="hljs-variable">$order</span>-&gt;id, <span class="hljs-string">'mobile'</span>, <span class="hljs-literal">true</span> );
+    <span class="hljs-variable">$transaction</span> = <span class="hljs-title function_ invoke__">get_post_meta</span>( <span class="hljs-variable">$order</span>-&gt;id, <span class="hljs-string">'transaction'</span>, <span class="hljs-literal">true</span> );
+
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;p&gt;&lt;strong&gt;'</span>.<span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Mobile Number'</span> ).<span class="hljs-string">':&lt;/strong&gt; '</span> . <span class="hljs-variable">$mobile</span> . <span class="hljs-string">'&lt;/p&gt;'</span>;
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;p&gt;&lt;strong&gt;'</span>.<span class="hljs-title function_ invoke__">__</span>( <span class="hljs-string">'Transaction ID'</span>).<span class="hljs-string">':&lt;/strong&gt; '</span> . <span class="hljs-variable">$transaction</span> . <span class="hljs-string">'&lt;/p&gt;'</span>;
+}
+</code></pre>
+<p>you can save that code as file and place under <code>wp-content/plugins/</code> or <code>wp-content/mu-plugins</code></p>
+    </div>
+    <div class="mt24">
+        <div class="d-flex fw-wrap ai-start jc-end gs8 gsy">
+            <time itemprop="dateCreated" datetime="2016-06-04T15:25:43"></time>
+            <div class="flex--item mr16" style="flex: 1 1 100px;">
+                
+
+
+<div class="js-post-menu pt2" data-post-id="37631908">
+    <div class="d-flex gs8 s-anchors s-anchors__muted fw-wrap">
+
+            <div class="flex--item">
+                <a href="https://stackoverflow.com/a/37631908" rel="nofollow" itemprop="url" class="js-share-link js-gps-track" title="Short permalink to this answer" data-gps-track="post.click({ item: 2, priv: 0, post_type: 2 })" data-controller="se-share-sheet s-popover" data-se-share-sheet-title="Share a link to this answer" data-se-share-sheet-subtitle="" data-se-share-sheet-post-type="answer" data-se-share-sheet-social="facebook twitter devto" data-se-share-sheet-location="2" data-se-share-sheet-license-url="https%3a%2f%2fcreativecommons.org%2flicenses%2fby-sa%2f4.0%2f" data-se-share-sheet-license-name="CC BY-SA 4.0" data-s-popover-placement="bottom-start" aria-controls="se-share-sheet-1" data-action=" s-popover#toggle se-share-sheet#preventNavigation s-popover:show-&gt;se-share-sheet#willShow s-popover:shown-&gt;se-share-sheet#didShow" aria-expanded="false">Share</a><div class="s-popover z-dropdown s-anchors s-anchors__default" style="width: unset; max-width: 28em;" id="se-share-sheet-1"><div class="s-popover--arrow"></div><div><label class="js-title fw-bold" for="share-sheet-input-se-share-sheet-1">Share a link to this answer</label> <span class="js-subtitle"></span></div><div class="my8"><input type="text" id="share-sheet-input-se-share-sheet-1" class="js-input s-input wmn3 sm:wmn-initial bc-black-200 bg-white fc-dark" readonly=""></div><div class="d-flex jc-space-between ai-center mbn4"><button class="js-copy-link-btn s-btn s-btn__link js-gps-track" data-gps-track="">Copy link</button><a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" class="js-license s-block-link w-auto" target="_blank" title="The current license for this post: CC BY-SA 4.0">CC BY-SA 4.0</a><div class="js-social-container d-none"></div></div></div>
+            </div>
+
+
+                    <div class="flex--item">
+                        <a href="https://stackoverflow.com/posts/37631908/edit" class="js-suggest-edit-post js-gps-track" data-gps-track="post.click({ item: 6, priv: 0, post_type: 2 })" title="">Improve this answer</a>
+                    </div>
+
+            <div class="flex--item">
+                <button type="button" id="btnFollowPost-37631908" class="s-btn s-btn__link js-follow-post js-follow-answer js-gps-track" data-gps-track="post.click({ item: 14, priv: 0, post_type: 2 })" data-controller="s-tooltip " data-s-tooltip-placement="bottom" data-s-popover-placement="bottom" aria-controls="" aria-describedby="--stacks-s-tooltip-n8l3bpyg">
+                    Follow
+                </button><div id="--stacks-s-tooltip-n8l3bpyg" class="s-popover s-popover__tooltip" role="tooltip">Follow this answer to receive notifications<div class="s-popover--arrow"></div></div>
+            </div>
+
+
+
+
+
+
+    </div>
+    <div class="js-menu-popup-container"></div>
+</div>
+            </div>
+            <div class="post-signature flex--item fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/37631908/revisions" title="show all edits to this post" class="js-gps-track" data-gps-track="post.click({ item: 4, priv: 0, post_type: 2 })">edited <span title="2021-03-23 06:32:58Z" class="relativetime">Mar 23, 2021 at 6:32</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>
+            </div>
+
+
+            <div class="post-signature flex--item fl0">
+                <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2016-06-04 15:25:43Z" class="relativetime">Jun 4, 2016 at 15:25</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/3436270/lafif-astahdziq"><div class="gravatar-wrapper-32"><img src="./Custom Payment Method in WooCommerce - Stack Overflow_files/833ceebb95140d7077ea1557fec86b60.png" alt="Lafif Astahdziq&#39;s user avatar" width="32" height="32" class="bar-sm"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/3436270/lafif-astahdziq">Lafif Astahdziq</a><span class="d-none" itemprop="name">Lafif Astahdziq</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,640</span><span title="28 silver badges" aria-hidden="true"><span class="badge2"></span><span class="badgecount">28</span></span><span class="v-visible-sr">28 silver badges</span><span title="37 bronze badges" aria-hidden="true"><span class="badge3"></span><span class="badgecount">37</span></span><span class="v-visible-sr">37 bronze badges</span>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+    
+    </div>
+    
+</div>
+
+
+
+
+            <span class="d-none" itemprop="commentCount">6</span> 
+    <div class="post-layout--right js-post-comments-component">
+        <div id="comments-37631908" class="comments js-comments-container bt bc-black-075 mt12 " data-post-id="37631908" data-min-length="15">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <li id="comment-75266677" class="comment js-comment " data-comment-id="75266677" data-comment-owner-id="1201215" data-comment-score="0">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+        </div>
+        <div class="comment-text  js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">I have been scouring the internet for days looking for how to save payment_fields to the DB! All I needed was the end part. Thank you!! :O</span>
+                
+              <div class="d-inline-flex ai-center">
+–&nbsp;<a href="https://stackoverflow.com/users/1201215/cory-fischer" title="111 reputation" class="comment-user">Cory Fischer</a>
+                </div>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#comment75266677_37631908" aria-label="Link to comment"><span title="2017-05-23 00:02:51Z, License: CC BY-SA 3.0" class="relativetime-clean">May 23, 2017 at 0:02</span></a></span>
+            </div>
+        </div>
+    </li>
+    <li id="comment-96979045" class="comment js-comment " data-comment-id="96979045" data-comment-owner-id="6756566" data-comment-score="0">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+        </div>
+        <div class="comment-text  js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Why process_admin_options action is used, as no definition.</span>
+                
+              <div class="d-inline-flex ai-center">
+–&nbsp;<a href="https://stackoverflow.com/users/6756566/jasbir-rana" title="241 reputation" class="comment-user">Jasbir Rana</a>
+                </div>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#comment96979045_37631908" aria-label="Link to comment"><span title="2019-03-12 10:04:58Z, License: CC BY-SA 4.0" class="relativetime-clean">Mar 12, 2019 at 10:04</span></a></span>
+            </div>
+        </div>
+    </li>
+    <li id="comment-96993566" class="comment js-comment " data-comment-id="96993566" data-comment-owner-id="3436270" data-comment-score="0">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+        </div>
+        <div class="comment-text  js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">@JasbirRana see the method on the inherited class <code>WC_Payment_Gateway</code></span>
+                
+              <div class="d-inline-flex ai-center">
+–&nbsp;<a href="https://stackoverflow.com/users/3436270/lafif-astahdziq" title="3,640 reputation" class="comment-user">Lafif Astahdziq</a>
+                </div>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#comment96993566_37631908" aria-label="Link to comment"><span title="2019-03-12 16:08:32Z, License: CC BY-SA 4.0" class="relativetime-clean">Mar 12, 2019 at 16:08</span></a></span>
+            </div>
+        </div>
+    </li>
+    <li id="comment-97064595" class="comment js-comment " data-comment-id="97064595" data-comment-owner-id="6756566" data-comment-score="0">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+        </div>
+        <div class="comment-text  js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Can we declare class "WC_Gateway_Custom" outside the function, because i am having a fatel error : Fatal error: Class declarations may not be nested</span>
+                
+              <div class="d-inline-flex ai-center">
+–&nbsp;<a href="https://stackoverflow.com/users/6756566/jasbir-rana" title="241 reputation" class="comment-user">Jasbir Rana</a>
+                </div>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#comment97064595_37631908" aria-label="Link to comment"><span title="2019-03-14 12:44:56Z, License: CC BY-SA 4.0" class="relativetime-clean">Mar 14, 2019 at 12:44</span></a></span>
+            </div>
+        </div>
+    </li>
+    <li id="comment-99830096" class="comment js-comment " data-comment-id="99830096" data-comment-owner-id="3436270" data-comment-score="0">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+        </div>
+        <div class="comment-text  js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">yes, you can. just load / include the class inside the function</span>
+                
+              <div class="d-inline-flex ai-center">
+–&nbsp;<a href="https://stackoverflow.com/users/3436270/lafif-astahdziq" title="3,640 reputation" class="comment-user">Lafif Astahdziq</a>
+                </div>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#comment99830096_37631908" aria-label="Link to comment"><span title="2019-06-17 10:09:54Z, License: CC BY-SA 4.0" class="relativetime-clean">Jun 17, 2019 at 10:09</span></a></span>
+            </div>
+        </div>
+    </li>
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-37631908" data-rep="50" data-anon="true">
+                    <a class="js-add-link comments-link dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#" role="button"></a>
+                <span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="Expand to show all comments on this post" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#" onclick="" role="button">Show <b>1</b> more comment</a>
+        </div>         
+    </div>
+    </div>
+</div>
+
+<div class="js-zone-container zone-container-main">
+    <div id="dfp-bmlb" class="everyonelovesstackoverflow everyoneloves__bot-mid-leaderboard everyoneloves__leaderboard" data-dfp-zone="true" style="min-height: auto; height: auto; display: none;" data-google-query-id="CMzFqMSvsvoCFQ63dwodRl4Bnw"><div id="google_ads_iframe_/248424177/stackoverflow.com/bmlb/question-pages_0__container__" style="border: 0pt none; width: 728px; height: 0px;"></div></div>
+		<div class="js-report-ad-button-container " style="width: 728px"></div>
+</div>
+
+                                    <aside class="s-notice s-notice__info post-notice js-post-notice mb16" role="status">
+        <div class="d-flex fd-column fw-nowrap">
+            <div class="d-flex fw-nowrap">
+                    <div class="flex--item mr8">
+                        <svg aria-hidden="true" class="svg-icon iconFire" width="18" height="18" viewBox="0 0 18 18"><path opacity=".6" d="M13.18 9c-.8.33-1.46.6-1.97 1.3A9.21 9.21 0 0 0 10 13.89a10 10 0 0 0 1.32-.8 2.53 2.53 0 0 1-.63 2.91h.78a3 3 0 0 0 1.66-.5 4.15 4.15 0 0 0 1.26-1.61c.4-.96.47-1.7.55-2.73.05-1.24-.1-2.49-.46-3.68a2 2 0 0 1-.4.91 2.1 2.1 0 0 1-.9.62Z" fill="#FF6700"></path><path d="M10.4 12.11a7.1 7.1 0 0 1 .78-1.76c.3-.47.81-.8 1.37-1.08 0 0-.05-3.27-1.55-5.27-1.5-2-3.37-2.75-4.95-2.61 0 0 4.19 2.94 1.18 5.67-2.14 1.92-3.64 3.81-3.1 5.94a4.14 4.14 0 0 0 3.1 3 4.05 4.05 0 0 1 1.08-3.89C9.42 10.92 8 9.79 8 9.79c.67.02 1.3.28 1.81.72a2 2 0 0 1 .58 1.6Z" fill="#EF2E2E"></path></svg>
+                    </div>
+                <div class="flex--item wmn0 fl1 lh-lg">
+                    <div class="flex--item fl1 lh-lg">
+                        <b><a href="https://stackoverflow.com/help/privileges/protect-questions">Highly active question</a></b>. Earn 10 reputation (not counting the <a href="https://meta.stackexchange.com/questions/141648/what-is-the-association-bonus-and-how-does-it-work">association bonus</a>) in order to answer this question. The reputation requirement helps protect this question from spam and non-answer activity.
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+</aside>
+
+
+
+                            <h2 class="bottom-notice" data-loc="1">
+                                <div>
+Not the answer you're looking for? Browse other questions tagged <ul class="ml0 list-ls-none js-post-tag-list-wrapper d-inline"><li class="d-inline mr4 js-post-tag-list-item"><a href="https://stackoverflow.com/questions/tagged/methods" class="post-tag" title="show questions tagged &#39;methods&#39;" aria-label="show questions tagged &#39;methods&#39;" rel="tag" aria-labelledby="methods-container">methods</a></li><li class="d-inline mr4 js-post-tag-list-item"><a href="https://stackoverflow.com/questions/tagged/payment" class="post-tag" title="" aria-label="show questions tagged &#39;payment&#39;" rel="tag" aria-labelledby="payment-container">payment</a></li><li class="d-inline mr4 js-post-tag-list-item"><a href="https://stackoverflow.com/questions/tagged/woocommerce" class="post-tag" title="show questions tagged &#39;woocommerce&#39;" aria-label="show questions tagged &#39;woocommerce&#39;" rel="tag" aria-labelledby="woocommerce-container">woocommerce</a></li></ul> or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.                                </div>
+                            </h2>
+                </div>
+            </div>
+            <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+                    
+
+                
+<div class="s-sidebarwidget s-sidebarwidget__yellow s-anchors s-anchors__grayscale mb16" data-tracker="cb=1">
+    <ul class="d-block p0 m0">
+                    <li class="s-sidebarwidget--header s-sidebarwidget__small-bold-text d-flex fc-black-600 d:fc-black-900 bb bbw1">
+                        The Overflow Blog
+                    </li>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<svg aria-hidden="true" class="va-text-top svg-icon iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="m11.1 1.71 1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0ZM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88Z"></path></svg>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://stackoverflow.blog/2022/09/22/five-nines-uptime-without-developer-burnout/?cb=1" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;The Overflow Blog&quot;,&quot;https://stackoverflow.blog/2022/09/22/five-nines-uptime-without-developer-burnout/&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 1, position: 0 })">Five nines uptime without developer burnout (Ep. 488)</a>
+            </div>
+        </li>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<svg aria-hidden="true" class="va-text-top svg-icon iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="m11.1 1.71 1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0ZM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88Z"></path></svg>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://stackoverflow.blog/2022/09/23/we-hate-scrum-and-agile-when-its-done-wrong-ep-488/?cb=1" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;The Overflow Blog&quot;,&quot;https://stackoverflow.blog/2022/09/23/we-hate-scrum-and-agile-when-its-done-wrong-ep-488/&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 1, position: 1 })">We hate Scrum and Agile…when it’s done wrong (Ep. 489)</a>
+            </div>
+        </li>
+                    <li class="s-sidebarwidget--header s-sidebarwidget__small-bold-text d-flex fc-black-600 d:fc-black-900 bb bbw1">
+                        Featured on Meta
+                    </li>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://meta.stackexchange.com/questions/382079/recent-color-contrast-changes-and-accessibility-updates?cb=1" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/382079/recent-color-contrast-changes-and-accessibility-updates&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 3, position: 2 })">Recent Color Contrast Changes and Accessibility Updates</a>
+            </div>
+        </li>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://meta.stackoverflow.com/questions/420349/reviewer-overboard-or-a-request-to-improve-the-onboarding-guidance-for-new-revi?cb=1" class="js-gps-track" title="Reviewer overboard! Or a request to improve the onboarding guidance for new reviewers in the suggested edits queue" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/420349/reviewer-overboard-or-a-request-to-improve-the-onboarding-guidance-for-new-revi&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 6, position: 3 })">Reviewer overboard! Or a request to improve the onboarding guidance for new...</a>
+            </div>
+        </li>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://meta.stackoverflow.com/questions/416114/should-i-explain-other-peoples-code-only-answers?cb=1" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/416114/should-i-explain-other-peoples-code-only-answers&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 6, position: 4 })">Should I explain other people's code-only answers?</a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<div class="js-zone-container zone-container-sidebar">
+    <div id="dfp-tsb" class="everyonelovesstackoverflow everyoneloves__top-sidebar" data-dfp-zone="true" style="min-height: auto; height: auto; display: none;" data-google-query-id="CKjGqMSvsvoCFU2FgwcdkPIAjw"><div id="google_ads_iframe_/248424177/stackoverflow.com/sb/question-pages_0__container__" style="border: 0pt none; width: 300px; height: 0px;"></div></div>
+		<div class="js-report-ad-button-container " style="width: 300px"></div>
+</div>
+<div class="js-zone-container zone-container-sidebar">
+    <div id="dfp-msb" class="everyonelovesstackoverflow everyoneloves__mid-sidebar" data-dfp-zone="true" style="min-height: auto; height: auto; display: none;" data-google-query-id="CLmFqMSvsvoCFdKFdwodGJ0Bzw"><div id="google_ads_iframe_/248424177/stackoverflow.com/msb/question-pages_0__container__" style="border: 0pt none; width: 300px; height: 0px;"></div></div>
+		<div class="js-report-ad-button-container " style="width: 300px"></div>
+</div>
+<div id="hireme"></div>                    <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+            <div class="spacer js-gps-track" data-gps-track="linkedquestion.click({ source_post_id: 17081483, target_question_id: 67808585, position: 0 })">
+				<a href="https://stackoverflow.com/q/67808585?lq=1" title="Question score (upvotes - downvotes)">
+					<div class="answer-votes answered-accepted default">1</div>
+				</a>
+				<a href="https://stackoverflow.com/questions/67808585/wordpress-woocommerce-save-custom-payment-post-meta?noredirect=1&amp;lq=1" class="question-hyperlink">WordPress/WooCommerce: Save custom payment post meta</a>
+			</div>
+	</div>
+</div>
+
+
+                    <div class="module sidebar-related">
+                        <h4 id="h-related">Related</h4>
+                        <div class="related js-gps-related-questions" data-tracker="rq=1">
+                                <div class="spacer js-gps-track">
+                                    <a href="https://stackoverflow.com/q/16729643?rq=1" title="Question score (upvotes - downvotes)">
+                                        <div class="answer-votes default">15</div>
+                                    </a>
+                                    <a href="https://stackoverflow.com/questions/16729643/removing-payment-gateways-from-woocommerce?rq=1" class="question-hyperlink">Removing payment gateways from WooCommerce</a>
+                                </div>
+                                <div class="spacer js-gps-track">
+                                    <a href="https://stackoverflow.com/q/21828039?rq=1" title="Question score (upvotes - downvotes)">
+                                        <div class="answer-votes answered-accepted default">1</div>
+                                    </a>
+                                    <a href="https://stackoverflow.com/questions/21828039/adding-payment-method-to-woocommerce-wordpress?rq=1" class="question-hyperlink">Adding Payment Method to woocommerce wordpress</a>
+                                </div>
+                                <div class="spacer js-gps-track">
+                                    <a href="https://stackoverflow.com/q/33816480?rq=1" title="Question score (upvotes - downvotes)">
+                                        <div class="answer-votes default">48</div>
+                                    </a>
+                                    <a href="https://stackoverflow.com/questions/33816480/woocommerce-payment-complete-hook?rq=1" class="question-hyperlink">WooCommerce payment complete hook</a>
+                                </div>
+                                <div class="spacer js-gps-track">
+                                    <a href="https://stackoverflow.com/q/40406101?rq=1" title="Question score (upvotes - downvotes)">
+                                        <div class="answer-votes default">5</div>
+                                    </a>
+                                    <a href="https://stackoverflow.com/questions/40406101/woocommerce-payment-after-confirming-order?rq=1" class="question-hyperlink">WooCommerce: Payment after confirming order</a>
+                                </div>
+                                <div class="spacer js-gps-track">
+                                    <a href="https://stackoverflow.com/q/43658291?rq=1" title="Question score (upvotes - downvotes)">
+                                        <div class="answer-votes default">2</div>
+                                    </a>
+                                    <a href="https://stackoverflow.com/questions/43658291/woocommerce-payment-custom-thank-you-page?rq=1" class="question-hyperlink">Woocommerce Payment custom thank you page</a>
+                                </div>
+                        </div>
+                    </div>
+
+                <div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track s-link s-link__inherit" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/75746/in-which-house-of-congress-of-the-usa-is-a-bill-introduced-first" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    In which house of Congress of the USA is a bill introduced first?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/236045/can-the-princess-escape-using-shoddy-craftsmanship-in-a-one-sided-lock" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can the princess escape using shoddy craftsmanship in a one-sided lock?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-mathematica" title="Mathematica Stack Exchange"></div><a href="https://mathematica.stackexchange.com/questions/273955/torch-like-permutation-for-arrays" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:387 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Torch-like permutation for arrays?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-matheducators" title="Mathematics Educators Stack Exchange"></div><a href="https://matheducators.stackexchange.com/questions/25647/small-vs-capital-letters-for-matrix-entries" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:548 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Small vs. capital letters for matrix entries
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-dba" title="Database Administrators Stack Exchange"></div><a href="https://dba.stackexchange.com/questions/317371/whats-the-use-case-of-disabling-an-index" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:182 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What's the use case of disabling an index?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="https://superuser.com/questions/1744285/how-to-copy-a-list-of-file-creation-dates-from-a-windows-file-explorer-to-a-spre" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to copy a list of file creation dates from a Windows File Explorer to a spreadsheet
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-cooking" title="Seasoned Advice"></div><a href="https://cooking.stackexchange.com/questions/121779/can-i-add-thick-cream-to-whipping-cream-to-increase-fat-content-and-make-the-whi" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:49 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I add thick cream to whipping cream to increase fat content and make the whipped cream more stable?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="https://superuser.com/questions/1744268/how-do-i-type-the-schwa-symbol-%c9%99-if-alt-0259-doesnt-work" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I type the schwa symbol ə if Alt + 0259 doesn't work?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/268031/sci-fi-novel-about-a-group-of-people-stranded-on-a-planet-populated-by-automated" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Sci-fi novel about a group of people stranded on a planet populated by automated war machines
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="https://gaming.stackexchange.com/questions/399444/whats-that-crown-over-splatoon-nametag-players" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What's that crown over Splatoon nametag players?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/201652/does-scintillating-spell-metamagic-apply-to-cantrips-e-g-electric-arc" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does Scintillating Spell metamagic apply to cantrips (e.g., Electric Arc)?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/189074/if-watch-a-video-about-a-book-do-i-need-to-cite-the-book-as-well" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If watch a video about a book do I need to cite the book as well?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-philosophy" title="Philosophy Stack Exchange"></div><a href="https://philosophy.stackexchange.com/questions/93812/is-naturalism-falsifiable" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:265 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is naturalism falsifiable?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-blender" title="Blender Stack Exchange"></div><a href="https://blender.stackexchange.com/questions/275426/adding-a-rotating-rgb-border-to-a-model" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:502 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Adding a rotating RGB border to a model
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/729283/converting-differential-to-gradient" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Converting differential to gradient
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/75761/vagueness-rather-than-specificity-when-the-risks-are-enormous" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Vagueness rather than specificity when the risks are enormous
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-stats" title="Cross Validated"></div><a href="https://stats.stackexchange.com/questions/589933/what-is-the-right-slope-formula-of-a-regression-deltas-or-pearson" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:65 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the 'right' slope formula of a regression? deltas or Pearson?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="https://diy.stackexchange.com/questions/257292/in-what-situations-could-dirty-water-leak-into-municipal-water-pipes-besides-a" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    In what situations could "dirty water leak into" municipal water pipes besides a catastrophic loss of pressure?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/176533/how-do-non-english-speakers-navigate-through-jfk-airport" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do non-English speakers navigate through JFK airport?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/729238/is-there-an-explanation-for-action-reaction-law" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there an explanation for action-reaction law?
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="https://diy.stackexchange.com/questions/257326/1987-home-build-multiple-14ga-switch-loops-on-20-amp-circuit" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    1987 Home Build: Multiple 14ga Switch Loops on 20 AMP Circuit
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-law" title="Law Stack Exchange"></div><a href="https://law.stackexchange.com/questions/84656/alices-restaurant-profiteering-from-those-with-allergies" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:617 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Alice's restaurant profiteering from those with allergies
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/268023/looking-for-name-of-manga-with-noble-girl-possibly-named-mary" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    looking for name of manga with noble girl, possibly named Mary
+                </a>
+
+            </li>
+            <li class="js-hidden dno" style="display: list-item;">
+                <div class="favicon favicon-astronomy" title="Astronomy Stack Exchange"></div><a href="https://astronomy.stackexchange.com/questions/50553/what-is-the-bright-orange-star" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:514 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the bright orange star?
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#" class="show-more js-show-more js-gps-track" data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+
+                            <div id="feed-link" class="js-feed-link">
+        <a href="https://stackoverflow.com/feeds/question/17081483" title="Feed of this question and its answers">
+            <svg aria-hidden="true" class="fc-orange-400 svg-icon iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M3 1a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H3Zm0 1.5c6.9 0 12.5 5.6 12.5 12.5H13C13 9.55 8.45 5 3 5V2.5Zm0 5c4.08 0 7.5 3.41 7.5 7.5H8c0-2.72-2.28-5-5-5V7.5Zm0 5c1.36 0 2.5 1.14 2.5 2.5H3v-2.5Z"></path></svg>
+            Question feed
+        </a>
+    </div>
+    <aside class="s-modal js-feed-link-modal" tabindex="-1" role="dialog" aria-labelledby="feed-modal-title" aria-describedby="feed-modal-description" aria-hidden="true">
+        <div class="s-modal--dialog js-modal-dialog wmx4" role="document" data-controller="se-draggable">
+            <h1 class="s-modal--header fw-bold js-first-tabbable c-move" id="feed-modal-title" data-se-draggable-target="handle" tabindex="0">
+                Subscribe to RSS
+            </h1>
+            <div class="d-flex gs4 gsy fd-column">
+                <div class="flex--item">
+                    <label class="d-block s-label c-default" for="feed-url">
+                        Question feed
+                        <p class="s-description mt2" id="feed-modal-description">To subscribe to this RSS feed, copy and paste this URL into your RSS reader.</p>
+                    </label>
+                </div>
+                <div class="d-flex ps-relative">
+                    <input class="s-input" type="text" name="feed-url" id="feed-url" readonly="readonly" value="https://stackoverflow.com/feeds/question/17081483">
+                    <svg aria-hidden="true" class="s-input-icon fc-orange-400 svg-icon iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M3 1a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H3Zm0 1.5c6.9 0 12.5 5.6 12.5 12.5H13C13 9.55 8.45 5 3 5V2.5Zm0 5c4.08 0 7.5 3.41 7.5 7.5H8c0-2.72-2.28-5-5-5V7.5Zm0 5c1.36 0 2.5 1.14 2.5 2.5H3v-2.5Z"></path></svg>
+                </div>
+            </div>
+            <a class="s-modal--close s-btn s-btn__muted js-modal-close js-last-tabbable" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#" aria-label="Close">
+                <svg aria-hidden="true" class="svg-icon iconClearSm" width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41Z"></path></svg>
+            </a>
+        </div>
+    </aside>
+
+            </div>
+    </div>
+<script>StackExchange.ready(function(){$.get('/posts/17081483/ivc/f63f');});</script>
+<noscript><div><img src="/posts/17081483/ivc/f63f" class="dno" alt="" width="0" height="0"></div></noscript><div style="display:none" id="js-codeblock-lang">lang-php</div></div>
+
+
+        </div>
+    </div>
+
+
+            
+<script>;(()=>{"use strict";var __webpack_modules__={23:(e,t,s)=>{s.d(t,{AG:()=>n,Z7:()=>l,kG:()=>r});const a=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?"tag-pages":/^\/$/.test(location.pathname)||/^\/home/.test(location.pathname)?"home-page":"question-pages";let i=location.hostname;(/^(dev|local|clc\.dev)\./.test(location.hostname)||/\.local$/.test(location.hostname))&&(i="test/dev.stackoverflow.com");const o={slots:{lb:[[728,90]],mlb:[[728,90]],smlb:[[728,90]],bmlb:[[728,90]],sb:e=>"dfp-tsb"===e?[[300,250],[300,600]]:[[300,250]],"tag-sponsorship":[[730,135]],"mobile-below-question":[[320,50],[300,250]],msb:[[300,250],[300,600]],"talent-conversion-tracking":[[1,1]],"site-sponsorship":[[230,60]]},ids:{"dfp-tlb":"lb","dfp-mlb":"mlb","dfp-smlb":"smlb","dfp-bmlb":"bmlb","dfp-tsb":"sb","dfp-isb":"sb","dfp-tag":"tag-sponsorship","dfp-msb":"msb","dfp-sspon":"site-sponsorship","dfp-m-aq":"mobile-below-question"},idsToExcludeFromAdReports:["dfp-sspon"]};function r(){return Object.keys(o.ids)}function n(e){return o.idsToExcludeFromAdReports.indexOf(e)<0}function l(e){var t=e.split("_")[0];const s=o.ids[t];let r=o.slots[s];return"function"==typeof r&&(r=r(t)),{path:`/248424177/${i}/${s}/${a}`,sizes:r,zone:s}}},865:(e,t,s)=>{function a(e){return"string"==typeof e?document.getElementById(e):e}function i(e){return!!(e=a(e))&&"none"===getComputedStyle(e).display}function o(e){return!i(e)}function r(e){return!!e}function n(e){return/^\s*$/.test(a(e).innerHTML)}function l(e){const{style:t}=e;t.height=t.maxHeight=t.minHeight="auto",t.display="none"}function d(e){const{style:t}=e;t.height=t.maxHeight=t.minHeight="auto",t.display="none",[].forEach.call(e.children,d)}function c(e){const{style:t}=e;t.height=t.maxHeight=t.minHeight="auto",t.removeProperty("display")}function p(e){const t=document.createElement("script");t.src=e,document.body.appendChild(t)}function g(e){return s=e,(t=[]).push=function(e){return s(),delete this.push,this.push(e)},t;var t,s}function h(e){let t="function"==typeof HTMLTemplateElement;var s=document.createElement(t?"template":"div");return e=e.trim(),s.innerHTML=e,t?s.content.firstChild:s.firstChild}s.d(t,{$Z:()=>c,Bv:()=>h,Gx:()=>p,Nj:()=>a,QZ:()=>g,cf:()=>l,pn:()=>o,wo:()=>d,xb:()=>n,xj:()=>i,yb:()=>r})},763:(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{__webpack_require__.d(__webpack_exports__,{t:()=>AdReports});var _common_helper__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(865),_console__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(276),_ad_units__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(23);class AdReports{constructor(e,t){if(this.googletag=e,this.cam=t,this.allowedFileTypes=["image/png","image/jpg","image/jpeg"],this.ignoreValidation=!1,this.cam=t,this.callOnButtonClick=e=>this.onButtonClick(e),this.googletag.pubads().addEventListener("slotRenderEnded",e=>this.handleSlotRendered(e)),Array.isArray(t.slotsRenderedEvents))for(var s=0;s<t.slotsRenderedEvents.length;s++)this.handleSlotRendered(t.slotsRenderedEvents[s])}handleSlotRendered(e){if(e&&e.slot&&!e.isEmpty&&(e.creativeId||e.lineItemId||!e.isEmpty)){var t=e.slot.getSlotElementId();if((0,_ad_units__WEBPACK_IMPORTED_MODULE_0__.AG)(t)&&t){var s=document.getElementById(t);if(s){var a=s.closest(".js-zone-container").querySelector(".js-report-ad-button-container");a.style.height="24px",a.append(this.createButton(e))}}}}async onButtonClick(e){e.preventDefault();let t=e.target;const s=t.dataset.modalUrl,a=t.dataset.googleEventData;return await this.loadModal(s,t,a),!1}createButton(e){let t=document.createElement("button");var s=JSON.stringify(e);return t.dataset.googleEventData=s,t.dataset.modalUrl=this.cam.opt.adReportUrl,t.dataset.adUnit=e.slot.getSlotElementId(),t.classList.add("js-report-ad","s-btn","s-btn__link","fs-fine","mt2","float-right"),t.textContent=this.cam.opt.adReportText,t.removeEventListener("click",this.callOnButtonClick),t.addEventListener("click",this.callOnButtonClick),t}async loadModal(url,$link,googleEventData){try{await window.StackExchange.helpers.loadModal(url,{returnElements:window.$($link)}),this.initForm(googleEventData)}catch(e){var message="",response=e.responseText?eval(`(${e.responseText})`):null;message=response&&response.isLoggedOut?this.cam.opt.adReportLoginExpiredMessage:this.cam.opt.adReportLoginErrorMessage,window.StackExchange.helpers.showToast(message,{type:"danger"})}}removeModal(){window.StackExchange.helpers.closePopups(document.querySelectorAll("."+this.cam.opt.adReportModalClass),"dismiss")}initForm(e,t=!1){this.ignoreValidation=t,this.$form=document.querySelector(".js-ad-report-form"),this.$googleEventData=this.$form.querySelector(".js-json-data"),this.$adReportReasons=this.$form.querySelectorAll(".js-ad-report-reason"),this.$adReportReasonOther=this.$form.querySelector(".js-ad-report-reason-other"),this.$fileUploaderInput=this.$form.querySelector(".js-file-uploader-input"),this.$imageUploader=this.$form.querySelector(".js-image-uploader"),this.$clearImageUpload=this.$form.querySelector(".js-clear-image-upload"),this.$imageUploaderText=this.$form.querySelector(".js-image-uploader-text"),this.$imageUploaderPreview=this.$form.querySelector(".js-image-uploader-preview"),this.$fileErrorMessage=this.$form.querySelector(".js-file-error");const s=this.$form.querySelector(".js-drag-drop-enabled"),a=this.$form.querySelector(".js-drag-drop-disabled");this.$googleEventData.value=e,this.$adReportReasons.forEach((e,t)=>e.addEventListener("change",e=>{this.$adReportReasonOther.classList.toggle("d-none","3"!==e.target.value)})),this.$fileUploaderInput.addEventListener("change",()=>{this.validateFileInput()&&this.updateImagePreview(this.$fileUploaderInput.files)}),this.$clearImageUpload.addEventListener("click",e=>{e.preventDefault(),this.clearImageUpload()});try{this.$fileUploaderInput[0].value="",this.$imageUploader.addEventListener("dragenter dragover dragleave drop",this.preventDefaults),this.$imageUploader.addEventListener("dragenter dragover",this.handleDragStart),this.$imageUploader.addEventListener("dragleave drop",this.handleDragEnd),this.$imageUploader.addEventListener("drop",this.handleDrop)}catch(e){s.classList.add("d-none"),a.classList.remove("d-none")}this.$form.removeEventListener("",this.handleDragEnd),this.$form.addEventListener("submit",async e=>(e.preventDefault(),this.submitForm(),!1))}clearImageUpload(){this.$fileUploaderInput.value="",this.$imageUploaderPreview.setAttribute("src",""),this.$imageUploaderPreview.classList.add("d-none"),this.$clearImageUpload.classList.add("d-none"),this.$imageUploaderText.classList.remove("d-none"),this.$imageUploader.classList.add("p16","ba","bas-dashed","bc-black-100")}preventDefaults(e){e.preventDefault(),e.stopPropagation()}handleDragStart(e){this.$imageUploader.classList.remove("bas-dashed"),this.$imageUploader.classList.add("bas-solid","bc-black-100")}handleDragEnd(e){this.$imageUploader.classList.remove("bas-solid","bc-black-100"),this.$imageUploader.classList.add("bas-dashed")}handleDrop(e){var t=e.originalEvent.dataTransfer.files;FileReader&&t&&1===t.length&&(this.$fileUploaderInput.files=t,this.validateFileInput()&&this.updateImagePreview(t))}setError(e){this.$fileErrorMessage.parentElement.classList.toggle("has-error",e)}updateImagePreview(e){this.$imageUploader.classList.remove("p16","ba","bas-dashed","bc-black-100"),this.$clearImageUpload.classList.remove("d-none"),this.$imageUploaderText.classList.add("d-none");var t=new FileReader;t.onload=e=>{null!=e.target&&(this.$imageUploaderPreview.setAttribute("src",e.target.result),this.$imageUploaderPreview.classList.remove("d-none"))},t.readAsDataURL(e[0])}validateFileInput(){if(this.ignoreValidation)return!0;const e=this.cam.opt.adReportFileTypeErrorMessage,t=this.cam.opt.adReportFileSizeErrorMessage;if(null==this.$fileUploaderInput.files)return!1;var s=this.$fileUploaderInput.files[0];return null==s?(this.setError(!0),!1):this.allowedFileTypes.indexOf(s.type)<0?(this.$fileErrorMessage.textContent=e,this.$fileErrorMessage.classList.remove("d-none"),this.setError(!0),!1):s.size>2097152?(this.$fileErrorMessage.textContent=t,this.$fileErrorMessage.classList.remove("d-none"),this.setError(!0),!1):(this.$fileErrorMessage.classList.add("d-none"),this.setError(!1),!0)}async submitForm(){if(!this.validateFileInput())return!1;this.$form.querySelector("[type=submit]").setAttribute("disabled","true");var e=JSON.parse(this.$googleEventData.value||"{}");e.Reason=parseInt(this.$form.querySelector(".js-ad-report-reason:checked").value,10),e.Description=this.$adReportReasonOther.value,this.$googleEventData.value=JSON.stringify(e);var t=new FormData(this.$form);try{const e=await window.fetch(this.$form.getAttribute("action"),{method:this.$form.getAttribute("method"),body:t,cache:"no-cache"}),a=e.headers.get("content-type")||"",i=await e.text();if(!e.ok)throw new Error("response not valid");if(0===a.indexOf("text/html")){var s=(0,_common_helper__WEBPACK_IMPORTED_MODULE_1__.Bv)(i);const e=s?s.querySelector(".js-modal-content"):null;if(_console__WEBPACK_IMPORTED_MODULE_2__.cM("$popupContent"),_console__WEBPACK_IMPORTED_MODULE_2__.cM(e),!e)throw new Error(`Could not find .js-modal-content in response from ${this.$form.getAttribute("action")}`);document.querySelector(".js-modal-content").replaceWith(e)}else window.StackExchange.helpers.showToast(this.cam.opt.adReportThanksText,{type:"success"}),this.removeModal()}catch(e){window.StackExchange.helpers.showToast(this.cam.opt.adReportErrorText,{type:"danger"})}finally{let e=this.$form.querySelector("[type=submit]");e&&e.removeAttribute("disabled")}}}},276:(e,t,s)=>{function a(...e){}s.d(t,{cM:()=>a})}},__webpack_module_cache__={};function __webpack_require__(e){var t=__webpack_module_cache__[e];if(void 0!==t)return t.exports;var s=__webpack_module_cache__[e]={exports:{}};return __webpack_modules__[e](s,s.exports,__webpack_require__),s.exports}__webpack_require__.d=(e,t)=>{for(var s in t)__webpack_require__.o(t,s)&&!__webpack_require__.o(e,s)&&Object.defineProperty(e,s,{enumerable:!0,get:t[s]})},__webpack_require__.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t);var __webpack_exports__={};(()=>{var e=__webpack_require__(276),t=(e=>(e[e.Above=0]="Above",e[e.Below=1]="Below",e))(t||{});const s=Object.assign({},{"lib":"https://cdn.sstatic.net/clc/js/ts/gam_loader_script/404.1cd980e61dd34f7e394b.min.js","style":"https://cdn.sstatic.net/clc/","u":null,"wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(.*\\.googlesyndication)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false,"abd":true,"cpa_liid":[5882654614],"cpa_cid":[138377597667],"dp":false});var a=__webpack_require__(23),i=__webpack_require__(865),o=__webpack_require__(763);window.cam=new class{constructor(){this.gptImported=!1,this.collapsed={},this.clc_options=s,e.cM("constructor"),this.initGpt(),window.StackExchange.ready(()=>this.init())}init(){if(e.cM("init"),void 0===this.opt)throw new Error("opt not set, required by GAM Loader");this.opt.adReportEnabled&&googletag.cmd.push(()=>this.adReports=new o.t(googletag,this)),e.cM("setup message handler"),window.addEventListener("message",e=>{this.onmessage(e)})}onmessage(t){let s="omni";if(t.data&&("string"==typeof t.data||t.data instanceof String))if(0===t.data.indexOf("get-omni-")){e.cM("Recevied get-omni message, sending back omni");var a=t.source,o=this.opt.omni,r="string"==typeof o?o:"";a.postMessage([s,r].join("|"),"*")}else if(0===t.data.indexOf("collapse-")){e.cM("Recevied collapse message, collapse ad iframe"),e.cM(t);for(var n=t.source.window,l=document.getElementsByTagName("IFRAME"),d=0;d<l.length;d++){var c=l[d];if(c.contentWindow==n)return void(0,i.wo)(c.parentElement.parentElement.parentElement)}}else if(0===t.data.indexOf("resize|")){e.cM("Recevied resize message, resize ad iframe"),e.cM(t);let s=this._getFrameByEvent(t),a=t.data.split("|"),i=parseFloat(a[1])+.5;e.cM("New iframe height "+i),s.height=i.toString(),s.parentElement.style.height=i.toString()+"px"}}_getFrameByEvent(e){return Array.from(document.getElementsByTagName("iframe")).filter(t=>t.contentWindow===e.source)[0]}classifyZoneIds(e){const t=e.map(i.Nj).filter(i.yb);return{eligible:t.filter(i.xb).filter(i.pn),ineligible:t.filter(i.xj)}}load(s=(0,a.kG)()){const o=this.opt.tlb_position===t.Above?["dfp-mlb","dfp-smlb"]:["dfp-mlb","dfp-smlb","dfp-tlb"];if(!this.isGptReady())return e.cM("Initializing..."),this.initGpt(),void googletag.cmd.push(()=>this.load(s));e.cM("Attempting to load ads into ids: ",s);const{eligible:r,ineligible:n}=this.classifyZoneIds(s);if(this.initDebugPanel(googletag,r.concat(n)),r.forEach(e=>(0,i.cf)(e)),n.forEach(i.wo),0!==r.length){e.cM("Eligible ids:",r),this.opt.abd&&this.appendAdblockDetector();var l=googletag.pubads().getSlots().filter(e=>s.indexOf(e.getSlotElementId())>=0);googletag.destroySlots(l),this.opt.sf&&(googletag.pubads().setForceSafeFrame(!0),googletag.pubads().setSafeFrameConfig({allowOverlayExpansion:!0,allowPushExpansion:!0,sandbox:!0})),e.cM("Targeting consent: Checking..."),void 0!==this.opt.targeting_consent&&(e.cM("Targeting consent: Parameter set"),e.cM("Targeting consent: Consent given? ",this.opt.targeting_consent),googletag.pubads().setRequestNonPersonalizedAds(this.opt.targeting_consent?0:1),this.opt.targeting_consent||googletag.pubads().setPrivacySettings({limitedAds:!0})),this.opt.ll||googletag.pubads().enableSingleRequest(),cam.sreEvent||(googletag.pubads().addEventListener("slotRenderEnded",e=>this.onSlotRendered(e)),cam.sreEvent=!0),this.setTargeting(googletag);var d=r.filter(e=>!this.opt.ll||o.indexOf(e.id)<0),c=r.filter(e=>!!this.opt.ll&&o.indexOf(e.id)>=0);e.cM("Up front ids:",d),e.cM("Lazy loaded ids:",c),d.forEach(t=>{e.cM(`Defining ad for element ${t.id}`),this.defineSlot(t.id,googletag),t.setAttribute("data-dfp-zone","true")}),googletag.enableServices(),d.forEach(t=>{e.cM(`Displaying ad for element ${t.id}`),googletag.cmd.push(()=>googletag.display(t.id))}),this.opt.ll&&(e.cM("Enabling lazy loading for GAM"),googletag.pubads().enableLazyLoad({fetchMarginPercent:0,renderMarginPercent:0}),e.cM("Setting up lazy loaded ad units"),c.forEach(t=>{e.cM(`Lazy loading - Defining Slot ${t.id}`),this.defineSlot(t.id,googletag)}),c.forEach(t=>{e.cM(`Lazy loading - Displaying ad for element ${t.id}`),googletag.cmd.push(()=>googletag.display(t.id))}))}else e.cM("Found no ad ids on page")}setTargeting(t){let s=this.opt.targeting;"SystemDefault"===s.ProductVariant&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?s.ProductVariant="Dark":s.ProductVariant="Light"),Object.keys(s).forEach(a=>{e.cM(`-> targeting - ${a}: ${s[a]}`),t.pubads().setTargeting(a,s[a])})}appendAdblockDetector(){const e=document.createElement("div");e.className="adsbox",e.id="clc-abd",e.style.position="absolute",e.style.pointerEvents="none",e.innerHTML="&nbsp;",document.body.appendChild(e)}onSlotRendered(s){try{const r=s.slot.getSlotElementId();let n=[];r||n.push("id=0");const l=document.getElementById(r);if(r&&!l&&n.push("el=0"),0!==n.length)return void this.stalled(n.join("&"));const{path:d,sizes:c,zone:p}=(0,a.Z7)(r);if(this.collapsed[p]&&s.isEmpty)return e.cM(`No line item for the element #${l.id}... collapsing.`),void(0,i.wo)(l);if(this.slotsRenderedEvents.push(s),s.lineItemId||s.creativeId||!s.isEmpty){e.cM(`Rendered ad for element #${l.id} [line item #${s.lineItemId}]`),e.cM(s);var o=l.parentElement;if(o.classList.contains("js-zone-container")){switch((0,i.cf)(o),r){case"dfp-tlb":this.opt.tlb_position===t.Above?o.classList.add("mb8"):o.classList.add("mt16");break;case"dfp-tag":o.classList.add("mb8");break;case"dfp-msb":o.classList.add("mt16");break;case"dfp-mlb":case"dfp-smlb":case"dfp-bmlb":o.classList.add("my8");break;case"dfp-isb":o.classList.add("mt24");break;case"dfp-m-aq":o.classList.add("my12"),o.classList.add("mx-auto")}(0,i.$Z)(o),(0,i.$Z)(l)}else e.cM(`No ad for element #${l.id}, collapsing`),e.cM(s),(0,i.wo)(l)}}catch(e){this.stalled("e=1")}}stalled(e){(new Image).src=`https://${this.clc_options.h}/stalled.gif?${e}`}defineSlot(t,s){"dfp-isb"===t&&(e.cM("-> targeting - Sidebar: Inline"),s.pubads().setTargeting("Sidebar",["Inline"])),"dfp-tsb"===t&&(e.cM("-> targeting - Sidebar: Right"),s.pubads().setTargeting("Sidebar",["Right"]));const{path:i,sizes:o,zone:r}=(0,a.Z7)(t);e.cM(`Defining slot for ${t}: ${i}, sizes: ${JSON.stringify(o)}`),s.defineSlot(i,o,t).addService(s.pubads())}importGptLibrary(){this.gptImported||(this.gptImported=!0,void 0===this.opt.targeting_consent||this.opt.targeting_consent?(0,i.Gx)("https://securepubads.g.doubleclick.net/tag/js/gpt.js"):(0,i.Gx)("https://pagead2.googlesyndication.com/tag/js/gpt.js"))}isGptReady(){return"undefined"!=typeof googletag&&!!googletag.apiReady}initGpt(){this.isGptReady()||(window.googletag={cmd:(0,i.QZ)(()=>this.importGptLibrary())})}initDebugPanel(t,s){e.cM("initDebugPanel"),e.cM("Not showing debug panel")}}})()})();</script><script type="text/javascript">
+    var cam = cam || {};
+    if (typeof cam.opt === 'undefined') {
+        cam.opt = {};
+    }
+    var opt = cam.opt;
+
+    opt.omni = 'BJdtyKuzn9oIAAAAAIukBAECAAAAAgAAAAACHQAAAHxtZXRob2RzfHBheW1lbnR8d29vY29tbWVyY2V8AIqN17Bmf5tHelY';
+
+    opt.sf = !0;
+    opt.hb = !1;
+    opt.ll = !0;
+    opt.tlb_position = 0;
+    opt.targeting_consent = !0;
+    opt.performance_consent = !0;
+
+    opt.targeting = {Registered:['false'],'so-tag':['methods','payment','woocommerce'],'tag-reportable':['methods','payment','woocommerce'],'tag-non-reportable':['methods','payment','woocommerce'],NumberOfAnswers:['1']};
+    opt.adReportEnabled = !0;
+    opt.adReportUrl = '/ads/report-ad';
+    opt.adReportText = 'Report this ad';
+	opt.adReportFileTypeErrorMessage = 'Please select a PNG or JPG file.';
+	opt.adReportFileSizeErrorMessage = 'The file must be under 2 MiB.';
+	opt.adReportErrorText = 'Error uploading ad report.';
+	opt.adReportThanksText = 'Thanks for your feedback. We&#x2019;ll review this against our code of conduct and take action if necessary.';
+    opt.adReportLoginExpiredMessage = 'Your login session has expired, please login and try again.';
+    opt.adReportLoginErrorMessage = 'An error occurred when loading the report form - please try again';
+	opt.adReportModalClass = 'js-ad-report';
+
+
+    opt.targeting.TargetingConsent = ['True'];
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('dfptestads')) {
+        const dfptestads = urlParams.get('dfptestads');
+        opt.targeting.DfpTestAds = dfptestads;
+    }
+
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    googletag.cmd.push(function () { cam.load(); });
+</script><script src="./Custom Payment Method in WooCommerce - Stack Overflow_files/gpt.js.download"></script>
+
+        
+    <footer id="footer" class="site-footer js-footer" role="contentinfo">
+        <div class="site-footer--container">
+                <div class="site-footer--logo">
+                    
+                    <a href="https://stackoverflow.com/" aria-label="Stack Overflow"><svg aria-hidden="true" class="native svg-icon iconLogoGlyphMd" width="32" height="37" viewBox="0 0 32 37"><path d="M26 33v-9h4v13H0V24h4v9h22Z" fill="#BCBBBB"></path><path d="m21.5 0-2.7 2 9.9 13.3 2.7-2L21.5 0ZM26 18.4 13.3 7.8l2.1-2.5 12.7 10.6-2.1 2.5ZM9.1 15.2l15 7 1.4-3-15-7-1.4 3Zm14 10.79.68-2.95-16.1-3.35L7 23l16.1 2.99ZM23 30H7v-3h16v3Z" fill="#F48024"></path></svg></a>
+                </div>
+            <nav class="site-footer--nav">
+                    <div class="site-footer--col">
+                        <h5 class="-title"><a href="https://stackoverflow.com/" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list js-primary-footer-links">
+                            <li><a href="https://stackoverflow.com/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li><a href="https://stackoverflow.com/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                        </ul>
+                    </div>
+                    <div class="site-footer--col">
+                        <h5 class="-title"><a href="https://stackoverflow.com/?products" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Products</a></h5>
+                        <ul class="-list">
+                            <li><a href="https://stackoverflow.co/teams" class="js-gps-track -link" data-ga="[&quot;teams traffic&quot;,&quot;footer - site nav&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]" data-gps-track="footer.click({ location: 2, link: 29 })">Teams</a></li>
+                            <li><a href="https://stackoverflow.co/advertising" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Advertising</a></li>
+                            <li><a href="https://stackoverflow.co/collectives" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 40 })">Collectives</a></li>
+                            <li><a href="https://stackoverflow.co/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                        </ul>
+                    </div>
+                <div class="site-footer--col">
+                    <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.co/">Company</a></h5>
+                    <ul class="-list">
+                            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.co/">About</a></li>
+                        <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.co/company/press">Press</a></li>
+                            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.co/company/work-here">Work Here</a></li>
+                        <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackoverflow.com/legal">Legal</a></li>
+                        <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a></li>
+                        <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 37 })" href="https://stackoverflow.com/legal/terms-of-service">Terms of Service</a></li>
+                            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.co/company/contact">Contact Us</a></li>
+                            <li class="" id="consent-footer-link"><a class="js-gps-track -link js-cookie-settings" data-gps-track="footer.click({ location: 2, link: 38 })" href="https://stackoverflow.com/questions/17081483/custom-payment-method-in-woocommerce#" data-consent-popup-loader="footer">Cookie Settings</a></li>
+                        <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 39 })" href="https://stackoverflow.com/legal/cookie-policy">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer--col site-footer--categories-nav">
+                    <div>
+                        <h5 class="-title"><a href="https://stackexchange.com/" data-gps-track="footer.click({ location: 2, link: 30 })">Stack Exchange Network</a></h5>
+                        <ul class="-list">
+                            <li>
+                                <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
+                                    Technology
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
+                                    Culture &amp; recreation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
+                                    Life &amp; arts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
+                                    Science
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://stackexchange.com/sites#professional" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
+                                    Professional
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://stackexchange.com/sites#business" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
+                                    Business
+                                </a>
+                            </li>
+
+                            <li class="mt16 md:mt0">
+                                <a href="https://api.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
+                                    API
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://data.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
+                                    Data
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="site-footer--copyright fs-fine md:mt24">
+                <ul class="-list -social md:mb8">
+                    <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog/?blb=1">Blog</a></li>
+                    <li><a href="https://www.facebook.com/officialstackoverflow/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 31 })">Facebook</a></li>
+                    <li><a href="https://twitter.com/stackoverflow" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 32 })">Twitter</a></li>
+                    <li><a href="https://linkedin.com/company/stack-overflow" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 33 })">LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/thestackoverflow" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 36 })">Instagram</a></li>
+                </ul>
+
+                <p class="md:mb0">
+Site design / logo © 2022 Stack Exchange Inc; user contributions licensed under <span class="td-underline"><a href="https://stackoverflow.com/help/licensing">CC BY-SA</a></span>.                    <span id="svnrev">rev&nbsp;2022.9.23.17768</span>
+                </p>
+            </div>
+        </div>
+
+    </footer>
+
+
+                <!-- Google tag (gtag.js) -->
+            <script async="" src="./Custom Payment Method in WooCommerce - Stack Overflow_files/js"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+            </script>
+            <script>
+                (function(i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            </script>
+        <script>
+            StackExchange.ready(function() {
+
+                var ga3Settings = {
+                    autoLink: ["stackoverflow.blog","info.stackoverflowsolutions.com","stackoverflowsolutions.com"],
+                    sendTitles: true,
+                    tracker: window.ga,
+                    trackingCodes: [
+                        'UA-108242619-1'
+                    ],
+                    checkDimension: 'dimension42'
+                                                    };
+
+                var customGA4Dimensions = {};
+
+                        customGA4Dimensions["routename"] = "Questions/Show";
+                        customGA4Dimensions["tags"] = "|methods|payment|woocommerce|";
+
+                var ga4Settings = {
+                    tracker: gtag,
+                    trackingCodes: [
+                        'G-WCZ03SZFCQ'
+                    ],
+                    consentsToPerformanceCookies: "granted",
+                    consentsToTargetingCookies: "granted",
+                    eventParameters: customGA4Dimensions,
+                    checkForAdBlock: true
+                };
+
+                StackExchange.ga.init({ GA3: ga3Settings, GA4: ga4Settings });
+
+
+                StackExchange.ga.setDimension('dimension2', '|methods|payment|woocommerce|');
+
+
+                StackExchange.ga.setDimension('dimension3', 'Questions/Show');
+
+
+                StackExchange.ga.setDimension('dimension7', "1664192325.1452017420");
+
+                StackExchange.ga.trackPageView();
+            });
+        </script><iframe src="./Custom Payment Method in WooCommerce - Stack Overflow_files/container.html" style="visibility: hidden; display: none;"></iframe>
+
+        
+    <div id="onetrust-consent-sdk" class="d-none"></div>
+    <div id="onetrust-banner-sdk" data-controller="s-modal"></div>
+    <div id="ot-pc-content" class="d-none"></div>
+    <div id="onetrust-style" class="d-none">&nbsp;</div>
+    <div class="d-none js-consent-banner-version" data-consent-banner-version="baseline"></div>
+
+    
+    
+    
+<iframe src="./Custom Payment Method in WooCommerce - Stack Overflow_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body></html>
