@@ -1,0 +1,50 @@
+.payment_method_custom_payment .input-checkbox{
+    margin-left: 8px !important;
+    margin-right: 3px !important;
+}
+.payment_box .required{
+	color: red !important;
+}
+
+/** field sizes **/
+.payment_method_custom_payment input.small-field{
+	width: 25% !important;
+}
+.payment_method_custom_payment input.medium-field{
+	width: 50% !important;
+}
+.payment_method_custom_payment input.large-field{
+	width: 100% !important;
+}
+.payment_method_custom_payment textarea.small-field{
+	width: 25% !important;
+}
+.payment_method_custom_payment textarea.medium-field{
+	width: 50% !important;
+}
+.payment_method_custom_payment textarea.large-field{
+	width: 100% !important;
+}
+.payment_method_custom_payment input.small-field{
+	width: 25% !important;
+}
+.payment_method_custom_payment input.medium-field{
+	width: 50% !important;
+}
+.payment_method_custom_payment input.large-field{
+	width: 100% !important;
+}
+.payment_method_custom_payment input[type="number"]{
+	padding: 0.5em;
+}
+.payment_method_custom_payment select{
+	padding: 0.5em;
+	width: auto !important;
+}
+.customized_payment_icon{
+	vertical-align: middle !important;
+}
+
+#payment .payment_methods .woocommerce-info img{
+	max-height: none !important;
+}

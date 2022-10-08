@@ -86,9 +86,7 @@
         padding: 8px 10px;
         position: fixed;
     }
-    body.wp-adminify-login-customizer #login h1 a {
-        filter: brightness(0) invert(1);
-    }
+    
     body.wp-adminify-login-customizer #login #nav a {
         color: #fff;
     }

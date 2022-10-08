@@ -18,9 +18,7 @@
         box-shadow: none;
         outline: 0;
     }
-    body.wp-adminify-login-customizer #login h1 a {
-        filter: brightness(0) invert(1);
-    }
+   
     body.wp-adminify-login-customizer #loginform {
         background-color: #fff;
         border: 0;

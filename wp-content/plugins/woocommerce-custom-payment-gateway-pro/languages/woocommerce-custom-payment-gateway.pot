@@ -1,0 +1,283 @@
+# Copyright (C) 2017 WooCommerce Custom Payment Gateway Pro
+# This file is distributed under the same license as the WooCommerce Custom Payment Gateway Pro package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Custom Payment Gateway Pro 1.3.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
+"custom-payment-gateway\n"
+"POT-Creation-Date: 2017-06-30 15:37:40+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: class-woocommerce-custom-payment-gateway.php:28
+msgid "Custom Payment Pro"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:29
+#: class-woocommerce-custom-payment-gateway.php:101
+msgid "Custom Payment"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:92
+msgid "Enable/Disable"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:94
+msgid "Enable Custom Payment"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:98
+msgid "Method Title"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:100
+msgid ""
+"The title of the gateway which will show to the user on the checkout page."
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:105
+msgid "Gateway Icon"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:107
+msgid ""
+"Icon URL for the gateway that will show to the user on the checkout page."
+msgstr ""
+
+
+#: class-woocommerce-custom-payment-gateway.php:111
+msgid "Customer Message"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:115
+msgid ""
+"The message which you want it to appear to the customer on the checkout page."
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:119
+msgid "Customer Note"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:123
+msgid "A note for the customer after the Checkout process."
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:127
+msgid "Order Status After The Checkout"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:131
+msgid "The default order status if this gateway used in payment."
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:137
+msgid "Advanced options<hr>"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:142
+msgid "API requests"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:144
+msgid "Enable the gateway to request an API URL after the checkout process."
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:148
+msgid "API URL"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:150
+msgid ""
+"The gateway will send the payment data to this URL after placing the order."
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:155
+msgid "Redirect the Customer to the API URL"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:161
+msgid "Request method"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:168
+msgid "The request method to request the API URL."
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:179
+msgid "Enable Debug Mode"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:181
+msgid "Enable "
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:183
+msgid ""
+"If debug mode is enabled, the payment gateway will be activated just for the "
+"administrator. You can use the debug mode to make sure that the gateway work "
+"as you expected."
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:203
+msgid "Custom Payment Settings"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:272
+msgid " must be valid."
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:276
+#: class-woocommerce-custom-payment-gateway.php:280
+#: class-woocommerce-custom-payment-gateway.php:299
+#: class-woocommerce-custom-payment-gateway.php:304
+msgid " must be not empty."
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:365
+msgid "Please enter a valid email at \""
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:368
+#: class-woocommerce-custom-payment-gateway.php:374
+#: class-woocommerce-custom-payment-gateway.php:377
+msgid "Please enter a valid number at \""
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:371
+msgid "Please enter a valid URL at \""
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:585
+#: includes/classes/class-generate-custom-payment-gateways.php:213
+msgid "Delete"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:724
+msgid "Extra API Parameters"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:731
+#: class-woocommerce-custom-payment-gateway.php:772
+msgid "Key"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:732
+#: class-woocommerce-custom-payment-gateway.php:773
+msgid "Value"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:750
+#: class-woocommerce-custom-payment-gateway.php:805
+msgid "Add Row"
+msgstr ""
+
+#: class-woocommerce-custom-payment-gateway.php:765
+msgid "WooCommerce API Parameters"
+msgstr ""
+
+#: includes/EDD_SL_Plugin_Updater.php:186
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
+#: includes/EDD_SL_Plugin_Updater.php:194
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s "
+"or %5$supdate now%6$s."
+msgstr ""
+
+#: includes/EDD_SL_Plugin_Updater.php:337
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: includes/EDD_SL_Plugin_Updater.php:337
+msgid "Error"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:18
+#: includes/classes/class-generate-custom-payment-gateways.php:49
+msgid "Custom Payment Gateways"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:84
+msgid "Settings"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:90
+msgid "Add payment info to emails"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:91
+msgid ""
+"Enable this to add the payment information submitted by customers to "
+"purchase WooCommerce emails."
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:103
+msgid "Add new Custom Gateway"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:113
+#: includes/classes/class-generate-custom-payment-gateways.php:151
+msgid "Gateway Name"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:114
+msgid "Enter the name of the required gateway then click on Save Changes."
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:125
+msgid "Custom Gateways"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:152
+msgid "Created By"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:153
+msgid "Created On"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:154
+msgid "Actions"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:168
+#: includes/classes/class-generate-custom-payment-gateways.php:202
+msgid "Enabled"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:168
+#: includes/classes/class-generate-custom-payment-gateways.php:202
+msgid "Yes"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:170
+#: includes/classes/class-generate-custom-payment-gateways.php:204
+#: includes/classes/class-generate-custom-payment-gateways.php:206
+msgid "Disabled"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:170
+#: includes/classes/class-generate-custom-payment-gateways.php:204
+#: includes/classes/class-generate-custom-payment-gateways.php:206
+msgid "No"
+msgstr ""
+
+#: includes/classes/class-generate-custom-payment-gateways.php:179
+#: includes/classes/class-generate-custom-payment-gateways.php:212
+msgid "Configure"
+msgstr ""
+
+#: woocommerce-custom-payment-gateway.php:80
+msgid "Payment Information"
+msgstr ""
+
+#: woocommerce-custom-payment-gateway.php:93
+#: woocommerce-custom-payment-gateway.php:124
+msgid "Submitted Payment Information"
+msgstr ""

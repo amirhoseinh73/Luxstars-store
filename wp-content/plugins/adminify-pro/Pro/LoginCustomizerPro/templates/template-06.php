@@ -16,10 +16,6 @@
         transform: skew(-25deg, 0deg);
     }
 
-    body.wp-adminify-login-customizer #login h1 a {
-        filter: brightness(0) invert(1);
-    }
-
     body.wp-adminify-login-customizer #login a.wp-adminify-logo-login-link:focus {
         border: 0;
         box-shadow: none;
