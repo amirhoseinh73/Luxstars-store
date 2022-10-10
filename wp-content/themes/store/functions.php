@@ -164,7 +164,7 @@ function rename_flamingo_to_inbox($translated, $original, $domain)
     );
 
     if ( isset($strings[$original]) && is_admin() ) {
-        $translations = &get_translations_for_domain($domain);
+        $translations = get_translations_for_domain($domain);
         $translated = $translations->translate($strings[$original]);
     }
 

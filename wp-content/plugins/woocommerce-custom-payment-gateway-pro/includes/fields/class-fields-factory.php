@@ -44,6 +44,8 @@ class Fields_Factory {
 				return new Instructions_Field($args);
 			case 'ccform':
 				return new Credit_Card_Field($args);
+			case 'uploadfile':
+				return new UploadFile_FIELD($args);
 		}
 		return null;
 	}

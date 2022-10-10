@@ -21,7 +21,9 @@ if ( user_is_wholesaler() ) {
 	if ( ! isset( $_GET[ "wc-ajax" ] ) ) {
 		$payment_method_wholesaler = $_GET[ "pay_way" ];
 
-		session_start();
+		// session_start();
+		// WC()->session->set
+		// WC()->session->get
 		$_SESSION[ "pay_way" ] = $payment_method_wholesaler;
 
 		if ( ! isset( $payment_method_wholesaler ) || empty( $payment_method_wholesaler ) || ( $payment_method_wholesaler !== "cash" && $payment_method_wholesaler !== "45" && $payment_method_wholesaler !== "90" ) ) {

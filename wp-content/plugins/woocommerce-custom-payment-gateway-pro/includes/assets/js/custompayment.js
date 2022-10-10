@@ -114,7 +114,7 @@ var wc_custom_payment_fields_meta = {
 				},
 			]
 	},
-		textarea : {
+	textarea : {
 		fields: 
 			[
 					{
@@ -839,6 +839,46 @@ var wc_custom_payment_fields_meta = {
             ]
 
     },
+	uploadfile : {
+		fields: 
+			[
+					{
+						type : 'text',
+						name : 'Name',
+					},
+					{
+						name: 'Description',
+						type: 'textarea',
+					},
+					{
+						type: 'select',
+						name: 'Required',
+						options: [
+							{ 
+								key: 'no',
+								value:'No',
+							},
+							{ 
+								key: 'yes',
+								value:'Yes',
+							},
+						]
+					},
+					{
+						type: 'text',
+						name: 'Default Value',
+					},
+					{
+						type: 'text',
+						name: 'CSS Classes',
+					},
+					{
+						type : 'text',
+						name : 'API Parameter',
+					},
+			]
+		
+	},
 };
 
 

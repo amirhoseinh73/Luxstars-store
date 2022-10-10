@@ -22,6 +22,7 @@
 					<li><a href="javascript:void(0);" class="draggable-form-item" data-type="currency" id="form-element-currency"><b></b>Currency</a></li>
 					<li><a href="javascript:void(0);" class="draggable-form-item" data-type="phone" id="form-element-phone"><b></b>Phone</a></li>
 					<li><a href="javascript:void(0);" class="draggable-form-item" data-type="instructions" id="form-element-instructions"><b></b>Instructions</a></li>
+					<li><a href="javascript:void(0);" class="draggable-form-item" data-type="uploadfile" id="form-element-uploadfile"><b></b>upload file</a></li>
 				</ul>
 			</div>
 			<div id="custom_payment_form_fields">

@@ -196,3 +196,5 @@ function ranges() {
             </script>";
 	}
 }
+
+**/

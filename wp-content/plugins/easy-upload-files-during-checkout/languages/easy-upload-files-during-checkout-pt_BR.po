@@ -1,0 +1,792 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Upload Files During Checkout\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-26 21:30+0500\n"
+"PO-Revision-Date: 2021-10-26 21:33+0500\n"
+"Last-Translator: Lucas Nascimento\n"
+"Language-Team: Português do Brasil\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Loco-Version: 2.5.0; wp-5.6\n"
+"X-Domain: easy-upload-files-during-checkout\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/ufdc-settings.php:19
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Você não tem permissão suficiente para acessar essa página."
+
+#: admin/ufdc-settings.php:35 inc/functions.php:1445 pro/eufdc_advanced.php:243
+msgid "Sorry, your nonce did not verify."
+msgstr "Desculpe, não foi possível completar a verificação."
+
+#: admin/ufdc-settings.php:132 inc/functions.php:1008
+#: pro/eufdc_advanced.php:2354
+msgid "Settings"
+msgstr "Configurações"
+
+#: admin/ufdc-settings.php:133
+msgid "Compatibility"
+msgstr "Compatibilidade"
+
+#: admin/ufdc-settings.php:135 admin/ufdc-settings.php:766
+msgid "Optional"
+msgstr "Opcional"
+
+#: admin/ufdc-settings.php:135
+msgid "Premium Feature"
+msgstr "Item Premium"
+
+#: admin/ufdc-settings.php:138
+msgid "Developer Mode"
+msgstr "Modo do Desenvolvedor"
+
+#: admin/ufdc-settings.php:139
+msgid "Orphan Files"
+msgstr "Ficheiros de órfãos"
+
+#: admin/ufdc-settings.php:140
+msgid "Help"
+msgstr "Ajuda"
+
+#: admin/ufdc-settings.php:145
+msgid "Your settings have been saved."
+msgstr "Suas configurações foram salvas."
+
+#: admin/ufdc-settings.php:179
+msgid "Display on"
+msgstr "Exibir em"
+
+#: admin/ufdc-settings.php:189
+msgid "Registration Page"
+msgstr "Página de Registro"
+
+#: admin/ufdc-settings.php:189 admin/ufdc-settings.php:249
+#: admin/ufdc-settings.php:255 admin/ufdc-settings.php:261
+msgid "(Beta)"
+msgstr "(Beta)"
+
+#: admin/ufdc-settings.php:195
+msgid "Cart Page"
+msgstr "Página do Carrinho"
+
+#: admin/ufdc-settings.php:202 admin/ufdc-settings.php:205
+msgid "Product Page"
+msgstr "Página do Produto"
+
+#: admin/ufdc-settings.php:206 admin/ufdc-settings.php:446
+msgid "Default"
+msgstr "Padrão"
+
+#: admin/ufdc-settings.php:222
+msgid "Visual Hook Guide"
+msgstr "Guia Visual de Chamadas"
+
+#: admin/ufdc-settings.php:237
+msgid "Checkout Page"
+msgstr "Página de Checkout"
+
+#: admin/ufdc-settings.php:243 admin/ufdc-settings.php:249
+msgid "Checkout Page "
+msgstr "Página de Checkout "
+
+#: admin/ufdc-settings.php:243
+msgid "After Notes"
+msgstr "Notas Posteriores"
+
+#: admin/ufdc-settings.php:249
+msgid "Top of the Page"
+msgstr "Topo da Página"
+
+#: admin/ufdc-settings.php:255
+msgid "Thank You Page"
+msgstr "Página de Agradecimento"
+
+#: admin/ufdc-settings.php:261
+msgid "Customer Order View Page"
+msgstr "Página de Visualização de Pedido do Cliente"
+
+#: admin/ufdc-settings.php:287
+msgid "Allowed file types"
+msgstr "Tipos de arquivos permitidos"
+
+#: admin/ufdc-settings.php:383
+msgid "Specify which file types are allowed for uploading, seperate by commas."
+msgstr ""
+"Especifique quais tipos de arquivos para envio são permitidos, separe com "
+"vírgula."
+
+#: admin/ufdc-settings.php:403
+msgid "Maximum upload size"
+msgstr "Tamanho de Upload Máximo"
+
+#: admin/ufdc-settings.php:415
+msgid "Specify maximum upload size for all files in MegaBytes."
+msgstr ""
+"Especifique o tamanho máximo de arquivo para todos os arquivos em MegaBytes "
+"(MB)."
+
+#: admin/ufdc-settings.php:415
+msgid "Cannot exceed max PHP upload size."
+msgstr "Não é possível exceder a diretiva \"max PHP upload size\"."
+
+#: admin/ufdc-settings.php:417
+msgid "Note: recommended max upload size below 8MB."
+msgstr "Nota: tamanho máximo de upload recomendado de no máximo 8MB."
+
+#: admin/ufdc-settings.php:419
+msgid "is"
+msgstr "é"
+
+#: admin/ufdc-settings.php:419
+msgid "and"
+msgstr "e"
+
+#: admin/ufdc-settings.php:419
+msgid "on your server"
+msgstr "no seu servidor"
+
+#: admin/ufdc-settings.php:431
+msgid "Uploads Directory"
+msgstr "Diretório de uploads"
+
+#: admin/ufdc-settings.php:449 admin/ufdc-settings.php:455
+msgid "How it works?"
+msgstr "Como funciona?"
+
+#: admin/ufdc-settings.php:453
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: admin/ufdc-settings.php:466 admin/ufdc-settings.php:478
+msgid "Download"
+msgstr "Baixar"
+
+#: admin/ufdc-settings.php:473
+msgid "Download complete directory archive"
+msgstr "Baixar pasta de arquivos completa"
+
+#: admin/ufdc-settings.php:477
+msgid "Download complete directory archive is a premium feature"
+msgstr "Baixar pasta de arquivos completa é exclusividade da versão premium"
+
+#: admin/ufdc-settings.php:510
+msgid "Enter Amazon credential to sync data on Amazon S3"
+msgstr ""
+"Entre com suas credenciais da Amazon para sincronizar seus dados no Amazon S3"
+
+#: admin/ufdc-settings.php:517
+msgid "Amazon S3 Key"
+msgstr "Amazon S3 Key"
+
+#: admin/ufdc-settings.php:522
+msgid "Amazon S3 Secret"
+msgstr "Segredo do Amazon S3"
+
+#: admin/ufdc-settings.php:528
+msgid "Sync as zip file"
+msgstr "Sincronizar como arquivo zip"
+
+#: admin/ufdc-settings.php:534
+msgid "Sync new added files to amazon automatically."
+msgstr "Sincronizar novos arquivos enviados com a Amazon automaticamente."
+
+#: admin/ufdc-settings.php:534
+msgid "Auto Sync"
+msgstr "Sincronização automática"
+
+#: admin/ufdc-settings.php:539
+msgid "Connect"
+msgstr "Conectar"
+
+#: admin/ufdc-settings.php:540
+msgid "Sync now"
+msgstr "Sincronizar agora"
+
+#: admin/ufdc-settings.php:543
+msgid "How to setup an Amazon account"
+msgstr "Como configurar uma conta Amazon"
+
+#: admin/ufdc-settings.php:625 pro/eufdc_advanced.php:2440
+msgid "Dimensions Check"
+msgstr "Checar Dimensões"
+
+#: admin/ufdc-settings.php:627 pro/eufdc_advanced.php:2441
+msgid "For Images Only"
+msgstr "Somente para imagens"
+
+#: admin/ufdc-settings.php:636 pro/eufdc_advanced.php:2450
+msgid "Min Width"
+msgstr "Largura Mínima"
+
+#: admin/ufdc-settings.php:639 pro/eufdc_advanced.php:2456
+msgid "Max Width"
+msgstr "Largura Máxima"
+
+#: admin/ufdc-settings.php:642 pro/eufdc_advanced.php:2466
+msgid "Min Height"
+msgstr "Altura Mínima"
+
+#: admin/ufdc-settings.php:645 pro/eufdc_advanced.php:2472
+msgid "Max Height"
+msgstr "Altura Máxima"
+
+#: admin/ufdc-settings.php:651 pro/eufdc_advanced.php:2483
+msgid "Leave empty for no restrictions."
+msgstr "Deixe vazio para nenhuma restrição."
+
+#: admin/ufdc-settings.php:665
+msgid "Loading Animation"
+msgstr "Animação de Carregamento"
+
+#: admin/ufdc-settings.php:707
+msgid "Change"
+msgstr "Alterar"
+
+#: admin/ufdc-settings.php:756 admin/ufdc-settings.php:1185
+msgid "Save Changes"
+msgstr "Salvar Alterações"
+
+#: admin/ufdc-settings.php:771 inc/functions.php:1012
+msgid "Go Premium"
+msgstr "Virar Premium"
+
+#: admin/ufdc-settings.php:774
+msgid "Send Attachments in Email"
+msgstr "Enviar anexos por E-mail"
+
+#: admin/ufdc-settings.php:780
+msgid "Display File URLs Instead of Titles"
+msgstr "Exibir URLs dos Arquivos ao invés dos Títulos"
+
+#: admin/ufdc-settings.php:786
+msgid "Billing Details"
+msgstr "Detalhes de Cobrança"
+
+#: admin/ufdc-settings.php:786 admin/ufdc-settings.php:792
+#: admin/ufdc-settings.php:798 admin/ufdc-settings.php:805
+#: admin/ufdc-settings.php:812 admin/ufdc-settings.php:818
+#: admin/ufdc-settings.php:828
+msgid "On"
+msgstr "Ligado"
+
+#: admin/ufdc-settings.php:786 admin/ufdc-settings.php:792
+#: admin/ufdc-settings.php:798 admin/ufdc-settings.php:805
+#: admin/ufdc-settings.php:812 admin/ufdc-settings.php:818
+#: admin/ufdc-settings.php:828
+msgid "Off"
+msgstr "Desligado"
+
+#: admin/ufdc-settings.php:792
+msgid "Shipping Details"
+msgstr "Detalhes de Envio"
+
+#: admin/ufdc-settings.php:798
+msgid "Order Comments"
+msgstr "Comentários do Pedido"
+
+#: admin/ufdc-settings.php:805
+msgid "Secure File Links"
+msgstr "Links Seguros de Arquivos"
+
+#: admin/ufdc-settings.php:812
+msgid "Upload Files After Login/Register"
+msgstr "Enviar Arquivos após Login/Registro"
+
+#: admin/ufdc-settings.php:818
+msgid "Check file content type on server side"
+msgstr "Checar o tipo de conteúdo dos arquivos via servidor"
+
+#: admin/ufdc-settings.php:828
+msgid "File Thumbnails/Icons with Filename"
+msgstr "Miniaturas/Ícones dos arquivos com o Nome do arquivo"
+
+#: admin/ufdc-settings.php:848
+msgid "Show attachments with cart and order items"
+msgstr "Mostrar anexos com o carrinho e itens do pedido"
+
+#: admin/ufdc-settings.php:848
+msgid "Display Attachments Under Product Title"
+msgstr "Exibir Anexos Abaixo do Título do Produto"
+
+#: admin/ufdc-settings.php:867
+msgid ""
+"Refresh Page After Every Upload: Use this option if any third-party "
+"JavaScript isn't working after uploading the files."
+msgstr ""
+"Atualizar página após cada upload: Use essa opção se algum código JavaScript "
+"de terceiros não funcionar após enviar os arquivos."
+
+#: admin/ufdc-settings.php:867
+msgid "Refresh Page"
+msgstr "Atualizar a página"
+
+#: admin/ufdc-settings.php:884
+msgid "Instructions (for users)"
+msgstr "Instruções (para os usuários)"
+
+#: admin/ufdc-settings.php:900
+msgid "Success Message"
+msgstr "Mensagem de Sucesso"
+
+#: admin/ufdc-settings.php:916
+msgid "Multiple files?"
+msgstr "Múltiplos Arquivos?"
+
+#: admin/ufdc-settings.php:935
+msgid "Specify number of files allowed to upload (numbers only)."
+msgstr ""
+"Especifique o número de arquivos permitidos para upload (apenas números)."
+
+#: admin/ufdc-settings.php:946
+msgid "Display all browse buttons at once or one after one?"
+msgstr "Exibir todos os botões de navegação de uma vez ou um após o outro?"
+
+#: admin/ufdc-settings.php:954
+msgid "At once"
+msgstr "De uma só vez"
+
+#: admin/ufdc-settings.php:957
+msgid "One at a time"
+msgstr "Um de cada vez"
+
+#: admin/ufdc-settings.php:976
+msgid "Make upload field required?"
+msgstr "Tornar o campo de upload requerido?"
+
+#: admin/ufdc-settings.php:995
+msgid "*Required files should be less than or equal to multiple files."
+msgstr ""
+"*Os ficheiros requeridos devem ser inferiores ou iguais a vários ficheiros."
+
+#: admin/ufdc-settings.php:1001
+msgid "Specify number of files required to upload (numbers only)."
+msgstr ""
+"Especifique o número de arquivos necessários para fazer upload (apenas "
+"números)."
+
+#: admin/ufdc-settings.php:1018 inc/functions.php:48
+msgid "Error Message"
+msgstr "Mensagem de Erro"
+
+#: admin/ufdc-settings.php:1032
+msgid "File Description?"
+msgstr "Descrição do Arquivo?"
+
+#: admin/ufdc-settings.php:1055
+msgid "File Description Label:"
+msgstr "Rótulo de Descrição do Arquivo:"
+
+#: admin/ufdc-settings.php:1065 index.php:94
+msgid "File Description"
+msgstr "Descrição do Arquivo"
+
+#: admin/ufdc-settings.php:1101
+msgid "This plugin is compatible with following plugins"
+msgstr "Este plugin é compatível com os seguintes plugins"
+
+#: admin/ufdc-settings.php:1132
+msgid "Please refresh the page to load list of product."
+msgstr "Por favor, actualize a página para carregar a lista de produtos."
+
+#: admin/ufdc-settings.php:1132
+msgid "Click here to refresh"
+msgstr "Clique aqui para actualizar"
+
+#: admin/ufdc-settings.php:1138
+msgid ""
+"You may select products to enable upload feature. This feature is available "
+"in Premium Version only."
+msgstr ""
+"Você deve selecionar produtos para habilitar o recurso de upload. Esse "
+"recurso está disponível somente na Versão Premium."
+
+#: admin/ufdc-settings.php:1138 admin/ufdc-settings.php:1149
+msgid "By default all products are considered enabled."
+msgstr "Por padrão todos os produtos são considerados habilitados."
+
+#: admin/ufdc-settings.php:1149
+msgid "Select from the following products to enable selected products only."
+msgstr ""
+"Selecione dentre os seguintes arquivos para habilitar somente produtos "
+"selecionados."
+
+#: admin/ufdc-settings.php:1155
+msgid "Product Names"
+msgstr "Nomes dos Produtos"
+
+#: admin/ufdc-settings.php:1156
+msgid "Actions"
+msgstr "Ações"
+
+#: admin/ufdc-settings.php:1175
+msgid "Edit"
+msgstr "Editar"
+
+#: admin/ufdc-settings.php:1175
+msgid "View"
+msgstr "Visão"
+
+#: admin/ufdc-settings.php:1204
+msgid ""
+"USE THE FOLLOWING STRING IN Salesforce META VALUE AGAINST ANY TYPE OF FIELD"
+msgstr ""
+"Use a seguinte string no campo \"Valor Meta\" do Salesforce contra qualquer "
+"outro tipo de campo"
+
+#: admin/ufdc-settings.php:1208
+msgid "DEBUG WITH THIS:"
+msgstr "Depurar com isso:"
+
+#: admin/ufdc-settings.php:1212
+msgid "USE THE FOLLOWING FUNCTION TO GET ORDER ATTACHMENTS WITH DESCRIPTION"
+msgstr "Use a seguinte função para obter os anexos do pedido com descrição"
+
+#: admin/ufdc-settings.php:1225
+msgid "Action Hooks"
+msgstr "Chamadas de Ação"
+
+#: admin/ufdc-settings.php:1225
+msgid "Sample.php"
+msgstr "Amostra.php"
+
+#: admin/ufdc-settings.php:1229
+msgid ""
+"USE THE FOLLOWING ACTION HOOK TO GET THE LINKS OF ALL ATTACHMENTS AFTER "
+"SUCCESSFUL ORDER CREATION"
+msgstr ""
+"Use a seguinte chamada de ação para obter os links de todos os anexos após "
+"criação bem sucedida do pedido"
+
+#: admin/ufdc-settings.php:1240
+msgid "Add your code here"
+msgstr "Adicione seu código aqui"
+
+#: admin/ufdc-settings.php:1258
+msgid ""
+"Did you notice when customers upload files and they are stored in the "
+"uploads directory, but what to do if a customer does not complete the order?"
+msgstr ""
+"Reparou quando os clientes carregam ficheiros e estes são armazenados no "
+"directório de carregamentos, mas o que fazer se um cliente não completar a "
+"encomenda?"
+
+#: admin/ufdc-settings.php:1267
+msgid "Fetch Statistics"
+msgstr "Obter estatísticas"
+
+#: admin/ufdc-settings.php:1270
+msgid "Fetch Orphan Files"
+msgstr "Buscar ficheiros de órfãos"
+
+#: admin/ufdc-settings.php:1274
+msgid "Click here to delete orphan Files"
+msgstr "Clique aqui para apagar os ficheiros dos órfãos"
+
+#: admin/ufdc-settings.php:1278
+msgid "Click here to scan the Database"
+msgstr "Clique aqui para digitalizar a base de dados"
+
+#: admin/ufdc-settings.php:1298
+msgid "Open a Ticket on Support Forums"
+msgstr "Abrir um Ticket nos Fóruns de Apoio"
+
+#: admin/ufdc-settings.php:1299
+msgid "Contact Developer"
+msgstr "Contacto do Desenvolvedor"
+
+#: inc/functions-inner.php:28
+msgid "Not Priemium"
+msgstr "Não-Premium"
+
+#: inc/functions-inner.php:29
+msgid "Your Credentials are saved, but you could not connect to Amazon."
+msgstr "Suas Credenciais foram salvas, mas não foi possível conectar à Amazon."
+
+#: inc/functions-inner.php:29 inc/functions.php:56
+msgid "This is a premium feature."
+msgstr "Este é um recurso premium."
+
+#: inc/functions-inner.php:31
+msgid "Client"
+msgstr "Cliente"
+
+#: inc/functions-inner.php:98
+msgid "PHP function"
+msgstr "Função PHP"
+
+#: inc/functions-inner.php:98
+msgid "is missing."
+msgstr "está em falta."
+
+#: inc/functions-inner.php:98
+msgid "Please contact Plugin Author."
+msgstr "Por favor, entre em contato com o autor do Plugin."
+
+#: inc/functions.php:46
+msgid "Status"
+msgstr "Status"
+
+#: inc/functions.php:47
+msgid "Error Code"
+msgstr "Código de Erro"
+
+#: inc/functions.php:49
+msgid "Error Type"
+msgstr "Tipo de Erro"
+
+#: inc/functions.php:50
+msgid "View File"
+msgstr "Ver Arquivo"
+
+#: inc/functions.php:51
+msgid "Success"
+msgstr "Sucesso"
+
+#: inc/functions.php:52
+msgid "Amazon Key & Secret required."
+msgstr "Chaves secretas da Amazon requeridas."
+
+#: inc/functions.php:53
+msgid "Zip file"
+msgstr "Arquivo ZIP"
+
+#: inc/functions.php:54
+msgid "Out of"
+msgstr "Fora de"
+
+#: inc/functions.php:55
+msgid "synced successfully."
+msgstr "Sincronizado com sucesso."
+
+#: inc/functions.php:58
+msgid ""
+"This file has already been deleted from server but footprints found in order "
+"meta data."
+msgstr ""
+"Este ficheiro já foi apagado do servidor, mas foram encontradas pegadas em "
+"meta-dados de ordem."
+
+#: inc/functions.php:59
+msgid ""
+"This file is an Orphan one, it was uploaded but never linked to any "
+"successful order."
+msgstr ""
+"Este ficheiro é órfão, foi carregado mas nunca foi ligado a qualquer "
+"encomenda bem sucedida."
+
+#: inc/functions.php:235 pro/eufdc_advanced.php:2307
+msgid "Delete"
+msgstr "Excluir"
+
+#: inc/functions.php:287 pro/eufdc_advanced.php:771
+msgid "Allowed file size"
+msgstr "Tamanho de arquivo máximo permitido"
+
+#: inc/functions.php:288 pro/eufdc_advanced.php:772
+msgid "Allowed files"
+msgstr "Arquivos permitidos"
+
+#: inc/functions.php:408
+msgid "Uploading your files, please wait for the system to continue."
+msgstr "Enviando os arquivos, por favor aguarde."
+
+#: inc/functions.php:409
+msgid "Uploaded your files, please wait for the system to continue."
+msgstr "Arquivos enviados, por favor aguarde."
+
+#: inc/functions.php:411
+msgid "Please choose a valid file to upload!"
+msgstr "Por favor escolha um arquivo válido para enviar!"
+
+#: inc/functions.php:412
+msgid "Proceed to Checkout"
+msgstr "Avançar para o Checkout"
+
+#: inc/functions.php:423
+msgid "Sorry, you need to login/register to upload files."
+msgstr "Desculpe, você precisa fazer login/se registrar para enviar arquivos."
+
+#: inc/functions.php:690 pro/eufdc_advanced.php:916
+msgid "The"
+msgstr "o"
+
+#: inc/functions.php:690 pro/eufdc_advanced.php:916
+msgid "file type is not allowed."
+msgstr "Tipo de arquivo não permitido."
+
+#: inc/functions.php:845
+msgid "Attached Files"
+msgstr "Arquivos Anexados"
+
+#: inc/functions.php:855 pro/eufdc_advanced.php:1611
+msgid "Attachments"
+msgstr "Anexos"
+
+#: inc/functions.php:962
+msgid "File for product"
+msgstr "Arquivo anexado ao produto"
+
+#: inc/functions.php:1268 inc/functions.php:1271
+msgid "Files Attached"
+msgstr "Arquivos Anexados"
+
+#: inc/functions.php:1488
+msgid "Show caption"
+msgstr "Exibir legenda"
+
+#: inc/functions.php:1489
+msgid "Hide caption"
+msgstr "Esconder legenda"
+
+#: inc/functions.php:1583
+msgid "Allowed files:"
+msgstr "Arquivos permitidos:"
+
+#: inc/functions.php:1586
+msgid "File type did not match with the uploaded file extension."
+msgstr "Tipo de arquivo não bate com a extensão do arquivo enviado."
+
+#: inc/functions.php:1679
+msgid "Total"
+msgstr "Total"
+
+#: inc/functions.php:1680
+msgid "Do not exist"
+msgstr "Não existem"
+
+#: inc/functions.php:1681
+msgid "Orphan"
+msgstr "Órfão"
+
+#: inc/functions.php:1682
+msgid "Linked"
+msgstr "Ligado"
+
+#: index.php:113
+msgid "Do you have something to attach?"
+msgstr "Você tem algum arquivo para anexar?"
+
+#: index.php:114
+msgid "File has been uploaded successfully."
+msgstr "O arquivo foi enviado com sucesso."
+
+#: pro/eufdc_advanced.php:419 pro/eufdc_advanced.php:427
+msgid "Image dimensions are too small."
+msgstr "As dimensões da imagem são muito pequenas."
+
+#: pro/eufdc_advanced.php:419
+msgid "Minimum width is"
+msgstr "A largura mínima é"
+
+#: pro/eufdc_advanced.php:419 pro/eufdc_advanced.php:439
+msgid "Uploaded image width is"
+msgstr "A largura da imagem enviada é"
+
+#: pro/eufdc_advanced.php:427
+msgid "Minimum height is"
+msgstr "A altura mínima é"
+
+#: pro/eufdc_advanced.php:427 pro/eufdc_advanced.php:447
+msgid "Uploaded image height is"
+msgstr "A altura da imagem enviada é"
+
+#: pro/eufdc_advanced.php:439 pro/eufdc_advanced.php:447
+msgid "Image dimensions are larger than allowed."
+msgstr "As dimensões da imagem são maiores do que o permitido."
+
+#: pro/eufdc_advanced.php:439
+msgid "Maximum width is"
+msgstr "A largura máxima é"
+
+#: pro/eufdc_advanced.php:447
+msgid "Maximum height is"
+msgstr "A altura máxima é"
+
+#: pro/eufdc_advanced.php:773
+msgid "Allowed image dimensions"
+msgstr "Dimensões de imagem permitidas"
+
+#: pro/eufdc_advanced.php:1444
+msgid "Files attached"
+msgstr "Arquivos anexados"
+
+#: pro/eufdc_advanced.php:1483
+#, php-format
+msgid "for"
+msgstr "para"
+
+#: pro/eufdc_advanced.php:1686
+msgid "Please activate"
+msgstr "Por favor ative"
+
+#: pro/eufdc_advanced.php:1686
+msgid "plugin to proceed."
+msgstr "plugin para continuar."
+
+#: pro/eufdc_advanced.php:1745
+msgid "Could not open archive"
+msgstr "Não foi possível abrir o arquivo"
+
+#: pro/eufdc_advanced.php:1776
+msgid "ERROR: Could not add file"
+msgstr "ERRO: Não foi possível adicionar o arquivo"
+
+#: pro/eufdc_advanced.php:1778
+msgid "does not exist"
+msgstr "não existe"
+
+#: pro/eufdc_advanced.php:1800
+msgid "Directory does not exists."
+msgstr "O diretório não existe."
+
+#: pro/eufdc_advanced.php:1942
+msgid "not connected"
+msgstr "não conectado"
+
+#: pro/eufdc_advanced.php:2082
+msgid "Can not open zip file."
+msgstr "Não é possível abrir o arquivo zip."
+
+#: pro/eufdc_advanced.php:2170
+msgid "No file exist to sync."
+msgstr "Não existe nenhum arquivo para sincronizar."
+
+#: pro/eufdc_advanced.php:2299
+msgid "Uploaded File"
+msgstr "Arquivo carregado"
+
+#: pro/eufdc_advanced.php:2412
+msgid "Number of files allowed to upload"
+msgstr "Número de arquivos permitidos para upload"
+
+#: pro/eufdc_advanced.php:2422
+msgid "Number of files required to upload"
+msgstr "Número de arquivos necessários para fazer upload"
+
+#~ msgid "PHP function eufdc_get_order_attachments is missing."
+#~ msgstr "A função PHP eufdc_get_order_attachments está faltando."
+
+#~ msgid "Please choose a file to upload!"
+#~ msgstr "Por favor escolha um arquivo para enviar!"
+
+#~ msgid "Attach files during checkout process on cart page with ease."
+#~ msgstr "Anexe arquivos durante o checkout na página do carrinho facilmente"
+
+#~ msgid "Easy Upload Files During Checkout"
+#~ msgstr "Upload Fácil de Arquivos Durante o Checkout"
+
+#~ msgid "Fahad Mahmood"
+#~ msgstr "Fahad Mahmood"
+
+#~ msgid "http://androidbubble.com/blog/wufdc"
+#~ msgstr "http://androidbubble.com/blog/wufdc"
+
+#~ msgid "https://www.androidbubbles.com"
+#~ msgstr "https://www.androidbubbles.com"
