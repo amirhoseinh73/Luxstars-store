@@ -1,3 +1,9 @@
+@media ( min-width: 1400px ) {
+	.container {
+		max-width: 1360px;
+	}
+}
+
 @supports (scrollbar-width: thin) {
     * {
         scrollbar-width: thin;
@@ -24,48 +30,19 @@
     border-radius: 0;
 }
 
-/* ul.navbar-nav > li ul.sub-menu {
-    border-radius: 0;
-} */
-
-ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu,
-ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu {
-    opacity: 0;
-	right: 15rem;
-	top: 0;
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	height: 0;
-	flex-wrap: wrap;
-	flex-direction: row;
-	width: calc(100% - 15rem);
-	align-content: flex-start;
-	margin: 0;
-	background-color: var(--color-2-100);
-	border-radius: 0;
-	border-radius: 0 0 0 8px;
-	transition-delay: 0ms;
-	position: absolute;
-}
-
 ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu,
 ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu {
-	opacity: 0;
-	/* transform: scaleY(0); */
 	right: 15rem;
 	top: 0;
-	display: flex;
+	display: none;
 	justify-content: flex-start;
 	align-items: stretch;
-	height: 0;
+	align-content: flex-start;
+	height: 100%;
 	flex-wrap: wrap;
 	flex-direction: row;
-	/* width: calc( 100% - 18rem - ( 12rem * 2 ) ); */
 	width: calc(100% - 15rem);
-	align-content: flex-start;
 	margin: 0;
-	background-color: var(--color-2-100);
 	border-radius: 0;
 	border-radius: 0 0 0 8px;
 	transition-delay: 0ms;
@@ -73,9 +50,10 @@ ul.navbar-nav > li:hover > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu {
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
-    /* transform: scaleY(1); */
-    opacity: 1;
-    height: 20rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > a:hover {
@@ -89,6 +67,7 @@ ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > ul.sub-me
 	opacity: 1;
 	height: calc(100% - 2.3rem);
 	width: 100%;
+	display: flex;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > ul.sub-menu > li > a {
@@ -98,10 +77,6 @@ ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > ul.sub-me
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > ul.sub-menu > li:hover > a {
     color: var(--color-3-100);
 }
-
-/* ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
-    opacity: 1;
-} */
 
 ul.navbar-nav > li:not(:last-of-type) {
     margin-left: 1rem;
@@ -159,14 +134,13 @@ ul.navbar-nav > li > ul.sub-menu li.menu-item-has-children:hover::after {
 }
 
 ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li {
-	flex: 0 0 33.33333%;
+	flex: 0 0 auto;
 	max-width: 33.33333%;
-	border: 1px solid var(--color-1-25);
+	min-width: 20%;
 }
 
 ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li {
-    flex: 0 0 50%;
-	max-width: 12rem;
+    flex: 0 0 100%;
 }
 
 .woocommerce .col2-set .col-1,

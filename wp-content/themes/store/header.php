@@ -23,7 +23,7 @@ if ( is_user_logged_in() && isset( $_SESSION[ "is_checkout_not_logged_in" ] ) &&
     <div class="row">
         <div class="col-12">
             <div id="nav_menu" class="navbar navbar-expand-lg navbar-dark">
-                <div class="container position-relative">
+                <div class="container-fluid position-relative">
                     <button class="navbar-toggler border-0" type="button" onclick="openNav()">
                         <span class="navbar-toggler-icon"></span>
                     </button>

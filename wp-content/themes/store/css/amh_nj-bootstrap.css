@@ -1614,29 +1614,23 @@ ul.navbar-nav li ul.sub-menu {
 	transition: all 500ms ease;
 	transition-delay: 500ms;
 	border: none;
-	/* transform: scaleY(0); */
-	/* transform-origin: top; */
     overflow: hidden;
 	list-style: none;
-    width: 60rem;
-	max-width: calc( 100vw - 24rem );
+    width: 98%;
 	right: 0;
     left: 0;
-	top: 5.4rem;
-	height: 0;
+	top: 5.2rem;
+	display: none;
+    height: 25rem;
 }
 
-/* ul.navbar-nav li:focus ul.sub-menu,
-ul.navbar-nav li:focus-within ul.sub-menu,
-ul.navbar-nav li:visited ul.sub-menu,
-ul.navbar-nav li:focus-visible ul.sub-menu {
-    background-color: var(--color-3-100);
-} */
-
 ul.navbar-nav li:hover ul.sub-menu {
-    /* transform: scaleY(1); */
-    height: 20rem;
+    display: block;
     transition-delay: 100ms;
+}
+
+ul.navbar-nav > li:hover > ul.sub-menu {
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.055);
 }
 
 @media (min-width: 992px) {
@@ -1700,7 +1694,12 @@ ul.navbar-nav li ul.sub-menu li a {
     font-weight: 400;
     border: 0;
 }
-ul.navbar-nav > li > ul.sub-menu > li > a:hover {
+
+ul.navbar-nav > li > ul.sub-menu > li {
+    display: list-item;
+}
+
+ul.navbar-nav > li > ul.sub-menu > li:hover {
     background-color: var(--color-2-100);
     color: #000000;
 }

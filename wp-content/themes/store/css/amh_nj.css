@@ -337,15 +337,34 @@
     animation: logo 500ms linear forwards;
 }
 
+ul.navbar-nav:not(.submenu) li::before {
+    position: absolute;
+    right: -1rem;
+    font-size: 0.8rem;
+    top: 50%;
+    transform: translateY( -50% );
+}
+
+ul.navbar-nav > li > ul.sub-menu > li::before {
+	position: relative;
+	right: 0;
+	font-size: 1.2rem;
+	display: inline-block;
+	top: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	vertical-align: middle;
+}
+
+ul.navbar-nav > li > ul.sub-menu > li > a.nav-link {
+    display: inline-block;
+}
+
 ul.navbar-nav:not(.submenu) li,
 ul.navbar-nav:not(.submenu) li a.nav-link {
     color: var(--color-4-100);
     font-weight: 400;
     transition: all 100ms linear;
-    -webkit-transition: all 100ms linear;
-    -moz-transition: all 100ms linear;
-    -ms-transition: all 100ms linear;
-    -o-transition: all 100ms linear;
 }
 
 ul.navbar-nav:not(.submenu) li:hover,
