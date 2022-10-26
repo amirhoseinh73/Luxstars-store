@@ -64,7 +64,7 @@ jQuery(function () {
         }, 500 );
     } );
 
-    nav_menu_submenu_hover();
+    // nav_menu_submenu_hover();
 });
 
 function openNav() {

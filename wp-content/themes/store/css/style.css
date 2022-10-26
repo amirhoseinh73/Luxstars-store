@@ -56,8 +56,25 @@ ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
 	align-items: flex-start;
 }
 
-ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > a:hover {
-    background-color: var(--color-1-100);
+ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li::before {
+	content: "\f104";
+	font-size: 1rem;
+	font-family: "Font Awesome 6 Pro";
+	position: absolute;
+	font-weight: 700;
+	left: 0.25rem;
+	right: auto;
+	top: 0.35rem;
+	transform: none;
+}
+
+ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li:hover > a {
+	color: var(--color-3-100);
+}
+
+ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li:hover {
+	background-color: var(--color-2-75);
+	color: var(--color-3-100);
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > ul.sub-menu {
@@ -68,6 +85,7 @@ ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > ul.sub-me
 	height: calc(100% - 2.3rem);
 	width: 100%;
 	display: flex;
+	background-color: transparent;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li > ul.sub-menu > li > a {
@@ -137,6 +155,9 @@ ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li {
 	flex: 0 0 auto;
 	max-width: 33.33333%;
 	min-width: 20%;
+	position: relative;
+	margin-left: 2.5rem;
+	padding: 0 1rem;
 }
 
 ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li {
@@ -510,5 +531,12 @@ ul.woof_list {
 		height: 20rem;
 		width: calc(100vw - 15rem);
 		right: 13rem;
+	}
+}
+
+@media (min-width: 992px) {
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding-right: .75rem;
+		padding-left: .5rem;
 	}
 }

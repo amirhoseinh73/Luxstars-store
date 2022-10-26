@@ -347,17 +347,24 @@ ul.navbar-nav:not(.submenu) li::before {
 
 ul.navbar-nav > li > ul.sub-menu > li::before {
 	position: relative;
-	right: 0;
+	right: 0.4rem;
 	font-size: 1.2rem;
 	display: inline-block;
 	top: 1.5rem;
 	width: 1.5rem;
 	height: 1.5rem;
 	vertical-align: middle;
+	transform: translateY( -100% );
+	color: var(--color-3-75);
 }
 
 ul.navbar-nav > li > ul.sub-menu > li > a.nav-link {
     display: inline-block;
+    width: 100%;
+}
+
+ul.navbar-nav > li > ul.sub-menu > li[class*=fa] > a.nav-link {
+    width: calc( 100% - 1.5rem );
 }
 
 ul.navbar-nav:not(.submenu) li,
