@@ -34,6 +34,7 @@ if ( is_user_logged_in() && isset( $_SESSION[ "is_checkout_not_logged_in" ] ) &&
                             'menu_class' => 'navbar-nav px-0',
                             'depth' => 4,
                             'container' => false,
+                            'menu_id' => "header_menu_1_1"
                         ));
                         ?>
                     </div>
@@ -44,6 +45,7 @@ if ( is_user_logged_in() && isset( $_SESSION[ "is_checkout_not_logged_in" ] ) &&
                             'menu_class' => 'navbar-nav px-0 header-second-menu',
                             'depth' => 2,
                             'container' => false,
+                            'menu_id' => "header_menu_2_1"
                         ));
                         ?>
                     </div>
@@ -53,36 +55,38 @@ if ( is_user_logged_in() && isset( $_SESSION[ "is_checkout_not_logged_in" ] ) &&
                     <a id="logo_sm" class="nav-logo d-block d-lg-none" href="<?php echo home_url(); ?>">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/logo-mobile.png" class="img-fluid" alt="">
                     </a>
-                    <div id="mySidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
-                        <div class="row mx-0">
-                            <div class="col-auto text-right">
-                                <a class="logo-sidenav" href="<?php echo home_url(); ?>">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" class="img-fluid" alt="">
-                                </a>
-                            </div>
-                            <div class="col-12 pr-4">
-                                <?php
-                                wp_nav_menu(array(
-                                    'theme_location' => 'header_2',
-                                    'menu_class' => 'navbar-nav px-0 flex-row header-second-menu mb-4',
-                                    'depth' => 2,
-                                    'container' => false,
-                                ));
-                                wp_nav_menu(array(
-                                    'theme_location' => 'header_1',
-                                    'menu_class' => 'navbar-nav px-0',
-                                    'depth' => 4,
-                                    'container' => false,
-                                ));
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="fix_hover_body_nav_menu" class="fix-hover-body-nav-menu" onclick="closeNav()"></div>
                 </div>
             </div>
         </div>
     </div>
 </nav>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+    <div class="row mx-0">
+        <div class="col-auto text-right">
+            <a class="logo-sidenav" href="<?php echo home_url(); ?>">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" class="img-fluid" alt="">
+            </a>
+        </div>
+        <div class="col-12 pr-4">
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'header_2',
+                'menu_class' => 'navbar-nav px-0 flex-row header-second-menu mb-4 justify-content-end',
+                'depth' => 2,
+                'container' => false,
+                'menu_id' => "header_menu_2_2"
+            ));
+            wp_nav_menu(array(
+                'theme_location' => 'header_1',
+                'menu_class' => 'navbar-nav px-0',
+                'depth' => 4,
+                'container' => false,
+                'menu_id' => "header_menu_1_2"
+            ));
+            ?>
+        </div>
+    </div>
+</div>
+<div id="fix_hover_body_nav_menu" class="fix-hover-body-nav-menu" onclick="closeNav()"></div>
 <body>

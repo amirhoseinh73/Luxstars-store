@@ -261,7 +261,7 @@
 
 #nav_menu .navbar-toggler {
 	position: absolute;
-	right: 0;
+	right: 1rem;
 	top: 0;
 	bottom: 0;
 	margin: auto;
@@ -343,6 +343,14 @@ ul.navbar-nav:not(.submenu) li::before {
     font-size: 0.8rem;
     top: 50%;
     transform: translateY( -50% );
+}
+
+ul.navbar-nav.header-second-menu li::before {
+    position: relative;
+    right: initial;
+    top: initial;
+    font-size: inherit;
+    transform: unset;
 }
 
 ul.navbar-nav > li > ul.sub-menu > li::before {

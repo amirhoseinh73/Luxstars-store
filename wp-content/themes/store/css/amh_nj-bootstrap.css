@@ -1651,14 +1651,14 @@ ul.navbar-nav > li:hover > ul.sub-menu {
 }
 
 #nav_menu [aria-current]:not([aria-current="false"]) {
-    position: relative;
-    overflow: hidden;
+    /* position: relative; */
+    /* overflow: hidden; */
     color: var(--color-3-100) !important;
-    background-color: var(--color-1-100);
+    /* background-color: var(--color-1-100); */
 }
 
 #nav_menu [aria-current]:not([aria-current="false"])::before {
-    content: '';
+    /* content: ''; */
     position: absolute;
     bottom: 0;
     left: 0;

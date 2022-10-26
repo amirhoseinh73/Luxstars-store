@@ -471,7 +471,7 @@ ul.woof_list {
 	width: 3rem;
 	height: 3rem;
 	display: block;
-	margin: 0 1rem 2rem;
+	margin: 0 0rem 2rem;
 }
 
 .logo-sidenav > img {
@@ -539,4 +539,15 @@ ul.woof_list {
 		padding-right: .75rem;
 		padding-left: .5rem;
 	}
+}
+
+#header_menu_1_2 *::before {
+	content: none;
+}
+
+#header_menu_1_2 > li > ul.sub-menu {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	margin-bottom: 2rem;
 }
