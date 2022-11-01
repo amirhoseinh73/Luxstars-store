@@ -1,4 +1,4 @@
-swiper = new Swiper('#slide_show .swiper-container', {
+const swiper1 = new Swiper('#slide_show .swiper-container', {
     effect: 'fade',
     loop: true,
     autoplay: {
@@ -8,7 +8,7 @@ swiper = new Swiper('#slide_show .swiper-container', {
 });
 
 
-swiper = new Swiper('#logos .swiper-container', {
+const swiper2 = new Swiper('#logos .swiper-container', {
     centeredSlides: true,
     slidesPerView: 2,
     spaceBetween: 15,
@@ -42,6 +42,7 @@ swiper = new Swiper('#logos .swiper-container', {
     }
 });
 
+//document ready
 jQuery(function () {
     jQuery(document).scroll(function () {
         var nav = jQuery("#nav_menu");
@@ -65,6 +66,13 @@ jQuery(function () {
     } );
 
     // nav_menu_submenu_hover();
+
+    changeQuantityWithButton()
+
+    jQuery('body').on( 'updated_wc_div', function(){
+        if ( typeof changeQuantityWithButton === "function" ) changeQuantityWithButton()
+    });
+
 });
 
 function openNav() {
@@ -380,4 +388,55 @@ function nav_menu_submenu_hover() {
             li.classList.add( "active-parent" );
         } )
     } );
+}
+
+function changeQuantityWithButton() {
+    const up = document.querySelectorAll( ".btn-cart-quantity-up" )
+    const down = document.querySelectorAll( ".btn-cart-quantity-down" )
+
+    if( ! up || ! down || up.length < 1 || down.length < 1 ) return
+
+    down.forEach( btn => {
+        btn.addEventListener( "click", function() {
+            updateInputQuantity.call( this, "down" )
+        } )
+    } )
+
+    up.forEach( btn => {
+        btn.addEventListener( "click", function() {
+            updateInputQuantity.call( this, "up" )
+        } )
+    } )
+
+    function updateInputQuantity( which = "down" ) {
+        const parent = this.closest( ".quantity-parent-icon" )
+        if ( ! parent ) return
+
+        const input = parent.querySelector( "input[type='number']" )
+        if ( ! input ) return
+
+        let value = +input.value
+        let max = input.max
+        let min = input.min
+
+        if ( ! min ) min = 0
+        if ( ! max ) max = 1000
+
+        if ( which === "down" ) {
+            if ( value <= min ) return
+
+            input.value = --value
+        }
+
+        if ( which === "up" ) {
+            if ( value >= max ) return
+
+            input.value = ++value
+        }
+
+        const submitCart = document.querySelector( "[name='update_cart']" )
+        if ( ! submitCart ) return
+        submitCart.removeAttribute( "disabled" )
+        submitCart.removeAttribute( "aria-disabled" )
+    }
 }

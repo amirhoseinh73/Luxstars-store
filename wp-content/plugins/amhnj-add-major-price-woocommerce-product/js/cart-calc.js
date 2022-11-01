@@ -7,6 +7,10 @@ function doc_ready( fn ) {
 
 doc_ready( () => {
     changeCalcCartTotal()
+
+    jQuery('body').on( 'updated_wc_div', function(){
+        if ( typeof changeCalcCartTotal === "function" ) changeCalcCartTotal()
+    });
 } );
 
 function changeCalcCartTotal() {

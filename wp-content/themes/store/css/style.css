@@ -551,3 +551,33 @@ ul.woof_list {
 	height: auto;
 	margin-bottom: 2rem;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  appearance: textfield;
+}
+
+.quantity-parent-icon {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.quantity-parent-icon div.quantity {
+	margin: 0 0.5rem !important;
+	width: 2rem;
+	height: 2rem;
+}
+
+.quantity-parent-icon > button.btn-cart-quantity-up,
+.quantity-parent-icon > button.btn-cart-quantity-down {
+	padding: 0;
+}

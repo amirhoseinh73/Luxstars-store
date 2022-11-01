@@ -127,8 +127,11 @@ do_action( 'woocommerce_before_cart' ); ?>
 								false
 							);
 						}
-
+						echo "<section class='quantity-parent-icon'>";
+						echo "<button type='button' class='btn btn-success rounded-circle wp-2 hp-2 fas fa-plus btn-cart-quantity-up'></button>";
 						echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
+						echo "<button type='button' class='btn btn-secondary rounded-circle wp-2 hp-2 fas fa-minus btn-cart-quantity-down'></button>";
+						echo "</section>";
 						?>
 						</td>
 

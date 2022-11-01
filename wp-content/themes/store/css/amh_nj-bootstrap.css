@@ -1358,11 +1358,11 @@ a.text-black-amh_nj:hover, a.text-white-amh_nj:hover {
     color: var(--boot-theme-black) !important;
 }
 
-.text-boot-grad {
+/* .text-boot-grad {
     background-image: var(--boot-theme-grad);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
+} */
 
 .bg-boot-1 {
     background: var(--color-1-100) !important;
@@ -2727,6 +2727,13 @@ ul.pagination {
     direction: ltr;
 }
 
+.wp-2 {
+    width: 2rem !important;
+}
+
+.hp-2 {
+    height: 2rem !important;
+}
 
 /****************************************************my-modal****************************************amh_nj**********/
 
