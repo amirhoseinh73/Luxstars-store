@@ -21,7 +21,7 @@
                                 <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_1_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
                                 <div class="caption p-2">
                                     <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_1_title', __('Title')); ?></h1>
-                                    <p class="font-13 fw400 text-justify lh-18 text-secondary">
+                                    <p class="font-13 fw400 text-justify lh-18 text-secondary mt-xl-3">
                                         <?php echo get_theme_mod( 'service_1_text', __('Text')); ?>
                                     </p>
                                 </div>
@@ -36,7 +36,7 @@
                                 <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_2_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
                                 <div class="caption p-2">
                                     <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_2_title', __('Title')); ?></h1>
-                                    <p class="font-13 fw400 text-justify lh-18 text-secondary">
+                                    <p class="font-13 fw400 text-justify lh-18 text-secondary mt-xl-3">
                                         <?php echo get_theme_mod( 'service_2_text', __('Text')); ?>
                                     </p>
                                 </div>
@@ -51,7 +51,7 @@
                                 <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_3_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
                                 <div class="caption p-2">
                                     <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_3_title', __('Title')); ?></h1>
-                                    <p class="font-13 fw400 text-justify lh-18 text-secondary">
+                                    <p class="font-13 fw400 text-justify lh-18 text-secondary mt-xl-3">
                                         <?php echo get_theme_mod( 'service_3_text', __('Text')); ?>
                                     </p>
                                 </div>
@@ -66,7 +66,7 @@
                                 <span class="cont-icon-rotate"><i class="<?php echo get_theme_mod( 'service_4_icon', 'fas fa-cogs fa-3x'); ?>"></i></span>
                                 <div class="caption p-2">
                                     <h1 class="font-19 fw500 text-center text-boot-4"><?php echo get_theme_mod( 'service_4_title', __('Title')); ?></h1>
-                                    <p class="font-13 fw400 text-justify lh-18 text-secondary">
+                                    <p class="font-13 fw400 text-justify lh-18 text-secondary mt-xl-3">
                                         <?php echo get_theme_mod( 'service_4_text', __('Text')); ?>
                                     </p>
                                 </div>
@@ -85,9 +85,9 @@
                         جدید ترین محصولات
                     </h1>
                     <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                    <div class="row mt-boot-30">
+                    <div class="row mt-boot-30 hide-two-last-child-xlM">
                         <?php
-                        $params_product = array('posts_per_page' => 8, 'post_type' => 'product');
+                        $params_product = array('posts_per_page' => 10, 'post_type' => 'product');
                         $last_products = new WP_Query($params_product);
                         if ($last_products->have_posts()) :
                             while ( $last_products->have_posts() ) :

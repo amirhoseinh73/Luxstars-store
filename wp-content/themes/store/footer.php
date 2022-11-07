@@ -19,7 +19,7 @@
 <footer id="footer_parent">
     <div class="border-footer"></div>
     <div class="container pt-boot-15">
-        <div id="footer" class="pt-5">
+        <div id="footer" class="pt-1">
             <div class="row">
                 <div id="footer_text" class="col-12 mb-3 border-bottom">
                     <div class="row">
@@ -52,25 +52,25 @@
                         </div>
                     </div>
                     <div class="row footer-contact">
-                        <div class="col-12 col-sm-6 mt-boot-22">
+                        <div class="col-12 col-sm-6 mt-boot-8">
                             <i class="float-right ml-2 mb-boot-2 fas fa-phone font-18 align-middle"></i>
                             <p class="mb-0 fw500 font-14 lh-25">
                                 <a class="text-dark" href="tel:<?php echo get_theme_mod( 'footer_tell', '031-31234567'); ?>"><?php echo get_theme_mod( 'footer_tell', '031-31234567'); ?></a>
                             </p>
                         </div>
-                        <div class="col-12 col-sm-6 mt-boot-22">
+                        <div class="col-12 col-sm-6 mt-boot-8">
                             <i class="float-right ml-2 mb-boot-2 fas fa-mobile-alt font-20 align-middle"></i>
                             <p class="mb-0 fw500 font-14 lh-25">
                                 <a class="text-dark" href="tel:<?php echo get_theme_mod( 'footer_mobile', '09123456789'); ?>"><?php echo get_theme_mod( 'footer_mobile', '09123456789'); ?></a>
                             </p>
                         </div>
-                        <div class="col-12 col-sm-6 mt-boot-22">
+                        <div class="col-12 col-sm-6 mt-boot-8">
                             <i class="float-right ml-2 mb-boot-2 fas fa-envelope-open font-20 align-middle"></i>
                             <p class="mb-0 fw500 font-14 lh-25 text-uppercase">
                                 <a class="text-dark" href="mailto:<?php echo get_theme_mod( 'footer_email_1', 'info@amirhoseinhasani.ir'); ?>"><?php echo get_theme_mod( 'footer_email_1', 'info@amirhoseinhasani.ir'); ?></a>
                             </p>
                         </div>
-                        <div class="col-12 col-sm-6 mt-boot-22">
+                        <div class="col-12 col-sm-6 mt-boot-8">
                             <i class="float-right ml-2 mb-boot-2 fas fa-envelope font-20 align-middle"></i>
                             <p class="mb-0 fw500 font-14 lh-25 text-uppercase">
                                 <a class="text-dark" href="mailto:<?php echo get_theme_mod( 'footer_email_2', 'sale@amirhoseinhasani.ir'); ?>"><?php echo get_theme_mod( 'footer_email_2', 'sale@amirhoseinhasani.ir'); ?></a>

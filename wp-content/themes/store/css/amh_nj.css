@@ -828,9 +828,10 @@ p.pro-price {
     flex-direction: column-reverse;
 }
 
-.pro-price span.woocommerce-Price-amount {
+.pro-price span.woocommerce-Price-amount > bdi {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    flex-wrap: wrap;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -1186,24 +1187,20 @@ img.img-header {
 }
 
 .woocommerce ul li a.add_to_cart_button {
-    background-image: var(--boot-theme-grad);
-    color: var(--color-1-100);
-    font-size: 14px;
-    font-weight: 400;
-    transition: all 300ms linear;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-top: 0 !important;
-    background-color: transparent;
-    background-size: 100% 100%;
-    background-position: right center;
+	color: var(--color-1-100);
+	font-size: 14px;
+	font-weight: 400;
+	transition: all 300ms linear;
+	border-radius: 12px;
+	overflow: hidden;
+	margin-top: 0 !important;
+	background-color: var(--color-3-100);
+	background-position: right center;
 }
 
 .woocommerce ul li a.add_to_cart_button:hover,
 .woocommerce ul li:hover a.add_to_cart_button {
-    background-size: 200% 200%;
-    background-image: var(--boot-theme-grad);
-    background-color: transparent;
+    background-color: var(--color-4-100);
     color: var(--color-1-100);
 }
 
@@ -1252,7 +1249,8 @@ img.img-header {
 }
 
 .woocommerce-Price-currencySymbol {
-    color: var(--color-4-100);
+	color: var(--color-2-100);
+	margin-right: 0;
 }
 
 .woocommerce ul.products li.product span.price ins,

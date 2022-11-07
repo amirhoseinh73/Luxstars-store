@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<section class="col-12 col-sm-6 col-md-4 col-lg-3 px-0">
+<section class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-25 px-0">
     <section class="pro-card">
         <a href="<?= get_the_permalink(); ?>" class="blog-link-absolute"></a>
         <div class="pro-img">
