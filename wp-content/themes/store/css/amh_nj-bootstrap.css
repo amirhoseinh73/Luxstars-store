@@ -1621,7 +1621,7 @@ ul.navbar-nav li ul.sub-menu {
     left: 0;
 	top: 5.2rem;
 	display: none;
-    height: 25rem;
+    height: auto;
 }
 
 ul.navbar-nav li:hover ul.sub-menu {
@@ -1678,7 +1678,7 @@ ul {
 }
 
 ul.navbar-nav > li > ul.sub-menu > li {
-    padding: 0;
+    padding: 0.85rem 0;
     width: 15rem;
 }
 
@@ -1697,11 +1697,12 @@ ul.navbar-nav li ul.sub-menu li a {
 
 ul.navbar-nav > li > ul.sub-menu > li {
     display: list-item;
+    /*! font-size: 1.1rem; */
 }
 
 ul.navbar-nav > li > ul.sub-menu > li:hover {
     background-color: var(--color-2-100);
-    color: #000000;
+    color: var(--color-3-100);
 }
 
 #nav_menu .sub-menu:not(.navbar-nav) a.nav-link::after {

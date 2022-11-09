@@ -67,6 +67,7 @@ ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
+	z-index: 99999999;
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li::before {
@@ -86,7 +87,7 @@ ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li:hover > a {
 }
 
 ul.navbar-nav > li:hover > ul.sub-menu > li:hover > ul.sub-menu > li:hover {
-	background-color: var(--color-2-75);
+	background-color: transparent;
 	color: var(--color-3-100);
 }
 
@@ -166,15 +167,60 @@ ul.navbar-nav > li > ul.sub-menu li.menu-item-has-children:hover::after {
 
 ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li {
 	flex: 0 0 auto;
-	max-width: 33.33333%;
+	max-width: 22%;
 	min-width: 20%;
 	position: relative;
-	margin-left: 2.5rem;
+	margin-left: 0.5rem;
 	padding: 0 1rem;
 }
 
 ul.navbar-nav > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li {
     flex: 0 0 100%;
+}
+
+ul.navbar-nav > li:hover > ul.sub-menu > li:last-child > ul.sub-menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	z-index: 99999998;
+}
+
+ul.navbar-nav > li:hover > ul.sub-menu > li:last-child {
+	background-color: var(--color-2-100);
+	color: var(--color-3-100);
+}
+
+ul.navbar-nav > li:hover > ul.sub-menu > li:hover ~ li {
+	background-color: var(--color-2-100);
+	color: var(--color-3-100);
+}
+
+ul.navbar-nav > li:hover > ul.sub-menu > li:last-child > ul.sub-menu > li > ul.sub-menu {
+	right: 0;
+	top: 0;
+	position: relative;
+	opacity: 1;
+	height: calc(100% - 2.3rem);
+	width: 100%;
+	display: flex;
+	background-color: transparent;
+}
+
+ul.navbar-nav > li:hover > ul.sub-menu > li:last-child > ul.sub-menu > li > ul.sub-menu > li > a {
+	color: #666666;
+}
+
+ul.navbar-nav > li:hover > ul.sub-menu > li:last-child > ul.sub-menu > li::before {
+	content: "\f104";
+	font-size: 1rem;
+	font-family: "Font Awesome 6 Pro";
+	position: absolute;
+	font-weight: 700;
+	left: 0.25rem;
+	right: auto;
+	top: 0.35rem;
+	transform: none;
 }
 
 .woocommerce .col2-set .col-1,

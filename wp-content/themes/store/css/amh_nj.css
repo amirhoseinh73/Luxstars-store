@@ -356,14 +356,18 @@ ul.navbar-nav.header-second-menu li::before {
 ul.navbar-nav > li > ul.sub-menu > li::before {
 	position: relative;
 	right: 0.4rem;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	display: inline-block;
 	top: 1.5rem;
 	width: 1.5rem;
 	height: 1.5rem;
 	vertical-align: middle;
 	transform: translateY( -100% );
-	color: var(--color-3-75);
+	color: inherit;
+	/*! font-size: inherit; */
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 }
 
 ul.navbar-nav > li > ul.sub-menu > li > a.nav-link {
@@ -373,6 +377,8 @@ ul.navbar-nav > li > ul.sub-menu > li > a.nav-link {
 
 ul.navbar-nav > li > ul.sub-menu > li[class*=fa] > a.nav-link {
     width: calc( 100% - 1.5rem );
+    font-size: 1.1rem !important;
+    padding-right: 1.5rem;
 }
 
 ul.navbar-nav:not(.submenu) li,
@@ -384,7 +390,7 @@ ul.navbar-nav:not(.submenu) li a.nav-link {
 
 ul.navbar-nav:not(.submenu) li:hover,
 ul.navbar-nav:not(.submenu) li:hover a.nav-link {
-    color: var(--color-4-100);
+    color: inherit;
 }
 
 ul.navbar-nav li ul.submenu li a.nav-link {
@@ -577,8 +583,8 @@ ul.hover-li-bef li:hover a::before {
 }
 
 ul.hover-li-bef li:hover a {
-    color: var(--color-1-100);
-    padding-right: 10px;
+	color: var(--color-3-100);
+	padding-right: 10px;
 }
 
 /*************************************************************footer*********************************amh_nj*************/
