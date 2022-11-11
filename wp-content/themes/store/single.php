@@ -8,29 +8,7 @@ if (have_posts()) :
         ?>
         <header id="header" class="container-fluid position-relative">
             <div class="row">
-                <div class="col-12 px-0">
-                    <?php the_post_thumbnail('full', ['class' => 'img-header', 'alt' => get_the_title()]) ?>
-                    <div class="header-caption">
-                        <h1 class="fw600"><?php echo get_the_title() ?></h1>
-                        <p class="fw400 font-15">
-                            <?php the_content_rss('', true, '', '10'); ?>
-                        </p>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="amh_nj-breadcrumb">
-                                    <a class="font-14">
-                                        <i class="far fa-angle-double-left pl-1 pr-1 align-middle font-13"></i>
-                                    </a>
-                                    <a href="<?php echo home_url() ?>" class="amh_nj-breadcrumb-link font-13">خانه</a>
-                                    <i class="far fa-angle-left pl-1 align-middle font-15 fw300"></i>
-                                    <a href="<?php echo home_url() ?>/blog/" class="amh_nj-breadcrumb-link font-13">وبلاگ</a>
-                                    <i class="far fa-angle-left pl-1 align-middle font-15 fw300"></i>
-                                    <a class="amh_nj-breadcrumb-text font-12"><?php echo get_the_title() ?></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php get_template_part( "bread", "crumb-html" )?>
             </div>
         </header>
         <main>

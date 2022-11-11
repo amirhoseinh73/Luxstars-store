@@ -167,13 +167,10 @@ function fiboSearchClasses() {
     input.classList.add( "text-right" );
 
     const button = form.querySelector( ".dgwt-wcas-search-submit" );
-    button.classList.add( ...["rounded-pill",
+    button.classList.add( ...[
+    "rounded-pill",
     "btn-boot-3",
     "btn-block",
-    "px-3",
-    "py-2",
-    "fw400",
-    "font-14",
     "amh_nj-hover-2",
     "btn-search"
     ] );

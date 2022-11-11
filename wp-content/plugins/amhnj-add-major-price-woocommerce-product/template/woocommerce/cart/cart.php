@@ -204,7 +204,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 							<div class="d-flex flex-row flex-wrap">
 								<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
 								<input type="text" name="coupon_code" class="input-text form-control form-control-sm col-7 d-block w-100" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" />
-								<button type="submit" class="button col-4 d-block w-100" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>">
+								<button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>">
 									<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>
 								</button>
 							</div>

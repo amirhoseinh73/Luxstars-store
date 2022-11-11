@@ -68,7 +68,7 @@ if ( is_user_logged_in() && isset( $_SESSION[ "is_checkout_not_logged_in" ] ) &&
                 <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" class="img-fluid" alt="">
             </a>
         </div>
-        <div class="col-12 pr-4">
+        <div class="col-12 pr-2">
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'header_2',

@@ -131,12 +131,6 @@ function gt_posts_custom_column_views($column)
 add_filter('manage_posts_columns', 'gt_posts_column_views');
 add_action('manage_posts_custom_column', 'gt_posts_custom_column_views');
 
-
-//comments
-// Include better comments file from a Parent theme
-
-require_once get_parent_theme_file_path('better-comments.php');
-
 function wpb_move_comment_field_to_bottom($fields)
 {
     $comment_field = $fields['comment'];
@@ -281,3 +275,10 @@ function amh_nj_add_minus() {
 function amh_nj_add_plus() {
 	echo "<button type='button' class='btn btn-secondary rounded-circle wp-2 hp-2 fas fa-minus btn-cart-quantity-down'></button></section>";
 }
+
+require_once get_parent_theme_file_path('amih-comments.php');
+add_filter('comment_form_fields', 'amih_comment_form');
+add_filter('wp_list_comments_args', function ($args) {
+    $args['callback'] = 'amih_comments';
+    return $args;
+});

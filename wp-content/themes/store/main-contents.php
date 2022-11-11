@@ -1,16 +1,4 @@
 <main id="main_index">
-    <section id="search_index" class="pt-boot-45 pb-boot-45">
-        <div class="container">
-            <div class="row align-items-end">
-                <div class="col-12 mb-boot-12">
-                    <h6 class="text-boot-4 fw600 font-20 tit-L-before">جستجوی پیشرفته محصول</h6>
-                </div>
-                <div class="col-12 my-auto text-md-right text-center">
-                    <?php echo do_shortcode('[fibosearch]'); ?>
-                </div>
-            </div>
-        </div>
-    </section>
     <section id="service_index" class="mt-boot-45">
         <div class="container">
             <div class="row">
@@ -81,10 +69,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="fw600 font-20 text-boot text-right tit-L-before">
+                    <h1 class="fw600 font-20 text-boot text-right tit-L-before mt-4 mt-md-0">
                         جدید ترین محصولات
                     </h1>
-                    <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                    <p class="text-boot-4 font-15 fw400 mb-3 mb-md-1">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
                     <div class="row mt-boot-30 hide-two-last-child-xlM">
                         <?php
                         $params_product = array('posts_per_page' => 10, 'post_type' => 'product');
@@ -234,7 +222,7 @@
     <section id="about_index_2" class="mb-boot-30 mt-boot-30">
         <div class="container">
             <div class="row flex-row-reverse">
-                <div class="col-12 col-sm-6 col-lg-4 my-auto img-about-shape-2-p">
+                <div class="col-12 col-sm-6 col-lg-4 my-auto img-about-shape-2-p mx-auto">
                     <img src="<?php echo get_theme_mod( 'about_2_img', get_template_directory_uri().'/img/about.jpg'); ?>" class="img-fluid img-about-shape-2" alt="">
                 </div>
                 <div class="col-12 col-lg-8 my-auto">
