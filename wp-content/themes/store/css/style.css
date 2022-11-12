@@ -869,3 +869,14 @@ input[type=number] {
 .woocommerce-checkout .woocommerce-billing-fields__field-wrapper > #billing_email_field {
 	order: 7;
 }
+
+.checkout_coupon .form-row button.button {
+	padding: 0.5rem 0.75rem;
+	margin: 0;
+	min-width: unset;
+	font-size: 0.7rem !important;
+}
+
+.checkout_coupon .form-row.form-row-last {
+	width: 52%;
+}

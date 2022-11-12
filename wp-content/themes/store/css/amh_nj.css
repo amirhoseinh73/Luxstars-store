@@ -1639,7 +1639,7 @@ form.cart button.single_add_to_cart_button:hover {
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-	top: 0.75rem;
+	top: 0.35rem;
 	right: 0.75rem;
 }
 
@@ -1666,7 +1666,25 @@ form.cart button.single_add_to_cart_button:hover {
     box-shadow: 4px -8px 12px -4px #00000055;
 }
 
+.woocommerce-page.woocommerce-checkout .input-text,
 .custom-input-box-shadow,
+.select2-container .select2-selection--single,
+.woocommerce-address-fields .form-row input,
+.woocommerce-EditAccountForm.edit-account .woocommerce-form-row input {
+	height: auto;
+	padding: 0.25rem 0.75rem;
+	font-size: 0.75rem;
+	border: 1px solid var(--color-2-100);
+	border-radius: 25px;
+	overflow: hidden;
+	box-shadow: 4px 8px 5px -8px #00000025;
+	margin-bottom: 0.5rem !important;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+/* .custom-input-box-shadow,
 .select2-container .select2-selection--single,
 .woocommerce-address-fields .form-row input,
 .woocommerce-EditAccountForm.edit-account .woocommerce-form-row input {
@@ -1678,7 +1696,7 @@ form.cart button.single_add_to_cart_button:hover {
     overflow: hidden;
     box-shadow: 4px 8px 12px -4px #00000055;
     margin-bottom: 0.5rem !important;
-}
+} */
 
 .select2-container .select2-selection--single,
 .woocommerce-address-fields .form-row input {
