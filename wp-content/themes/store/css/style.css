@@ -404,17 +404,37 @@ ul.woof_list {
 	position: relative;
 }
 
-.woof_sid_auto_shortcode.woof::before {
+
+/* .woof_sid_auto_shortcode.woof::before {
 	content: "فیلتر محصولات";
+} */
+.woof_sid_auto_shortcode.woof > div:first-of-type::before {
+	content: "فیلتر محصولات";
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0.8rem;
+	font-weight: 500;
+	color: var(--color-1-100);
+	background-color: var(--color-4-100);
+	width: 100%;
+	height: 100%;
+	z-index: 6;
+	pointer-events: none;
+	user-select: none;
+	border-radius: 8px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.woof_sid_auto_shortcode.woof > div:first-of-type {
 	position: absolute;
 	top: -15px;
 	right: 10px;
-	font-size: 1rem;
-	font-weight: 600;
-	background-color: var(--color-4-100);
-	color: var(--color-1-100);
-	border-radius: 8px;
-	padding: 0.25rem 0.75rem;
+	width: 7rem;
+	height: 2rem;
 	z-index: 5;
 }
 
@@ -844,6 +864,16 @@ input[type=number] {
 	order: 1;
 }
 
+@media( max-width: 575.9px ) {
+	.woocommerce-checkout .woocommerce-billing-fields__field-wrapper > #billing_first_name_field,
+	.woocommerce-checkout .woocommerce-billing-fields__field-wrapper > #billing_last_name_field,
+	.woocommerce-checkout .woocommerce-billing-fields__field-wrapper > #billing_company_field,
+	.woocommerce-checkout .woocommerce-billing-fields__field-wrapper > p {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
 .woocommerce-checkout .woocommerce-billing-fields__field-wrapper > #billing_address_2_field,
 .woocommerce-checkout .woocommerce-billing-fields__field-wrapper > #billing_country_field {
 	display: none !important;
@@ -879,4 +909,44 @@ input[type=number] {
 
 .checkout_coupon .form-row.form-row-last {
 	width: 52%;
+}
+
+@media( max-width: 991.9px ) {
+	.page-content .woocommerce-page.woof_shortcode_output ul.products > li {
+		width: 48%;
+	}
+}
+
+@media( max-width: 767.9px ) {
+	.page-content .woof.woof_sid.woof_sid_auto_shortcode {
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+	.woof_redraw_zone {
+		height: 0;
+		overflow: hidden;
+		opacity: 0;
+	}
+
+	.woof_redraw_zone.show {
+		height: auto;
+		opacity: 1;
+	}
+
+	.woof_sid_auto_shortcode.woof > div:first-of-type {
+		cursor: pointer;
+	}
+
+	.social-footer li {
+		margin-left: 0.5rem;
+		margin-right: 0.5rem;
+	}
+}
+
+@media( max-width: 575.9px ) {
+	.page-content .woocommerce-page.woof_shortcode_output ul.products > li {
+		width: 88%;
+	}
 }

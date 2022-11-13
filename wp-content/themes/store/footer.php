@@ -121,10 +121,10 @@
     </div>
 </footer>
 <?php wp_footer(); ?>
-<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-3.4.1.min.js"></script> -->
+
 <script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/swiper.min.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/amh_nj.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/amh_nj.js?ver=" . <?= AMHNJ_VERSION?>></script>
 </body>
 </html>

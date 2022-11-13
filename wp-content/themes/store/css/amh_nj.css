@@ -1404,7 +1404,7 @@ ul.page-numbers a.prev::after {
     flex-wrap: wrap;
 }
 
-.woocommerce .products ul li.product, .woocommerce ul.products li.product {
+.woocommerce .products ul li.product, .woocommerce ul.products[class*="columns-"] > li.product {
     margin: 15px auto 0;
     border: 1px solid var(--color-4-75);
 }

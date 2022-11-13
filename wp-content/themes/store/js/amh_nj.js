@@ -73,6 +73,8 @@ jQuery(function () {
         if ( typeof changeQuantityWithButton === "function" ) changeQuantityWithButton()
     });
 
+    collapseWoofFilter();
+
 });
 
 function openNav() {
@@ -437,3 +439,17 @@ function changeQuantityWithButton() {
         submitCart.removeAttribute( "aria-disabled" )
     }
 }
+
+function collapseWoofFilter() {
+    const filterBtn = document.querySelector( ".woof_sid_auto_shortcode.woof > div:first-of-type" )
+
+    if ( ! filterBtn ) return
+
+    filterBtn.addEventListener( "click", function() {
+        const section = document.querySelector( ".woof_sid_auto_shortcode.woof .woof_redraw_zone" )
+
+        if ( ! section ) return
+
+        section.classList.toggle( "show" )
+    } )
+} 
