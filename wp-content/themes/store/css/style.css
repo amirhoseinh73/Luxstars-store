@@ -943,10 +943,74 @@ input[type=number] {
 		margin-left: 0.5rem;
 		margin-right: 0.5rem;
 	}
+
+	.woocommerce table.shop_table_responsive tr td::before,
+	.woocommerce-page table.shop_table_responsive tr td::before {
+		content: none;
+	}
+
+	.woocommerce table.shop_table_responsive tr,
+	.woocommerce-page table.shop_table_responsive tr {
+		display: table;
+	}
+
+	.woocommerce table.shop_table_responsive tr td,
+	.woocommerce-page table.shop_table_responsive tr td {
+		display: table-cell;
+	}
+
+	.woocommerce table.shop_table_responsive > tbody > tr:last-of-type,
+	.woocommerce-page table.shop_table_responsive > tbody > tr:last-of-type {
+		width: 100%;
+	}
+
+	.woocommerce table.shop_table_responsive > tbody > tr:last-of-type > td,
+	.woocommerce-page table.shop_table_responsive > tbody > tr:last-of-type > td {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		width: 100%;
+	}
+
+	.woocommerce table.shop_table_responsive > tbody > tr:last-of-type > td > button,
+	.woocommerce-page table.shop_table_responsive > tbody > tr:last-of-type > td > button {
+		flex: 0 0 7rem;
+	}
+
+	.woocommerce table.shop_table_responsive > tbody > tr:last-of-type > td > .coupon,
+	.woocommerce-page table.shop_table_responsive > tbody > tr:last-of-type > td > .coupon {
+		flex: 1;
+		padding: 0;
+	}
+
+	.woocommerce table.shop_table_responsive > tbody > tr:last-of-type > td > .coupon > div > button,
+	.woocommerce-page table.shop_table_responsive > tbody > tr:last-of-type > td > .coupon > div > button {
+		flex: 1;
+		margin: 0 0.5rem;
+		max-width: 6rem;
+		font-size: 0.6rem;
+	}
+
+	.woocommerce-account .col2-set .col-2,
+	.woocommerce-account .col2-set .col-1 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
 }
 
 @media( max-width: 575.9px ) {
 	.page-content .woocommerce-page.woof_shortcode_output ul.products > li {
 		width: 88%;
+	}
+
+	.woocommerce-cart table.shop_table.woocommerce-cart-form__contents {
+		width: 100%;
+		display: block;
+		overflow: auto;
+	}
+
+	.woocommerce table.shop_table_responsive tr td,
+	.woocommerce-page table.shop_table_responsive tr td {
+		padding: 0.25rem 0.5rem;
 	}
 }
