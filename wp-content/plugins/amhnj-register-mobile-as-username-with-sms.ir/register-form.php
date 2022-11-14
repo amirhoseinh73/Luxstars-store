@@ -20,7 +20,7 @@ function register_form() {
 
             <p class="form-row">
                 ' . wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ) . '
-                <button type="submit" class="woocommerce-button button woocommerce-form-login__submit"
+                <button type="submit" class="woocommerce-button button woocommerce-form-login__submit ml-0 mr-auto"
                 name="login" value="' . __( 'Log in', 'woocommerce' ) . '">' . __( 'Log in', 'woocommerce' ) . '</button>
             </p>
 
@@ -29,8 +29,8 @@ function register_form() {
         </form>';
     else :
     echo '<form action="' . get_permalink() . '" method="post"
-        class="woocommerce-form woocommerce-form-register register">
-        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+        class="woocommerce-form woocommerce-form-register register d-flex justify-content-end flex-wrap">
+        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide col-12">
             <label for="reg_username" class="custom-label-box-shadow">
             ' . __( 'Phone Number', 'woocommerce' ) . '&nbsp;<span class="required">*</span>
             </label>
@@ -38,7 +38,7 @@ function register_form() {
             name="username" id="reg_username" autocomplete="username"
             value="' . ( ( isset( $_POST['amhnj_create_new_customer'] ) && isset( $_POST['username'] ) && ! empty( $_POST['username'] ) ) ? __( wp_unslash( $phone_number ) ) : '' ) . '" />
         </p>
-        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide col-12 col-sm-6">
             <label for="reg_first_name" class="custom-label-box-shadow">
             ' . __( 'First name', 'woocommerce' ) . '&nbsp;<span class="required">*</span>
             </label>
@@ -46,7 +46,7 @@ function register_form() {
             name="first_name" id="reg_first_name" autocomplete="first_name"
             value="' . ( ( isset( $_POST['first_name'] ) && ! empty( $_POST['first_name'] ) ) ? __( wp_unslash( $first_name ) ) : '' ) . '" />
         </p>
-        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide col-12 col-sm-6">
             <label for="reg_last_name" class="custom-label-box-shadow">
             ' . __( 'Last name', 'woocommerce' ) . '&nbsp;<span class="required">*</span>
             </label>
@@ -54,8 +54,8 @@ function register_form() {
             name="last_name" id="reg_last_name" autocomplete="last_name"
             value="' . ( ( isset( $_POST['last_name'] ) && ! empty( $_POST['last_name'] ) ) ? __( wp_unslash( $last_name ) ) : '' ) . '" />
         </p>
-        <p class="woocommerce-form-row form-row">
-            <button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
+        <p class="woocommerce-form-row form-row col-8 col-sm-5">
+            <button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit mx-0 btn-block w-100"
             name="amhnj_create_new_customer" value="' . __( 'Register', 'woocommerce' ) . '">
                 ' . __( 'Register', 'woocommerce' ) . '
             </button>

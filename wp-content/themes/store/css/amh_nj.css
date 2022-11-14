@@ -1711,7 +1711,7 @@ form.cart button.single_add_to_cart_button:hover {
 }
 
 .woocommerce form .show-password-input, .woocommerce-page form .show-password-input {
-	top: 0.75rem;
+	top: 0.25rem;
 }
 
 .woocommerce .woocommerce-MyAccount-content table {

@@ -18,7 +18,7 @@ function login_form() {
 
             <p class="form-row">
                 ' . wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ) . '
-                <button type="submit" class="woocommerce-button button woocommerce-form-login__submit"
+                <button type="submit" class="woocommerce-button button woocommerce-form-login__submit ml-0 mr-auto"
                 name="login" value="' . __( 'Log in', 'woocommerce' ) . '">' . __( 'Log in', 'woocommerce' ) . '</button>
             </p>
 
@@ -35,7 +35,7 @@ function login_form() {
                     value="' . ( ( isset( $_POST['amhnj_login_customer'] ) && ! empty( $_POST['username'] ) ) ? __( wp_unslash( $_POST['username'] ) ) : '' ) . ' " />
                 </p>
                 <p class="woocommerce-form-row form-row">
-                    <button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
+                    <button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit ml-0 mr-auto"
                     name="amhnj_login_customer">
                         ' . __( 'Log in', 'woocommerce' ) . '
                     </button>

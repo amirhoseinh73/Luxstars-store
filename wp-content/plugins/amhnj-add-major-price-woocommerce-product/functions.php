@@ -31,7 +31,15 @@ function separate_price_number_with_comma( $price ) {
    return number_format( $price, 0, "", "." );
 }
 
+add_action( "init", "user_is_wholesaler" );
 function user_is_wholesaler() {
+   if ( ! function_exists( "wp_get_current_user" ) ) {
+      include( ABSPATH . "wp-includes/pluggable.php" );
+
+      if ( ! function_exists( "wp_get_current_user" ) ) {
+         return false;
+      }
+   }
    $userInfo = wp_get_current_user();
    if ( ! empty( $userInfo ) ) {
       $userRole = $userInfo->roles[ 0 ];

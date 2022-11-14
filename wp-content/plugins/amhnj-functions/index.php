@@ -19,14 +19,9 @@ define('AMHNJ_FUNCTIONS_PLUGIN_DIR_URL'    , plugin_dir_url(__FILE__));
 define('AMHNJ_FUNCTIONS_PLUGIN_ADMIN_PATH' , AMHNJ_FUNCTIONS_PLUGIN_DIR_PATH . 'admin/');
 define('AMHNJ_FUNCTIONS_PLUGIN_ADMIN_URL'  , AMHNJ_FUNCTIONS_PLUGIN_DIR_URL . 'admin/');
 
-// define('AMHNJ_PROGRESS_PLUGIN_JS_URL'     , AMHNJ_PROGRESS_PLUGIN_DIR_URL . 'asset/js/');
-// define('AMHNJ_PROGRESS_PLUGIN_CSS_URL'    , AMHNJ_PROGRESS_PLUGIN_DIR_URL . 'asset/css/');
-
 if ( is_admin() ) {
 	require_once AMHNJ_FUNCTIONS_PLUGIN_ADMIN_PATH . 'admin.php';
 }
-
-// date_default_timezone_set('Asia/Tehran');
 
 add_filter( 'woocommerce_get_availability', 'change_out_of_stock_text_woocommerce', 1, 2);
 

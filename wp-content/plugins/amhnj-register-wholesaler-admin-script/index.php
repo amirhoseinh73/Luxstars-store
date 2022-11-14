@@ -19,20 +19,6 @@ define('AMHNJ_REGISTER_WHOLESALER_PLUGIN_DIR_URL'    , plugin_dir_url(__FILE__))
 define('AMHNJ_REGISTER_WHOLESALER_PLUGIN_ADMIN_PATH' , AMHNJ_REGISTER_WHOLESALER_PLUGIN_DIR_PATH . 'admin/');
 define('AMHNJ_REGISTER_WHOLESALER_PLUGIN_ADMIN_URL'  , AMHNJ_REGISTER_WHOLESALER_PLUGIN_DIR_URL . 'admin/');
 
-// define('AMHNJ_PROGRESS_PLUGIN_JS_URL'     , AMHNJ_PROGRESS_PLUGIN_DIR_URL . 'asset/js/');
-// define('AMHNJ_PROGRESS_PLUGIN_CSS_URL'    , AMHNJ_PROGRESS_PLUGIN_DIR_URL . 'asset/css/');
-
 if ( is_admin() ) {
 	require_once AMHNJ_REGISTER_WHOLESALER_PLUGIN_ADMIN_PATH . 'admin.php';
 }
-
-// require_once VIRA_PLUGIN_DIR_PATH . 'capabilities.php';
-
-// date_default_timezone_set('Asia/Tehran');
-
-// add_action( 'woocommerce_add_to_cart', function ()
-// {
-  
-//     echo "<div>this is test</div>";
-
-// } );

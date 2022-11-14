@@ -59,10 +59,6 @@ if ( is_admin() ) {
 	require_once AMHNJ_REGISTER_PLUGIN_ADMIN_PATH . 'admin.php';
 }
 
-// require_once VIRA_PLUGIN_DIR_PATH . 'capabilities.php';
-
-// date_default_timezone_set('Asia/Tehran');
-
 require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "functions.php";
 
 require_once AMHNJ_REGISTER_PLUGIN_DIR_PATH . "sms.ir-send.php";
