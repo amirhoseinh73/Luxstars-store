@@ -716,7 +716,7 @@ input[type=number] {
 	pointer-events: none;
 	user-select: none;
 	height: 100%;
-	opacity: 0.8;
+	opacity: 0.9;
 	background-color: var(--color-2-100);
 	position: absolute;
 	left: 0;

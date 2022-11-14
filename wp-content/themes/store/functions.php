@@ -1,6 +1,6 @@
 <?php
 
-define( "AMHNJ_VERSION", "2.1.8" );
+define( "AMHNJ_VERSION", "2.1.85" );
 
 function custom_loginlogo_url($url)
 {

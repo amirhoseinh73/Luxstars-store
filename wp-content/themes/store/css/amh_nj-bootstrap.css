@@ -2157,8 +2157,8 @@ span.amh_nj-hover-4-last {
 }
 
 .amh_nj-breadcrumb-text {
-    color: var(--color-3-100) !important;
-    padding: 0;
+	color: var(--color-4-100) !important;
+	padding: 0;
 }
 
 .amh_nj-transition-l {

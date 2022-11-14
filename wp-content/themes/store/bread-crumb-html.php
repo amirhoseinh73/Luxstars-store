@@ -23,8 +23,8 @@
                     <a href="<?php echo home_url() ?>" class="amh_nj-breadcrumb-link font-13">خانه</a>
                     <i class="far fa-angle-left pl-1 align-middle font-15 fw300"></i>
                     <a class="amh_nj-breadcrumb-text font-12"><?php
-                        if ( is_archive() && ! empty( single_term_title() ) ) echo single_term_title();
-                        else echo get_the_title();
+                        if ( is_archive() && ! empty( single_term_title( "", false ) ) ) echo single_term_title();
+                        else the_title();
                         ?></a>
                 </div>
             </div>
