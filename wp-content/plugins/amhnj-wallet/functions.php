@@ -84,7 +84,6 @@ function handleMenuItemColleague() {
 }
 
 if ( function_exists( "user_is_wholesaler" ) ) {
-   var_dump( user_is_wholesaler() );
    if ( user_is_wholesaler() ) {
       handleMenuItemColleague();
    }
