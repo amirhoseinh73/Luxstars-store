@@ -30,61 +30,30 @@ function wallet_load_woocommerce_templates_from_plugin( $template, $template_nam
    return $template;
 }
 
-function handleMenuItemWallet() {
-   add_filter( 'woocommerce_account_menu_items', 'addMenuItemWallet', 99, 1 );
-
-   function addMenuItemWallet( $items ) {
-      $my_items = array(
-         'wallet' => __( 'کیف پول', 'amhnj_wallet' ),
-      );
-   
-      $my_items = array_slice( $items, 0, 1, true ) +
-            array_slice( $items, 1, count( $items ) - 2, true ) +
-            $my_items
-            +
-            array_slice( $items, count( $items ) - 2, count( $items ), true );
-   
-      return $my_items;
-   }
-   add_action( 'init', function() {
-      add_rewrite_endpoint( 'wallet', EP_ROOT | EP_PAGES );
-   } );
-
-   add_action( 'woocommerce_account_wallet_endpoint', function() {
-      require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . '/template/woocommerce/myaccount/wallet.php';
-   });
+if ( function_exists( "user_is_wholesaler" ) && ! user_is_wholesaler() ) {
+   add_action( "woocommerce_before_checkout_form", "active_colleague_code" );
+   add_action( "woocommerce_after_checkout_billing_form", "active_colleague_code_hidden" );
 }
 
-handleMenuItemWallet();
-
-function handleMenuItemColleague() {
-   add_filter( 'woocommerce_account_menu_items', 'addMenuItemColleague', 99, 1 );
-
-   function addMenuItemColleague( $items ) {
-      $my_items = array(
-         'colleague' => __( 'همکاری در فروش', 'amhnj_wallet' ),
-      );
-   
-      $my_items = array_slice( $items, 0, 1, true ) +
-            array_slice( $items, 1, count( $items ) - 2, true ) +
-            $my_items
-            +
-            array_slice( $items, count( $items ) - 2, count( $items ), true );
-   
-      return $my_items;
-   }
-
-   add_action( 'init', function() {
-      add_rewrite_endpoint( 'colleague', EP_ROOT | EP_PAGES );
-   } );
-
-   add_action( 'woocommerce_account_colleague_endpoint', function() {
-      require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . '/template/woocommerce/myaccount/colleague.php';
-   });
+function active_colleague_code() {
+   echo "<section class='row mx-0 my-4 woocommerce-info'>
+      <div class='col-auto pr-0'><p class='text-dark fw-500'>در صورتی که کد معرف دارید، وارد کنید.</p></div>
+      <div class='col-auto'><input id='amhnj_colleague_code_customer' type='text' class='form-control form-control-sm' /></div>
+   </section>";
 }
 
-if ( function_exists( "user_is_wholesaler" ) ) {
-   if ( user_is_wholesaler() ) {
-      handleMenuItemColleague();
+function active_colleague_code_hidden() {
+   echo "<input id='amhnj_colleague_code_customer_hidden' name='amhnj_colleague_code_customer_hidden' type='hidden' value='' />";
+   echo "<script type='text/javascript'>fillHiddenInputByShowedInput()</script>";
+}
+
+add_action( 'woocommerce_checkout_update_order_meta', 'submitColleagueCodeInOrder', 10, 2 );
+function submitColleagueCodeInOrder( $order_id, $posted ) {
+   if ( isset( $_POST[ "amhnj_colleague_code_customer_hidden" ] ) && ! empty( $_POST[ "amhnj_colleague_code_customer_hidden" ] ) ) {
+      $order = wc_get_order( $order_id );
+      $order->update_meta_data( 'colleague_code', $_POST[ "amhnj_colleague_code_customer_hidden" ] );
+      $order->save();
+
+      // wp_get_user
    }
 }

@@ -28,6 +28,7 @@ $userInfo = wp_get_current_user();
 $walletAmount = get_user_meta( $userInfo->ID, "wallet-amount" );
 if ( ! isset( $walletAmount ) || empty( $walletAmount ) ) {
     $updateUserMeta = add_user_meta( $userInfo->ID, "wallet-amount", 0 );
+    $walletAmount = [ "0" ];
 }
 
 ?>
@@ -90,3 +91,14 @@ if ( ! isset( $walletAmount ) || empty( $walletAmount ) ) {
         </div>
     </section>
 </article>
+
+<?php
+$args = array(
+    // "date_before" => date( "Y-m-d" ),
+    // "date_created" => date( "Y-m-d" )
+    "customer_id" => $userInfo->ID
+);
+
+foreach( wc_get_orders( $args ) as $order ) {
+    print_r( $order );
+}

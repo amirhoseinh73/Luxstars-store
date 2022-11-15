@@ -33,6 +33,8 @@ if ( ! isset( $colleagueCode ) || empty( $colleagueCode ) ) {
     do {
         $updateUserMeta = add_user_meta( $userInfo->ID, "colleague-code", $colleagueCode, true );
     } while( ! $updateUserMeta );
+
+    $colleagueCode = [ $colleagueCode ];
 }
 
 ?>
