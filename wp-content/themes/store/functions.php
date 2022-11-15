@@ -181,6 +181,21 @@ function jk_woocommerce_breadcrumbs() {
     );
 }
 
+/**
+ * wp-content\plugins\ajax-search-for-woocommerce\partials\details-panel\product.php
+ * line 73
+ * before input 'input_name' => 'js-dgwt-wcas-quantity',
+ * do_action( 'dgwt/wcas/details_panel/product/add_to_cart_before_quantity', $vars );
+ * do_action( 'dgwt/wcas/details_panel/product/add_to_cart_after_quantity', $vars );
+ */
+add_action( "dgwt/wcas/details_panel/product/add_to_cart_before_quantity", "amh_nj_add_minus" );
+add_action( "dgwt/wcas/details_panel/product/add_to_cart_after_quantity", function() {
+    amh_nj_add_plus();
+    echo "<script type='text/javascript'>
+    if ( typeof changeQuantityWithButton === 'function' ) changeQuantityWithButton()
+    </script>";
+} );
+
 add_action( "woocommerce_before_add_to_cart_quantity", "amh_nj_add_minus" );
 add_action( "woocommerce_after_add_to_cart_quantity", "amh_nj_add_plus" );
 

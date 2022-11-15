@@ -396,43 +396,55 @@ function changeQuantityWithButton() {
     if( ! up || ! down || up.length < 1 || down.length < 1 ) return
 
     down.forEach( btn => {
-        btn.addEventListener( "click", function() {
-            updateInputQuantity.call( this, "down" )
-        } )
+        const checkActivateEvent = btn.getAttribute( "data-quantity-event" )
+        if ( checkActivateEvent ) return
+        
+        btn.addEventListener( "click", updateInputQuantityDown )
+        btn.setAttribute( "data-quantity-event", "true" )
     } )
 
     up.forEach( btn => {
-        btn.addEventListener( "click", function() {
-            updateInputQuantity.call( this, "up" )
-        } )
+        const checkActivateEvent = btn.getAttribute( "data-quantity-event" )
+        if ( checkActivateEvent ) return
+
+        btn.addEventListener( "click", updateInputQuantityUp )
+        btn.setAttribute( "data-quantity-event", "true" )
     } )
+
+    function updateInputQuantityDown( e ) {
+        updateInputQuantity.call( e.target, "down" )
+    }
+
+    function updateInputQuantityUp( e ) {
+        updateInputQuantity.call( e.target, "up" )
+    }
 
     function updateInputQuantity( which = "down" ) {
         const parent = this.closest( ".quantity-parent-icon" )
         if ( ! parent ) return
-
+    
         const input = parent.querySelector( "input[type='number']" )
         if ( ! input ) return
-
+    
         let value = +input.value
         let max = input.max
         let min = input.min
-
+    
         if ( ! min ) min = 0
         if ( ! max ) max = 1000
-
+    
         if ( which === "down" ) {
             if ( value <= min ) return
-
+    
             input.value = --value
         }
-
+    
         if ( which === "up" ) {
             if ( value >= max ) return
-
+    
             input.value = ++value
         }
-
+    
         const submitCart = document.querySelector( "[name='update_cart']" )
         if ( ! submitCart ) return
         submitCart.removeAttribute( "disabled" )

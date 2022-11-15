@@ -33,6 +33,6 @@ function register_mobile_load_woocommerce_templates_from_plugin( $template, $tem
 add_filter( 'woocommerce_checkout_fields' , 'bbloomer_change_address_input_type', 10, 1 );
  
 function bbloomer_change_address_input_type( $fields ) {
-$fields['billing']['billing_address_1']['type'] = 'textarea';
-return $fields;
+   $fields['billing']['billing_address_1']['type'] = 'textarea';
+   return $fields;
 }

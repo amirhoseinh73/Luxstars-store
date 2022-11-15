@@ -1014,3 +1014,10 @@ input[type=number] {
 		padding: 0.25rem 0.5rem;
 	}
 }
+
+@media ( min-width: 1300px ) {
+	.woocommerce-account .page-content .woocommerce > .woocommerce-MyAccount-navigation {
+		flex: 0 0 20%;
+		max-width: 20%;
+	}
+}

@@ -70,11 +70,15 @@ if ( ! defined( 'DGWT_WCAS_FILE' ) ) {
 				<form class="dgwt-wcas-pd-addtc-form" action="" method="post" enctype="multipart/form-data">
 					<?php
 
+					do_action( 'dgwt/wcas/details_panel/product/add_to_cart_before_quantity', $vars );
+
 					if ( $vars->showQuantity ) {
 						woocommerce_quantity_input( array(
 							'input_name' => 'js-dgwt-wcas-quantity',
 						), $vars->wooObject, true );
 					}
+
+					do_action( 'dgwt/wcas/details_panel/product/add_to_cart_after_quantity', $vars );
 
 					echo WC_Shortcodes::product_add_to_cart( array(
 						'id'         => $vars->ID,

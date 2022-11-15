@@ -51,7 +51,7 @@ function handleMenuItemWallet() {
    } );
 
    add_action( 'woocommerce_account_wallet_endpoint', function() {
-      wc_get_template_part('myaccount/wallet');
+      require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . '/template/woocommerce/myaccount/wallet.php';
    });
 }
 
@@ -79,7 +79,7 @@ function handleMenuItemColleague() {
    } );
 
    add_action( 'woocommerce_account_colleague_endpoint', function() {
-      wc_get_template_part('myaccount/colleague');
+      require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . '/template/woocommerce/myaccount/colleague.php';
    });
 }
 
