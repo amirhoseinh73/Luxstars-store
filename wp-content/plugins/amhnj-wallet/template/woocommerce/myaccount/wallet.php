@@ -26,10 +26,6 @@ if ( ! is_user_logged_in() ) {
 $userInfo = wp_get_current_user();
 
 $walletAmount = get_user_meta( $userInfo->ID, "wallet-amount" );
-if ( ! isset( $walletAmount ) || empty( $walletAmount ) ) {
-    $updateUserMeta = add_user_meta( $userInfo->ID, "wallet-amount", 0 );
-    $walletAmount = [ "0" ];
-}
 
 ?>
 

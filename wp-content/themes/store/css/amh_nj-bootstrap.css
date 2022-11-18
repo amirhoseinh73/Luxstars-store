@@ -1292,10 +1292,17 @@ a.text-black-amh_nj:hover, a.text-white-amh_nj:hover {
 
 .btn-boot-3 {
     background-color: var(--color-3-100);
-    border-radius: 5px;
+    border-radius: 25px;
     color: #ffffff;
-    padding: 8px 5px;
+    padding: 0.5rem 0.75rem;
     border: none !important;
+    font-size: 0.7rem;
+    transition: all 200ms linear;
+    line-height: 1;
+}
+
+.btn-boot-3:hover {
+    background-color: var(--color-4-100);
 }
 
 .btn-boot-4 {

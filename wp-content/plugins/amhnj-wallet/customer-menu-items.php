@@ -22,6 +22,16 @@ function handleMenuItemWallet() {
    add_action( 'woocommerce_account_wallet_endpoint', function() {
       require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . '/template/woocommerce/myaccount/wallet.php';
    });
+
+   addUserMetaWallet();
+}
+
+function addUserMetaWallet() {
+   $userInfo = wp_get_current_user();
+   $walletAmount = get_user_meta( $userInfo->ID, "wallet-amount" );
+   if ( ! isset( $walletAmount ) || empty( $walletAmount ) ) {
+      add_user_meta( $userInfo->ID, "wallet-amount", 0 );
+   }
 }
 
 handleMenuItemWallet();
@@ -50,6 +60,19 @@ function handleMenuItemColleague() {
    add_action( 'woocommerce_account_colleague_endpoint', function() {
       require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . '/template/woocommerce/myaccount/colleague.php';
    });
+
+   addUserMetaColleague();
+}
+
+function addUserMetaColleague() {
+   $userInfo = wp_get_current_user();
+   $colleagueCode = get_user_meta( $userInfo->ID, "colleague-code" );
+   if ( isset( $colleagueCode ) && ! empty( $colleagueCode ) ) return;
+   $bytes = random_bytes( 4 );
+   $colleagueCode = strtoupper( bin2hex( $bytes ) );
+   do {
+      $updateUserMeta = add_user_meta( $userInfo->ID, "colleague-code", $colleagueCode, true );
+   } while( ! $updateUserMeta );
 }
 
 if ( function_exists( "user_is_wholesaler" ) ) {

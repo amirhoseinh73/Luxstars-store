@@ -25,17 +25,7 @@ if ( ! is_user_logged_in() ) {
 
 $userInfo = wp_get_current_user();
 
-$colleagueCode = get_user_meta( $userInfo->ID, "colleague-code" );
-if ( ! isset( $colleagueCode ) || empty( $colleagueCode ) ) {
-    $bytes = random_bytes( 4 );
-    $colleagueCode = strtoupper( bin2hex( $bytes ) );
-    
-    do {
-        $updateUserMeta = add_user_meta( $userInfo->ID, "colleague-code", $colleagueCode, true );
-    } while( ! $updateUserMeta );
-
-    $colleagueCode = [ $colleagueCode ];
-}
+$colleagueCode = get_user_meta( $userInfo->ID, "colleague-code" )[ 0 ];
 
 ?>
 <div class="alert alert-info d-flex flex-row flex-wrap my-2">
@@ -44,7 +34,7 @@ if ( ! isset( $colleagueCode ) || empty( $colleagueCode ) ) {
     </span>
 
     <span class="alert-heading col text-right">
-        <?= $colleagueCode[ 0 ] ?>
+        <?= $colleagueCode ?>
     </span>
 </div>
 

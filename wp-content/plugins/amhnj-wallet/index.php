@@ -58,6 +58,7 @@ if ( is_admin() ) {
 }
 
 require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . "functions.php";
+require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . "colleague-code-chcekout-page.php";
 require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . "customer-menu-items.php";
 
 add_action('wp_enqueue_scripts', 'amh_nj_load_script_wallet');

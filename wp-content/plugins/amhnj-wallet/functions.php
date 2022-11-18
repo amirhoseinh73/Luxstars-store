@@ -30,30 +30,18 @@ function wallet_load_woocommerce_templates_from_plugin( $template, $template_nam
    return $template;
 }
 
-if ( function_exists( "user_is_wholesaler" ) && ! user_is_wholesaler() ) {
-   add_action( "woocommerce_before_checkout_form", "active_colleague_code" );
-   add_action( "woocommerce_after_checkout_billing_form", "active_colleague_code_hidden" );
-}
+function getUserByMetaData( $key, $value ) {
+   $args = array(
+      'meta_query' => array(
+         array(
+            'key' => $key,
+            'value' => $value,
+            'compare' => '='
+         )
+      )
+   );
+   $members = get_users( $args );
+   if ( ! isset( $members ) || empty( $members ) ) return new stdClass();
 
-function active_colleague_code() {
-   echo "<section class='row mx-0 my-4 woocommerce-info'>
-      <div class='col-auto pr-0'><p class='text-dark fw-500'>در صورتی که کد معرف دارید، وارد کنید.</p></div>
-      <div class='col-auto'><input id='amhnj_colleague_code_customer' type='text' class='form-control form-control-sm' /></div>
-   </section>";
-}
-
-function active_colleague_code_hidden() {
-   echo "<input id='amhnj_colleague_code_customer_hidden' name='amhnj_colleague_code_customer_hidden' type='hidden' value='' />";
-   echo "<script type='text/javascript'>fillHiddenInputByShowedInput()</script>";
-}
-
-add_action( 'woocommerce_checkout_update_order_meta', 'submitColleagueCodeInOrder', 10, 2 );
-function submitColleagueCodeInOrder( $order_id, $posted ) {
-   if ( isset( $_POST[ "amhnj_colleague_code_customer_hidden" ] ) && ! empty( $_POST[ "amhnj_colleague_code_customer_hidden" ] ) ) {
-      $order = wc_get_order( $order_id );
-      $order->update_meta_data( 'colleague_code', $_POST[ "amhnj_colleague_code_customer_hidden" ] );
-      $order->save();
-
-      // wp_get_user
-   }
+   return (object)$members[ 0 ];
 }
