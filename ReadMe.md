@@ -2,7 +2,7 @@
 
 This is a wordpress website with woocommerce
 
-> click [here](https://luxstars.ir) <a href="https://luxstars.ir" target="_blank">here</a>
+> click [here](https://luxstars.ir) 
 to visit website
 
 ## Custom plugins:
