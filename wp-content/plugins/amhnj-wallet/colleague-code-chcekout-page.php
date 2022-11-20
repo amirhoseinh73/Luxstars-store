@@ -30,7 +30,6 @@ function active_colleague_code_hidden() {
 }
 
 function submitColleagueCodeInOrder( $order_id, $posted ) {
-    die;
     if ( ! isset( $_POST[ "amhnj_colleague_code_customer_hidden" ] ) ) return;
 
     $colleagueCode = $_POST[ "amhnj_colleague_code_customer_hidden" ];
@@ -68,11 +67,15 @@ function add_ajax_for_collegue_discount() {
             const $form = $( "form.woocommerce-checkout" );
             if ( $form.is( ".processing" ) ) return
 
+            const $colleagueForm = $( this ).parents( ".woocommerce-info" )
+            if ( ! $colleagueForm || $colleagueForm.is( ".processing" ) ) return
+
             $.ajax({
                 type:    'POST',
                 url: wc_checkout_params.ajax_url,
                 contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                 enctype: 'multipart/form-data',
+                dataType: "json",
                 data: {
                     'action': 'ajax_submit_colleague_code_to_order',
                     'fields': $('form.checkout').serializeArray(),
@@ -87,16 +90,26 @@ function add_ajax_for_collegue_discount() {
                             opacity: 0.6
                         }
                     });
+                    $colleagueForm.addClass( "processing" ).block({
+                        message: null,
+                        overlayCSS: {
+                            background: '#fff',
+                            opacity: 0.6
+                        }
+                    });
                     $( ".woocommerce-error" ).remove()
+                    $( ".woocommerce-checkout .amhnj-checkout-alert" ).remove();
                 },
                 success: function (result) {
-                    $( ".woocommerce-checkout .page-content .woocommerce" ).prepend( result );
+                    $( ".woocommerce-checkout .page-content .woocommerce" ).prepend( result.message );
+                    if ( result.status === "success" ) jQuery('body').trigger('update_checkout');
                 },
                 error: function(error) {
                     console.log(error); // For testing (to be removed)
                 },
                 complete: function() {
                     $form.removeClass( "processing" ).unblock();
+                    $colleagueForm.removeClass( "processing" ).unblock();
                 }
             });
         });
@@ -111,46 +124,53 @@ function addDiscountToOrderWithColleagueCode() {
 
     $colleagueCode = $_POST[ "amhnj_colleague_code_customer_hidden" ];
     if ( empty( $colleagueCode ) ) {
-        echo "<p class='woocommerce-error'>کد معرف وارد شده صحیح نیست!</p>";
+        echo returnResultAjaxJSON( "failed", "<p class='woocommerce-error amhnj-checkout-alert'>کد معرف وارد شده صحیح نیست!</p>" );
         die;
     }
+
+    $colleagueCode = trim( $colleagueCode );
 
     $userColleague = (array)getUserByMetaData( "colleague-code", $colleagueCode );
     if ( empty( $userColleague ) ) {
-        echo "<p class='woocommerce-error'>کد معرف وارد شده صحیح نیست!</p>";
+        echo returnResultAjaxJSON( "failed", "<p class='woocommerce-error amhnj-checkout-alert'>کد معرف وارد شده صحیح نیست!</p>" );
         die;
     }
 
-    global $wp_session;
+    $addDiscount = function () use( $colleagueCode ) {
+		if ( ! defined( 'DOING_AJAX'  ) ) {
+			return;
+		}
 
-    // if ( isset( $wp_session[ "enableColleagueCode" ] ) && $wp_session[ "enableColleagueCode" ] ) return;
+        // $coupon_code = available_coupon_codes()[ 0 ];
+
+        // $coupon = new WC_Coupon( $coupon_code );
+
+        // // Get usage count
+        // $count = $coupon->get_usage_count();
+        
+        // // Get coupon usage limit per customer
+        // $limit = $coupon->get_usage_limit_per_user();
+		
+        if ( ! wc_get_coupon_id_by_code( $colleagueCode ) ) {
+            $coupon = new WC_Coupon();
+            $coupon->set_code( $colleagueCode ); // Coupon code
+            $coupon->set_discount_type( "percent" ); // Coupon type %
+            $coupon->set_amount( 10 ); // Discount amount
+            // $coupon->set_usage_limit( 1 );
+            $coupon->save();
+        }
+
+		if ( ! in_array( $colleagueCode, WC()->cart->get_applied_coupons() ) ) {
+            WC()->cart->apply_coupon( $colleagueCode );
+        }
+        // else {
+		// 	// remove discount if it was previously added
+		// 	WC()->cart->remove_coupon( $colleagueCode );
+		// }
+	};
     
-
-    // var_dump( $currentDiscount );
-    // var_dump( $totalAmount );
-    // die;
-
-    function royal_woocommerce_filter_checkout_for_coupons( $subtotal, $compound, $cart ) {     
-
-        $currentDiscount = WC()->cart->get_discount_total();
-        $totalAmount = WC()->cart->get_total( "number" );
-
-        WC()->cart->set_discount_total( intval( $currentDiscount ) + ( intval( $totalAmount ) * 10 / 100 ) );
-        WC()->cart->set_total( intval( $totalAmount ) - ( intval( $currentDiscount ) + ( intval( $totalAmount ) * 10 / 100 ) ) );
-
-        return $subtotal; 
-    }
-
-    add_filter( 'woocommerce_cart_subtotal', 'royal_woocommerce_filter_checkout_for_coupons', 10, 3 );
-
+    $addDiscount();
     
-
-    var_dump( WC()->cart->get_total( "number" ) );
-    var_dump( WC()->cart->get_discount_total() );
-    $wp_session[ "enableColleagueCode" ] = true;
-
-    // add_filter( "woocommerce_cart_subtotal", WC()->cart->get_discount_total(), 10, 3 );
-    
-    echo "<p class='woocommerce-success'>10 درصد تخفیف برای سفارش شما به دلیل معرف برای شما اعمال شد.</p>";
+    echo returnResultAjaxJSON( "success", "<p class='woocommerce-message amhnj-checkout-alert'>10 درصد تخفیف برای سفارش شما به دلیل معرف برای شما اعمال شد.</p>" );
     die;
 }
