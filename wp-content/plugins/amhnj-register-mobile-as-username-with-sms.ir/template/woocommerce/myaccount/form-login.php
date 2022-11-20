@@ -22,7 +22,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php
-$isError = $_REQUEST[ "error" ];
+if ( isset( $_REQUEST[ "error" ] ) ) {
+	$isError = $_REQUEST[ "error" ];
+}
+
 if ( isset( $isError ) && ! empty( $isError ) ) {
 	echo "<p class='woocommerce-error d-block w-100'>" . 
 	esc_html( apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) ) )

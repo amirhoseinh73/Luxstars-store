@@ -724,6 +724,10 @@ input[type=number] {
 	z-index: 10;
 }
 
+.woocommerce-remove-coupon {
+	color: var(--color-3-100);
+}
+
 /*========================responsive==========================*/
 
 #slide_show .swiper-slide {

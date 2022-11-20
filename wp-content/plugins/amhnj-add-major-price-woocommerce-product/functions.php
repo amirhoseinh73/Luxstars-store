@@ -41,7 +41,7 @@ function user_is_wholesaler() {
       }
    }
    $userInfo = wp_get_current_user();
-   if ( ! empty( $userInfo ) ) {
+   if ( ! empty( $userInfo ) && ! empty( $userInfo->roles ) ) {
       $userRole = $userInfo->roles[ 0 ];
       if ( $userRole === "wholesaler" || $userRole === "administrator" ) return true;
    }
@@ -57,4 +57,25 @@ function user_is_admin() {
    }
 
    return false;
+}
+
+function returnResultAjaxJSON( $status, $message ) {
+   return json_encode(
+      array(
+          "status" => $status,
+          "message" => $message
+      ),
+      JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES
+   );
+}
+
+function available_coupon_codes() {
+   global $wpdb;
+
+   // Get an array of all existing coupon codes
+   $coupon_codes = $wpdb->get_col("SELECT post_name FROM $wpdb->posts WHERE post_type = 'shop_coupon' AND post_status = 'publish' ORDER BY post_name ASC");
+
+   return $coupon_codes;
+   // Display available coupon codes
+   return implode(', ', $coupon_codes) ; // always use return in a shortcode
 }
