@@ -140,16 +140,6 @@ function addDiscountToOrderWithColleagueCode() {
 		if ( ! defined( 'DOING_AJAX'  ) ) {
 			return;
 		}
-
-        // $coupon_code = available_coupon_codes()[ 0 ];
-
-        // $coupon = new WC_Coupon( $coupon_code );
-
-        // // Get usage count
-        // $count = $coupon->get_usage_count();
-        
-        // // Get coupon usage limit per customer
-        // $limit = $coupon->get_usage_limit_per_user();
 		
         if ( ! wc_get_coupon_id_by_code( $colleagueCode ) ) {
             $coupon = new WC_Coupon();
@@ -163,10 +153,6 @@ function addDiscountToOrderWithColleagueCode() {
 		if ( ! in_array( $colleagueCode, WC()->cart->get_applied_coupons() ) ) {
             WC()->cart->apply_coupon( $colleagueCode );
         }
-        // else {
-		// 	// remove discount if it was previously added
-		// 	WC()->cart->remove_coupon( $colleagueCode );
-		// }
 	};
     
     $addDiscount();

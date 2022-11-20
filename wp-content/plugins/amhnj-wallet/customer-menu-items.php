@@ -27,7 +27,7 @@ function handleMenuItemWallet() {
 }
 
 function addUserMetaWallet() {
-   $userInfo = wp_get_current_user();
+   $userInfo = userInfo();
    $walletAmount = get_user_meta( $userInfo->ID, "wallet-amount" );
    if ( ! isset( $walletAmount ) || empty( $walletAmount ) ) {
       add_user_meta( $userInfo->ID, "wallet-amount", 0 );
@@ -65,7 +65,7 @@ function handleMenuItemColleague() {
 }
 
 function addUserMetaColleague() {
-   $userInfo = wp_get_current_user();
+   $userInfo = userInfo();
    $colleagueCode = get_user_meta( $userInfo->ID, "colleague-code" );
    if ( isset( $colleagueCode ) && ! empty( $colleagueCode ) ) return;
    $bytes = random_bytes( 4 );

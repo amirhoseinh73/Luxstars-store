@@ -33,14 +33,7 @@ function separate_price_number_with_comma( $price ) {
 
 add_action( "init", "user_is_wholesaler" );
 function user_is_wholesaler() {
-   if ( ! function_exists( "wp_get_current_user" ) ) {
-      include( ABSPATH . "wp-includes/pluggable.php" );
-
-      if ( ! function_exists( "wp_get_current_user" ) ) {
-         return false;
-      }
-   }
-   $userInfo = wp_get_current_user();
+   $userInfo = userInfo();
    if ( ! empty( $userInfo ) && ! empty( $userInfo->roles ) ) {
       $userRole = $userInfo->roles[ 0 ];
       if ( $userRole === "wholesaler" || $userRole === "administrator" ) return true;
@@ -50,7 +43,7 @@ function user_is_wholesaler() {
 }
 
 function user_is_admin() {
-   $userInfo = wp_get_current_user();
+   $userInfo = userInfo();
    if ( ! empty( $userInfo ) ) {
       $userRole = $userInfo->roles[ 0 ];
       if ( $userRole === "administrator" ) return true;
@@ -59,23 +52,13 @@ function user_is_admin() {
    return false;
 }
 
-function returnResultAjaxJSON( $status, $message ) {
-   return json_encode(
-      array(
-          "status" => $status,
-          "message" => $message
-      ),
-      JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES
-   );
-}
+function userInfo() {
+   if ( ! function_exists( "wp_get_current_user" ) ) {
+      include( ABSPATH . "wp-includes/pluggable.php" );
 
-function available_coupon_codes() {
-   global $wpdb;
-
-   // Get an array of all existing coupon codes
-   $coupon_codes = $wpdb->get_col("SELECT post_name FROM $wpdb->posts WHERE post_type = 'shop_coupon' AND post_status = 'publish' ORDER BY post_name ASC");
-
-   return $coupon_codes;
-   // Display available coupon codes
-   return implode(', ', $coupon_codes) ; // always use return in a shortcode
+      if ( ! function_exists( "wp_get_current_user" ) ) {
+         return null;
+      }
+   }
+   return wp_get_current_user();
 }

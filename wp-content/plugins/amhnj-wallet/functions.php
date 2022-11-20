@@ -45,3 +45,31 @@ function getUserByMetaData( $key, $value ) {
 
    return (object)$members[ 0 ];
 }
+
+function returnResultAjaxJSON( $status, $message ) {
+   return json_encode(
+      array(
+          "status" => $status,
+          "message" => $message
+      ),
+      JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES
+   );
+}
+
+function available_coupon_codes() {
+   global $wpdb;
+
+   $coupon_codes = $wpdb->get_col("SELECT post_name FROM $wpdb->posts WHERE post_type = 'shop_coupon' AND post_status = 'publish' ORDER BY post_name ASC");
+
+   return $coupon_codes;
+
+   // $coupon_code = available_coupon_codes()[ 0 ];
+
+   // $coupon = new WC_Coupon( $coupon_code );
+
+   // $count = $coupon->get_usage_count();
+   
+   // $limit = $coupon->get_usage_limit_per_user();
+
+   // WC()->cart->remove_coupon( $colleagueCode );
+}

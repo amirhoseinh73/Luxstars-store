@@ -23,9 +23,9 @@ if ( ! is_user_logged_in() ) {
     exit;
 }
 
-$userInfo = wp_get_current_user();
+$walletAmount = getWalletAmount();
 
-$walletAmount = get_user_meta( $userInfo->ID, "wallet-amount" );
+walletCheckoutRequestProcess();
 
 ?>
 
@@ -35,7 +35,7 @@ $walletAmount = get_user_meta( $userInfo->ID, "wallet-amount" );
     </span>
 
     <span class="alert-heading col text-right">
-        <?= $walletAmount[ 0 ] ?>
+        <?= $walletAmount ?>
         تومان
     </span>
 </div>
@@ -61,7 +61,9 @@ $walletAmount = get_user_meta( $userInfo->ID, "wallet-amount" );
             <p class="text-dark">از این طریق میتوانید درخواست تسویه خود را ثبت کنید</p>
         </div>
         <div class="col-12 col-sm-6 mx-auto mt-3">
-            <button type="button" class="btn btn-info btn-block">ثبت درخواست</button>
+            <form action="<?= get_permalink()?>wallet" method="POST">
+                <button type="submit" name="wallet_checkout_request" class="btn btn-info btn-block">ثبت درخواست</button>
+            </form>
         </div>
     </section>
 
@@ -77,11 +79,10 @@ $walletAmount = get_user_meta( $userInfo->ID, "wallet-amount" );
                         <th>تاریخ</th>
                         <th>مبلغ</th>
                         <th>وضعیت</th>
-                        <th>شماره پیگیری</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    <?php getWalletCheckoutRequests()?>
                 </tbody>
             </table>
         </div>
@@ -95,6 +96,6 @@ $args = array(
     "customer_id" => $userInfo->ID
 );
 
-foreach( wc_get_orders( $args ) as $order ) {
-    print_r( $order );
-}
+// foreach( wc_get_orders( $args ) as $order ) {
+//     print_r( $order );
+// }

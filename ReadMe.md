@@ -15,6 +15,7 @@ to visit website
     2. retailsaler
     <br/>
     *wholesaler registered by admin and retailsaler can register themselves.*
+    <br/>
     > if user was wholesaler, user see 3 price for each product, pay with cash, pay in 45 days and pay in 90 days.
     Also they can use cheque, wallet or online payment method.
     <br/>
