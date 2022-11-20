@@ -10,16 +10,17 @@ to visit website
 1. custom register and login process that using sms for password verification.
 
 2. custom user role, custom prices and custom payment
+
     > we have two role for users.
+    
     1. wholesaler
     2. retailsaler
-    <br/>
-    *wholesaler registered by admin and retailsaler can register themselves.*
-    <br/>
-    > if user was wholesaler, user see 3 price for each product, pay with cash, pay in 45 days and pay in 90 days.
-    Also they can use cheque, wallet or online payment method.
-    <br/>
-    But retailsaler can only have wallet and online payment method.
+        <br/><br/> *wholesaler registered by admin and retailsaler can register themselves.*
+        <br/><br/>
+        > if user was wholesaler, user see 3 price for each product, pay with cash, pay in 45 days and pay in 90 days.
+        Also they can use cheque, wallet or online payment method.
+        <br/><br/>
+        > But retailsaler can only have wallet and online payment method.
 
 3. custom colleague method
     > wholesaler have a code that they can share it to retailsaler and they can use this code to get n% discount and colleagues get n% profit.
