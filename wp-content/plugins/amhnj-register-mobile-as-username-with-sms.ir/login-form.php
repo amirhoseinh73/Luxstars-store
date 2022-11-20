@@ -77,8 +77,6 @@ function change_password( $phone_number, $password ) {
 
     $user = get_user_by( "login", $phone_number );
     
-    // do_action( 'password_reset', $user, $password );
-
     wp_set_password( $password, $user->ID );
 }
 

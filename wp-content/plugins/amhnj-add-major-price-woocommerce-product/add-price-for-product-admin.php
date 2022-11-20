@@ -40,24 +40,6 @@ function custom_save_major_price_fields( $post_id ) {
     $product->save();
 }
 
-// add_action( 'woocommerce_after_shop_loop_item_title', 'custom_major_price_fields_display_below_title' );
-// function custom_major_price_fields_display_below_title() {
-//     global $post;
-
-//     // Get product
-//     $product = wc_get_product( $post->ID );
-
-//     // Check for the custom field value
-//     $major_price_cash = $product->get_meta( '_major_price_cash' );
-
-//     // Display
-//     if( $major_price_cash ) {
-//         echo '<p class="my-custom-field">' . $major_price_cash . '</p>';
-//     }
-// }
-
-/**** Display on the Product Page ***/
-// add_action( 'woocommerce_single_product_summary', 'print_major_prices' );
 function major_prices() {
     global $post;
 
