@@ -44,10 +44,14 @@ $orders = getOrdersByColleagueCode( $colleagueCode );
         <p>
             تعداد کاربرانی که با کد شما خرید کرده اند:
 
-            <span class="badge badge-primary wp-1-5 hp-1-5 rounded-pill mx-4 align-middle d-inline-flex justify-content-center align-items-center"><?= count( $orders )?></span>
+            <span class="badge badge-primary py-2 px-3 rounded-pill mx-4 align-middle d-inline-flex justify-content-center align-items-center"><?= count( $orders )?></span>
         </p>
     </section>
     <section class="text-dark mt-4">
-        <p>سود شما:</p>
+        <p>
+            سود شما:
+
+            <span class="badge badge-success py-2 px-3 rounded-pill mx-4 align-middle d-inline-flex justify-content-center align-items-center"><?= calcBenefitColleague( $orders )?></span>
+        </p>
     </section>
 </article>

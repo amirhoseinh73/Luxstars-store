@@ -41,7 +41,7 @@ function submitColleagueCodeInOrder( $order_id, $posted ) {
         $updateWalletColleagueFN = function() use( $order, $colleagueCode ) {
             $userColleague = getUserByMetaData( "colleague-code", $colleagueCode );
             if ( empty( $userColleague ) ) return false;
-            $orderAmount = $order->get_total();
+            $orderAmount = $order->get_total(); //- $order->get_shipping_total()
             $oldWalletAmount = get_user_meta( $userColleague->ID, "wallet-amount" );
             $newWalletAmount = intval( $oldWalletAmount[ 0 ] ) + ( intval( $orderAmount ) * 10 / 100 );
 

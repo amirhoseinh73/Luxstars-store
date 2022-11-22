@@ -1,0 +1,4 @@
+.wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top > a.menu-top,
+.wp-adminify #adminmenu .wp-submenu li a {
+    font-family: Vazir, tahoma, arial;
+}

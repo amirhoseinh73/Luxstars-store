@@ -52,7 +52,23 @@ function getPostByMetaData( $key, $value ) {
       "post_type" => "shop_order",
       "post_status" => "wc-completed"
    );
-   $orders = get_posts( $args, true );
+   $posts = get_posts( $args, true );
+
+   if ( ! isset( $posts ) || empty( $posts ) ) return [];
+
+   return $posts;
+}
+
+function getOrderByMetaData( $key, $value ) {
+   $orders = wc_get_orders( array(
+      'limit'        => -1, // Query all orders
+      'orderby'      => 'date',
+      'order'        => 'DESC',
+      "post_status" => "wc-completed",
+      'meta_key'     => $key,
+      'meta_compare' => $value,
+  ));
+  
    if ( ! isset( $orders ) || empty( $orders ) ) return [];
 
    return $orders;
