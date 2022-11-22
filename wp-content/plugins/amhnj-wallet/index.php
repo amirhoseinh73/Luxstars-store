@@ -64,6 +64,9 @@ require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . "colleague-code-chcekout-page.php";
 
 require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . "wallet-management.php";
 
+require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . "colleague-management.php";
+require_once AMHNJ_WALLET_PLUGIN_DIR_PATH . "wallet-payment-gateway.php";
+
 add_action('wp_enqueue_scripts', 'amh_nj_load_script_wallet');
 function amh_nj_load_script_wallet() {
     wp_enqueue_script( "amh-nj-wallet", AMHNJ_WALLET_PLUGIN_DIR_URL . "/assets/js/script.js" );

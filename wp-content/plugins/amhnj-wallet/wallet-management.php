@@ -46,6 +46,8 @@ function getWalletCheckoutRequests( $echoHTML = true ) {
     $userInfo = userInfo();
     $allRequests = get_user_meta( $userInfo->ID, "wallet-checkout-requests" );
 
+    if ( empty( $allRequests ) || ! isset( $allRequests[ 0 ] ) ) return;
+
     if ( $echoHTML ) {
         foreach( $allRequests[ 0 ] as $idx => $request ) {
             $rowNum = $idx + 1;

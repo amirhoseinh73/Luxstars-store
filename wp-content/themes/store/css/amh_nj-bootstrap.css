@@ -2723,6 +2723,22 @@ ul.pagination {
     direction: ltr;
 }
 
+.wp-1 {
+    width: 1rem !important;
+}
+
+.hp-1 {
+    height: 1rem !important;
+}
+
+.wp-1-5 {
+    width: 1.5rem !important;
+}
+
+.hp-1-5 {
+    height: 1.5rem !important;
+}
+
 .wp-2 {
     width: 2rem !important;
 }

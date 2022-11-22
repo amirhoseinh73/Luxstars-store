@@ -46,6 +46,18 @@ function getUserByMetaData( $key, $value ) {
    return (object)$members[ 0 ];
 }
 
+function getPostByMetaData( $key, $value ) {
+   $args = array(
+      $key => $value,
+      "post_type" => "shop_order",
+      "post_status" => "wc-completed"
+   );
+   $orders = get_posts( $args, true );
+   if ( ! isset( $orders ) || empty( $orders ) ) return [];
+
+   return $orders;
+}
+
 function returnResultAjaxJSON( $status, $message ) {
    return json_encode(
       array(

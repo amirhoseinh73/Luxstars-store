@@ -27,6 +27,7 @@ $userInfo = wp_get_current_user();
 
 $colleagueCode = get_user_meta( $userInfo->ID, "colleague-code" )[ 0 ];
 
+$orders = getOrdersByColleagueCode( $colleagueCode );
 ?>
 <div class="alert alert-info d-flex flex-row flex-wrap my-2">
     <span class="alert-heading col-auto">
@@ -40,9 +41,13 @@ $colleagueCode = get_user_meta( $userInfo->ID, "colleague-code" )[ 0 ];
 
 <article class="p-3">
     <section class="text-dark">
-        <p>تعداد کاربرانی که با کد شما خرید کرده اند:</p>
+        <p>
+            تعداد کاربرانی که با کد شما خرید کرده اند:
+
+            <span class="badge badge-primary wp-1-5 hp-1-5 rounded-pill mx-4 align-middle d-inline-flex justify-content-center align-items-center"><?= count( $orders )?></span>
+        </p>
     </section>
-    <section class="text-dark">
+    <section class="text-dark mt-4">
         <p>سود شما:</p>
     </section>
 </article>
