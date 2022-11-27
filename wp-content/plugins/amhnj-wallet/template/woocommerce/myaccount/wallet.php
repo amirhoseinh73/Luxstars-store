@@ -35,7 +35,7 @@ walletCheckoutRequestProcess();
     </span>
 
     <span class="alert-heading col text-right">
-        <?= $walletAmount ?>
+        <?= number_format( $walletAmount ) ?>
         تومان
     </span>
 </div>
@@ -88,14 +88,3 @@ walletCheckoutRequestProcess();
         </div>
     </section>
 </article>
-
-<?php
-$args = array(
-    // "date_before" => date( "Y-m-d" ),
-    // "date_created" => date( "Y-m-d" )
-    "customer_id" => $userInfo->ID
-);
-
-// foreach( wc_get_orders( $args ) as $order ) {
-//     print_r( $order );
-// }

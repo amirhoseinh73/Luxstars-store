@@ -76,6 +76,12 @@ function getWalletAmount() {
     return intval( $walletAmount[ 0 ] );
 }
 
+function updateWalletAmount( $amount = 0 ) {
+    $userInfo = userInfo();
+
+    return update_user_meta( $userInfo->ID, "wallet-amount", $amount );
+}
+
 function convertStatusToPersian( $status ) {
     switch ( $status ) {
         case "created";
