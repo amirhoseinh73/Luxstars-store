@@ -896,7 +896,7 @@ class Wf_Woocommerce_Packing_List_CustomizerLib
            	}
         }else
         {
-			$html=$this->dummy_product_row($columns_list_arr);
+			$html=self::dummy_product_row($columns_list_arr);
         }
         return $html;
 	}
