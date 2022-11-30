@@ -1,0 +1,17 @@
+<wpml-config>
+
+<admin-texts>
+	<key name="orddd_delivery_date_field_label"/>
+	<key name="orddd_delivery_date_field_placeholder"/>
+	<key name="orddd_delivery_date_field_note"/>
+	<key name="orddd_delivery_timeslot_field_label"/>
+	<key name="delivery_charges_label_orddd_weekday_0"/>
+	<key name="delivery_charges_label_orddd_weekday_1"/>
+	<key name="delivery_charges_label_orddd_weekday_2"/>
+	<key name="delivery_charges_label_orddd_weekday_3"/>
+	<key name="delivery_charges_label_orddd_weekday_4"/>
+	<key name="delivery_charges_label_orddd_weekday_5"/>
+	<key name="delivery_charges_label_orddd_weekday_6"/>
+</admin-texts>
+
+</wpml-config>

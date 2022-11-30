@@ -1,0 +1,594 @@
+.toplevel_page_order_delivery_date #content {
+	overflow: visible !important;
+	height: auto !important;
+}
+
+#order-delivery-date-settings{
+	height: auto;
+	width: auto;
+}
+
+.days-fieldset{
+	border: 1px solid #DCDBDA;
+	float: right;
+	margin-bottom: 10px;
+	margin-right: 0px;
+	margin-top: 0;
+	width: 350px;
+}
+
+.orddd_weekdays, .orddd_shipping_days, .orddd_time_slot_for_weekdays, 
+.orddd_shipping_methods, .orddd_shipping_based_time_slot_for_weekdays {
+	width: 300px;
+}
+
+.shipping-days-fieldset{
+	border: 1px solid #DCDBDA;
+	float: right;
+	margin-bottom: 10px;
+	margin-right: 0px;
+	margin-top: 0;
+	width: 200px;
+}
+
+.days-fieldset label{
+	float: right;
+	font-weight: none;
+	padding: 0px;
+	width: auto;	
+}
+
+#orddd_common_time_settings_tr{
+	float: right;
+	margin-top: 6px;
+	width: 1000px;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+#orddd_common_time_settings_td{
+	width: 275px;
+}
+
+#order-delivery-time-settings {
+	width: auto;
+}
+
+.ord_holiday_label{
+	float: right;
+	font-weight: bold;
+	padding-right: 10px;
+	width: 100px;
+	cursor:text;
+}
+
+#orddd_common_holiday_tr{
+	float: right;
+	margin-top: 6px;
+	width: auto;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+#orddd_common_holiday_td{
+	width: 150px;
+}
+
+#order-delivery-holiday-settings {
+	height: 170px;
+	width: auto;
+}
+
+#order-delivery-holiday-list-settings {
+	height: auto;
+	width: 500px;
+}
+.order-delivery-holiday-list-settings{
+	height: auto;
+	width: 500px;
+}
+
+#order-delivery-appearance {
+	height: auto;
+	width: auto;
+}
+
+#orddd_common_delivery_date_tr{
+	float: right;
+	margin-top: 6px;
+	width: auto;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+#orddd_common_delivery_date_td{
+	width: 275px;
+	vertical-align: top;
+}
+
+#order-delivery-time-slot-settings {
+	height: 170px;
+	width: auto;
+}
+
+#orddd_common_time_slot_tr {
+	float: right;
+	margin-top: 6px;
+	width: auto;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+#orddd_common_time_slot_td {
+	width: 250px;
+	vertical-align: top;
+}
+
+#order-delivery-time-slot-list-settings {
+	height: auto;
+	width: 700px;
+}
+
+.order-delivery-time-slot-list-settings {
+	height: auto;
+	width: 500px;
+	padding-top: 10px;
+}
+
+#orddd_common_tr{
+	float: right;
+	margin-top: 6px;
+	width: auto;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+#orddd_common_td{
+	width: 350px;
+	vertical-align: top;
+}
+
+.form-table .orddd_specific_date_list{
+	width: 360px;
+	vertical-align: top;
+	text-align: center;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+.form-table .orddd_holidays_list{
+	width: 360px;
+	vertical-align: top;
+	text-align: center;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+.form-table .orddd_holiday_list{
+	width: 360px;
+	vertical-align: top;
+	text-align: center;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+#orddd_common_list_td{
+	width: 360px;
+	vertical-align: top;
+	text-align: center;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+#orddd_common_list_tr{
+	width: 360px;
+	margin-top: 6px;	
+}
+
+.orddd_common_list_tr{
+	width: 360px;
+	margin-top: 6px;	
+}
+
+#help
+{
+	float: left;
+	color: #777777;
+	font-size: 13px;
+	margin-left: 20px;
+	width: 420px;
+}
+
+.ord_label{
+	float: right;
+	font-weight: bold;
+	padding-right: 10px;
+	width: 230px;
+	cursor:text;
+}
+
+input[type="checkbox"] {
+  float: right !important;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.submit_button{
+  float: right;
+  margin-top: 5px;
+  padding-bottom: 19px;
+  padding-right: 240px;
+  padding-top: 12px;
+  width: 560px;
+}
+
+.ord_h3
+{
+	font-size:15px;
+	margin:15px 5px;
+}
+
+.ord_h4
+{
+	font-size:14px;
+	margin:2px 5px;
+}
+
+#orddd_specific_date_list {
+	height: auto;
+	width: 500px;
+}
+
+.save_button{
+	background: #0091cd;
+	border-color: #0073aa;
+	box-shadow: inset 0 1px 0 rgba(120,200,230,.6);
+	color: #fff;
+	display: inline-block;
+	text-decoration: none;
+	font-size: 13px;
+	line-height: 26px;
+	height: 28px;
+	margin: 0;
+	padding: 0 10px 1px;
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+
+.orddd_product_image {
+	float: right; 
+	margin: 0px 0px 5px 5px;
+}
+
+.orddd_filter {
+	width: 180px;
+}
+
+#orddd_delivery_date_for_product_category {
+	width: 10px;
+}
+
+.orddd_holiday_name, .orddd_holiday_from_date, .orddd_holiday_to_date, #orddd_shipping_based_holiday_name {
+	width: 170px; 
+}
+
+.orddd_specific_charges {
+	width: 65px;
+}
+
+.orddd_specific_charges_label, .orddd_charges_label, .orddd_custom_charges_label, .orddd_specific_charges_label {
+	width: 170px;
+}
+
+#e_deliverydate {
+	cursor: text!important;
+}
+
+.orddd_admin_time_slot {
+	cursor:not-allowed !important;
+	width:164px; 
+}
+
+#del_charges {
+	width: 164px;
+}
+
+.form-table .orddd_fieldset_padding, .form-table .orddd_custom_fieldset_padding {
+	padding: 1px 1px;
+}
+
+.form-table .orddd_fieldset_label, .form-table .orddd_custom_fieldset_label {
+	text-align: center;
+	padding: 1px 1px;
+}
+
+.orddd_additional_charges, .orddd_custom_additional_charges {
+	width: 40px;
+}
+
+.orddd_custom_specific_charges {
+	width: 65px;	
+}
+.orddd_shipping_weekdays {
+	width: 95px;
+	float: right;
+}
+
+.orddd_shipping_specific_dates {
+	width: 161px;
+	float: right;
+}
+
+.wp-list-table .orddd_custom_view_padding {
+	padding: 5px;
+}
+
+/* Decrease the width of the status column in Shipping based settings list*/
+table.wp-list-table .column-status {
+	width:5%;
+}
+/* Increase the width of the shipping methods column in Shipping based settings list*/
+table.wp-list-table .column-shipping_methods {
+	width:10%;
+}
+
+/* Increase the width of the Delivery days/Dates column in Shipping based settings list*/
+table.wp-list-table .column-shipping_days {
+	width:13%;
+}
+
+/* Decrease the width of the Date Lockout column in Shipping based settings list*/
+table.wp-list-table .column-date_lockout {
+	width:6%;
+}
+
+/* Decrease the width of the Time settings column in Shipping based settings list*/
+table.wp-list-table .column-time_settings {
+	width:7%;
+}
+
+/* Decrease the width of the Same day Settings column in Shipping based settings list*/
+table.wp-list-table .column-same_day_settings {
+	width:9%;
+}
+
+/* Decrease the width of the Next day settings column in Shipping based settings list*/
+table.wp-list-table .column-next_day_settings {
+	width:9%;
+}
+
+/* Increase the width of the Time slot and Lockout column in Shipping based settings list*/
+table.wp-list-table .column-time_slot_settings {
+	width:15%;
+}
+
+table.wp-list-table .column-holidays {
+	width:7%;
+}
+
+table.wp-list-table .column-actions {
+	width:7%;
+}
+
+table.form-table #orddd_ics_url_list .ics_feed_url {
+	padding: 0px 0px;
+}
+
+#import_event_message {
+	display:none;
+}
+
+.orddd_no_fields_for_product_type{
+	float:right;
+}
+
+#orddd_events_loader {
+	font-size: medium;
+	position: fixed;
+	top: 0;
+	right: 0;
+	background-color: rgba(255,255,255,0.5);
+	z-index: 999;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.orddd_events_loader_wrapper {
+	position: absolute;
+	top: 50%;
+	z-index: 1000;
+	left: 50%;
+	transform: translate( -50%, -50% );
+}
+
+#orddd_time_slot_additional_charges {
+	width:65px;
+}
+
+#orddd_shipping_based_time_slot_additional_charges {
+	width:65px;
+}
+
+#test_connection_ajax_loader{
+	display: none;
+}
+
+#orddd_general_settings_list{
+	margin: -10px 0 0;
+}
+
+#orddd_settings_tabs{
+	border-bottom: 1px solid #ccc;
+}
+
+#orddd_delivery_dates_list {
+	width:600px;
+}
+
+.wp-list-table .column-delivery_date {
+	width: 100px;
+}
+
+.wp-list-table .column-delivery_date_actions {
+	width: 100px;
+}
+
+.wp-list-table .column-delivery_date_additional_charges {
+	width: 150px;
+}
+
+.wp-list-table .column-delivery_date_checkout_label {
+	width: 150px;
+}
+
+#orddd_holidays_list {
+	width: 600px;
+}
+
+#orddd_disable_time_slot_list {
+	width: 500px;
+}
+
+.block_time_slot {
+	float: left;
+	text-decoration: none;
+	padding-bottom: 0px;
+	margin-left: 20px;
+}
+
+.back_to_time_slot {
+	float: left;
+	text-decoration: none;
+	margin-left: 20px;
+}
+
+#delivery_date_table_head {
+	margin-bottom: 0px;
+}
+
+#holidays_table_head {
+	margin-bottom: 0px;
+}
+
+#timeslots_table_head{
+	margin-bottom: 0px;
+}
+
+#block_timeslot_table_head {
+	margin-bottom: 0px;
+}
+
+.widefat .additional_charges, .widefat .delivery_charges_label, .widefat .weekdays, .widefat .minimumOrderDays, .widefat .disable_same_day_delivery_after_hours, .widefat .disable_next_day_delivery_after_hours, .widefat .before_cutoff_weekday, .widefat .after_cutoff_weekday {
+	padding: 0;
+	border-left: 1px solid #DFDFDF;
+	border-bottom: 1px solid #DFDFDF;
+	border-top: 0;
+}	
+
+.widefat .orddd_additional_charges {
+	width:70px;
+	height: 30px;
+	border: none;
+}
+
+.widefat .orddd_weekdays, .widefat .orddd_shipping_days, .widefat .orddd_disable_same_day_delivery_after_hours, .widefat .orddd_disable_next_day_delivery_after_hours {
+	width: 100px;
+	height: 30px;
+	border: none;	
+}
+
+.widefat .orddd_before_cutoff_weekday, .widefat .orddd_after_cutoff_weekday {
+	width: 125px;
+	height: 30px;
+	border: none;	
+}
+.widefat .orddd_minimumOrderDays {
+	width: 120px;
+	height: 30px;
+	border: none;		
+}
+.widefat .orddd_delivery_charges_label {
+	width: 122px;
+	height: 30px;
+	border: none;			
+}
+#orddd_save_settings {
+	margin-top: 20px;
+}
+
+#orddd_delivery_date_fields_on_checkout_page {
+	margin: 5px 5px 5px;
+}
+
+.ui-datepicker {
+	width: 20em !important;
+}
+
+.ui-datepicker-multi-2 {
+	width: 40em !important;
+}
+
+.orddd-col-left {
+	float: right;
+	width: 50%;
+}
+
+.orddd-col-right{
+	float: left;
+	width: 50%;
+}
+
+.orddd-tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.orddd-tooltip .orddd-tooltiptext {
+    visibility: hidden;
+    width: 175px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    white-space: pre-line;
+    font-size: 10px;
+    padding: 5px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 999999;
+    top: -5px;
+    left: 105%;
+}
+
+.orddd-tooltip:hover .orddd-tooltiptext {
+    visibility: visible;
+}
+
+/* Start CSS for view delivery page */
+.orddd_delivery_table {
+	table-layout: fixed;
+	width: 100%;
+	margin-top: 10px;
+}
+.orddd_delivery_table td {
+	vertical-align: top;
+}
+.orddd_label {
+	margin-bottom: 5px;
+	display: block;
+	font-size: 14px;
+}
+.button.orddd_filter_btn {
+	font-size: 16px;
+	line-height: 36px;
+}
+/* End CSS for view delivery page */

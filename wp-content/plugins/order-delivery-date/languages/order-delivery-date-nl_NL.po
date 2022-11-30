@@ -1,0 +1,3185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: order-delivery-date\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/order-delivery-"
+"date\n"
+"POT-Creation-Date: 2019-01-10 11:46+0530\n"
+"PO-Revision-Date: 2019-01-10 11:55+0530\n"
+"Last-Translator: moxa <moxa@tychesoftwares.com>\n"
+"Language-Team: \n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: emails/class-orddd-email-delivery-reminder.php:7
+#: emails/class-orddd-email-delivery-reminder.php:9
+#, fuzzy
+#| msgid "Delivery Calendar"
+msgid "Delivery Reminder"
+msgstr "Bezorg Kalender"
+
+#: emails/class-orddd-email-delivery-reminder.php:8
+#, fuzzy
+#| msgid "Delivery Settings"
+msgid "Delivery Reminder Emails"
+msgstr "Bezorging Instellingen"
+
+#: emails/class-orddd-email-delivery-reminder.php:10
+msgid "[{blogname}] You have a delivery for your order {order_number}"
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:167
+#: emails/class-orddd-email-update-date.php:155
+msgid "Enable/Disable"
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:169
+#: emails/class-orddd-email-update-date.php:157
+msgid "Enable this email notification"
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:173
+#: emails/class-orddd-email-update-date.php:168
+#: templates/orddd-reminder-email-view.php:55
+msgid "Subject"
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:175
+#: emails/class-orddd-email-update-date.php:170
+#, php-format
+msgid ""
+"This controls the email subject line. Leave blank to use the default "
+"subject: <code>%s</code>."
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:180
+#: emails/class-orddd-email-update-date.php:175
+msgid "Email Heading"
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:182
+#: emails/class-orddd-email-update-date.php:177
+#, php-format
+msgid ""
+"This controls the main heading contained within the email notification. "
+"Leave blank to use the default heading: <code>%s</code>."
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:187
+#: emails/class-orddd-email-update-date.php:182
+msgid "Email type"
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:189
+#: emails/class-orddd-email-update-date.php:184
+msgid "Choose which format of email to send."
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:193
+#: emails/class-orddd-email-update-date.php:188
+msgid "Plain text"
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:194
+#: emails/class-orddd-email-update-date.php:189
+msgid "HTML"
+msgstr ""
+
+#: emails/class-orddd-email-delivery-reminder.php:195
+#: emails/class-orddd-email-update-date.php:190
+msgid "Multipart"
+msgstr ""
+
+#: emails/class-orddd-email-update-date.php:34
+#: emails/class-orddd-email-update-date.php:142
+msgid "Delivery Date & Time Updated"
+msgstr ""
+
+#: emails/class-orddd-email-update-date.php:35
+msgid "Delivery Date & Time is is being updated for the order."
+msgstr ""
+
+#: emails/class-orddd-email-update-date.php:132
+msgid ""
+"[{blogname}] Delivery Date & Time is Updated for (Order {order_number}) - "
+"{order_date}"
+msgstr ""
+
+#: emails/class-orddd-email-update-date.php:161
+msgid "Recipient(s)"
+msgstr ""
+
+#: emails/class-orddd-email-update-date.php:163
+#, php-format
+msgid ""
+"Enter recipients (comma separated) for this email. Defaults to <code>%s</"
+"code>."
+msgstr ""
+
+#: filter.php:239
+msgid "Show all Delivery Dates"
+msgstr "Toon alle bezorgdata"
+
+#: filter.php:252
+#, php-format
+msgid "%1$s %2$d"
+msgstr "%1$s %2$d"
+
+#: includes/class-orddd-system-status.php:183
+#: includes/class-orddd-system-status.php:184
+#: includes/class-view-shipping-settings.php:102
+msgid "Status"
+msgstr "Status"
+
+#: includes/class-orddd-system-status.php:209
+#, fuzzy
+#| msgid "Edit Order Delivery Date and/or Time"
+msgid "Order Delivery Date for WooCommerce"
+msgstr "Bewerk Bezorgdatum en/of -tijd"
+
+#: includes/class-orddd-system-status.php:211
+#, fuzzy
+#| msgid "Status"
+msgid "System Status"
+msgstr "Status"
+
+#: includes/class-orddd-system-status.php:216
+msgid ""
+"Please copy and paste this informtion in your ticket when contacting support:"
+msgstr ""
+
+#: includes/class-orddd-system-status.php:219
+msgid "Get System Report"
+msgstr ""
+
+#: includes/class-orddd-system-status.php:224
+msgid "Copy for support"
+msgstr ""
+
+#: includes/class-orddd-system-status.php:780
+#: includes/class-view-holidays.php:132
+#: includes/class-view-shipping-settings.php:839
+#: includes/orddd-shipping-based-settings.php:1362 orddd-scripts.php:104
+msgid "Recurring"
+msgstr ""
+
+#: includes/class-orddd-system-status.php:782
+#: includes/class-view-holidays.php:134
+#: includes/class-view-shipping-settings.php:841
+#: includes/orddd-shipping-based-settings.php:1364 orddd-scripts.php:105
+msgid "Current Year"
+msgstr ""
+
+#: includes/class-orddd-system-status.php:879
+msgid "### WordPress Environment ###"
+msgstr ""
+
+#: includes/class-orddd-system-status.php:885
+msgid "### Plugin Settings ###"
+msgstr ""
+
+#: includes/class-view-delivery-days.php:40
+#, fuzzy
+msgid "delivery_date"
+msgstr "Bezorgdatum"
+
+#: includes/class-view-delivery-days.php:41
+#, fuzzy
+msgid "delivery_dates"
+msgstr "Bezorgdata"
+
+#: includes/class-view-delivery-days.php:50
+#: includes/class-view-disable-time-slots.php:55
+#: includes/class-view-holidays.php:54
+#: includes/class-view-shipping-settings.php:55
+#: includes/class-view-time-slots.php:55
+#: includes/orddd-shipping-based-settings.php:843
+#: includes/orddd-shipping-based-settings.php:845
+#: includes/orddd-shipping-based-settings.php:898
+#: includes/orddd-shipping-based-settings.php:1371
+#: includes/orddd-shipping-based-settings.php:1752
+#: includes/orddd-shipping-based-settings.php:1754
+#: includes/orddd-shipping-based-settings.php:1776
+#: includes/orddd-shipping-based-settings.php:1778
+#: includes/orddd-shipping-based-settings.php:1835
+#: includes/orddd-shipping-based-settings.php:1837
+#: includes/orddd-shipping-based-settings.php:1912
+#: includes/orddd-shipping-based-settings.php:1927
+#: includes/orddd-shipping-based-settings.php:1947 orddd-scripts.php:103
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: includes/class-view-delivery-days.php:96
+#: includes/class-view-holidays.php:102
+#: includes/orddd-shipping-based-settings.php:1343 orddd-scripts.php:100
+msgid "Date"
+msgstr "Datum"
+
+#: includes/class-view-delivery-days.php:97
+#: includes/orddd-shipping-based-settings.php:834
+#: includes/orddd-shipping-based-settings.php:878
+msgid "Additional Charges"
+msgstr "Bijkomende kosten"
+
+#: includes/class-view-delivery-days.php:98
+msgid "Label"
+msgstr "Label"
+
+#: includes/class-view-disable-time-slots.php:40
+msgid "block_time_slot"
+msgstr ""
+
+#: includes/class-view-disable-time-slots.php:41
+#, fuzzy
+msgid "block_time_slots"
+msgstr "Algemene Uitsluiting voor Tijdvakken:"
+
+#: includes/class-view-disable-time-slots.php:101
+#: includes/class-view-shipping-settings.php:619
+#: includes/class-view-time-slots.php:102
+#: includes/orddd-shipping-based-settings.php:1886
+msgid "Delivery Days/Dates"
+msgstr "Bezorgdata/tijd"
+
+#: includes/class-view-disable-time-slots.php:102
+#: includes/class-view-time-slots.php:103
+#: includes/orddd-shipping-based-settings.php:1796
+#: includes/orddd-shipping-based-settings.php:1887 integration.php:440
+#: orddd-settings.php:1525 orddd-settings.php:2076
+msgid "Time Slot"
+msgstr "Tijdvak"
+
+#: includes/class-view-holidays.php:39
+#, fuzzy
+msgid "holiday"
+msgstr "Vakanties"
+
+#: includes/class-view-holidays.php:40
+msgid "holidays"
+msgstr "Vakanties"
+
+#: includes/class-view-holidays.php:101
+#: includes/orddd-shipping-based-settings.php:1342 orddd-scripts.php:99
+msgid "Name"
+msgstr "Naam"
+
+#: includes/class-view-holidays.php:103
+#: includes/orddd-shipping-based-settings.php:1344 orddd-scripts.php:101
+msgid "Type"
+msgstr ""
+
+#: includes/class-view-shipping-settings.php:39
+#, fuzzy
+msgid "custom_delivery_setting"
+msgstr "Bezorging Instellingen"
+
+#: includes/class-view-shipping-settings.php:40
+#, fuzzy
+msgid "custom_delivery_settings"
+msgstr "Bezorging Instellingen"
+
+#: includes/class-view-shipping-settings.php:103
+msgid "Settings based on"
+msgstr "Instellingen op basis van"
+
+#: includes/class-view-shipping-settings.php:104
+msgid "Delivery Settings"
+msgstr "Bezorging Instellingen"
+
+#: includes/class-view-shipping-settings.php:105 orddd-settings.php:539
+#: orddd-settings.php:1473 orddd-settings.php:2067
+msgid "Time Settings"
+msgstr "Tijd Instellingen"
+
+#: includes/class-view-shipping-settings.php:106
+msgid "Same day Settings"
+msgstr "Dezelfde dag Instellingen"
+
+#: includes/class-view-shipping-settings.php:107
+msgid "Next day Settings"
+msgstr "Volgende dag Instellingen"
+
+#: includes/class-view-shipping-settings.php:108
+msgid "Time Slots and Maximum Order Deliveries per time slot"
+msgstr "Tijdvak en Maximale Leveringen Bestellingen per tijdvak"
+
+#: includes/class-view-shipping-settings.php:109 orddd-settings.php:1603
+#: orddd-settings.php:2070 orddd-settings.php:2144
+msgid "Holidays"
+msgstr "Vakanties"
+
+#: includes/class-view-shipping-settings.php:110
+msgid "Edit Setting"
+msgstr "Instelling aanpassen"
+
+#: includes/class-view-shipping-settings.php:420
+#: includes/orddd-shipping-based-settings.php:109
+msgid "Shipping methods"
+msgstr "Verzendmethoden"
+
+#: includes/class-view-shipping-settings.php:603
+#: includes/class-view-shipping-settings.php:616
+msgid "Delivery Checkout option"
+msgstr ""
+
+#: includes/class-view-shipping-settings.php:603
+#: includes/orddd-date-settings.php:62
+#: includes/orddd-shipping-based-settings.php:407
+msgid "Text block"
+msgstr ""
+
+#: includes/class-view-shipping-settings.php:606
+#: includes/class-view-shipping-settings.php:693 orddd-settings.php:141
+#: orddd-settings.php:1428
+msgid "Minimum Delivery time (in hours):"
+msgstr "Minimale bezorgtijd (in uren):"
+
+#: includes/class-view-shipping-settings.php:611
+msgid "Between:"
+msgstr ""
+
+#: includes/class-view-shipping-settings.php:616 orddd-settings.php:1954
+#: orddd-view-deliveries.php:43
+msgid "Delivery Calendar"
+msgstr "Bezorg Kalender"
+
+#: includes/class-view-shipping-settings.php:683
+#: includes/class-view-shipping-settings.php:685
+msgid "Maximum Order Deliveries per day: "
+msgstr "Maximum Bestellingen Bezorgingen per dag:"
+
+#: includes/class-view-shipping-settings.php:685 orddd-widget.php:227
+#: orddd-widget.php:237
+msgid "Unlimited"
+msgstr ""
+
+#: includes/class-view-shipping-settings.php:689
+msgid "Mandatory Field: "
+msgstr "Verplicht veld:"
+
+#: includes/class-view-shipping-settings.php:697 orddd-settings.php:150
+#: orddd-settings.php:1437
+msgid "Number of dates to choose:"
+msgstr "Aantal data om te kiezen:"
+
+#: includes/class-view-shipping-settings.php:723
+#: includes/class-view-shipping-settings.php:739
+msgid "Cut-off:"
+msgstr "Vervaltijd:"
+
+#: includes/class-view-shipping-settings.php:725
+#: includes/class-view-shipping-settings.php:741
+msgid "Charges:"
+msgstr "Kosten:"
+
+#: includes/class-view-shipping-settings.php:777
+msgid "Weekday:"
+msgstr "Weekdag:"
+
+#: includes/class-view-shipping-settings.php:789
+msgid "Specific Dates:"
+msgstr "Specifieke Data:"
+
+#: includes/class-view-shipping-settings.php:801 orddd-settings.php:1568
+msgid "Time Slot:"
+msgstr "Tijdvak:"
+
+#: includes/class-view-shipping-settings.php:802
+msgid "Maximum Order Deliveries per time slot:"
+msgstr "Maximale Leveringen Bestellingen per tijdvak:"
+
+#: includes/class-view-shipping-settings.php:804
+#, fuzzy
+msgid "Additional Charges for time slot:"
+msgstr "Extra kosten voor bezorging op dezelfde dag:"
+
+#: includes/class-view-shipping-settings.php:807
+msgid "Checkout label:"
+msgstr ""
+
+#: includes/class-view-shipping-settings.php:815
+msgid "Mandatory Field:"
+msgstr "Verplicht veld:"
+
+#: includes/class-view-shipping-settings.php:819 orddd-settings.php:1183
+#: orddd-settings.php:1541
+msgid "Show 'As Soon As Possible' option:"
+msgstr ""
+
+#: includes/class-view-shipping-settings.php:844
+msgid "Type:"
+msgstr ""
+
+#: includes/class-view-shipping-settings.php:870
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+#: includes/class-view-time-slots.php:40
+msgid "time_slot"
+msgstr ""
+
+#: includes/class-view-time-slots.php:41
+msgid "time_slots"
+msgstr ""
+
+#: includes/class-view-time-slots.php:104
+#: includes/orddd-shipping-based-settings.php:1796
+#: includes/orddd-shipping-based-settings.php:1888
+msgid "Maximum Order Deliveries per time slot"
+msgstr "Maximale Leveringen Bestellingen per tijdvak"
+
+#: includes/class-view-time-slots.php:105
+#: includes/orddd-shipping-based-settings.php:1796
+#: includes/orddd-shipping-based-settings.php:1889
+#, fuzzy
+msgid "Additional Charges for time slot"
+msgstr "Extra kosten voor bezorging op dezelfde dag:"
+
+#: includes/class-view-time-slots.php:106
+#: includes/views/html-advance-settings.php:59
+msgid "Checkout label"
+msgstr ""
+
+#: includes/class.gcal.php:120
+msgid ""
+"<b>Test is successful</b>. Please REFRESH your Google Calendar and check "
+"that test appointment has been saved."
+msgstr ""
+
+#: includes/class.gcal.php:122
+msgid "<b>Test failed</b>. Please inspect your log file for more info here: "
+msgstr ""
+
+#: includes/class.gcal.php:135
+msgid "Do NOT use your primary Google calendar, but create a new one."
+msgstr ""
+
+#: includes/class.gcal.php:139
+msgid "The following error has been reported by Google Calendar API:<br />"
+msgstr ""
+
+#: includes/class.gcal.php:140
+msgid "<b>Recommendation:</b> Please double check your settings."
+msgstr ""
+
+#: includes/class.gcal.php:263
+msgid "Google PHP API Client <b>requires at least PHP 5.3</b>"
+msgstr ""
+
+#: includes/class.gcal.php:268
+#, php-format
+msgid ""
+"Google PHP API Client <b>requires at least 32 MByte Server RAM</b>. Please "
+"check this link how to increase it: %s"
+msgstr ""
+
+#: includes/class.gcal.php:268
+msgid "Increasing_memory_allocated_to_PHP"
+msgstr ""
+
+#: includes/class.gcal.php:272
+msgid "Google PHP API Client <b>requires the CURL PHP extension</b>"
+msgstr ""
+
+#: includes/class.gcal.php:276
+msgid "Google PHP API Client <b>requires the JSON PHP extension</b>"
+msgstr ""
+
+#: includes/class.gcal.php:280
+msgid "Google PHP API Client <b>requires http_build_query()</b>"
+msgstr ""
+
+#: includes/class.gcal.php:285
+msgid "Your server installation meets requirements."
+msgstr ""
+
+#: includes/class.gcal.php:289
+msgid "<b>Key file does not exist</b>"
+msgstr ""
+
+#: includes/component/WooCommerce-Check/ts-woo-active.php:77
+msgid " plugin requires WooCommerce installed and active."
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:76
+msgid "If you have a moment, please let us know why you are deactivating"
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:77
+msgid "Submit & Deactivate"
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:78
+msgid "Deactivate"
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:79
+#: orddd-process.php:2019 orddd-settings.php:2276
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:80
+msgid "Yes - Deactivate"
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:84
+msgid "I found a better plugin"
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:85
+msgid "What's the plugin's name?"
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:86
+msgid "I only needed the plugin for a short period"
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:87
+msgid "The plugin is not working"
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:88
+msgid "Kindly share what didn't work so we can fix it for future users..."
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:89
+msgid "The plugin is great, but I need specific feature that you don't support"
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:90
+msgid "What feature?"
+msgstr ""
+
+#: includes/component/deactivate-survey-popup/class-ts-deactivation.php:91
+msgid "I don't like to share my information with you"
+msgstr ""
+
+#: includes/component/faq_support/ts-faq-support.php:176
+msgid "FAQ & Support"
+msgstr ""
+
+#: includes/component/license-active-notice/ts-active-license-notice.php:96
+msgid "We have noticed that the license for <b>"
+msgstr ""
+
+#: includes/component/tracking data/ts-tracking.php:133
+msgid "Reset usage tracking"
+msgstr ""
+
+#: includes/component/tracking data/ts-tracking.php:177
+#: order_delivery_date.php:329
+msgid "Once in a Week"
+msgstr ""
+
+#: includes/component/tracking data/ts-tracking.php:262
+msgid "Want to help make "
+msgstr ""
+
+#: includes/component/welcome-page/templates/welcome/license-activation-failed.php:11
+#: includes/component/welcome-page/templates/welcome/license-activation-failed.php:16
+#: includes/component/welcome-page/templates/welcome/license-activation.php:11
+#: includes/component/welcome-page/templates/welcome/license-activation.php:16
+#: license.php:186
+msgid "License Key"
+msgstr "Licentie Sleutel"
+
+#: includes/component/welcome-page/templates/welcome/license-activation-failed.php:23
+msgid ""
+"Invalid or Expired License Key. Please make sure you have entered the "
+"correct value and that your key is not expired."
+msgstr ""
+
+#: includes/component/welcome-page/templates/welcome/license-activation-failed.php:25
+#: includes/component/welcome-page/templates/welcome/license-activation.php:23
+#: license.php:196 license.php:205
+msgid "Activate License"
+msgstr "Licentie activeren"
+
+#: includes/component/welcome-page/templates/welcome/license-activation-failed.php:32
+msgid "I understand the risks"
+msgstr ""
+
+#: includes/component/welcome-page/templates/welcome/license-activation-failed.php:34
+msgid "Please accept the terms."
+msgstr ""
+
+#: includes/component/welcome-page/templates/welcome/license-activation-failed.php:36
+#: includes/component/welcome-page/templates/welcome/license-activation.php:27
+msgid "Next"
+msgstr ""
+
+#: includes/component/welcome-page/templates/welcome/welcome-page.php:21
+msgid "Thank you for installing "
+msgstr ""
+
+#: includes/component/welcome-page/templates/welcome/welcome-page.php:25
+msgid "Thank you for updating to the latest version of "
+msgstr ""
+
+#: includes/external/pointer-tutorials.php:134
+msgid "Tutorial"
+msgstr ""
+
+#: includes/external/pointer-tutorials.php:417
+msgid "Next &raquo;"
+msgstr ""
+
+#: includes/external/pointer-tutorials.php:429
+#: includes/external/pointer-tutorials.php:448
+msgid "Dismiss"
+msgstr ""
+
+#: includes/external/pointer-tutorials.php:430
+#: includes/external/pointer-tutorials.php:449
+#, php-format
+msgid "Dismiss %s"
+msgstr ""
+
+#: includes/external/pointer-tutorials.php:436
+msgid "&laquo; Previous"
+msgstr ""
+
+#: includes/external/pointer-tutorials.php:488
+#, php-format
+msgid "%s: Step %d of %d"
+msgstr ""
+
+#: includes/gcal/io/Google_CurlIO.php:119
+msgid ""
+"Either 1) Connection error to Google server. You may neglect this message if "
+"it is happening sporadically, or 2) SSL certificate problem, verify that the "
+"CA cert is OK."
+msgstr ""
+
+#: includes/orddd-additional-settings.php:47
+#: includes/orddd-additional-settings.php:52
+msgid ""
+"Enable default sorting of orders (in descending order) by Delivery Date on "
+"WooCommerce -> Orders page"
+msgstr ""
+
+#: includes/orddd-additional-settings.php:112
+msgid "Virtual Products"
+msgstr ""
+
+#: includes/orddd-additional-settings.php:120
+msgid "Featured products"
+msgstr ""
+
+#: includes/orddd-additional-settings.php:320
+msgid ""
+"Send a notification to the Admin when the Delivery Date & Time is updated by "
+"the customers."
+msgstr ""
+
+#: includes/orddd-additional-settings.php:325
+msgid ""
+"When enabled, email notification will be sent to the admin when the Delivery "
+"Date & Time is edited by the customers on the My Account -> Orders -> View "
+"page. So customers will be able to edit the date and time once the order is "
+"placed."
+msgstr ""
+
+#: includes/orddd-appearance-settings.php:257
+msgid "In Billing Section"
+msgstr "Bij de Factuurgegevens"
+
+#: includes/orddd-appearance-settings.php:258
+msgid "In Shipping Section"
+msgstr "Bij het Verzendadres"
+
+#: includes/orddd-appearance-settings.php:259
+msgid "Before Order Notes"
+msgstr "Voor de Bestelnotities"
+
+#: includes/orddd-appearance-settings.php:260
+msgid "After Order Notes"
+msgstr "Na de Bestelnotities"
+
+#: includes/orddd-appearance-settings.php:261
+msgid "Between Your Order & Payment Section"
+msgstr ""
+
+#: includes/orddd-appearance-settings.php:262
+msgid "Custom:"
+msgstr ""
+
+#: includes/orddd-appearance-settings.php:341
+msgid "Preview theme:"
+msgstr "Thema voorvertoning:"
+
+#: includes/orddd-calendar-sync-settings.php:150
+msgid "Sync Automatically"
+msgstr "Sync Automatisch"
+
+#: includes/orddd-calendar-sync-settings.php:151
+msgid "Sync Manually"
+msgstr "Sync Manueel"
+
+#: includes/orddd-calendar-sync-settings.php:152
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+#: includes/orddd-calendar-sync-settings.php:289
+msgid ""
+"To set up Google Calendar API, please click on \"Show me how\" link and "
+"carefully follow these steps:"
+msgstr ""
+"Om de Google-kalender API op te zetten, gelieve op de link \"Laat mij zien "
+"hoe\" te klikken en de instructies zorgvuldig te volgen."
+
+#: includes/orddd-calendar-sync-settings.php:290
+#: includes/orddd-calendar-sync-settings.php:475
+msgid "Click to toggle instructions"
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:290
+#: includes/orddd-calendar-sync-settings.php:475
+msgid "Show me how"
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:293
+msgid "Google Calendar API requires PHP V5.3+ and some PHP extensions."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:294
+#, php-format
+msgid ""
+"Go to Google APIs console by clicking %s. Login to your Google account if "
+"you are not already logged in."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:295
+msgid ""
+"Click on 'Create Project'. Name the project 'Deliveries' (or use your chosen "
+"name instead) and create the project."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:296
+msgid ""
+"Click on APIs & Services from the left side panel. Select the Project "
+"created. "
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:297
+msgid ""
+"Click on 'Enable APIs and services' on the dashboard. Search for 'Google "
+"Calendar API' and enable this API."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:298
+msgid ""
+"Go to 'Credentials' menu in the left side pane and click on 'New "
+"Credentials' dropdown."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:299
+msgid "Click on New Credentials dropdown and select 'Service account key'."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:300
+msgid ""
+"Click 'Service account' and select 'New service account' and enter the name."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:301
+msgid ""
+"Now select key type as 'P12' and create the service account. Choose the "
+"desired service role from the popup and click on create. A file with "
+"extension .p12 will be downloaded."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:302
+#, php-format
+msgid ""
+"Using your FTP client program ( e.g.: %s, %s ), copy this key file to "
+"folder: %s . This file is required as you will grant access to your Google "
+"Calendar account even if you are not online. So this file serves as a proof "
+"of your consent to access to your Google calendar account. <br><b>Note:</b> "
+"This file cannot be uploaded in any other way. If you do not have FTP "
+"access, ask the website admin to do it for you."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:303
+msgid ""
+"Enter the name of the key file to 'Key file name' setting of Order Delivery "
+"Date. Exclude the extention .p12."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:304
+msgid ""
+"Copy 'Service Account ID' from Manage service account under API service-> "
+"Credentials of Google apis console and paste it to 'Service account email "
+"address' setting of Order Delivery Date."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:305
+#: includes/orddd-calendar-sync-settings.php:478
+#, php-format
+msgid "Open your Google Calendar by clicking this link: %s"
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:306
+msgid ""
+"Create a new Calendar by clicking on '+' sign next to 'Add a friends "
+"calendar' text box on left side pane. <b>Try NOT to use your primary "
+"calendar.</b>"
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:307
+msgid ""
+"Give a name to the new calendar, e.g. Order Delivery Date calendar. <b>Check "
+"that Calendar Time Zone setting matches with time zone setting of your "
+"WordPress website.</b> Otherwise there will be a time shift."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:308
+msgid ""
+"Paste already copied 'Service Account ID' from Manage service account of "
+"Google APIs console to 'Add People' field under 'Share with specific people'."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:309
+msgid ""
+"Set 'Permission Settings' of this person as 'Make changes to events' and add "
+"the person. Now create the calendar."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:310
+msgid ""
+"Select the created calendar and click 'Calendar settings'. Now copy "
+"'Calendar ID' value on Calendar Address row and paste the value to 'Calendar "
+"to be used' field of Order Delivery Date settings."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:311
+msgid ""
+"After saving the settings, you can test the connection by clicking on the "
+"'Test Connection' link."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:312
+msgid ""
+"If you get a success message, you should see a test event inserted into the "
+"Google Calendar and you are ready to go. If you get an error message, double "
+"check your settings."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:422
+msgid "Test Connection"
+msgstr "Test Verbinding"
+
+#: includes/orddd-calendar-sync-settings.php:465
+msgid ""
+"Events will be imported using the ICS Feed url. Each event will create a new "
+"WooCommerce Order. The event's date & time will be set as that order's "
+"Delivery Date & Time. <br>Lockout will be updated for global settings for "
+"the set Delivery Date & Time."
+msgstr ""
+"Gebeurtenissen worden geimporteerd met behulp van de ICS Feed url. Elke "
+"gebeurtenis maakt een nieuwe WooCommerce bestelling aan. De datum en tijd "
+"van de gebeurtenis wordt gebruikt voor de  leveringsdatum en -tijd van de "
+"bestelling. <br>Het aantal nog toegelaten bestellingen leveringen voor de "
+"specifieke leveringsdatum en -tijd zal worden aangepast."
+
+#: includes/orddd-calendar-sync-settings.php:474
+msgid ""
+"To set up Import events using ics feed urls, please click on \"Show me how\" "
+"link and carefully follow these steps:"
+msgstr ""
+"Om Import gebeurtenissen op te zetten met behulp van de ICS Feed url,  "
+"gelieve op de link \"Laat mij zien hoe\" te klikken en de instructies "
+"zorgvuldig te volgen:"
+
+#: includes/orddd-calendar-sync-settings.php:479
+msgid "Select the calendar to be imported and click \"Calendar settings\"."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:480
+msgid "Click on \"ICAL\" button in Calendar Address option."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:481
+msgid ""
+"Copy the basic.ics file URL. <i>If you are importing events from a private "
+"calendar please copy the basic.ics file URL for private calendar.</i>"
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:482
+msgid ""
+"Paste this link in the text box under Google Calendar Sync tab -> Import "
+"Events section."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:483
+msgid "Save the URL."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:484
+msgid ""
+"Click on \"Import Events\" button to import the events from the calendar."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:485
+msgid ""
+"You can import multiple calendars by using ics feeds. Add them using the Add "
+"New Ics Feed url button."
+msgstr ""
+
+#: includes/orddd-calendar-sync-settings.php:576
+msgid "Add New Ics feed url"
+msgstr "Toevoegen Nieuw Ics feed url"
+
+#: includes/orddd-date-settings.php:61
+#: includes/orddd-shipping-based-settings.php:406
+msgid "Calendar"
+msgstr ""
+
+#: includes/orddd-holidays-settings.php:203
+#, fuzzy
+msgid "Dates"
+msgstr "Datum"
+
+#: includes/orddd-holidays-settings.php:204
+#: includes/orddd-shipping-based-settings.php:621
+#: includes/orddd-shipping-based-settings.php:1546
+#: includes/orddd-time-slot-settings.php:127
+msgid "Weekdays"
+msgstr "Weekdagen"
+
+#: includes/orddd-holidays-settings.php:413 orddd-admin-delivery.php:460
+#: orddd-admin-delivery.php:461 orddd-process.php:1790 orddd-process.php:1791
+#: orddd-shipping-multiple-address.php:444
+#: orddd-shipping-multiple-address.php:488
+msgid "As Soon As Possible."
+msgstr ""
+
+#: includes/orddd-shipping-based-settings.php:47
+#: includes/views/html-advance-settings.php:223
+#: includes/views/html-locations.php:86 orddd-locations.php:142
+#: orddd-settings.php:2090 orddd-settings.php:2101 orddd-settings.php:2127
+#: orddd-settings.php:2166 orddd-settings.php:2176 orddd-settings.php:2206
+#: orddd-settings.php:2230 orddd-settings.php:2272 orddd-settings.php:2287
+#: templates/orddd-reminder-email-view.php:15
+msgid "Save Settings"
+msgstr "Instellingen Opslaan"
+
+#: includes/orddd-shipping-based-settings.php:57
+msgid "View Settings"
+msgstr "Instellingen Bekijken"
+
+#: includes/orddd-shipping-based-settings.php:113
+#: includes/orddd-shipping-based-settings.php:183
+msgid "Choose Shipping methods"
+msgstr "Kies Verzendmethoden"
+
+#: includes/orddd-shipping-based-settings.php:129
+msgid "Product categories"
+msgstr ""
+
+#: includes/orddd-shipping-based-settings.php:133
+msgid "Choose Product categories"
+msgstr ""
+
+#: includes/orddd-shipping-based-settings.php:148
+msgid ""
+"Delivery settings created for the above product categories will be applied "
+"to the translated categories in other languages as well."
+msgstr ""
+
+#: includes/orddd-shipping-based-settings.php:622
+#: includes/orddd-shipping-based-settings.php:1547 orddd-settings.php:2064
+#: orddd-settings.php:2105
+msgid "Specific Delivery Dates"
+msgstr "Specifieke Leveringsdatums"
+
+#: includes/orddd-shipping-based-settings.php:686
+msgid "Weekdays & Additional Charges:"
+msgstr "Weekdagen & Extra Kosten"
+
+#: includes/orddd-shipping-based-settings.php:690
+msgid "Enable"
+msgstr "Ingeschakeld"
+
+#: includes/orddd-shipping-based-settings.php:692
+#: includes/views/html-advance-settings.php:58
+msgid "Charges"
+msgstr "Kosten"
+
+#: includes/orddd-shipping-based-settings.php:693
+#: includes/orddd-shipping-based-settings.php:834
+#: includes/orddd-shipping-based-settings.php:879
+msgid "Checkout page Label"
+msgstr "Label op de afrekenpagina"
+
+#: includes/orddd-shipping-based-settings.php:834
+#: includes/orddd-shipping-based-settings.php:877
+msgid "Delivery Dates"
+msgstr "Bezorgdata"
+
+#: includes/orddd-shipping-based-settings.php:834
+#: includes/orddd-shipping-based-settings.php:880
+#: includes/orddd-shipping-based-settings.php:1345
+#: includes/orddd-shipping-based-settings.php:1729
+#: includes/orddd-shipping-based-settings.php:1796
+#: includes/orddd-shipping-based-settings.php:1891 orddd-scripts.php:102
+msgid "Actions"
+msgstr "Acties"
+
+#: includes/orddd-shipping-based-settings.php:863
+#: includes/orddd-shipping-based-settings.php:1328
+#: includes/orddd-shipping-based-settings.php:1874
+msgid "Save"
+msgstr "Bewaren"
+
+#: includes/orddd-shipping-based-settings.php:1119
+#: includes/orddd-shipping-based-settings.php:1167
+#: includes/orddd-time-settings.php:139 includes/orddd-time-settings.php:214
+msgid "Hours:"
+msgstr "Uren:"
+
+#: includes/orddd-shipping-based-settings.php:1128
+#: includes/orddd-shipping-based-settings.php:1176
+#: includes/orddd-time-settings.php:152 includes/orddd-time-settings.php:227
+msgid "Mins:"
+msgstr "Mins:"
+
+#: includes/orddd-shipping-based-settings.php:1299
+msgid "From"
+msgstr ""
+
+#: includes/orddd-shipping-based-settings.php:1300
+msgid "To"
+msgstr ""
+
+#: includes/orddd-shipping-based-settings.php:1729
+#: includes/orddd-shipping-based-settings.php:1796
+msgid "Delivery days/dates"
+msgstr ""
+
+#: includes/orddd-shipping-based-settings.php:1796
+#: includes/orddd-shipping-based-settings.php:1890
+msgid "Checkout Label"
+msgstr ""
+
+#: includes/orddd-shipping-days-settings.php:21
+msgid ""
+"<b>Shipping Days</b> refers to the working days of your own company. "
+"<b>Delivery Days</b> refers to the working days of your shipping company to "
+"whom you submit your orders for deliveries. <br>Leave this unchanged if you "
+"handle delivery & shipping by yourself.<a href=\"https://www.tychesoftwares."
+"com/docs/docs/order-delivery-date-pro-for-woocommerce/setup-delivery-dates/?"
+"utm_source=userwebsite&utm_medium=link&utm_campaign=OrderDeliveryDateProSetting"
+"\" target=\"_blank\" class=\"dashicons dashicons-external\" style=\"line-"
+"height:unset;\"></a>"
+msgstr ""
+
+#: includes/orddd-time-slot-settings.php:128
+msgid "Specific Dates"
+msgstr "Specifieke Data"
+
+#: includes/orddd-time-slot-settings.php:283
+#: includes/orddd-time-slot-settings.php:322
+msgid "Hours"
+msgstr "Uren"
+
+#: includes/orddd-time-slot-settings.php:295
+#: includes/orddd-time-slot-settings.php:334
+msgid "Minutes"
+msgstr "Minuten"
+
+#: includes/views/html-advance-settings.php:31
+#: includes/views/html-advance-settings.php:40
+msgid ""
+"Current Weekday as per WordPress timezone when the customer visits your "
+"website to place the order. This is a required field."
+msgstr ""
+
+#: includes/views/html-advance-settings.php:32
+#: includes/views/html-advance-settings.php:41
+msgid ""
+"Delivery charges to be applied when the customer selects the Delivery Date."
+msgstr ""
+
+#: includes/views/html-advance-settings.php:33
+#: includes/views/html-advance-settings.php:42
+msgid ""
+"Delivery charges label to be displayed on the checkout page for the Delivery "
+"Charges"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:34
+#: includes/views/html-advance-settings.php:43
+msgid ""
+"Current day will be disabled if an order is placed after the time mentioned "
+"in this field. The timezone is taken from the Settings -> General ->Timezone "
+"Field. <br><br> Note: It will be applied only when the Enable Same day "
+"delivery setting is enabled from the General Settings -> Time settings link."
+msgstr ""
+
+#: includes/views/html-advance-settings.php:35
+#: includes/views/html-advance-settings.php:44
+msgid ""
+"Next day will be disabled if an order is placed after the time mentioned in "
+"this field. The timezone is taken from the Settings -> General ->Timezone "
+"Field. <br><br> Note: It will be applied only when the Enable Next day "
+"delivery setting is enabled from the General Settings -> Time settings link."
+msgstr ""
+
+#: includes/views/html-advance-settings.php:36
+#: includes/views/html-advance-settings.php:45
+msgid ""
+"First available weekday which should be enabled if an order is placed before "
+"the next day cut-off time mentioned."
+msgstr ""
+
+#: includes/views/html-advance-settings.php:37
+#: includes/views/html-advance-settings.php:46
+msgid ""
+"First available weekday which should be enabled if an order is placed after "
+"the next day cut-off time mentioned."
+msgstr ""
+
+#: includes/views/html-advance-settings.php:38
+#: includes/views/html-advance-settings.php:47
+msgid ""
+"Minimum number of hours required to prepare for delivery. <br><br> Note: "
+"Minimum Time column will be disabled when Same day cut-off and/or Next day "
+"cut-off setting is enabled from the General Settings -> Time settings link."
+msgstr ""
+
+#: includes/views/html-advance-settings.php:52
+msgid ""
+"Use the below table if you want to create different settings for each "
+"weekday. You can fill in the required settings & leave the rest as blank if "
+"not needed. For example, if you only want delivery charges per weekday, but "
+"not Minimum Time or Same-day delivery, then you can enter the charges & "
+"leave other fields blank. If multiple settings are added for one Weekday, "
+"then settings which are added last will be considered.<a href=\"https://www."
+"tychesoftwares.com/docs/docs/order-delivery-date-pro-for-woocommerce/weekday-"
+"settings/?"
+"utm_source=userwebsite&utm_medium=link&utm_campaign=OrderDeliveryDateProSetting"
+"\" target=\"_blank\" class=\"dashicons dashicons-external\" style=\"line-"
+"height:unset;\"></a>"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:57
+#: includes/views/html-advance-settings.php:88
+#: includes/views/html-advance-settings.php:172
+#: includes/views/html-advance-settings.php:193
+msgid "Weekday"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:60
+msgid "Same day cut-off"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:61
+msgid "Next day cut-off"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:62
+msgid "Weekday before next day cut-off time"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:63
+msgid "Weekday after next day cut-off time"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:64
+msgid "Minimum Time"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:70
+#: includes/views/html-locations.php:39
+msgid "Insert row"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:71
+#: includes/views/html-locations.php:40
+msgid "Remove selected row"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:82
+msgid ""
+"If the cut-off time for Same day / Next day delivery is same for all the "
+"weekdays then <a href=\"admin.php?"
+"page=order_delivery_date&action=general_settings&section=time_settings"
+"\">click here</a> to make the necessary changes."
+msgstr ""
+
+#: includes/views/html-advance-settings.php:85
+#, php-format
+msgid "Advance Setting Row: %s"
+msgstr ""
+
+#: includes/views/html-advance-settings.php:115
+#: includes/views/html-advance-settings.php:144 orddd-scripts.php:218
+#: orddd-scripts.php:432
+msgid "Time"
+msgstr "Tijd"
+
+#: includes/views/html-locations.php:22
+msgid "Use the below table to add different pickup locations of your store."
+msgstr ""
+
+#: includes/views/html-locations.php:28
+msgid "Address 1"
+msgstr ""
+
+#: includes/views/html-locations.php:29
+msgid "Address 2"
+msgstr ""
+
+#: includes/views/html-locations.php:30
+msgid "City"
+msgstr ""
+
+#: includes/views/html-locations.php:31
+#, fuzzy
+#| msgid "Status"
+msgid "State"
+msgstr "Status"
+
+#: includes/views/html-locations.php:32
+msgid "Postcode"
+msgstr ""
+
+#: includes/views/html-locations.php:33
+msgid "Country"
+msgstr ""
+
+#: includes/views/html-locations.php:53
+#, php-format
+msgid "Pickup Location Row: %s"
+msgstr ""
+
+#: integration.php:426
+#, fuzzy
+#| msgid "Event Location"
+msgid "Pickup Location"
+msgstr "Locatie Gebeurtenis"
+
+#: integration.php:433 orddd-view-deliveries.php:282
+msgid "Delivery Date"
+msgstr "Bezorgdatum"
+
+#: license.php:179
+msgid "Plugin License Options"
+msgstr "Plugin Licentie Opties"
+
+#: license.php:190
+msgid "Enter your license key"
+msgstr "Vul je licentiesleutel in"
+
+#: license.php:200
+msgid "active"
+msgstr "actief"
+
+#: license.php:202
+msgid "Deactivate License"
+msgstr "Licentie Deactiveren"
+
+#: orddd-admin-delivery.php:54 orddd-admin-delivery.php:56
+msgid "Edit Order Delivery Date and/or Time"
+msgstr "Bewerk Bezorgdatum en/of -tijd"
+
+#: orddd-admin-delivery.php:227 orddd-admin-delivery.php:483
+msgid "Delivery Charges:"
+msgstr ""
+
+#: orddd-admin-delivery.php:263
+msgid ""
+"For any changes made in the Delivery details, the charges need to be "
+"modified manually."
+msgstr ""
+
+#: orddd-admin-delivery.php:511 orddd-admin-delivery.php:512
+#: orddd-admin-delivery.php:528 orddd-process.php:1343 orddd-process.php:1345
+msgid "Delivery Charges"
+msgstr "Bezorgkosten"
+
+#: orddd-availability-widget.php:27 orddd-availability-widget.php:31
+#, fuzzy
+#| msgid "Delivery Calendar"
+msgid "Delivery Date Availability Calendar"
+msgstr "Bezorg Kalender"
+
+#: orddd-availability-widget.php:32
+msgid "Title"
+msgstr ""
+
+#: orddd-availability-widget.php:37
+msgid "Accept Postcodes"
+msgstr ""
+
+#: orddd-availability-widget.php:121
+msgid "Enter Postcode"
+msgstr ""
+
+#: orddd-availability-widget.php:124
+msgid "Show Availability"
+msgstr ""
+
+#: orddd-availability-widget.php:133
+msgid "Change Postcode"
+msgstr ""
+
+#: orddd-calendar-sync.php:29
+#, fuzzy
+#| msgid "Order Delivery Date and Time Settings"
+msgid "Order Delivery Date - GCal Import Events"
+msgstr "Bestelling Leveringsdatum en -Tijd Instellingen "
+
+#: orddd-calendar-sync.php:157 orddd-calendar-sync.php:293
+#: orddd-calendar-sync.php:392 orddd-calendar-sync.php:533
+msgid " "
+msgstr ""
+
+#: orddd-calendar-sync.php:222 orddd-calendar-sync.php:232
+#, fuzzy
+#| msgid "Add to other Calendar"
+msgid "Add To Calendar"
+msgstr "Toevoegen aan anders-kalender"
+
+#: orddd-calendar-sync.php:224 orddd-calendar-sync.php:234
+#: orddd-calendar-sync.php:354 orddd-calendar-sync.php:459
+#: orddd-calendar-sync.php:481 orddd-calendar-sync.php:595
+#: orddd-calendar-sync.php:601 orddd-view-deliveries.php:123
+msgid "Add to Google Calendar"
+msgstr "Toevoegen aan Google-kalender"
+
+#: orddd-calendar-sync.php:225 orddd-calendar-sync.php:235
+#: orddd-calendar-sync.php:357 orddd-calendar-sync.php:469
+#: orddd-calendar-sync.php:491
+msgid "Add to other Calendar"
+msgstr "Toevoegen aan anders-kalender"
+
+#: orddd-common.php:44
+msgid "Custom Delivery Settings are not working."
+msgstr ""
+
+#: orddd-common.php:50
+msgid "Minimum Delivery Time (in hours) is not working as expected."
+msgstr ""
+
+#: orddd-common.php:56
+msgid "The plugin is not compatible with another plugin."
+msgstr ""
+
+#: orddd-common.php:62
+msgid "Shipping Days feature is not working."
+msgstr ""
+
+#: orddd-common.php:407 orddd-process.php:179
+msgid "Your Estimated shipping date for the order is "
+msgstr ""
+
+#: orddd-common.php:6958 orddd-scripts.php:390
+#, fuzzy
+#| msgid "No time slots are available."
+msgid "No time slots are available"
+msgstr "Er zijn geen tijdsstippen meer beschikbaar."
+
+#: orddd-common.php:6960 orddd-scripts.php:389
+msgid "As Soon As Possible"
+msgstr ""
+
+#: orddd-config.php:135 orddd-config.php:144 uninstall.php:25 uninstall.php:34
+msgid "Sunday"
+msgstr "Zondag"
+
+#: orddd-config.php:136 orddd-config.php:145 uninstall.php:26 uninstall.php:35
+msgid "Monday"
+msgstr "Maandag"
+
+#: orddd-config.php:137 orddd-config.php:146 uninstall.php:27 uninstall.php:36
+msgid "Tuesday"
+msgstr "Dinsdag"
+
+#: orddd-config.php:138 orddd-config.php:147 uninstall.php:28 uninstall.php:37
+msgid "Wednesday"
+msgstr "Woensdag"
+
+#: orddd-config.php:139 orddd-config.php:148 uninstall.php:29 uninstall.php:38
+msgid "Thursday"
+msgstr "Donderdag"
+
+#: orddd-config.php:140 orddd-config.php:149 uninstall.php:30 uninstall.php:39
+msgid "Friday"
+msgstr "Vrijdag"
+
+#: orddd-config.php:141 orddd-config.php:150 uninstall.php:31 uninstall.php:40
+msgid "Saturday"
+msgstr "Zaterdag"
+
+#: orddd-locations.php:62
+msgid "Pickup Locations Mandatory?:"
+msgstr ""
+
+#: orddd-locations.php:66
+#, fuzzy
+#| msgid "Selection of Time slot on the checkout page will become mandatory."
+msgid ""
+"Selection of pickup location on the checkout page will become mandatory."
+msgstr "Het selecteren van een Tijdvak op de afrekenpagina wordt verplicht."
+
+#: orddd-locations.php:121 orddd-locations.php:217
+#, fuzzy
+#| msgid "Event Location"
+msgid "Pickup Locations"
+msgstr "Locatie Gebeurtenis"
+
+#: orddd-locations.php:221
+msgid "Choose Pickup Locations"
+msgstr ""
+
+#: orddd-locations.php:354
+#, fuzzy
+#| msgid "Event Location"
+msgid "Select Location"
+msgstr "Locatie Gebeurtenis"
+
+#: orddd-locations.php:419 orddd-process.php:586 orddd-process.php:698
+#: orddd-process.php:703 orddd-shipping-multiple-address.php:431
+#: orddd-shipping-multiple-address.php:449
+msgid "is a required field."
+msgstr "is een verplicht veld."
+
+#: orddd-privacy.php:52
+#, fuzzy
+#| msgid "Delivery Date"
+msgid "Delivery Date & Time"
+msgstr "Bezorgdatum"
+
+#: orddd-privacy.php:99
+msgid ""
+"If you are syncing your deliveries to the Google calendar from <a href="
+"\"https://www.tychesoftwares.com/store/premium-plugins/order-delivery-date-"
+"for-woocommerce-pro-21\" target=\"_blank\">Order Delivery Date Pro for "
+"WooCommerce</a> plugin, then we will recommend you to mention about the "
+"customer data being exported to the Google Calendar from the plugin in your "
+"Privacy Policy as per the EU data protection laws through General Data "
+"Protection Regulation (“GDPR”)."
+msgstr ""
+
+#: orddd-process.php:171
+msgid "Delivery Information"
+msgstr ""
+
+#: orddd-process.php:180
+msgid "The delivery will take approximately "
+msgstr ""
+
+#: orddd-process.php:180
+msgid " working days from the shipping days."
+msgstr ""
+
+#: orddd-process.php:245 orddd-process.php:278
+#, fuzzy
+#| msgid "Delivery Date"
+msgid "<b>Delivery Information"
+msgstr "Bezorgdatum"
+
+#: orddd-process.php:437 orddd-scripts.php:200 orddd-scripts.php:387
+#: orddd-shipping-multiple-address.php:359
+msgid "Select a time slot"
+msgstr "Kies een tijdstip"
+
+#: orddd-process.php:1194 orddd-process.php:1289
+#: orddd-shipping-multiple-address.php:844
+msgid "Same Day Delivery Charges"
+msgstr "Extra kosten voor bezorging op dezelfde dag"
+
+#: orddd-process.php:1210 orddd-process.php:1310
+#: orddd-shipping-multiple-address.php:876
+msgid "Next Day Delivery Charges"
+msgstr "Extra kosten voor bezorging op de volgende dag"
+
+#: orddd-process.php:1908
+msgid "Edit"
+msgstr ""
+
+#: orddd-process.php:2017
+msgid "Update"
+msgstr ""
+
+#: orddd-process.php:2113
+msgid "Change"
+msgstr ""
+
+#: orddd-process.php:3270 orddd-process.php:3336
+#, fuzzy
+msgid ""
+"Cut-off time for same day delivery has expired. Please select another date "
+"for delivery."
+msgstr "Uiterste besteltijd voor bezorging op dezelfde dag:"
+
+#: orddd-process.php:3299 orddd-process.php:3369
+#, fuzzy
+msgid ""
+"Cut-off time for next day delivery has expired. Please select another date "
+"for delivery."
+msgstr "Uiterste besteltijd voor bezorging op de volgende dag:"
+
+#: orddd-process.php:3388
+msgid ""
+"Cut-off time for the delivery day has expired. Please select another date "
+"for delivery."
+msgstr ""
+
+#: orddd-scripts.php:139 orddd-scripts.php:176
+msgid "No row(s) selected"
+msgstr ""
+
+#: orddd-scripts.php:140 orddd-scripts.php:177
+msgid "Your changed data will be lost if you leave this page without saving."
+msgstr ""
+
+#: orddd-scripts.php:141 orddd-scripts.php:178
+msgid "Settings saved."
+msgstr ""
+
+#: orddd-scripts.php:201 orddd-scripts.php:388
+msgid "Clear"
+msgstr "Wissen"
+
+#: orddd-scripts.php:204 orddd-scripts.php:393
+msgid "Booked"
+msgstr ""
+
+#: orddd-scripts.php:205 orddd-scripts.php:394
+msgid "Cut-off time over"
+msgstr ""
+
+#: orddd-scripts.php:206 orddd-scripts.php:395
+msgid ""
+"<b>Successfully edited the delivery date. Please wait until the page reloads."
+"</b>"
+msgstr ""
+
+#: orddd-scripts.php:219 orddd-scripts.php:433
+msgid "Hour"
+msgstr "Uur"
+
+#: orddd-scripts.php:220 orddd-scripts.php:434
+msgid "Now"
+msgstr "Nu"
+
+#: orddd-scripts.php:221 orddd-scripts.php:435
+msgid "Done"
+msgstr "Klaar"
+
+#: orddd-scripts.php:222 orddd-scripts.php:436
+msgid "Choose Time"
+msgstr "Kies tijd"
+
+#: orddd-scripts.php:223 orddd-scripts.php:437
+msgid "Minute"
+msgstr "Minuut"
+
+#: orddd-scripts.php:224 orddd-scripts.php:438
+msgid "Second"
+msgstr "Seconde"
+
+#: orddd-scripts.php:225 orddd-scripts.php:439
+msgid "Millisecond"
+msgstr "Milliseconde"
+
+#: orddd-scripts.php:380
+msgid "Current Postcode: "
+msgstr ""
+
+#: orddd-scripts.php:440
+msgid "Microsecond"
+msgstr ""
+
+#: orddd-send-reminder.php:61 orddd-send-reminder.php:62
+#: templates/orddd-reminder-email-view.php:3
+#: templates/orddd-reminder-email-view.php:93
+msgid "Send Reminder"
+msgstr ""
+
+#: orddd-send-reminder.php:86
+msgid "Reminder sent successfully"
+msgstr ""
+
+#: orddd-send-reminder.php:116
+#, fuzzy
+#| msgid "Number of dates available for delivery."
+msgid "Number of days for reminder before Delivery Date"
+msgstr "Het aantal data wat beschikbaar is voor bezorging."
+
+#: orddd-send-reminder.php:120
+msgid "Send the reminder email X number of days before the Delivery Date."
+msgstr ""
+
+#: orddd-settings.php:96
+msgid "Order Delivery Date Settings"
+msgstr "Bezorgdatum Instellingen"
+
+#: orddd-settings.php:103 orddd-settings.php:1383
+msgid "Enable Delivery Date:"
+msgstr "Bezorgdatum Inschakelen :"
+
+#: orddd-settings.php:107
+msgid "Enable Delivery Date capture on the checkout page."
+msgstr "Bezorgdatum veld op de afrekenpagina inschakelen."
+
+#: orddd-settings.php:114 orddd-settings.php:1392
+msgid "Delivery Checkout options:"
+msgstr ""
+
+#: orddd-settings.php:118 orddd-settings.php:1396
+msgid "Choose the delivery date option to be displayed on the checkout page."
+msgstr ""
+
+#: orddd-settings.php:123 orddd-settings.php:1410
+msgid "Delivery Days:"
+msgstr "Bezorgdata:"
+
+#: orddd-settings.php:127
+msgid "Select weekdays for deliveries."
+msgstr ""
+
+#: orddd-settings.php:132
+msgid "Weekday Settings:"
+msgstr ""
+
+#: orddd-settings.php:136
+msgid ""
+"Enable this setting to add Additional charges, Additional charges' checkout "
+"label, Same day cut-off time, Next day cut-off time and Minimum Delivery "
+"Time (in hours) for each weekday."
+msgstr ""
+
+#: orddd-settings.php:145
+msgid ""
+"Minimum number of hours required to prepare for delivery.<a href=\"https://"
+"www.tychesoftwares.com/docs/docs/order-delivery-date-pro-for-woocommerce/"
+"date-controls/set-up-minimum-delivery-preparation-time/?"
+"utm_source=userwebsite&utm_medium=link&utm_campaign=OrderDeliveryDateProSetting"
+"\" target=\"_blank\" class=\"dashicons dashicons-external\" style=\"line-"
+"height:unset;\"></a>"
+msgstr ""
+
+#: orddd-settings.php:154 orddd-settings.php:1441
+msgid "Number of dates available for delivery."
+msgstr "Het aantal data wat beschikbaar is voor bezorging."
+
+#: orddd-settings.php:159 orddd-settings.php:1174 orddd-settings.php:1446
+#: orddd-settings.php:1532
+msgid "Mandatory field?:"
+msgstr "Verplicht veld?:"
+
+#: orddd-settings.php:163 orddd-settings.php:1450
+msgid "Selection of delivery date on the checkout page will become mandatory."
+msgstr "Het kiezen van een bezorgdatum bij het afrekenen wordt verplicht."
+
+#: orddd-settings.php:168 orddd-settings.php:1455
+msgid "Maximum Order Deliveries per day (based on per order):"
+msgstr ""
+"Maximale Leveringen Bestellingen per dag (op basis van per bestelling):"
+
+#: orddd-settings.php:172
+msgid ""
+"A date will become unavailable for further deliveries once these many orders "
+"are placed for delivery for that date."
+msgstr ""
+"Een datum is niet meer beschikbaar voor verdere leveringen van zodra dit "
+"aantal bestellingen zijn geplaatst voor levering op die datum."
+
+#: orddd-settings.php:177
+msgid "Enable Maximum Deliveries based on per product quantity:"
+msgstr ""
+"Activeer het maximaal aantal leveringen op basis van het aantal producten."
+
+#: orddd-settings.php:181
+msgid ""
+"If this is enabled, then the date and time (if enabled) will become "
+"unavailable for further deliveries once these many product quantities are "
+"selected for delivery for that date and time (if enabled). For example, if "
+"an order has a product for 2 quantity in the cart, then the availability for "
+"a date will be reduced by 2. If this setting is disabled, then the "
+"availability will be reduced by 1.<br><i>Note: The availability will be "
+"reduced by product quantities for General settings as well as for Custom "
+"Delivery Settings, if this setting is enabled.</i>"
+msgstr ""
+"Wanneer geactiveerd, dan is de leveringsdatum en -uur niet meer beschikbaar "
+"voor verdere leveringen vanaf het moment dat de product hoeveelheid bereikt "
+"wordt voor die leveringsdatum en -uur. Bijvoorbeeld indien een bestelling 2 "
+"producten bevat in het winkelmandje, dan zal de mogelijkheid voor levering "
+"op die datum verminderd worden met 2. Als deze instelling niet is "
+"geactiveerd dan zal het aantal leveringen op die datum verminderd worden met "
+"1.<br><i>Opmerking: Wanneer geactiveerd dan zal de beschikbaarheid "
+"verminderd worden met de product hoeveelheid voor Algemene Instellingen en "
+"Aangepaste Levering Instellingen.</i>"
+
+#: orddd-settings.php:186 orddd-settings.php:1464
+msgid "Delivery Range"
+msgstr ""
+
+#: orddd-settings.php:190 orddd-settings.php:1468
+msgid ""
+"</br>Interval of days it takes to deliver an order after submitting the "
+"order."
+msgstr ""
+
+#: orddd-settings.php:243
+msgid "Shipping Days Settings"
+msgstr ""
+
+#: orddd-settings.php:250
+msgid "Enable Shipping days based calculation:"
+msgstr ""
+
+#: orddd-settings.php:254
+msgid ""
+"Calculate Minimum Delivery Time (in hours), Same Day cut-off and Next Day "
+"cut-off based on the shipping days selected."
+msgstr ""
+
+#: orddd-settings.php:259
+msgid "Shipping Days:"
+msgstr ""
+
+#: orddd-settings.php:263
+msgid "Select weekdays for shipping."
+msgstr ""
+
+#: orddd-settings.php:300 orddd-settings.php:2079
+msgid "Additional Settings"
+msgstr "Aanvullende Instellingen"
+
+#: orddd-settings.php:307
+msgid "Show on Orders Listing Page:"
+msgstr "Toon op bestellingen overzichtpagina:"
+
+#: orddd-settings.php:311
+msgid "Displays the Delivery Date on the WooCommerce->Orders page."
+msgstr ""
+
+#: orddd-settings.php:316
+msgid "Show Filter on Orders Listing Page:"
+msgstr "Toon filter op bestellingen overzichtpagina:"
+
+#: orddd-settings.php:320
+msgid ""
+"Displays the Filter on the WooCommerce->Orders page that allows you to view "
+"orders to be delivered today, tomorrow or in any month."
+msgstr ""
+
+#: orddd-settings.php:325
+msgid "Auto-populate first available Delivery date:"
+msgstr ""
+
+#: orddd-settings.php:329
+#, fuzzy
+msgid ""
+"Auto-populate first available Delivery date when the checkout page loads."
+msgstr "Bezorgdatum veld op de afrekenpagina inschakelen."
+
+#: orddd-settings.php:334
+msgid "Enable Tax calculation for Delivery charges"
+msgstr ""
+
+#: orddd-settings.php:338
+msgid "Enable Tax calculation for Delivery charges on the checkout page."
+msgstr ""
+
+#: orddd-settings.php:343
+msgid "Disable the Delivery Date and Time Slot Fields for:"
+msgstr ""
+
+#: orddd-settings.php:347
+msgid ""
+"<br>Disable the Delivery Date and Time Slot on the Checkout page for Virtual "
+"products and Featured products."
+msgstr ""
+
+#: orddd-settings.php:352
+msgid "Allow Customers to edit Delivery Date & Time:"
+msgstr ""
+
+#: orddd-settings.php:356
+msgid ""
+"When enabled, it will add Delivery Date & Time field on the My Account -> "
+"Orders -> View page. So customers will be able to edit the date and time "
+"once the order is placed.<br>"
+msgstr ""
+
+#: orddd-settings.php:361
+msgid "Display availability on date"
+msgstr ""
+
+#: orddd-settings.php:365
+msgid ""
+"When enabled, it will display the availability on hover of the dates in the "
+"delivery calendar on checkout page."
+msgstr ""
+
+#: orddd-settings.php:370
+msgid "Integration with Other Plugins:"
+msgstr "Integratie met andere Plugins:"
+
+#: orddd-settings.php:377
+msgid "WooCommerce Customer/ Order CSV Export plugin"
+msgstr ""
+
+#: orddd-settings.php:381
+msgid "Displays the Delivery details in the CSV Export File."
+msgstr "Toon the bezorgdetails toe aan het CSV Export bestand."
+
+#: orddd-settings.php:386
+msgid "WooCommerce PDF Invoices & Packing Slips plugin"
+msgstr ""
+
+#: orddd-settings.php:390
+msgid "Displays the Delivery details in the PDF Invoice and Packing Slips."
+msgstr ""
+
+#: orddd-settings.php:395
+msgid "WooCommerce Print Invoice & Delivery Note plugin"
+msgstr ""
+
+#: orddd-settings.php:399
+msgid "Displays the Delivery details in the Invoice and Delivery Note."
+msgstr ""
+
+#: orddd-settings.php:404
+msgid "WooCommerce Print orders plugin"
+msgstr ""
+
+#: orddd-settings.php:408
+msgid "Displays the Delivery details in the print copy of the order."
+msgstr ""
+
+#: orddd-settings.php:418
+#, fuzzy
+msgid "Compatibility with Other Plugins:"
+msgstr "Integratie met andere Plugins:"
+
+#: orddd-settings.php:425
+msgid "WooCommerce Shipping Multiple addresses"
+msgstr ""
+
+#: orddd-settings.php:429
+msgid ""
+"When enabled, it will allow to choose a Delivery Date & Time (if enabled) "
+"for each shipping address chosen on checkout page with the WooCommerce "
+"Shipping Multiple addresses plugin."
+msgstr ""
+
+#: orddd-settings.php:434
+msgid "WooCommerce Amazon Payments Advanced Gateway"
+msgstr ""
+
+#: orddd-settings.php:438
+msgid ""
+"If enabled, it will add the Delivery Date and Time fields when the customer "
+"clicks on \"Pay with Amazon\" button."
+msgstr ""
+
+#: orddd-settings.php:532
+msgid "Order Delivery Time Settings"
+msgstr "Bestelling Bezorgtijd Instellingen"
+
+#: orddd-settings.php:546
+msgid "Enable delivery time capture:"
+msgstr "Bezorgtijd keuze inschakelen:"
+
+#: orddd-settings.php:550
+msgid "Enable to choose the time for delivery on the checkout page."
+msgstr "Activeer om de leveringstijd te kiezen op de afrekenpagina."
+
+#: orddd-settings.php:555
+msgid "Time Range:"
+msgstr "Tijd Bereik:"
+
+#: orddd-settings.php:559
+msgid "Select time range for the time sliders."
+msgstr "Selecteer het tijdsbereik voor de Tijd-schuifbalken."
+
+#: orddd-settings.php:565
+msgid "Same Day Delivery"
+msgstr "Bezorging op dezelfde dag"
+
+#: orddd-settings.php:572
+msgid "Enable Same day delivery:"
+msgstr "Bezorging op dezelfde dag inschakelen:"
+
+#: orddd-settings.php:576
+msgid "Enable same day delivery for the orders."
+msgstr "Schakel het bezorgen van bestellingen op dezelfde dag in."
+
+#: orddd-settings.php:576
+msgid ""
+"This is very useful in cases when your customers are gifting items to their "
+"loved ones, especially on birthdays, anniversaries, etc."
+msgstr ""
+"Dit is erg nuttig als je klanten producten willen schenken, bijvoorbeeld op "
+"verjaardagen of jubilea."
+
+#: orddd-settings.php:581 orddd-settings.php:1489
+msgid "Cut-off time for same day delivery orders:"
+msgstr "Uiterste besteltijd voor bezorging op dezelfde dag:"
+
+#: orddd-settings.php:585
+msgid ""
+"Current day will be disabled if an order is placed after the time mentioned "
+"in this field."
+msgstr ""
+"Bezorging op dezelfde dag wordt uitgeschakeld als er wordt besteld na de "
+"tijd in dit veld."
+
+#: orddd-settings.php:585 orddd-settings.php:619
+msgid "The timezone is taken from the Settings -> General -> Timezone field."
+msgstr ""
+"De tijdzone wordt overgenomen uit Instellingen -> Algemeen -> Tijdzone veld."
+
+#: orddd-settings.php:590 orddd-settings.php:1498
+msgid "Additional Charges for same day delivery:"
+msgstr "Extra kosten voor bezorging op dezelfde dag:"
+
+#: orddd-settings.php:594 orddd-settings.php:1502
+msgid "Set additional charges for same day delivery."
+msgstr "Stel extra kosten in voor bezorging op dezelfde dag."
+
+#: orddd-settings.php:599
+msgid "Next Day Delivery"
+msgstr "Bezorging op de volgende dag"
+
+#: orddd-settings.php:606
+msgid "Enable Next day delivery:"
+msgstr "Bezorging op de volgende dag inschakelen:"
+
+#: orddd-settings.php:610
+msgid "If you deliver on the next day, enable this option."
+msgstr "Schakel in als je bezorgt op de volgende dag na de bestelling."
+
+#: orddd-settings.php:615 orddd-settings.php:1507
+msgid "Cut-off time for next day delivery orders:"
+msgstr "Uiterste besteltijd voor bezorging op de volgende dag:"
+
+#: orddd-settings.php:619
+msgid ""
+"Next day will be disabled if an order is placed after the time mentioned in "
+"this field."
+msgstr ""
+"Bezorging op de volgende dag wordt uitgeschakeld als er wordt besteld na de "
+"tijd in dit veld."
+
+#: orddd-settings.php:624 orddd-settings.php:1516
+msgid "Additional Charges for next day delivery:"
+msgstr "Extra kosten voor bezorging op de volgende dag:"
+
+#: orddd-settings.php:628 orddd-settings.php:1520
+msgid "Set additional charges for next day delivery."
+msgstr "Stel extra kosten in voor bezorging op de volgende dag."
+
+#: orddd-settings.php:707
+msgid "Add Holiday"
+msgstr "Vakantie Toevoegen"
+
+#: orddd-settings.php:714
+#, fuzzy
+#| msgid "Holiday Range:"
+msgid "Holiday Name:"
+msgstr "Vakantie Bereik:"
+
+#: orddd-settings.php:718
+msgid "<br>Enter the name of the holiday here."
+msgstr ""
+
+#: orddd-settings.php:723
+#, fuzzy
+#| msgid "From:"
+msgid "From Date:"
+msgstr "Van:"
+
+#: orddd-settings.php:731
+#, fuzzy
+#| msgid "Date"
+msgid "To Date:"
+msgstr "Datum"
+
+#: orddd-settings.php:735
+#, fuzzy
+#| msgid ""
+#| "Select the start date of holiday range here. Leave the \"To:\" field "
+#| "unchanged for single day holidays."
+msgid "<br>Leave the \"To Date:\" field unchanged for single day holidays."
+msgstr ""
+"Selecteer de startdatum van de vakantieperiode. Laat het veld \"Tot:\" "
+"onveranderd voor een dag vakantie."
+
+#: orddd-settings.php:740 orddd-settings.php:1637
+msgid "Allow Recurring:"
+msgstr ""
+
+#: orddd-settings.php:744
+msgid "Enable to block the holidays for all future years."
+msgstr ""
+
+#: orddd-settings.php:765
+msgid "Block a Time Slot"
+msgstr "Blokkeer een Tijdvak"
+
+#: orddd-settings.php:772
+msgid "Block Time Slot for:"
+msgstr "Blokkeer Tijdvak voor:"
+
+#: orddd-settings.php:776
+msgid ""
+"Select \"Dates\" option to block time slots for individual dates. Select "
+"\"Weekdays\" option to block the time slots for a weekday or multiple "
+"weekdays."
+msgstr ""
+"Selecteer de optie \"Datums\" om tijdvakken te blokkeren voor een bepaalde "
+"datum of meerdere datums. Selecteer de optie \"Weekdagen\" om de tijdvakken "
+"te blokkeren voor een weekdag of meerdere weekdagen."
+
+#: orddd-settings.php:781
+msgid "Select Dates or Weekdays:"
+msgstr "Selecteer Datums of Weekdagen:"
+
+#: orddd-settings.php:785
+msgid "Select Dates or Weekdays for which you want to block the time slots."
+msgstr "Selecteer Datums of Weekdagen waarvoor je tijdvakken wilt blokkeren."
+
+#: orddd-settings.php:790
+msgid "Select Time Slots to block:"
+msgstr "Selecteer Tijdvakken om te blokkeren:"
+
+#: orddd-settings.php:794
+msgid ""
+"This will list all the time slots which are created in General Settings or "
+"in Custom Delivery Settings."
+msgstr ""
+"Geeft een overzicht van alle tijdvakken die zijn aangemaakt in Algemene "
+"Instellingen - Tijdvak of in Aangepaste Levering Instellingen."
+
+#: orddd-settings.php:814
+msgid "Calendar Appearance"
+msgstr "Kalender Uiterlijk"
+
+#: orddd-settings.php:821
+msgid "Calendar Language:"
+msgstr "Taal Kalender:"
+
+#: orddd-settings.php:825
+msgid "Choose a Language."
+msgstr "Kies een taal."
+
+#: orddd-settings.php:830
+msgid "Date Format:"
+msgstr "Datum format:"
+
+#: orddd-settings.php:834
+msgid ""
+"The format in which the Delivery Date appears to the customers on the "
+"checkout page once the date is selected."
+msgstr ""
+"Het formaat waarin de bezorgdatum wordt getoond op de afrekenpagina nadat "
+"een datum is geselecteerd."
+
+#: orddd-settings.php:839
+msgid "Time Format:"
+msgstr ""
+
+#: orddd-settings.php:843
+msgid ""
+"The time range will come in the selected format. If 12 hour format is "
+"selected, then the time slider will appear in am/pm format."
+msgstr ""
+"Het tijdsbereik wordt getoond in het geselecteerde tijdsformaat. Als het "
+"\"12 hour\" formaat is geselecteerd wordt de tijd-schuifbalk getoond in AM/"
+"PM formaat."
+
+#: orddd-settings.php:849
+msgid "First Day of Week:"
+msgstr "Eerste dag van de week:"
+
+#: orddd-settings.php:853
+msgid "Choose the first day of week displayed on the Delivery Date calendar."
+msgstr ""
+"Kies de eerste dag van de week zoals getoond op de Bezorgdata kalender."
+
+#: orddd-settings.php:858
+msgid "Number of Months:"
+msgstr "Aantal maanden:"
+
+#: orddd-settings.php:862
+msgid "The number of months to be shown on the calendar."
+msgstr "Het aantal maanden dat wordt getoond op de kalender."
+
+#: orddd-settings.php:866
+msgid "Theme:"
+msgstr "Thema"
+
+#: orddd-settings.php:870
+msgid ""
+"Select the theme for the calendar which blends with the design of your "
+"website."
+msgstr ""
+"Selecteer het thema van de kalender die bij het ontwerp van uw website past."
+
+#: orddd-settings.php:875
+msgid "Field Appearance"
+msgstr "Veld Uiterlijk"
+
+#: orddd-settings.php:882
+#, fuzzy
+#| msgid "Date Field Label:"
+msgid "Locations Label:"
+msgstr "Label Veld Datum:"
+
+#: orddd-settings.php:886
+#, fuzzy
+#| msgid ""
+#| "Choose the label that is to be displayed for the field on checkout page. "
+#| "HTML allowed."
+msgid ""
+"Choose the label that is to be displayed for the delivery locations field on "
+"checkout page. HTML allowed."
+msgstr ""
+"Kies het label dat getoond moet worden voor dit veld op de afrekenpagina. "
+"HTML is toegelaten."
+
+#: orddd-settings.php:891 orddd-settings.php:1663
+msgid "Date Field Label:"
+msgstr "Label Veld Datum:"
+
+#: orddd-settings.php:895 orddd-settings.php:1667
+msgid ""
+"Choose the label that is to be displayed for the field on checkout page. "
+"HTML allowed."
+msgstr ""
+"Kies het label dat getoond moet worden voor dit veld op de afrekenpagina. "
+"HTML is toegelaten."
+
+#: orddd-settings.php:900 orddd-settings.php:1672
+msgid "Time slot Field Label:"
+msgstr "Label Veld Tijdvak:"
+
+#: orddd-settings.php:904 orddd-settings.php:1676
+msgid ""
+"Choose a label that is to be displayed for the time slot field on the "
+"checkout page."
+msgstr ""
+"Vul een titel in voor weergave bij het Tijdvak veld op de afrekenpagina."
+
+#: orddd-settings.php:910
+msgid "Field Placeholder Text:"
+msgstr "Veld Placeholder tekst:"
+
+#: orddd-settings.php:914
+msgid ""
+"Choose the placeholder text that is to be displayed for the field on "
+"checkout page."
+msgstr "Vul een tekst in die getoond wordt in het veld op de afrekenpagina."
+
+#: orddd-settings.php:919
+msgid "Field Note Text:"
+msgstr "Veld opmerking tekst:"
+
+#: orddd-settings.php:923
+msgid ""
+"Choose the note to be displayed below the delivery date field on checkout "
+"page. HTML allowed."
+msgstr ""
+
+#: orddd-settings.php:928
+msgid "Fields placement on the Checkout page:"
+msgstr "Plaats  van de velden op de afrekenpagina:"
+
+#: orddd-settings.php:932
+msgid ""
+"</br>The Delivery Date fields will be displayed in the selected section.</"
+"br><i>Note: WooCommerce automatically hides the Shipping section fields for "
+"Virtual products.</i>"
+msgstr ""
+"</br>De velden zullen getoond worden op de door u gekozen plaats op de "
+"afrekenpagina.</br><i>Opmerking: WooCommerce verbergt bij virtuele producten "
+"automatisch de velden voor ingave van het Verzendadres.</i>"
+
+#: orddd-settings.php:937
+msgid "Delivery Date field on Cart page:"
+msgstr ""
+
+#: orddd-settings.php:941
+msgid ""
+"Add the Delivery Date & Time field on the cart page along with the Checkout "
+"page."
+msgstr ""
+
+#: orddd-settings.php:946
+#, fuzzy
+#| msgid "Add to other Calendar"
+msgid "Color Code Your Calendar"
+msgstr "Toevoegen aan anders-kalender"
+
+#: orddd-settings.php:953
+#, fuzzy
+#| msgid "Holidays"
+msgid "Holidays:"
+msgstr "Vakanties"
+
+#: orddd-settings.php:957
+msgid ""
+"Color in which holidays should be shown on the calendar on checkout page."
+msgstr ""
+
+#: orddd-settings.php:962
+msgid "Booked Dates:"
+msgstr ""
+
+#: orddd-settings.php:966
+msgid ""
+"Color in which booked dates should be shown on the calendar on checkout page."
+msgstr ""
+
+#: orddd-settings.php:971
+#, fuzzy
+#| msgid "Cut-off time for same day delivery orders:"
+msgid "Cut-off time over Dates:"
+msgstr "Uiterste besteltijd voor bezorging op dezelfde dag:"
+
+#: orddd-settings.php:975
+msgid ""
+"Color in which cut-off time over dates should be shown on the calendar on "
+"checkout page."
+msgstr ""
+
+#: orddd-settings.php:980
+msgid "Available Dates:"
+msgstr ""
+
+#: orddd-settings.php:984
+msgid ""
+"Color in which available dates should be shown on the calendar on checkout "
+"page."
+msgstr ""
+
+#: orddd-settings.php:1095
+msgid "Add Specific Delivery Dates"
+msgstr "Specifieke Bezorgdata Toevoegen"
+
+#: orddd-settings.php:1102
+msgid "Enable Specific Delivery Dates:"
+msgstr "Specifieke Bezorgdata Inschakelen:"
+
+#: orddd-settings.php:1106
+msgid ""
+"Enable this option to choose specific delivery dates on the checkout page."
+msgstr ""
+"Schakel deze optie in op specifieke Bezorgdata te tonen op de afrekenpagina."
+
+#: orddd-settings.php:1111 orddd-settings.php:1120 orddd-settings.php:1129
+msgid "Specific Delivery Date:"
+msgstr "Specifieke Leveringsdatum:"
+
+#: orddd-settings.php:1115 orddd-settings.php:1124 orddd-settings.php:1133
+msgid ""
+"<br>Add delivery charges (if applicable) and select the specific delivery "
+"date."
+msgstr ""
+
+#: orddd-settings.php:1158
+msgid "Time Slot Settings"
+msgstr "Tijdvak Instellingen"
+
+#: orddd-settings.php:1165
+msgid "Enable time slot capture:"
+msgstr "Schakel Tijdvak selectie in:"
+
+#: orddd-settings.php:1169
+msgid ""
+"Allows the customer to choose a time slot for delivery on the checkout page."
+msgstr ""
+"Laat de klant toe om een tijdvak voor levering te kiezen op de afrekenpagina."
+
+#: orddd-settings.php:1178 orddd-settings.php:1536
+msgid "Selection of Time slot on the checkout page will become mandatory."
+msgstr "Het selecteren van een Tijdvak op de afrekenpagina wordt verplicht."
+
+#: orddd-settings.php:1187 orddd-settings.php:1545
+msgid "A new option will be added in the Time slot dropdown on checkout page."
+msgstr ""
+
+#: orddd-settings.php:1192
+msgid "Global Maximum Order Deliveries for Time slots:"
+msgstr "Globale Maximale Leveringen Bestellingen voor Tijdvakken:"
+
+#: orddd-settings.php:1196
+msgid ""
+"Maximum deliveries/orders applied to all the Time slots if the individual "
+"Maximum Order Deliveries for Time slots is blank for Custom Delivery "
+"Settings.<br><i>Note: Leave blank for Unlimited Deliveries."
+msgstr ""
+"Maximale leveringen / bestellingen toegepast op alle tijdvakken indien de "
+"Maximale Leveringen Bestellingen voor een tijdvak leeg is in Aangepaste "
+"Levering Instellingen. <br><i>Opmerking: Laat leeg voor een onbeperkt aantal "
+"leveringen."
+
+#: orddd-settings.php:1201
+msgid "Auto-populate first available delivery time slot:"
+msgstr "Automatische selectie eerste beschikbare tijdvak voor levering:"
+
+#: orddd-settings.php:1205
+msgid ""
+"Auto-populate first available Delivery time slot when the date is selected "
+"on the checkout page."
+msgstr ""
+"Automatische selectie van het eerste beschikbare tijdvak voor levering "
+"wanneer de leveringsdatum is geselecteerd op de afrekenpagina."
+
+#: orddd-settings.php:1210
+msgid ""
+"Add Time Slot <a href=https://www.tychesoftwares.com/docs/docs/order-"
+"delivery-date-pro-for-woocommerce/setup-delivery-date-with-time/?"
+"utm_source=userwebsite&utm_medium=link&utm_campaign=OrderDeliveryDateProSetting"
+"\" target=\"_blank\" class=\"dashicons dashicons-external\" style=\"line-"
+"height:unset;\"></a>"
+msgstr ""
+
+#: orddd-settings.php:1217 orddd-settings.php:1550
+msgid "Time Slot for:"
+msgstr "Tijdvak voor:"
+
+#: orddd-settings.php:1221 orddd-settings.php:1554
+msgid ""
+"Select Weekday option or Specific delivery dates option to create a time "
+"slot."
+msgstr ""
+"Selecteer de optie Weekdag of Specifieke Datum om een tijdvak aan te maken."
+
+#: orddd-settings.php:1226 orddd-settings.php:1559
+msgid "Select Delivery Days/Dates:"
+msgstr "Selecteer Levering Dagen / Datums:"
+
+#: orddd-settings.php:1230 orddd-settings.php:1563
+msgid ""
+"Select Delivery Days/Dates for which you want to create an exclusive Time "
+"Slot. To create a time slot for all the weekdays, select \"All\"."
+msgstr ""
+"Selecteer de dagen en of datums waarvoor je een tijdvak wilt aanmaken. Om "
+"een tijdvak aan te maken voor alle weekdagen, selecteer \"Alles\"."
+
+#: orddd-settings.php:1235
+msgid "Time From:"
+msgstr "Tijd Vanaf:"
+
+#: orddd-settings.php:1239
+msgid "Start time for the time slot."
+msgstr "De starttijd van het tijdsvak."
+
+#: orddd-settings.php:1244
+msgid "Time To:"
+msgstr "Tijd Tot:"
+
+#: orddd-settings.php:1248
+msgid "End time for the time slot."
+msgstr "Eindtijd van het tijdvak."
+
+#: orddd-settings.php:1253 orddd-settings.php:1577
+msgid "Maximum Order Deliveries per time slot (based on per order):"
+msgstr ""
+"Maximale Leveringen Bestellingen per tijdvak (op basis van per bestelling):"
+
+#: orddd-settings.php:1257
+msgid ""
+"A time slot will become unavailable for further deliveries once these many "
+"orders are placed for delivery for that time slot."
+msgstr ""
+"Een tijdvak is niet meer beschikbaar voor verdere leveringen wanneer het "
+"maximaal aantal leveringen voor dat tijdvak is bereikt."
+
+#: orddd-settings.php:1262 orddd-settings.php:1586
+msgid "Additional Charges for time slot and Checkout label:"
+msgstr "Bijkomende Kosten Tijdvak en Tijdvaklabel:"
+
+#: orddd-settings.php:1266 orddd-settings.php:1590
+msgid ""
+"Add delivery charges (if applicable) for time slot and add the label to be "
+"displayed on Checkout page."
+msgstr ""
+"Voeg leveringskosten toe (indien van toepassing) voor het tijdvak en een "
+"label voor het tijdvak dat getoond moet worden op de afrekenpagina."
+
+#: orddd-settings.php:1315 orddd-settings.php:2012
+msgid "Custom Delivery Settings"
+msgstr "Aangepaste Levering Instellingen"
+
+#: orddd-settings.php:1322
+msgid "Custom delivery:"
+msgstr "Aangepaste Leverings:"
+
+#: orddd-settings.php:1326
+msgid "Enable custom Delivery Date and Time Settings."
+msgstr ""
+
+#: orddd-settings.php:1353
+msgid "Custom Delivery Date and Time settings"
+msgstr "Aangepaste Leveringsdatum en -Tijd Instellingen"
+
+#: orddd-settings.php:1360
+msgid "Settings based on:"
+msgstr "Instellingen op basis van:"
+
+#: orddd-settings.php:1368 orddd-settings.php:2061
+msgid "Date Settings"
+msgstr "Datum Instellingen"
+
+#: orddd-settings.php:1375
+msgid "Shipping Methods:"
+msgstr ""
+
+#: orddd-settings.php:1387
+msgid ""
+"Enable Delivery Date capture on the checkout page for the shipping method."
+msgstr "Bezorgdatum veld op de afrekenpagina inschakelen."
+
+#: orddd-settings.php:1401
+msgid "Delivery Type:"
+msgstr "Bezorg Type:"
+
+#: orddd-settings.php:1405
+msgid "Select Delivery type."
+msgstr "Selecteer Verzendmethode."
+
+#: orddd-settings.php:1414
+msgid ""
+"&nbsp;&nbsp;Select weekdays for deliveries and its Delivery Charges (if any)."
+msgstr ""
+"&nbsp;&nbsp;Selecteer de weekdagen voor levering en voeg eventuele "
+"bijkomende leveringskosten toe."
+
+#: orddd-settings.php:1419
+msgid "Specific Delivery Dates:"
+msgstr "Specifieke Leveringsdatums:"
+
+#: orddd-settings.php:1423
+msgid ""
+"&nbsp;&nbsp;Select specific delivery date and add additional charges for the "
+"date (if any)."
+msgstr ""
+"&nbsp;&nbsp;Selecteer een specifieke leveringsdatum en voeg eventuele "
+"bijkomende leveringskosten toe."
+
+#: orddd-settings.php:1432
+msgid "Minimum number of hours required to prepare for delivery."
+msgstr "Minimale aantal uren die nodig zijn om de bezorging voor te bereiden."
+
+#: orddd-settings.php:1459
+#, fuzzy
+#| msgid ""
+#| "A date will become unavailable for further deliveries once these many "
+#| "orders are placed for delivery for that date.<br><i>Note: Leave the field "
+#| "blank if the Maximum Order Deliveries from Date Settings tab should be "
+#| "considered irrespective of Custom Delivery Settings.</i>"
+msgid ""
+"A date will become unavailable for further deliveries once these many orders "
+"are placed for delivery for that date.<br><i>Note: Leave the field blank if "
+"the Maximum Order Deliveries from General Settings -> Date Settings link "
+"should be considered.</i>"
+msgstr ""
+"Een datum is niet meer beschikbaar voor verdere leveringen van zodra dit "
+"aantal bestellingen zijn geplaatst voor levering op die datum."
+"<br><i>Opmerking: Laat het veld leeg wanneer de waarde in het veld Maximale "
+"Leveringen Bestellingen per dag  in Algemene Instellingen - Datum "
+"Instellingen van toepassing is.</i>"
+
+#: orddd-settings.php:1480
+msgid "Time Settings:"
+msgstr "Tijd Instellingen:"
+
+#: orddd-settings.php:1484
+msgid ""
+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select time "
+"range for the time sliders."
+msgstr ""
+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecteer "
+"tijdbereik voor de tijd-schuifbalken."
+
+#: orddd-settings.php:1493
+msgid ""
+"<br>Current day will be disabled if an order is placed after the time "
+"mentioned in this field.<br><i>The timezone is taken from the Settings -> "
+"General -> Timezone field.</i>"
+msgstr ""
+"<br>Bezorging op dezelfde dag wordt uitgeschakeld als er wordt besteld na de "
+"tijd in dit veld."
+
+#: orddd-settings.php:1511
+msgid ""
+"<br>Next day will be disabled if an order is placed after the time mentioned "
+"in this field.<br><i>The timezone is taken from the Settings -> General -> "
+"Timezone field.</i>"
+msgstr ""
+"Bezorging op de volgende dag wordt uitgeschakeld als er wordt besteld na de "
+"tijd in dit veld.<br><i>De tijdzone wordt overgenomen uit Instellingen -> "
+"Algemeen -> Tijdzone veld.</i>"
+
+#: orddd-settings.php:1572
+msgid "Select start and end time for the Time slot."
+msgstr "Selecteer starttijd en eindtijd voor het Tijdvak."
+
+#: orddd-settings.php:1581
+#, fuzzy
+#| msgid ""
+#| "A time slot will become unavailable for further deliveries once these "
+#| "many orders are placed for delivery for that time slot.<br><i>Note: Leave "
+#| "the field blank if the Global Maximum Order Deliveries for Time slots "
+#| "from the Time slot tab should be considered irrespective of Custom "
+#| "delivery Settings.</i>"
+msgid ""
+"A time slot will become unavailable for further deliveries once these many "
+"orders are placed for delivery for that time slot.<br><i>Note: Leave the "
+"field blank if the Global Maximum Order Deliveries for Time slots from the "
+"General Settings -> Time slot link should be considered.</i>"
+msgstr ""
+"Een tijdvak is niet meer beschikbaar voor verdere leveringen wanneer het "
+"maximaal aantal leveringen voor dat tijdvak is bereikt.<br><i>Opmerking: "
+"Laat het veld leeg wanneer de waarde in het veld Globale Maximale Leveringen "
+"Bestellingen voor Tijdvakken in Algemene Instellingen - Tijdvak Instellingen "
+"van toepassing is.</i>"
+
+#: orddd-settings.php:1610
+#, fuzzy
+msgid "Use Global Holidays:"
+msgstr "Vakanties"
+
+#: orddd-settings.php:1614
+msgid ""
+"Use same holidays as added under General Settings -> Holidays link. You can "
+"add more holidays below."
+msgstr ""
+
+#: orddd-settings.php:1619
+msgid "Name:"
+msgstr "Naam:"
+
+#: orddd-settings.php:1623
+msgid "Enter the name of the holiday here."
+msgstr "Vul de naam van de vakantie hier in."
+
+#: orddd-settings.php:1628
+msgid "Holiday Range:"
+msgstr "Vakantie Bereik:"
+
+#: orddd-settings.php:1632
+msgid "Select the start and end date range for holiday here."
+msgstr "Selecteer de start - en einddatum van de vakantieperiode."
+
+#: orddd-settings.php:1641
+msgid ""
+"Enable to block the holidays for every year. For example, national holidays "
+"like 15th August (India's Independence Day) should be disabled for every "
+"year."
+msgstr ""
+
+#: orddd-settings.php:1656 orddd-settings.php:2073
+msgid "Appearance"
+msgstr "Uiterlijk"
+
+#: orddd-settings.php:1714 orddd-settings.php:2006
+msgid "General Settings"
+msgstr "Algemene Instellingen"
+
+#: orddd-settings.php:1721
+msgid "Event Location"
+msgstr "Locatie Gebeurtenis"
+
+#: orddd-settings.php:1725
+msgid ""
+"<br>Enter the text that will be used as location field in event of the "
+"Calendar. If left empty, website description is sent instead. <br><i>Note: "
+"You can use ADDRESS, FULL_ADDRESS and CITY placeholders which will be "
+"replaced by their real values.</i>"
+msgstr ""
+"<br>Geef de tekst in dat zal worden gebruikt als locatie veld van de "
+"gebeurtenis in de kalender. Indien leeg gelaten zal de website beschrijving "
+"gebruikt worden. <br><i>Opmerking: Je kan de aanduidingen ADDRESS, "
+"FULL_ADDRESS en CITY gebruiken die zullen vervangen worden door hun "
+"werkelijke waarden.</i>"
+
+#: orddd-settings.php:1730
+msgid "Event summary (name)"
+msgstr "Samenvatting Gebeurtenis (Naam)"
+
+#: orddd-settings.php:1738
+msgid "Event Description"
+msgstr "Beschrijving Gebeurtenis"
+
+#: orddd-settings.php:1742
+msgid ""
+"<br>For the above 2 fields, you can use the following placeholders which "
+"will be replaced by their real values:&nbsp;SITE_NAME, CLIENT, PRODUCTS, "
+"PRODUCT_WITH_QTY, ORDER_DATE_TIME, ORDER_DATE, ORDER_NUMBER, PRICE, PHONE, "
+"NOTE, ADDRESS, FULL_ADDRESS , EMAIL (Client's email)\t"
+msgstr ""
+"<br>Voor bovenstaande twee velden kan je de volgende aanduidingen gebruiken "
+"die zullen vervangen worden door hun werkelijke waarden:&nbsp;SITE_NAME, "
+"CLIENT, PRODUCTS, PRODUCT_WITH_QTY, ORDER_DATE_TIME, ORDER_DATE, "
+"ORDER_NUMBER, PRICE, PHONE, NOTE, ADDRESS, FULL_ADDRESS , EMAIL (e-mail "
+"klant) \t"
+
+#: orddd-settings.php:1747
+msgid "Customer Add to Calendar button Settings"
+msgstr "Klant Toevoegen aan Kalender Knop Instellingen"
+
+#: orddd-settings.php:1754
+msgid "Show Add to Calendar button on Order received page"
+msgstr "Toon knop Toevoegen aan Kalender op de bestelling bevestigingspagina."
+
+#: orddd-settings.php:1758
+msgid ""
+"Show Add to Calendar button on the Order Received page for the customers."
+msgstr ""
+"Toon knop Toevoegen aan Kalender op de bestelling bevestigingspagina van de "
+"klanten."
+
+#: orddd-settings.php:1763
+msgid "Show Add to Calendar button in the Customer notification email"
+msgstr "Toon knop Toevoegen aan Kalender in de klant notificatie e-mail"
+
+#: orddd-settings.php:1767
+msgid "Show Add to Calendar button in the Customer notification email."
+msgstr "Toon knop Toevoegen aan Kalender in de klant notificatie e-mail."
+
+#: orddd-settings.php:1772
+msgid "Show Add to Calendar button on My account"
+msgstr "Toon knop Toevoegen aan Kalender op Mijn Account"
+
+#: orddd-settings.php:1776
+msgid "Show Add to Calendar button on My account page for the customers."
+msgstr ""
+"Toon knop Toevoegen aan Kalender op Mijn Account pagina van de klanten."
+
+#: orddd-settings.php:1781
+msgid "Open Calendar in Same Window"
+msgstr "Open Kalender in hetzelfde venster"
+
+#: orddd-settings.php:1785
+msgid ""
+"As default, the Calendar is opened in a new tab or window. If you check this "
+"option, user will be redirected to the Calendar from the same page, without "
+"opening a new tab or window."
+msgstr ""
+"Standaard wordt de Kalender geopend in een nieuw tabblad of venster. Als u "
+"deze optie inschakelt dan wordt de gebruiker omgeleid naar de Kalender vanaf "
+"dezelfde pagina zonder het openen van een nieuwe tabblad of venster."
+
+#: orddd-settings.php:1790
+msgid "Admin Calendar Sync Settings"
+msgstr "Admin Kalender Sync Instellingen"
+
+#: orddd-settings.php:1797
+msgid "Integration Mode"
+msgstr "Integratie Methode"
+
+#: orddd-settings.php:1801
+#, fuzzy
+#| msgid ""
+#| "<br>Select method of integration. \"Sync Automatically\" will add the "
+#| "delivery events to the Google calendar, which is set in the \"Calendar to "
+#| "be used\" field, automatically when a customer places an order. <br>"
+#| "\"Sync Manually\" will add an \"Add to Calendar\" button in emails "
+#| "received by admin on New customer order and on the Delivery Calendar page."
+#| "<br>\"Disabled\" will disable the integration with Google Calendar."
+#| "<br>Note: Import of the events will work manually using .ics link."
+msgid ""
+"<br>Select method of integration. \"Sync Automatically\" will add the "
+"delivery events to the Google calendar, which is set in the \"Calendar to be "
+"used\" field, automatically when a customer places an order. Also, an \"Add "
+"to Calendar\" button is added on the Delivery Calendar page in admin to Sync "
+"past orders. <br>\"Sync Manually\" will add an \"Add to Calendar\" button in "
+"emails received by admin and New customer order.<br>\"Disabled\" will "
+"disable the integration with Google Calendar.<br>Note: Import of the events "
+"will work manually using .ics link."
+msgstr ""
+"<br>Kies een integratie methode. \"Sync Automatisch\" zal de levering "
+"(gebeurtenis) automatisch toevoegen aan de Google-kalender die is ingesteld "
+"in het veld \"Te gebruiken Kalender\" wanneer een klant een bestelling "
+"plaatst. <br>\"Sync Manueel\" voegt de knop \"Toevoegen aan Google-kalender"
+"\" toe aan de bestelling bevestigingsmail van de klant en aan de Bezorg "
+"Kalender pagina.<br>\"Uitgeschakeld\" zal dit de integratie met Google-"
+"kalender deactiveren.<br>Opmerking: Het importeren van de gebeurtenissen zal "
+"manueel werken met behulp van de .ics link."
+
+#: orddd-settings.php:1806 orddd-settings.php:1875
+msgid "Instructions"
+msgstr "Instructies"
+
+#: orddd-settings.php:1815
+msgid "Key file name"
+msgstr "Bestandsnaam Sleutel"
+
+#: orddd-settings.php:1819
+msgid ""
+"<br>Enter key file name here without extention, e.g. ab12345678901234567890-"
+"privatekey."
+msgstr ""
+"<br>Geef hier de bestandsnaam van de sleutel in zonder extentie, bijv. "
+"ab12345678901234567890-privatekey."
+
+#: orddd-settings.php:1824
+msgid "Service account email address"
+msgstr "Service account email adres"
+
+#: orddd-settings.php:1828
+msgid ""
+"<br>Enter Service account email address here, e.g. 1234567890@developer."
+"gserviceaccount.com."
+msgstr ""
+"<br>Geef hier het service account email adres in, bijv. 1234567890@developer."
+"gserviceaccount.com."
+
+#: orddd-settings.php:1833
+msgid "Calendar to be used"
+msgstr "Te Gebruiken Kalender"
+
+#: orddd-settings.php:1837
+msgid ""
+"<br>Enter the ID of the calendar in which your deliveries will be saved, e."
+"g. abcdefg1234567890@group.calendar.google.com."
+msgstr ""
+"<br>Geef de ID van de kalender in waarin uw leveringen opgeslagen moeten "
+"worden , bijv. abcdefg1234567890@group.calendar.google.com."
+
+#: orddd-settings.php:1850
+msgid "Show Add to Calendar button on Delivery Calendar page"
+msgstr ""
+"Toon de knop Toevoegen aan Google-kalender op de Bezorg Kalender pagina"
+
+#: orddd-settings.php:1854
+msgid ""
+"Show \"Add to Calendar\" button on the Order Delivery Date -> Delivery "
+"Calendar page.<br><i>Note: This button can be used to export the already "
+"placed orders with future deliveries from the current date to the calendar "
+"used above.</i>"
+msgstr ""
+"Toon de knop \"Toevoegen aan Google-kalender\" op de Bezorg Kalender pagina."
+"<br><i>Opmerking: Deze knop kan gebruikt worden om de reeds geplaatste "
+"bestellingen (nog te leveren) te exporteren vanuit de huidige datum naar de "
+"bovenstaande gebruikte kalender.</i>"
+
+#: orddd-settings.php:1859
+msgid "Show Add to Calendar button in New Order email notification"
+msgstr ""
+
+#: orddd-settings.php:1863
+#, fuzzy
+msgid "Show \"Add to Calendar\" button in the New Order email notification."
+msgstr "Toon knop Toevoegen aan Kalender in de klant notificatie e-mail."
+
+#: orddd-settings.php:1868
+msgid "Import Events"
+msgstr "Importeer Gebeurtenissen"
+
+#: orddd-settings.php:1883
+msgid "iCalendar/.ics Feed URL"
+msgstr "iCalendar/.ics Feed URL"
+
+#: orddd-settings.php:1955
+msgid "Settings"
+msgstr "Instellingen"
+
+#: orddd-settings.php:2000
+msgid "Order Delivery Date and Time Settings"
+msgstr "Bestelling Leveringsdatum en -Tijd Instellingen "
+
+#: orddd-settings.php:2010
+msgid "Weekday Settings"
+msgstr ""
+
+#: orddd-settings.php:2013
+msgid "Google Calendar Sync"
+msgstr "Google-kalender Sync"
+
+#: orddd-settings.php:2139
+#, fuzzy
+msgid "Create Holidays"
+msgstr "Vakanties"
+
+#: orddd-settings.php:2180
+msgid "Block Time Slots"
+msgstr "Blokkeer Tijdvak"
+
+#: orddd-settings.php:2182
+msgid "Time Slots"
+msgstr "Tijdvak"
+
+#: orddd-settings.php:2200
+msgid "Back to Time Slots"
+msgstr "Terug naar Tijdvak"
+
+#: orddd-settings.php:2209
+msgid "Blocked Time Slots"
+msgstr "Geblokkeerde Tijdvakken"
+
+#: orddd-settings.php:2250
+msgid "Add Settings"
+msgstr "Instellingen toevoegen"
+
+#: orddd-settings.php:2600 orddd-settings.php:2621
+msgid "Enable Delivery Dates?"
+msgstr "Bezorgdatum Inschakelen?"
+
+#: orddd-settings.php:2661
+msgid "Enable Delivery Dates"
+msgstr "Bezorgdatum Inschakelen?"
+
+#: orddd-shipping-multiple-address.php:61
+msgid " and "
+msgstr ""
+
+#: orddd-shipping-multiple-address.php:205
+msgid "'Clear'"
+msgstr "'Wissen'"
+
+#: orddd-view-deliveries.php:48
+msgid "Filter Deliveries by"
+msgstr ""
+
+#: orddd-view-deliveries.php:49
+msgid "Products"
+msgstr ""
+
+#: orddd-view-deliveries.php:50
+msgid "Orders"
+msgstr ""
+
+#: orddd-view-deliveries.php:105
+msgid "Print"
+msgstr ""
+
+#: orddd-view-deliveries.php:105
+msgid ""
+"Print the data by using the Order status filter and Month, Week and Day "
+"option of the calendar to filter the print data."
+msgstr ""
+
+#: orddd-view-deliveries.php:107
+msgid "CSV"
+msgstr ""
+
+#: orddd-view-deliveries.php:107
+msgid ""
+"Export Deliveries in CSV format. You can use the Order status filter and "
+"Month, Week and Day option of the calendar to filter the export data."
+msgstr ""
+
+#: orddd-view-deliveries.php:116
+msgid ""
+"* Orders that are imported from the ICS feed URL will not be displayed on "
+"the calendar under \"Products\" view until the products are added for those "
+"orders. Such orders will however continue to show on the calendar in the "
+"\"Orders\" view."
+msgstr ""
+
+#: orddd-view-deliveries.php:275
+msgid "Order ID"
+msgstr ""
+
+#: orddd-view-deliveries.php:276
+msgid "Product Name"
+msgstr ""
+
+#: orddd-view-deliveries.php:277
+msgid "Quantity"
+msgstr ""
+
+#: orddd-view-deliveries.php:278
+msgid "Billing Address"
+msgstr ""
+
+#: orddd-view-deliveries.php:279
+#, fuzzy
+#| msgid "Shipping methods"
+msgid "Shipping Address"
+msgstr "Verzendmethoden"
+
+#: orddd-view-deliveries.php:280
+#, fuzzy
+#| msgid "Shipping methods"
+msgid "Shipping Method"
+msgstr "Verzendmethoden"
+
+#: orddd-view-deliveries.php:283
+#, fuzzy
+#| msgid "Delivery Type:"
+msgid "Delivery Time"
+msgstr "Bezorg Type:"
+
+#: orddd-view-deliveries.php:284
+#, fuzzy
+msgid "Order Date"
+msgstr "Status"
+
+#: orddd-widget.php:191 orddd-widget.php:220 orddd-widget.php:327
+#: orddd-widget.php:357
+#, fuzzy
+#| msgid "Enable Delivery Dates"
+msgid "Available Delivery Slots"
+msgstr "Bezorgdatum Inschakelen?"
+
+#: orddd-widget.php:265 orddd-widget.php:269 orddd-widget.php:384
+#: orddd-widget.php:389
+#, fuzzy
+#| msgid "Enable Delivery Date:"
+msgid "Available Deliveries: "
+msgstr "Bezorgdatum Inschakelen :"
+
+#: order_delivery_date.php:354
+msgid ""
+"Order Delivery Date Pro for WooCommerce plugin requires WooCommerce "
+"installed and activate."
+msgstr ""
+
+#: order_delivery_date.php:388
+msgid "Visit plugin site"
+msgstr "Bezoek plugin website"
+
+#: order_delivery_date.php:389
+msgid "View Documentation"
+msgstr "Bekijk Documentatie (Engels)"
+
+#: order_delivery_date.php:389
+msgid "Docs"
+msgstr "Docs"
+
+#: order_delivery_date.php:390
+msgid "Submit Ticket"
+msgstr ""
+
+#: templates/emails/admin-update-date.php:21
+#: templates/emails/plain/admin-update-date.php:22
+msgid ""
+"The Delivery Date & Time has been updated by the Administrator. The details "
+"of the order and the updated delivery details are as follows:"
+msgstr ""
+
+#: templates/emails/admin-update-date.php:23
+#: templates/emails/plain/admin-update-date.php:24
+msgid ""
+"The Delivery Date & Time has been updated by the customer. The details of "
+"the order and the updated delivery details are as follows:"
+msgstr ""
+
+#: templates/emails/customer-delivery-reminder.php:12
+#, php-format
+msgid "Hello %s,"
+msgstr ""
+
+#: templates/emails/customer-delivery-reminder.php:19
+#, php-format
+msgid "You have an upcoming delivery on %s %s."
+msgstr ""
+
+#: templates/emails/customer-delivery-reminder.php:20
+msgid "The details of your order are shown below."
+msgstr ""
+
+#: templates/orddd-reminder-email-view.php:8
+msgid "Automatic Reminders"
+msgstr ""
+
+#: templates/orddd-reminder-email-view.php:26
+msgid "Manual Reminders"
+msgstr ""
+
+#: templates/orddd-reminder-email-view.php:27
+#, php-format
+msgid ""
+"You may send an email notification to all customers who have a %sfuture%s "
+"delivery. This will use the default template specified under %sWooCommerce > "
+"Settings > Emails%s."
+msgstr ""
+
+#: templates/orddd-reminder-email-view.php:33
+#, fuzzy
+msgid "Order Ids"
+msgstr "Status"
+
+#: templates/orddd-reminder-email-view.php:58
+msgid "Email subject"
+msgstr ""
+
+#: templates/orddd-reminder-email-view.php:83
+msgid "Message"
+msgstr ""
+
+#: templates/orddd-reminder-email-view.php:87
+msgid "You can insert the following tags. They will be replaced dynamically"
+msgstr ""
+
+#: templates/orddd-reminder-email-view.php:98
+msgid "Save Draft"
+msgstr ""
+
+#~ msgid "00 minutes  "
+#~ msgstr "00 minuten"
+
+#~ msgid "59 minutes"
+#~ msgstr "59 minuten"
+
+#~ msgid "00 minutes "
+#~ msgstr "00 minuten"
+
+#~ msgid "To:"
+#~ msgstr "Tot:"
+
+#~ msgid "Add Time Slot"
+#~ msgstr "Tijdvak Toevoegen"
+
+#, fuzzy
+#~ msgid "Time Slot Charges"
+#~ msgstr "Tijdvak"
+
+#~ msgid "Select the end date of holiday range here."
+#~ msgstr "Selecteer de einddatum van de vakantie."
+
+#~ msgid ""
+#~ "Add delivery charges (if applicable) and select the specific delivery "
+#~ "date."
+#~ msgstr ""
+#~ "Voeg extra bezorgkosten toe (wanneer nodig) en selecteer de specifieke "
+#~ "bezorgdatum."
+
+#~ msgid "Visit Support Forums"
+#~ msgstr "Bezoek het Support Forum"
+
+#~ msgid "Support Forums"
+#~ msgstr "Support Forum"
+
+#~ msgid "Show Delivery Date in Customer Notification Email:"
+#~ msgstr "Toon de Bezorgdatum in de bevestigings e-mail naar klant:"
+
+#~ msgid ""
+#~ "Displays the Delivery Date in Customer notification emails sent to "
+#~ "customers after placing an order."
+#~ msgstr ""
+#~ "Toont de Bezorgdatum in de bevestigings- en notificatie-emails naar de "
+#~ "klant na het plaatsen van een bestelling."
+
+#~ msgid "WooCommerce Subscriptions"
+#~ msgstr "WooCommerce Subscriptions"
+
+#, fuzzy
+#~ msgid "Time slot Charges"
+#~ msgstr "Tijdvak Instellingen"
+
+#~ msgid "Select weekdays for deliveries and its Delivery Charges (if any)."
+#~ msgstr ""
+#~ "Selecteer de weekdagen voor levering en voeg eventuele bijkomende "
+#~ "leveringskosten toe."
+
+#~ msgid ""
+#~ "When enabled, it will allow choosing a Delivery Date & Time (if enabled) "
+#~ "for every renewal order on the checkout page for the WooCommerce "
+#~ "Subscriptions plugin as per the renewal period set for the subscription "
+#~ "product."
+#~ msgstr ""
+#~ "Wanneer geactiveerd, zal het je toelaten om een leveringsdatum en -tijd "
+#~ "te kiezen op de afrekenpagina voor elke bestelling vernieuwing van de "
+#~ "WooCommerce Subscriptions plugin volgens de verlengingsperiode van het "
+#~ "product abonnement."
+
+#~ msgid "Time format:"
+#~ msgstr "Tijd format:"
+
+#~ msgid "Delivery Date:"
+#~ msgstr "Bezorgdatum:"
+
+#~ msgid "The Time slots will be displayed as per the selected Time format."
+#~ msgstr "De Tijdvakken worden weergegeven in het geselecteerde Tijd format."
+
+#~ msgid "Show in time slot field:"
+#~ msgstr "Toon in tijdvak veld:"
+
+#~ msgid "Holidays List"
+#~ msgstr "Vakantie lijst"
+
+#~ msgid "Sr. no."
+#~ msgstr "Sr. nr."
+
+#~ msgid "Select"
+#~ msgstr "Selecteer"
+
+#~ msgid "<strong>"
+#~ msgstr "<strong>"
+
+#~ msgid "Lockout date after X orders:"
+#~ msgstr "Datum uitsluiten na X bestellingen:"
+
+#~ msgid "Delivery date in the Shipping Section:"
+#~ msgstr "Bezorgdata in de Verzenden-sectie:"
+
+#~ msgid ""
+#~ "If the checkbox is checked then Delivery Date and Time Slot will not be "
+#~ "displayed for Virtual product."
+#~ msgstr ""
+#~ "Wanneer die is ingeschakeld wordt het Bezorgdatum veld niet weergegeven "
+#~ "bij Virtuele Producten."
+
+#~ msgid "Select your delivery dates:"
+#~ msgstr "Selecteer je bezorgdata:"
+
+#~ msgid ""
+#~ "Select the specific dates for which you want to create an exclusive Time "
+#~ "Slot. You can select multiple specific dates."
+#~ msgstr ""
+#~ "Selecteer de specifieke data waarvoor je een exclusief Tijdvak wilt "
+#~ "maken. Je kunt meerdere data selecteren."
+
+#~ msgid "Lockout time slot after X orders:"
+#~ msgstr "Tijdvak uitsluiten na X bestellingen:"
+
+#~ msgid "Settings by Shipping methods"
+#~ msgstr "Instellingen per Verzendmethode"
+
+#~ msgid "Shipping based delivery:"
+#~ msgstr "Bezorging gebaseerd op Verzendmethode:"
+
+#~ msgid "&nbsp;&nbsp;Choose a shipping method."
+#~ msgstr "&nbsp;&nbsp;Kies een verzendmethode."
+
+#~ msgid "Lockout after X orders"
+#~ msgstr "Uitsluiten na X bestellingen:"
+
+#~ msgid "Specific Days"
+#~ msgstr "Specifieke Dagen"
+
+#~ msgid "click here"
+#~ msgstr "klik hier"
+
+#~ msgid "to update."
+#~ msgstr "om te updaten."
+
+#~ msgid "Delivery From Hours:"
+#~ msgstr "Bezorgen vanaf Uur:"
+
+#~ msgid "The time range will start from the selected hours."
+#~ msgstr "Het tijdsbereik begint vanaf de geselecteerde uren."
+
+#~ msgid "Delivery To Hours:"
+#~ msgstr "Bezorgen tot Uur:"
+
+#~ msgid "The time range will end as per the selected hours."
+#~ msgstr "Het tijdsbereik eindigt bij de geselecteerde uren."
+
+#~ msgid "We will try our best to deliver your order on the specified date."
+#~ msgstr ""
+#~ "We doen ons best om uw bestelling te bezorgen op de aangegeven datum."
