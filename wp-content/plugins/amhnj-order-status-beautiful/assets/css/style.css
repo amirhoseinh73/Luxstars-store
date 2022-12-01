@@ -1,0 +1,45 @@
+.order-status-beautiful-section {
+    margin-bottom: 2.5rem;
+}
+
+.order-status-beautiful-section .order-status-line {
+	border: 1px solid var(--color-3-100);
+	border-radius: 50rem;
+    height: 1rem;
+    padding: 0;
+}
+
+.order-status-beautiful-section .order-status-item {
+	opacity: 0.7;
+	color: var(--color-4-100);
+	border: 3px solid var(--color-4-100);
+	border-radius: 2rem;
+	padding: 0.75rem;
+	width: 11rem;
+	height: 11rem;
+}
+
+.order-status-beautiful-section .order-status-item.active {
+    opacity: 1;
+    color: var(--color-4-100);
+    background-color: var(--color-2-100);
+    border-color: var(--color-3-100);
+}
+
+.order-status-beautiful-section .order-status-item.active p {
+    color: var(--color-4-100);
+}
+
+.order-status-beautiful-section .order-status-item.active ~ .order-status-line {
+    border-color: var(--color-4-100);
+    opacity: 0.7;
+}
+
+.woocommerce .order-status-beautiful-section .order-status-item span {
+    font-size: 2rem;
+}
+
+.woocommerce .order-status-beautiful-section .order-status-item p {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+}

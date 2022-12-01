@@ -21,7 +21,7 @@ class ORDDD_Functions {
 	 */
 	public static function orddd_get_dates_for_dropdown( $number_of_dates ) {
 		global $orddd_date_formats, $orddd_weekdays;
-		$options['select']     = apply_filters( 'orddd_modify_select_dropdown_text', __( 'Select a delivery date', 'order-delivery-date' ) );
+		$options['select']     = apply_filters( 'orddd_modify_select_dropdown_text', __( 'انتخاب کنید', 'order-delivery-date' ) );
 		$current_time          = orddd_get_current_time();
 		$current_date          = gmdate( 'j-n-Y', $current_time );
 		$next_day              = gmdate( 'j-n-Y', strtotime( $current_date . ' +1 day' ) );
