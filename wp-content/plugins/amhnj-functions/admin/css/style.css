@@ -2,3 +2,14 @@
 .wp-adminify #adminmenu .wp-submenu li a {
     font-family: Vazir, tahoma, arial;
 }
+
+.adminify-top-navbar > .navbar-brand > .navbar-item > img{
+    visibility: hidden;
+}
+
+.adminify-top-navbar > .navbar-brand > .navbar-item {
+    background-image: url(../img/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
