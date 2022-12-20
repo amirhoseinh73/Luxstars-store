@@ -60,7 +60,32 @@ if ( post_password_required() ) {
 		do_action( 'woocommerce_single_product_summary' );
 		?>
 	</div>
-
+	<div class="row w-50 mr-auto">
+		<p class="col-12 font-18">به اشتراک گذاری تصویر محصول</p>
+		<section class="product-social-share col-12 text-left d-flex flex-row justify-content-end">
+			<?php $shareLink = get_the_post_thumbnail_url()?>
+			<a href="https://twitter.com/share?url=<?= $shareLink; ?>"
+				target="_blank" class="single-blog-social">
+				<i class="fab fa-twitter"></i>
+			</a>
+			<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?= $shareLink; ?>"
+				target="_blank" class="single-blog-social">
+				<i class="fab fa-linkedin"></i>
+			</a>
+			<a href="http://www.facebook.com/sharer.php?u=<?= $shareLink; ?>"
+				target="_blank" class="single-blog-social">
+				<i class="fab fa-facebook"></i>
+			</a>
+			<a href="https://telegram.me/share?url=<?= $shareLink; ?>"
+				target="_blank" class="single-blog-social">
+				<i class="fab fa-telegram"></i>
+			</a>
+			<a href="https://instagram.com?url=<?= $shareLink; ?>"
+				target="_blank" class="single-blog-social">
+				<i class="fab fa-instagram"></i>
+			</a>
+		</section>
+	</div>
 	<?php
 	/**
 	 * Hook: woocommerce_after_single_product_summary.

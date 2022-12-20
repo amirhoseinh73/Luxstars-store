@@ -51,7 +51,7 @@ jQuery(function () {
         nav.toggleClass('scrolled', jQuery(this).scrollTop() > height);
         logo.toggleClass('scrolled-logo', jQuery(this).scrollTop() > height);
     });
-    woocomeerce_gallery();
+    // woocomeerce_gallery();
     fiboSearchClasses();
 
     setTimeout( () => {
@@ -108,7 +108,7 @@ function woocomeerce_gallery() {
     let imageWidth = 0;
     let frame = {x: 0, y: 0};
     let image;
-    jQuery('.woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(1) a img').off('mousedown').on('mousedown', function (e) {
+    jQuery('.woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(1) a img').off('mouseover').on('mouseover', function (e) {
         e.preventDefault();
         flag = true;
         position.x = e.clientX;
@@ -118,16 +118,16 @@ function woocomeerce_gallery() {
     }).off('mousemove').on('mousemove', function (e) {
         if (!flag) return;
         move_image(e);
-    }).off('mouseup').on('mouseup', function (e) {
+    }).off('mouseleave').on('mouseleave', function (e) {
         e.preventDefault();
         stop_image();
     });
-    jQuery('body').on('mouseup', function () {
-        stop_image();
-    }).on('mousemove', function (e) {
-        if (!flag) return;
-        move_image(e);
-    });
+    // jQuery('body').on('mouseup', function () {
+    //     stop_image();
+    // }).on('mousemove', function (e) {
+    //     if (!flag) return;
+    //     move_image(e);
+    // });
 
     function move_image(e) {
         if (e.clientX > position.x + 20) {
@@ -152,7 +152,7 @@ function woocomeerce_gallery() {
         frame = {x: 0, y: 0};
         setTimeout(function () {
             jQuery(image).css({
-                objectPosition: 0 + 'px ' + 0 + 'px'
+                objectPosition: "center"
             });
         },500);
     }

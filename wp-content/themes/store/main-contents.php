@@ -72,10 +72,13 @@
                     <h1 class="fw600 font-20 text-boot text-right tit-L-before mt-4 mt-md-0">
                         جدید ترین محصولات
                     </h1>
-                    <p class="text-boot-4 font-15 fw400 mb-3 mb-md-1">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
                     <div class="row mt-boot-30 hide-two-last-child-xlM">
                         <?php
-                        $params_product = array('posts_per_page' => 10, 'post_type' => 'product');
+                        $params_product = array(
+                            'posts_per_page' => 10,
+                            'post_type' => 'product',
+                            'status' => 'publish'
+                        );
                         $last_products = new WP_Query($params_product);
                         if ($last_products->have_posts()) :
                             while ( $last_products->have_posts() ) :
@@ -93,22 +96,71 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <?php if( is_user_logged_in() ) : ?>
-        <section id="special_products" class="pt-boot-22 mt-boot-30 pb-boot-45">
+        <section id="user_products" class="pt-boot-22 mt-boot-30 pb-boot-45">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <h1 class="fw600 font-20 text-boot text-right tit-L-before">
                             آخرین خرید های شما
                         </h1>
-                        <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                        <div class="row mt-boot-30">
+                        <div class="row mt-boot-30 hide-last-child-xlM">
                         <?php
-                            $params_product = array('posts_per_page' => 4, 'post_type' => 'product');
+                            $user_id = get_current_user_id();
+                            $current_user= wp_get_current_user();
+                            $customer_email = $current_user->email;
+                            $args = array(
+                                'post_type' => 'product',
+                            );
+                            $loop = new WP_Query( $args );
+                            if ( $loop->have_posts() ) {
+                                $i = 0;
+                                while ( $loop->have_posts() ) : $loop->the_post(); $_product = wc_get_product( $loop->post->ID );
+                                    if ( ! wc_customer_bought_product( $customer_email, $user_id, $_product->id ) ) continue;
+                                    $i++;
+                                    get_template_part( "./woocommerce/content", "product-section", $product );
+                                    if ( $i >= 5 ) break;
+                                endwhile;
+                                if ( $i === 0 ) {
+                                    echo "<p>"
+                                            . _e( 'هنوز محصولی خریداری نکرده اید.') .
+                                        "</p>";
+                                }
+                            }
+                            wp_reset_postdata();
+                        ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+    <section id="special_products" class="pt-boot-22 mt-boot-30 pb-boot-45">
+        <div class="container">
+            <div class="row mt-boot-45">
+                <div class="col-12">
+                    <h1 class="fw600 font-20 text-boot-5 text-right tit-L-before">
+                        پیشنهاد های ویژه
+                    </h1>
+                    <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                    <div class="row mt-boot-30 hide-last-child-xlM">
+                        <?php
+                            $params_product = array(
+                                'posts_per_page' => 5,
+                                'post_type' => 'product',
+                                'order' => 'DESC',
+                                'meta_query'     => array(
+                                    array(
+                                        'key'     => '_sale_price',
+                                        'value'   => 0,
+                                        'compare' => '>',
+                                        'type'    => 'numeric'
+                                    )
+                                )
+                            );
                             $last_products = new WP_Query($params_product);
                             if ($last_products->have_posts()) :
                                 while ( $last_products->have_posts() ) :
@@ -123,41 +175,11 @@
                                 "</p>";
                             endif;
                         ?>
-                        
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-boot-45">
-                    <div class="col-12">
-                        <h1 class="fw600 font-20 text-boot-5 text-right tit-L-before">
-                            پیشنهاد های ویژه
-                        </h1>
-                        <p class="text-boot-4 font-15 fw400">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                        <div class="row mt-boot-30">
-
-                        <?php
-                            $params_product = array('posts_per_page' => 4, 'post_type' => 'product');
-                            $last_products = new WP_Query($params_product);
-                            if ($last_products->have_posts()) :
-                                while ( $last_products->have_posts() ) :
-                                    $last_products->the_post();
-                                    $product = wc_get_product( get_the_ID() );
-                                    get_template_part( "./woocommerce/content", "product-section", $product );
-                                endwhile;
-                                wp_reset_postdata();
-                            else:
-                                echo "<p>"
-                                    . _e( 'محصولی یافت نشد') .
-                                "</p>";
-                            endif;
-                            ?>
-                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    <?php endif; ?>
+        </div>
+    </section>
 
     <section id="advice_index" class="pt-boot-45 pb-boot-45">
         <div class="container">
@@ -236,6 +258,146 @@
                         <p class="text-boot-sec font-13 text-justify fw400 lh-2">
                             <?php echo get_theme_mod( 'about_2_text', __('Text')); ?>
                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="brand_products" class="pt-boot-22 mt-boot-30 pb-boot-45 bg-boot-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="fw600 font-20 text-boot text-right tit-L-before mt-4 mt-md-0">
+                        جدیدترین محصولات براساس برند
+                    </h1>
+                    <div class="row mt-boot-30 hide-last-child-xlM">
+                        <?php
+                        $params_product = array(
+                            'posts_per_page' => 5,
+                            'post_type' => 'product',
+                            'order' => 'DESC',
+                            'product_cat' => 'برند'
+                        );
+                        $last_products = new WP_Query($params_product);
+                        if ($last_products->have_posts()) :
+                            while ( $last_products->have_posts() ) :
+                                $last_products->the_post();
+                                $product = wc_get_product( get_the_ID() );
+                                get_template_part( "./woocommerce/content", "product-section", $product );
+                            endwhile;
+                            wp_reset_postdata();
+                        else:
+                            echo "<p>"
+                                . _e( 'محصولی یافت نشد') .
+                            "</p>";
+                        endif;
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="jens_products" class="pt-boot-22 pb-boot-45 bg-boot-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="fw600 font-20 text-boot text-right tit-L-before mt-4 mt-md-0">
+                        جدیدترین محصولات براساس جنس
+                    </h1>
+                    <div class="row mt-boot-30 hide-last-child-xlM">
+                        <?php
+                        $params_product = array(
+                            'posts_per_page' => 5,
+                            'post_type' => 'product',
+                            'order' => 'DESC',
+                            'product_cat' => 'جنس'
+                        );
+                        $last_products = new WP_Query($params_product);
+                        if ($last_products->have_posts()) :
+                            while ( $last_products->have_posts() ) :
+                                $last_products->the_post();
+                                $product = wc_get_product( get_the_ID() );
+                                get_template_part( "./woocommerce/content", "product-section", $product );
+                            endwhile;
+                            wp_reset_postdata();
+                        else:
+                            echo "<p>"
+                                . _e( 'محصولی یافت نشد') .
+                            "</p>";
+                        endif;
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rang_products" class="pt-boot-22 mt-boot-30 pb-boot-45">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="fw600 font-20 text-boot text-right tit-L-before mt-4 mt-md-0">
+                        جدیدترین محصولات براساس رنگ
+                    </h1>
+                    <div class="row mt-boot-30 hide-last-child-xlM">
+                        <?php
+                        $params_product = array(
+                            'posts_per_page' => 5,
+                            'post_type' => 'product',
+                            'order' => 'DESC',
+                            'product_cat' => 'رنگ'
+                        );
+                        $last_products = new WP_Query($params_product);
+                        if ($last_products->have_posts()) :
+                            while ( $last_products->have_posts() ) :
+                                $last_products->the_post();
+                                $product = wc_get_product( get_the_ID() );
+                                get_template_part( "./woocommerce/content", "product-section", $product );
+                            endwhile;
+                            wp_reset_postdata();
+                        else:
+                            echo "<p>"
+                                . _e( 'محصولی یافت نشد') .
+                            "</p>";
+                        endif;
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="karbord_products" class="pt-boot-22 mt-boot-30 pb-boot-45">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="fw600 font-20 text-boot text-right tit-L-before mt-4 mt-md-0">
+                        جدیدترین محصولات براساس کاربرد
+                    </h1>
+                    <div class="row mt-boot-30 hide-last-child-xlM">
+                        <?php
+                        $params_product = array(
+                            'posts_per_page' => 5,
+                            'post_type' => 'product',
+                            'order' => 'DESC',
+                            'product_cat' => 'کاربرد'
+                        );
+                        $last_products = new WP_Query($params_product);
+                        if ($last_products->have_posts()) :
+                            while ( $last_products->have_posts() ) :
+                                $last_products->the_post();
+                                $product = wc_get_product( get_the_ID() );
+                                get_template_part( "./woocommerce/content", "product-section", $product );
+                            endwhile;
+                            wp_reset_postdata();
+                        else:
+                            echo "<p>"
+                                . _e( 'محصولی یافت نشد') .
+                            "</p>";
+                        endif;
+                        ?>
                     </div>
                 </div>
             </div>

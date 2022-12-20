@@ -735,8 +735,7 @@ ul.hover-li-bef li:hover a {
     right: 0;
 }
 
-#last_blog_index,
-#last_products {
+#last_blog_index {
     background-image: radial-gradient(358px, var(--color-2-50) 32%, var(--color-2-100) 100%);
 }
 
@@ -1463,8 +1462,8 @@ form.cart button.single_add_to_cart_button:hover {
 
 .woocommerce div.product div.images img {
     height: 380px !important;
-    object-fit: cover;
-    object-position: 0 0;
+    object-fit: contain;
+    object-position: center;
     transition: all 300ms linear;
 }
 
